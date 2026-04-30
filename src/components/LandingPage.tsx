@@ -1,9 +1,10 @@
+import React from 'react'
 import { useState, useEffect } from 'react'
 import { cn } from '../lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
   Play, 
-  Check, 
+  Check,
   X, 
   Minus, 
   ArrowRight,
@@ -596,9 +597,14 @@ function CoursesSection() {
                 ))}
               </ul>
 
-              <button className="w-full liquid-glass rounded-full py-3 text-sm text-foreground hover:scale-[1.02] transition-transform">
+              <motion.a 
+                href="#contact"
+                className="w-full btn-primary btn-glow py-3 text-sm text-center block relative overflow-hidden"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+              >
                 Start Scoring 150+
-              </button>
+              </motion.a>
             </motion.div>
           ))}
         </div>
@@ -1120,71 +1126,134 @@ function ClassDropdown() {
 
 // CTA Section
 function CTASection() {
+  const [formState, setFormState] = React.useState<'idle' | 'submitting' | 'success'>('idle')
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setFormState('submitting')
+    
+    // Netlify handles the form submission automatically
+    // Show success message after brief delay
+    setTimeout(() => {
+      setFormState('success')
+    }, 1000)
+  }
+  
+  if (formState === 'success') {
+    return (
+      <section id="contact" className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,oklch(72%_0.18_162/0.15)_0%,transparent_60%)]" />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <div className="liquid-glass rounded-2xl p-12">
+            <div className="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-6">
+              <div className="relative">
+                <div className="w-12 h-12 rounded-full border-2 border-emerald-400 flex items-center justify-center">
+                  <Check className="w-6 h-6 text-emerald-400" />
+                </div>
+              </div>
+            </div>
+            <h3 className="text-2xl text-foreground mb-4" style={{ fontFamily: "'Instrument Serif', serif" }}>
+              Application Received!
+            </h3>
+            <p className="text-muted-foreground mb-6">
+              Dr. Sudharshan's team will contact you within 24 hours.
+            </p>
+            <a 
+              href="https://wa.me/918610690010" 
+              className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Or message us on WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section id="contact" className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(26,86,219,0.15)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,oklch(72%_0.18_162/0.15)_0%,transparent_60%)]" />
       
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <span className="text-xs uppercase tracking-widest text-muted-foreground">Start Today</span>
+        <span className="section-label">Start Today</span>
         <h2 
-          className="text-4xl sm:text-6xl text-foreground mt-4 leading-tight"
-          style={{ fontFamily: "'Instrument Serif', serif" }}
+          className="heading-xl mt-4"
         >
           உங்கள் Doctor பயணம்<br />
-          <em className="not-italic text-muted-foreground">இன்றே தொடங்கட்டும்</em>
+          <em className="not-italic" style={{ color: 'var(--accent-muted)' }}>இன்றே தொடங்கட்டும்</em>
         </h2>
-        <p className="text-muted-foreground text-lg mt-6 max-w-xl mx-auto">
+        <p className="body-text mt-6 max-w-xl mx-auto">
           One decision. One year. One white coat. Call now and book your free demo class.
         </p>
 
         {/* Contact Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mt-10">
-          <a 
+          <motion.a 
             href="tel:+918610690010" 
-            className="liquid-glass rounded-full px-8 py-4 text-foreground inline-flex items-center gap-3 hover:scale-[1.03] transition-transform"
+            className="btn-primary btn-glow px-8 py-4 inline-flex items-center gap-3"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
           >
             <Phone className="w-5 h-5" />
             8610690010
-          </a>
-          <a 
+          </motion.a>
+          <motion.a 
             href="https://wa.me/918610690010" 
-            className="rounded-full px-8 py-4 text-muted-foreground border border-border hover:border-muted-foreground/50 hover:text-foreground transition-all inline-flex items-center gap-3"
+            className="btn-secondary px-8 py-4 inline-flex items-center gap-3"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
           >
             <MessageCircle className="w-5 h-5" />
             WhatsApp
-          </a>
+          </motion.a>
         </div>
 
-        {/* Form */}
-        <form className="mt-12 max-w-lg mx-auto space-y-4 text-left">
-          <div className="grid grid-cols-2 gap-4">
+        {/* Form - Netlify Forms enabled */}
+        <form 
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
+          className="mt-12 max-w-lg mx-auto space-y-4 text-left"
+        >
+          {/* Honeypot field for spam protection */}
+          <input type="hidden" name="bot-field" />
+          <input type="hidden" name="form-name" value="contact" />
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm text-muted-foreground mb-1.5">First Name</label>
+              <label className="block text-sm text-muted-foreground mb-1.5">First Name *</label>
               <input 
                 type="text" 
+                name="firstName"
                 required 
-                className="w-full px-4 py-3 bg-white/5 border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors"
+                className="w-full px-4 py-3 bg-white/5 border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors input-glow"
                 placeholder="Enter first name"
               />
             </div>
             <div>
-              <label className="block text-sm text-muted-foreground mb-1.5">Last Name</label>
+              <label className="block text-sm text-muted-foreground mb-1.5">Last Name *</label>
               <input 
                 type="text" 
+                name="lastName"
                 required 
-                className="w-full px-4 py-3 bg-white/5 border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors"
+                className="w-full px-4 py-3 bg-white/5 border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors input-glow"
                 placeholder="Enter last name"
               />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm text-muted-foreground mb-1.5">Phone Number</label>
+              <label className="block text-sm text-muted-foreground mb-1.5">Phone Number *</label>
               <input 
                 type="tel" 
+                name="phone"
                 required 
-                className="w-full px-4 py-3 bg-white/5 border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors"
-                placeholder="Enter phone number"
+                pattern="[0-9]{10}"
+                className="w-full px-4 py-3 bg-white/5 border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors input-glow"
+                placeholder="10-digit number"
               />
             </div>
             <ClassDropdown />
@@ -1193,24 +1262,29 @@ function CTASection() {
             <label className="block text-sm text-muted-foreground mb-1.5">Target NEET Score</label>
             <input 
               type="text" 
-              className="w-full px-4 py-3 bg-white/5 border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors"
+              name="targetScore"
+              className="w-full px-4 py-3 bg-white/5 border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors input-glow"
               placeholder="e.g., 650+"
             />
           </div>
           <div>
             <label className="block text-sm text-muted-foreground mb-1.5">Message (Optional)</label>
             <textarea 
+              name="message"
               rows={3}
-              className="w-full px-4 py-3 bg-white/5 border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors resize-none"
+              className="w-full px-4 py-3 bg-white/5 border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors resize-none input-glow"
               placeholder="Any specific requirements..."
             />
           </div>
-          <button 
+          <motion.button 
             type="submit" 
-            className="w-full liquid-glass rounded-full py-4 text-foreground hover:scale-[1.02] transition-transform mt-2"
+            disabled={formState === 'submitting'}
+            className="w-full btn-primary py-4 mt-2 disabled:opacity-50"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
-            Book Free Demo Call
-          </button>
+            {formState === 'submitting' ? 'Submitting...' : 'Book Free Demo Call'}
+          </motion.button>
           <p className="text-center text-muted-foreground text-xs">
             Dr. Sudharshan's team will reach out within 24 hours
           </p>
@@ -1238,16 +1312,35 @@ function Footer() {
           <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
         </div>
         <div className="flex gap-4">
-          {['Twitter', 'Instagram', 'YouTube'].map((social) => (
-            <a 
-              key={social}
-              href="#" 
-              className="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
-              title={social}
-            >
-              <span className="text-xs">{social[0]}</span>
-            </a>
-          ))}
+          <motion.a 
+            href="https://www.youtube.com/@NeetstrategiesinTamil" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-muted-foreground hover:text-red-500 transition-colors"
+            title="YouTube"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="text-xs">YT</span>
+          </motion.a>
+          <motion.a 
+            href="https://wa.me/918610690010" 
+            className="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-muted-foreground hover:text-emerald-500 transition-colors"
+            title="WhatsApp"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="text-xs">WA</span>
+          </motion.a>
+          <motion.a 
+            href="tel:+918610690010" 
+            className="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-muted-foreground hover:text-blue-400 transition-colors"
+            title="Call"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="text-xs">Ph</span>
+          </motion.a>
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-6 mt-8 pt-8 border-t border-border/20 text-center text-xs text-muted-foreground">
