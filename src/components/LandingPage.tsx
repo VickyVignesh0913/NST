@@ -339,9 +339,14 @@ function InsideClassSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
             <span className="text-xs uppercase tracking-widest text-muted-foreground">Experience</span>
-            <h2 
+            <h2
               className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
               style={{ fontFamily: "'Instrument Serif', serif" }}
             >
@@ -353,7 +358,14 @@ function InsideClassSection() {
 
             <div className="mt-8 space-y-4">
               {features.map((feature, i) => (
-                <div key={i} className="flex items-start gap-4">
+                <motion.div
+                  key={i}
+                  className="flex items-start gap-4"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                >
                   <div className="w-10 h-10 liquid-glass rounded-lg flex items-center justify-center flex-shrink-0">
                     <feature.icon className="w-5 h-5 text-blue-400" />
                   </div>
@@ -361,7 +373,7 @@ function InsideClassSection() {
                     <h4 className="text-foreground font-medium">{feature.title}</h4>
                     <p className="text-muted-foreground text-sm">{feature.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
@@ -371,10 +383,16 @@ function InsideClassSection() {
               </span>
               <span className="text-xs text-muted-foreground">Recorded & Available 24/7</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Content - Video Player Mock */}
-          <div className="relative">
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <div className="liquid-glass rounded-2xl overflow-hidden">
               <div className="aspect-video bg-black/40 relative flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent" />
@@ -407,7 +425,13 @@ function InsideClassSection() {
             </div>
 
             {/* Floating Notes Card */}
-            <div className="absolute -bottom-6 -right-6 liquid-glass p-4 rounded-xl max-w-[200px] hidden sm:block">
+            <motion.div
+              className="absolute -bottom-6 -right-6 liquid-glass p-4 rounded-xl max-w-[200px] hidden sm:block"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.5 }}
+            >
               <div className="flex items-center gap-2 mb-2">
                 <FileText className="w-4 h-4 text-blue-400" />
                 <span className="text-foreground font-medium text-sm">Class Notes</span>
@@ -415,8 +439,8 @@ function InsideClassSection() {
               <p className="text-muted-foreground text-xs">
                 Every session comes with downloadable Tamil notes & practice sheets.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -461,9 +485,15 @@ function CoursesSection() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="max-w-2xl mb-16">
+        <motion.div
+          className="max-w-2xl mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <span className="text-xs uppercase tracking-widest text-muted-foreground">Programs</span>
-          <h2 
+          <h2
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
             style={{ fontFamily: "'Instrument Serif', serif" }}
           >
@@ -472,13 +502,17 @@ function CoursesSection() {
           <p className="text-muted-foreground mt-4 text-lg">
             Every batch is engineered around one goal: maximum Physics score in Tamil medium.
           </p>
-        </div>
+        </motion.div>
 
         {/* Course Cards */}
         <div className="grid md:grid-cols-3 gap-6">
           {courses.map((course, i) => (
-            <div 
-              key={i} 
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
               className={cn(
                 "liquid-glass rounded-2xl p-6 relative overflow-hidden hover:scale-[1.02] transition-transform duration-500",
                 course.popular && "border-blue-400/30"
@@ -519,7 +553,7 @@ function CoursesSection() {
               <button className="w-full liquid-glass rounded-full py-3 text-sm text-foreground hover:scale-[1.02] transition-transform">
                 Start Scoring 150+
               </button>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
