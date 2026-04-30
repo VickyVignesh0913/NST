@@ -575,20 +575,33 @@ function ResultsSection() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <span className="text-xs uppercase tracking-widest text-muted-foreground">Results</span>
-          <h2 
+          <h2
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
             style={{ fontFamily: "'Instrument Serif', serif" }}
           >
             Scoreboards that <em className="not-italic text-muted-foreground">speak louder</em>
           </h2>
-        </div>
+        </motion.div>
 
         {/* Student Cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           {students.map((student, i) => (
-            <div key={i} className="liquid-glass rounded-2xl p-8 text-center relative">
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              className="liquid-glass rounded-2xl p-8 text-center relative"
+            >
               <div className="absolute top-4 right-4 flex items-center gap-1 text-emerald-400 bg-emerald-400/10 text-[10px] font-medium uppercase tracking-wider px-2 py-1 rounded-full">
                 <Check className="w-3 h-3" />
                 Verified
@@ -603,12 +616,18 @@ function ResultsSection() {
                 {student.score}<span className="text-2xl text-muted-foreground">/{student.total}</span>
               </p>
               <p className="text-blue-400 text-sm">{student.story}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Case Study */}
-        <div className="max-w-3xl mx-auto">
+        <motion.div
+          className="max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           <div className="liquid-glass rounded-2xl p-8 md:p-10 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-40 h-40 bg-blue-500/5 rounded-full blur-2xl" />
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
@@ -645,10 +664,16 @@ function ResultsSection() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Stats Pills */}
-        <div className="mt-12 flex flex-wrap justify-center gap-4">
+        <motion.div
+          className="mt-12 flex flex-wrap justify-center gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
           <div className="liquid-glass rounded-full px-6 py-3 flex items-center gap-2">
             <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
             <span className="text-sm text-foreground">1000+ students trained</span>
@@ -661,7 +686,7 @@ function ResultsSection() {
             <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
             <span className="text-sm text-foreground">Tamil medium first</span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
@@ -682,9 +707,14 @@ function MethodSection() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
             <span className="text-xs uppercase tracking-widest text-muted-foreground">The Method</span>
-            <h2 
+            <h2
               className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
               style={{ fontFamily: "'Instrument Serif', serif" }}
             >
@@ -693,11 +723,18 @@ function MethodSection() {
             <p className="text-muted-foreground mt-6 text-lg leading-relaxed">
               No rote memorization. No English-only explanations. Just pure conceptual clarity in Tamil, delivered by a doctor who cracked NEET himself.
             </p>
-          </div>
+          </motion.div>
 
           <div className="space-y-6">
             {steps.map((step, i) => (
-              <div key={i} className="flex gap-5">
+              <motion.div
+                key={i}
+                className="flex gap-5"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+              >
                 <div className={cn(
                   "flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-light text-xl",
                   step.highlight ? "bg-blue-400 text-background" : "liquid-glass text-blue-400"
@@ -708,7 +745,7 @@ function MethodSection() {
                   <h3 className="text-lg text-foreground font-medium">{step.title}</h3>
                   <p className="text-muted-foreground text-sm mt-1">{step.desc}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -730,24 +767,43 @@ function ComparisonSection() {
   return (
     <section className="relative py-24 overflow-hidden">
       <div className="relative z-10 max-w-4xl mx-auto px-6">
-        <div className="text-center mb-14">
+        <motion.div
+          className="text-center mb-14"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <span className="text-xs uppercase tracking-widest text-muted-foreground">Comparison</span>
-          <h2 
+          <h2
             className="text-4xl sm:text-5xl text-foreground mt-4"
             style={{ fontFamily: "'Instrument Serif', serif" }}
           >
             Why Students Choose <em className="not-italic text-muted-foreground">NST</em>
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="liquid-glass rounded-2xl overflow-hidden">
+        <motion.div
+          className="liquid-glass rounded-2xl overflow-hidden"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <div className="grid grid-cols-3 text-sm font-medium border-b border-border/50">
             <div className="px-6 py-4 text-muted-foreground">Feature</div>
             <div className="px-6 py-4 text-foreground bg-white/5 text-center font-medium">NST</div>
             <div className="px-6 py-4 text-muted-foreground text-center">Others</div>
           </div>
           {features.map((feature, i) => (
-            <div key={i} className="grid grid-cols-3 text-sm border-b border-border/30 last:border-0 items-center">
+            <motion.div
+              key={i}
+              className="grid grid-cols-3 text-sm border-b border-border/30 last:border-0 items-center"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: i * 0.05 }}
+            >
               <div className="px-6 py-4 text-foreground">{feature.name}</div>
               <div className="px-6 py-4 text-center">
                 <span className={cn(
@@ -760,18 +816,18 @@ function ComparisonSection() {
               <div className="px-6 py-4 text-center">
                 <span className={cn(
                   "inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold",
-                  feature.others === true ? "bg-emerald-400/10 text-emerald-400" : 
+                  feature.others === true ? "bg-emerald-400/10 text-emerald-400" :
                   feature.others === "partial" ? "bg-amber-400/10 text-amber-400" :
                   "bg-red-400/10 text-red-400"
                 )}>
-                  {feature.others === true ? <Check className="w-3.5 h-3.5" /> : 
+                  {feature.others === true ? <Check className="w-3.5 h-3.5" /> :
                    feature.others === "partial" ? <Minus className="w-3.5 h-3.5" /> :
                    <X className="w-3.5 h-3.5" />}
                 </span>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
