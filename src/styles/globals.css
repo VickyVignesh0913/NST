@@ -11,9 +11,9 @@
     --accent-primary: oklch(55% 0.15 162);
     --accent-warm: oklch(65% 0.14 55);
     --accent-muted: oklch(60% 0.06 240);
-    --text-primary: oklch(28% 0.03 250);
-    --text-secondary: oklch(52% 0.02 240);
-    --text-dim: oklch(65% 0.015 240);
+    --text-primary: oklch(10% 0.03 250); /* Darkened for high visibility */
+    --text-secondary: oklch(35% 0.02 240); /* Darkened for high visibility */
+    --text-dim: oklch(50% 0.015 240);
     --border-subtle: oklch(85% 0.02 95);
     --border-accent: oklch(55% 0.12 162);
     
@@ -22,17 +22,17 @@
     --glow-peach: oklch(88% 0.07 70 / 0.16);
     --grid-lines: oklch(70% 0.01 95 / 0.10);
 
-    /* Legacy HSL mappings (kept for compatibility) */
-    --background: 201 100% 13%;
-    --foreground: 0 0% 100%;
-    --muted-foreground: 240 4% 66%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 10%;
-    --muted: 0 0% 10%;
-    --accent: 0 0% 10%;
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
+    /* Legacy HSL mappings (Updated to light theme so text-foreground is black) */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 10%; /* Black text */
+    --muted-foreground: 0 0% 40%;
+    --primary: 0 0% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 40%; /* Grey text */
+    --muted: 0 0% 90%;
+    --accent: 0 0% 90%;
+    --border: 0 0% 80%;
+    --input: 0 0% 80%;
   }
 
   * {
@@ -58,27 +58,48 @@
 @layer components {
   .liquid-glass {
     position: relative;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
+    background: linear-gradient(145deg, #1e293b, #0f172a); /* Light black to darker black */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 
-      0 2px 8px rgba(0, 0, 0, 0.04),
-      0 0 1px rgba(0, 0, 0, 0.02);
+      0 4px 20px rgba(0, 0, 0, 0.15),
+      0 0 1px rgba(255, 255, 255, 0.1) inset;
+    color: #ffffff;
+    /* Override text variables for dark background */
+    --foreground: 0 0% 100%;
+    --secondary: 210 40% 80%;
+    --text-primary: oklch(100% 0 0);
+    --text-secondary: oklch(90% 0 0);
+    --text-dim: oklch(80% 0 0);
   }
 }
 
 @layer components {
   .card-surface {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
+    background: linear-gradient(145deg, #1e293b, #0f172a); /* Light black to darker black */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     transition: all 0.18s ease-out;
+    color: #ffffff;
+    /* Override text variables for dark background */
+    --foreground: 0 0% 100%;
+    --secondary: 210 40% 80%;
+    --text-primary: oklch(100% 0 0);
+    --text-secondary: oklch(90% 0 0);
+    --text-dim: oklch(80% 0 0);
   }
 
   .card-elevated {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-accent);
+    background: linear-gradient(145deg, #1e3a8a, #172554); /* Dark blue */
+    border: 1px solid rgba(59, 130, 246, 0.3);
     border-radius: 12px;
     transition: all 0.18s ease-out;
+    color: #ffffff;
+    /* Override text variables for dark background */
+    --foreground: 0 0% 100%;
+    --secondary: 210 40% 80%;
+    --text-primary: oklch(100% 0 0);
+    --text-secondary: oklch(90% 0 0);
+    --text-dim: oklch(80% 0 0);
   }
 
   .btn-primary {

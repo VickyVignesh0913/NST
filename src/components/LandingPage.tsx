@@ -204,7 +204,7 @@ function HeroSection() {
               whileHover={{ y: -8 }}
               transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
             >
-              <div className="card-hover-lift rounded-2xl p-8 relative z-10" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
+              <div className="card-hover-lift rounded-2xl p-8 relative z-10 liquid-glass">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'oklch(72% 0.18 162 / 0.15)' }}>
                     <GraduationCap className="w-6 h-6" style={{ color: 'var(--accent-primary)' }} />
@@ -239,8 +239,7 @@ function HeroSection() {
 
               {/* Floating Badge */}
               <motion.div
-                className="absolute -top-6 -right-6 rounded-2xl px-5 py-3 z-20"
-                style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}
+                className="absolute -top-6 -right-6 rounded-2xl px-5 py-3 z-20 liquid-glass"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
@@ -351,8 +350,8 @@ function YouTubeSection() {
                   backgroundPosition: 'center'
                 }}
               >
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
+                <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/10 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent z-10" />
                 <motion.div
                   className="z-20"
                   whileHover={{ scale: 1.15 }}
@@ -360,7 +359,7 @@ function YouTubeSection() {
                 >
                   <Play className="w-12 h-12 text-white/90 drop-shadow-lg fill-current" />
                 </motion.div>
-                <span className="absolute bottom-3 left-3 z-20 text-xs text-white/90 bg-black/60 px-2 py-0.5 rounded">
+                <span className="absolute bottom-3 left-3 z-20 text-xs text-white/90 bg-slate-900/60 px-2 py-0.5 rounded">
                   {video.duration}
                 </span>
               </div>
@@ -397,14 +396,14 @@ function InsideClassSection() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-xs uppercase tracking-widest text-muted-foreground">Experience</span>
+            <span className="text-xs uppercase tracking-widest text-secondary">Experience</span>
             <h2
               className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
               style={{ fontFamily: "'Instrument Serif', serif" }}
             >
-              Inside a Real <em className="not-italic text-muted-foreground">NST Class</em>
+              Inside a Real <em className="not-italic text-accent">NST Class</em>
             </h2>
-            <p className="text-muted-foreground mt-6 text-lg leading-relaxed">
+            <p className="text-secondary mt-6 text-lg leading-relaxed">
               Not just lectures. A complete learning environment designed for Tamil medium NEET dominance.
             </p>
 
@@ -423,7 +422,7 @@ function InsideClassSection() {
                   </div>
                   <div>
                     <h4 className="text-foreground font-medium">{feature.title}</h4>
-                    <p className="text-muted-foreground text-sm">{feature.desc}</p>
+                    <p className="text-secondary text-sm">{feature.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -433,7 +432,7 @@ function InsideClassSection() {
               <span className="text-xs font-medium uppercase tracking-wider text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-full">
                 Live Class Preview
               </span>
-              <span className="text-xs text-muted-foreground">Recorded & Available 24/7</span>
+              <span className="text-xs text-secondary">Recorded & Available 24/7</span>
             </div>
           </motion.div>
 
@@ -446,14 +445,14 @@ function InsideClassSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="liquid-glass rounded-2xl overflow-hidden">
-              <div className="aspect-video bg-black/40 relative flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent" />
+              <div className="aspect-video bg-gradient-to-br from-slate-100 to-slate-200 relative flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent" />
                 <div className="relative z-10 text-center">
-                  <div className="w-16 h-16 mx-auto bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mb-3 cursor-pointer hover:scale-110 transition-transform">
-                    <Play className="w-7 h-7 text-white ml-1 fill-current" />
+                  <div className="w-16 h-16 mx-auto bg-white shadow-lg rounded-full flex items-center justify-center mb-3 cursor-pointer hover:scale-110 transition-transform">
+                    <Play className="w-7 h-7 text-blue-500 ml-1 fill-current" />
                   </div>
                   <p className="text-foreground font-medium text-sm">NST ELITE Live Session</p>
-                  <p className="text-muted-foreground text-xs mt-1">Electrostatics – Tamil Medium</p>
+                  <p className="text-secondary text-xs mt-1">Electrostatics – Tamil Medium</p>
                 </div>
               </div>
               <div className="p-5">
@@ -463,12 +462,12 @@ function InsideClassSection() {
                   </div>
                   <div>
                     <p className="text-foreground text-sm font-medium">Dr. Sudharshan R.</p>
-                    <p className="text-muted-foreground text-xs">Live now • 247 watching</p>
+                    <p className="text-secondary text-xs">Live now • 247 watching</p>
                   </div>
                 </div>
                 <div className="flex gap-2">
                   {['HD Video', 'PDF Notes', 'Q&A Live'].map((tag) => (
-                    <span key={tag} className="px-3 py-1 bg-white/5 rounded-md text-xs text-muted-foreground border border-border/50">
+                    <span key={tag} className="px-3 py-1 bg-surface rounded-md text-xs text-secondary border border-subtle">
                       {tag}
                     </span>
                   ))}
@@ -488,7 +487,7 @@ function InsideClassSection() {
                 <FileText className="w-4 h-4 text-blue-400" />
                 <span className="text-foreground font-medium text-sm">Class Notes</span>
               </div>
-              <p className="text-muted-foreground text-xs">
+              <p className="text-secondary text-xs">
                 Every session comes with downloadable Tamil notes & practice sheets.
               </p>
             </motion.div>
@@ -544,14 +543,14 @@ function CoursesSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-xs uppercase tracking-widest text-muted-foreground">Programs</span>
+          <span className="text-xs uppercase tracking-widest text-secondary">Programs</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
             style={{ fontFamily: "'Instrument Serif', serif" }}
           >
-            Programs built for <em className="not-italic text-muted-foreground">NEET dominance</em>
+            Programs built for <em className="not-italic text-secondary">NEET dominance</em>
           </h2>
-          <p className="text-muted-foreground mt-4 text-lg">
+          <p className="text-secondary mt-4 text-lg">
             Every batch is engineered around one goal: maximum Physics score in Tamil medium.
           </p>
         </motion.div>
@@ -578,7 +577,7 @@ function CoursesSection() {
               
               <div className="mb-6">
                 <h3 className="text-xl text-foreground font-medium">{course.name}</h3>
-                {!course.popular && <p className="text-xs text-muted-foreground mt-1">{course.tag}</p>}
+                {!course.popular && <p className="text-xs text-secondary mt-1">{course.tag}</p>}
               </div>
 
               <div className="mb-6">
@@ -586,7 +585,7 @@ function CoursesSection() {
                   <span className="text-3xl text-foreground font-light" style={{ fontFamily: "'Instrument Serif', serif" }}>
                     {course.price}
                   </span>
-                  <span className="text-sm text-muted-foreground line-through">{course.original}</span>
+                  <span className="text-sm text-secondary line-through">{course.original}</span>
                 </div>
                 <span className="text-xs text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded inline-block mt-2">
                   {course.discount}
@@ -595,7 +594,7 @@ function CoursesSection() {
 
               <ul className="space-y-2 mb-6">
                 {course.features.map((feature, j) => (
-                  <li key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <li key={j} className="flex items-center gap-2 text-sm text-secondary">
                     <Check className="w-4 h-4 text-emerald-400" />
                     {feature}
                   </li>
@@ -639,12 +638,12 @@ function ResultsSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-xs uppercase tracking-widest text-muted-foreground">Results</span>
+          <span className="text-xs uppercase tracking-widest text-secondary">Results</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
             style={{ fontFamily: "'Instrument Serif', serif" }}
           >
-            Scoreboards that <em className="not-italic text-muted-foreground">speak louder</em>
+            Scoreboards that <em className="not-italic text-secondary">speak louder</em>
           </h2>
         </motion.div>
 
@@ -668,9 +667,9 @@ function ResultsSection() {
                 {student.initial}
               </div>
               
-              <p className="text-muted-foreground text-xs uppercase tracking-wider mb-2">{student.name}</p>
+              <p className="text-secondary text-xs uppercase tracking-wider mb-2">{student.name}</p>
               <p className="text-5xl text-foreground font-light mb-1" style={{ fontFamily: "'Instrument Serif', serif" }}>
-                {student.score}<span className="text-2xl text-muted-foreground">/{student.total}</span>
+                {student.score}<span className="text-2xl text-secondary">/{student.total}</span>
               </p>
               <p className="text-blue-400 text-sm">{student.story}</p>
             </motion.div>
@@ -695,22 +694,22 @@ function ResultsSection() {
                 <h3 className="text-2xl md:text-3xl text-foreground font-light mb-2" style={{ fontFamily: "'Instrument Serif', serif" }}>
                   From 40 → 165 in 6 months
                 </h3>
-                <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-md">
+                <p className="text-secondary text-sm md:text-base leading-relaxed max-w-md">
                   "I joined NST as a dropper with barely 40 marks in Physics. Dr. S didn't just teach formulas — he changed how I think about Physics."
                 </p>
                 <div className="mt-4 flex items-center gap-3">
                   <div className="w-10 h-10 liquid-glass rounded-full flex items-center justify-center text-blue-400 font-bold">R</div>
                   <div>
                     <p className="text-foreground font-medium text-sm">Rohini K.</p>
-                    <p className="text-muted-foreground text-xs">NEET 2025 • Govt. Medical College</p>
+                    <p className="text-secondary text-xs">NEET 2025 • Govt. Medical College</p>
                   </div>
                 </div>
               </div>
               <div className="flex-shrink-0">
                 <div className="flex items-center gap-4">
                   <div className="text-center">
-                    <p className="text-muted-foreground text-xs uppercase tracking-wider mb-1">Before</p>
-                    <p className="text-4xl text-muted-foreground font-light" style={{ fontFamily: "'Instrument Serif', serif" }}>40</p>
+                    <p className="text-secondary text-xs uppercase tracking-wider mb-1">Before</p>
+                    <p className="text-4xl text-secondary font-light" style={{ fontFamily: "'Instrument Serif', serif" }}>40</p>
                   </div>
                   <ArrowRight className="w-8 h-8 text-blue-400" />
                   <div className="text-center">
@@ -770,14 +769,14 @@ function MethodSection() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-xs uppercase tracking-widest text-muted-foreground">The Method</span>
+            <span className="text-xs uppercase tracking-widest text-secondary">The Method</span>
             <h2
               className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
               style={{ fontFamily: "'Instrument Serif', serif" }}
             >
-              How we turn <em className="not-italic text-muted-foreground">fear into 150+</em>
+              How we turn <em className="not-italic text-secondary">fear into 150+</em>
             </h2>
-            <p className="text-muted-foreground mt-6 text-lg leading-relaxed">
+            <p className="text-secondary mt-6 text-lg leading-relaxed">
               No rote memorization. No English-only explanations. Just pure conceptual clarity in Tamil, delivered by a doctor who cracked NEET himself.
             </p>
           </motion.div>
@@ -800,7 +799,7 @@ function MethodSection() {
                 </div>
                 <div>
                   <h3 className="text-lg text-foreground font-medium">{step.title}</h3>
-                  <p className="text-muted-foreground text-sm mt-1">{step.desc}</p>
+                  <p className="text-secondary text-sm mt-1">{step.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -831,12 +830,12 @@ function ComparisonSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-xs uppercase tracking-widest text-muted-foreground">Comparison</span>
+          <span className="text-xs uppercase tracking-widest text-secondary">Comparison</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4"
             style={{ fontFamily: "'Instrument Serif', serif" }}
           >
-            Why Students Choose <em className="not-italic text-muted-foreground">NST</em>
+            Why Students Choose <em className="not-italic text-secondary">NST</em>
           </h2>
         </motion.div>
 
@@ -847,10 +846,10 @@ function ComparisonSection() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="grid grid-cols-3 text-sm font-medium border-b border-border/50">
-            <div className="px-6 py-4 text-muted-foreground">Feature</div>
-            <div className="px-6 py-4 text-foreground bg-white/5 text-center font-medium">NST</div>
-            <div className="px-6 py-4 text-muted-foreground text-center">Others</div>
+          <div className="grid grid-cols-3 text-sm font-medium border-b border-subtle">
+            <div className="px-6 py-4 text-secondary">Feature</div>
+            <div className="px-6 py-4 text-foreground bg-surface text-center font-medium">NST</div>
+            <div className="px-6 py-4 text-secondary text-center">Others</div>
           </div>
           {features.map((feature, i) => (
             <motion.div
@@ -931,12 +930,12 @@ function TestimonialsSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-xs uppercase tracking-widest text-muted-foreground">Stories</span>
+          <span className="text-xs uppercase tracking-widest text-secondary">Stories</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4"
             style={{ fontFamily: "'Instrument Serif', serif" }}
           >
-            Voices from the <em className="not-italic text-muted-foreground">white coat journey</em>
+            Voices from the <em className="not-italic text-secondary">white coat journey</em>
           </h2>
         </motion.div>
 
@@ -960,7 +959,7 @@ function TestimonialsSection() {
                 </div>
                 <div>
                   <p className="text-foreground font-medium text-sm">{t.name}</p>
-                  <p className="text-muted-foreground text-xs">{t.detail}</p>
+                  <p className="text-secondary text-xs">{t.detail}</p>
                 </div>
               </div>
             </motion.div>
@@ -1009,7 +1008,7 @@ function AboutSection() {
             </div>
             <div className="absolute -bottom-6 -right-6 liquid-glass p-4 rounded-xl">
               <p className="text-3xl text-foreground font-light" style={{ fontFamily: "'Instrument Serif', serif" }}>2019</p>
-              <p className="text-muted-foreground text-xs uppercase tracking-wider">NEET Cracker</p>
+              <p className="text-secondary text-xs uppercase tracking-wider">NEET Cracker</p>
             </div>
             <div className="absolute -top-4 -left-4 bg-blue-400 text-background px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wider">
               Authority
@@ -1023,14 +1022,14 @@ function AboutSection() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <span className="text-xs uppercase tracking-widest text-muted-foreground">The Mentor</span>
+            <span className="text-xs uppercase tracking-widest text-secondary">The Mentor</span>
             <h2
               className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
               style={{ fontFamily: "'Instrument Serif', serif" }}
             >
-              A doctor who <em className="not-italic text-muted-foreground">teaches like one</em>
+              A doctor who <em className="not-italic text-secondary">teaches like one</em>
             </h2>
-            <p className="text-muted-foreground mt-6 text-lg leading-relaxed">
+            <p className="text-secondary mt-6 text-lg leading-relaxed">
               From Govt. Erode Medical College, Dr. Sudharshan cracked NEET 2019 and has since guided over 1,000 Tamil medium students to Physics scores above 120. His SR 1207 self-study roadmap is now legendary.
             </p>
             <div className="flex flex-wrap gap-3 mt-8">
@@ -1065,21 +1064,21 @@ function ClassDropdown() {
 
   return (
     <div className="relative">
-      <label className="block text-sm text-muted-foreground mb-1.5">Class</label>
+      <label className="block text-sm text-secondary mb-1.5">Class</label>
       <motion.button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-4 py-3 bg-white/5 border border-border rounded-lg text-foreground focus:outline-none focus:border-blue-400/50 transition-all flex items-center justify-between text-left"
+        className="w-full px-4 py-3 bg-surface border border-border rounded-lg text-foreground focus:outline-none focus:border-blue-400/50 transition-all flex items-center justify-between text-left"
         whileTap={{ scale: 0.99 }}
       >
-        <span className={selected.value ? 'text-foreground' : 'text-muted-foreground'}>
+        <span className={selected.value ? 'text-foreground' : 'text-secondary'}>
           {selected.label}
         </span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
         >
-          <ChevronDown className="w-4 h-4 text-muted-foreground" />
+          <ChevronDown className="w-4 h-4 text-secondary" />
         </motion.div>
       </motion.button>
 
@@ -1104,12 +1103,12 @@ function ClassDropdown() {
                   "w-full px-4 py-3 text-left transition-colors duration-200 flex items-center justify-between group",
                   selected.value === option.value
                     ? "bg-white/10 text-foreground"
-                    : "text-muted-foreground hover:bg-white/5 hover:text-foreground"
+                    : "text-secondary hover:bg-surface hover:text-foreground"
                 )}
               >
                 <div>
                   <div className="text-sm font-medium">{option.label}</div>
-                  <div className="text-xs text-muted-foreground/70">{option.description}</div>
+                  <div className="text-xs text-secondary/70">{option.description}</div>
                 </div>
                 {selected.value === option.value && (
                   <motion.div
@@ -1160,7 +1159,7 @@ function CTASection() {
             <h3 className="text-2xl text-foreground mb-4" style={{ fontFamily: "'Instrument Serif', serif" }}>
               Application Received!
             </h3>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-secondary mb-6">
               Dr. Sudharshan's team will contact you within 24 hours.
             </p>
             <a 
@@ -1229,55 +1228,55 @@ function CTASection() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm text-muted-foreground mb-1.5">First Name *</label>
+              <label className="block text-sm text-secondary mb-1.5">First Name *</label>
               <input 
                 type="text" 
                 name="firstName"
                 required 
-                className="w-full px-4 py-3 bg-white/5 border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors input-glow"
+                className="w-full px-4 py-3 bg-surface border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors input-glow"
                 placeholder="Enter first name"
               />
             </div>
             <div>
-              <label className="block text-sm text-muted-foreground mb-1.5">Last Name *</label>
+              <label className="block text-sm text-secondary mb-1.5">Last Name *</label>
               <input 
                 type="text" 
                 name="lastName"
                 required 
-                className="w-full px-4 py-3 bg-white/5 border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors input-glow"
+                className="w-full px-4 py-3 bg-surface border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors input-glow"
                 placeholder="Enter last name"
               />
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm text-muted-foreground mb-1.5">Phone Number *</label>
+              <label className="block text-sm text-secondary mb-1.5">Phone Number *</label>
               <input 
                 type="tel" 
                 name="phone"
                 required 
                 pattern="[0-9]{10}"
-                className="w-full px-4 py-3 bg-white/5 border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors input-glow"
+                className="w-full px-4 py-3 bg-surface border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors input-glow"
                 placeholder="10-digit number"
               />
             </div>
             <ClassDropdown />
           </div>
           <div>
-            <label className="block text-sm text-muted-foreground mb-1.5">Target NEET Score</label>
+            <label className="block text-sm text-secondary mb-1.5">Target NEET Score</label>
             <input 
               type="text" 
               name="targetScore"
-              className="w-full px-4 py-3 bg-white/5 border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors input-glow"
+              className="w-full px-4 py-3 bg-surface border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors input-glow"
               placeholder="e.g., 650+"
             />
           </div>
           <div>
-            <label className="block text-sm text-muted-foreground mb-1.5">Message (Optional)</label>
+            <label className="block text-sm text-secondary mb-1.5">Message (Optional)</label>
             <textarea 
               name="message"
               rows={3}
-              className="w-full px-4 py-3 bg-white/5 border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors resize-none input-glow"
+              className="w-full px-4 py-3 bg-surface border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors resize-none input-glow"
               placeholder="Any specific requirements..."
             />
           </div>
@@ -1290,7 +1289,7 @@ function CTASection() {
           >
             {formState === 'submitting' ? 'Submitting...' : 'Book Free Demo Call'}
           </motion.button>
-          <p className="text-center text-muted-foreground text-xs">
+          <p className="text-center text-secondary text-xs">
             Dr. Sudharshan's team will reach out within 24 hours
           </p>
         </form>
@@ -1310,7 +1309,7 @@ function Footer() {
           </div>
           <span className="font-medium text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>NST</span>
         </div>
-        <div className="flex gap-6 text-sm text-muted-foreground">
+        <div className="flex gap-6 text-sm text-secondary">
           <a href="#home" className="hover:text-foreground transition-colors">Home</a>
           <a href="#courses" className="hover:text-foreground transition-colors">Courses</a>
           <a href="#about" className="hover:text-foreground transition-colors">About</a>
@@ -1321,7 +1320,7 @@ function Footer() {
             href="https://www.youtube.com/@NeetstrategiesinTamil" 
             target="_blank"
             rel="noopener noreferrer"
-            className="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-muted-foreground hover:text-red-500 transition-colors"
+            className="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-secondary hover:text-red-500 transition-colors"
             title="YouTube"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
@@ -1330,7 +1329,7 @@ function Footer() {
           </motion.a>
           <motion.a 
             href="https://wa.me/918610690010" 
-            className="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-muted-foreground hover:text-emerald-500 transition-colors"
+            className="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-secondary hover:text-emerald-500 transition-colors"
             title="WhatsApp"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
@@ -1339,7 +1338,7 @@ function Footer() {
           </motion.a>
           <motion.a 
             href="tel:+918610690010" 
-            className="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-muted-foreground hover:text-blue-400 transition-colors"
+            className="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-secondary hover:text-blue-400 transition-colors"
             title="Call"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
@@ -1348,7 +1347,7 @@ function Footer() {
           </motion.a>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-6 mt-8 pt-8 border-t border-border/20 text-center text-xs text-muted-foreground">
+      <div className="max-w-7xl mx-auto px-6 mt-8 pt-8 border-t border-border/20 text-center text-xs text-secondary">
         © 2026 NEET Strategies Tamil. All rights reserved.
       </div>
     </footer>
@@ -1358,7 +1357,7 @@ function Footer() {
 // Sticky Mobile CTA
 function StickyMobileCTA() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-background/95 backdrop-blur-md border-t border-border/50 px-4 py-3 flex items-center justify-between gap-3">
+    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-background/95 backdrop-blur-md border-t border-subtle px-4 py-3 flex items-center justify-between gap-3">
       <a 
         href="tel:+918610690010" 
         className="flex-1 bg-blue-400 text-background text-sm font-medium py-3 rounded-full text-center flex items-center justify-center gap-2"
