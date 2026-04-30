@@ -867,19 +867,32 @@ function TestimonialsSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_70%,rgba(26,86,219,0.06)_0%,transparent_50%)]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <span className="text-xs uppercase tracking-widest text-muted-foreground">Stories</span>
-          <h2 
+          <h2
             className="text-4xl sm:text-5xl text-foreground mt-4"
             style={{ fontFamily: "'Instrument Serif', serif" }}
           >
             Voices from the <em className="not-italic text-muted-foreground">white coat journey</em>
           </h2>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6">
           {testimonials.map((t, i) => (
-            <div key={i} className="liquid-glass rounded-2xl p-8">
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="liquid-glass rounded-2xl p-8"
+            >
               <Quote className="w-8 h-8 text-blue-400/30 mb-4" />
               <p className="text-lg text-foreground italic leading-relaxed mb-6" style={{ fontFamily: "'Instrument Serif', serif" }}>
                 "{t.quote}"
@@ -893,7 +906,7 @@ function TestimonialsSection() {
                   <p className="text-muted-foreground text-xs">{t.detail}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -910,7 +923,13 @@ function AboutSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Image Card */}
-          <div className="relative">
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="aspect-square liquid-glass rounded-3xl flex items-center justify-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-transparent" />
               <div className="relative z-10 text-center">
@@ -938,12 +957,17 @@ function AboutSection() {
             <div className="absolute -top-4 -left-4 bg-blue-400 text-background px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wider">
               Authority
             </div>
-          </div>
+          </motion.div>
 
           {/* Right - Content */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <span className="text-xs uppercase tracking-widest text-muted-foreground">The Mentor</span>
-            <h2 
+            <h2
               className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
               style={{ fontFamily: "'Instrument Serif', serif" }}
             >
@@ -959,7 +983,7 @@ function AboutSection() {
                 </span>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
