@@ -37,21 +37,27 @@ function Navigation() {
   ]
 
   return (
-    <nav className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-      scrolled ? "bg-background/80 backdrop-blur-md border-b border-border/50" : "bg-transparent"
-    )}>
+    <nav
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out backdrop-blur-md",
+        scrolled ? "border-b" : "border-transparent"
+      )}
+      style={{
+        background: scrolled ? 'var(--bg-base)' : 'transparent',
+        borderColor: scrolled ? 'var(--border-subtle)' : 'transparent'
+      }}
+    >
       <div className="max-w-7xl mx-auto px-8 py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#home" className="flex items-baseline">
-            <span 
-              className="text-2xl tracking-tight text-foreground"
-              style={{ fontFamily: "'Instrument Serif', serif" }}
+            <span
+              className="text-2xl tracking-tight"
+              style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}
             >
               NST
             </span>
-            <sup className="text-[10px] text-muted-foreground ml-0.5">®</sup>
+            <sup className="text-[10px] ml-0.5" style={{ color: 'var(--text-dim)' }}>®</sup>
           </a>
 
           {/* Nav Links - Desktop Only */}
@@ -60,7 +66,10 @@ function Navigation() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
+                className="text-sm transition-colors duration-200"
+                style={{ color: 'var(--text-dim)' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-primary)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-dim)'}
               >
                 {link.label}
               </a>
@@ -68,12 +77,15 @@ function Navigation() {
           </div>
 
           {/* CTA Button */}
-          <a
+          <motion.a
             href="#contact"
-            className="liquid-glass rounded-full px-5 py-2 text-sm text-foreground transition-transform duration-300 hover:scale-[1.03]"
+            className="btn-primary btn-glow px-5 py-2 text-sm relative overflow-hidden"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
           >
             Join 2027 Batch
-          </a>
+          </motion.a>
         </div>
       </div>
     </nav>
@@ -84,126 +96,153 @@ function Navigation() {
 function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen flex flex-col justify-center">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-[#0a1628] z-0" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,rgba(26,86,219,0.15)_0%,transparent_60%)] z-0" />
-      
-      {/* Subtle Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] z-0" />
+      {/* Background */}
+      <div className="absolute inset-0" style={{ background: 'var(--bg-base)' }} />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,oklch(45%_0.12_162/0.12)_0%,transparent_60%)] z-0" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20">
+      {/* Subtle Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(oklch(100%_0_0/0.02)_1px,transparent_1px),linear-gradient(90deg,oklch(100%_0_0/0.02)_1px,transparent_1px)] bg-[size:60px_60px] z-0" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div>
             {/* Badge */}
-            <div className="animate-fade-rise inline-flex items-center gap-2 liquid-glass rounded-full px-4 py-1.5 mb-8">
-              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-              <span className="text-xs text-muted-foreground">Dr. Sudharshan R. | MBBS</span>
+            <div className="animate-fade-rise inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
+              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--accent-primary)' }} />
+              <span className="text-xs" style={{ color: 'var(--text-dim)' }}>Dr. Sudharshan R. | MBBS</span>
             </div>
 
             {/* H1 */}
             <h1
-              className="animate-fade-rise text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight font-normal text-foreground"
-              style={{ fontFamily: "'Instrument Serif', serif" }}
+              className="animate-fade-rise text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight font-normal"
+              style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}
             >
               Physics{' '}
-              <em className="not-italic text-muted-foreground">Easy-ஆ</em>
+              <em className="not-italic" style={{ color: 'var(--accent-muted)' }}>Easy-ஆ</em>
               <br />
               <span className="text-4xl sm:text-5xl lg:text-6xl">Feel பண்ணு</span>
             </h1>
 
             {/* Subtext */}
-            <p className="animate-fade-rise-delay text-muted-foreground text-lg max-w-lg mt-8 leading-relaxed">
-              Premium NEET Physics coaching crafted for Tamil medium aspirants who dream of white coats. 
+            <p className="animate-fade-rise-delay text-lg max-w-lg mt-8 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+              Premium NEET Physics coaching crafted for Tamil medium aspirants who dream of white coats.
               6 years of proven results.
             </p>
 
             {/* Stats */}
-            <div className="animate-fade-rise-delay-2 flex gap-8 mt-10">
-              <div>
-                <p className="text-3xl font-light text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>1000+</p>
-                <p className="text-xs text-muted-foreground mt-1">Students</p>
+            <div className="animate-fade-rise-delay-2 flex gap-12 mt-10">
+              <div className="accent-left pl-4">
+                <p className="text-3xl font-light" style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--accent-primary)' }}>1000+</p>
+                <p className="text-xs mt-1" style={{ color: 'var(--text-dim)' }}>Students</p>
               </div>
-              <div className="w-px bg-border" />
+              <div className="w-px" style={{ background: 'var(--border-subtle)' }} />
               <div>
-                <p className="text-3xl font-light text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>6</p>
-                <p className="text-xs text-muted-foreground mt-1">Years</p>
+                <p className="text-3xl font-light" style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}>6</p>
+                <p className="text-xs mt-1" style={{ color: 'var(--text-dim)' }}>Years</p>
               </div>
-              <div className="w-px bg-border" />
+              <div className="w-px" style={{ background: 'var(--border-subtle)' }} />
               <div>
-                <p className="text-3xl font-light text-muted-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>150+</p>
-                <p className="text-xs text-muted-foreground mt-1">Physics Avg</p>
+                <p className="text-3xl font-light" style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}>150+</p>
+                <p className="text-xs mt-1" style={{ color: 'var(--text-dim)' }}>Physics Avg</p>
               </div>
             </div>
 
             {/* CTAs */}
             <div className="animate-fade-rise-delay-2 flex flex-wrap items-center gap-4 mt-10">
-              <a
+              <motion.a
                 href="#courses"
-                className="liquid-glass rounded-full px-8 py-4 text-sm font-medium text-foreground transition-all duration-300 hover:scale-[1.03] inline-flex items-center gap-2 group"
+                className="btn-primary btn-glow px-8 py-4 text-sm inline-flex items-center gap-2 group relative overflow-hidden"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
               >
                 Join 2027 Batch Now
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </a>
-              <a
+                <motion.span
+                  className="inline-block"
+                  initial={{ x: 0 }}
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ArrowRight className="w-4 h-4" />
+                </motion.span>
+              </motion.a>
+              <motion.a
                 href="#inside"
-                className="rounded-full px-8 py-4 text-sm text-muted-foreground border border-white/10 hover:border-white/30 hover:text-foreground transition-all duration-300 inline-flex items-center gap-2"
+                className="btn-secondary px-8 py-4 text-sm inline-flex items-center gap-2"
+                whileHover={{ scale: 1.03, borderColor: 'var(--accent-primary)' }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
               >
                 <Play className="w-4 h-4" />
                 Get Free Demo Class
-              </a>
+              </motion.a>
             </div>
 
             {/* Urgency */}
-            <p className="animate-fade-rise-delay-2 text-[11px] text-muted-foreground/70 uppercase tracking-[0.15em] mt-5 flex items-center gap-2.5">
-              <span className="inline-block w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+            <p className="animate-fade-rise-delay-2 text-[11px] uppercase tracking-[0.15em] mt-5 flex items-center gap-2.5" style={{ color: 'var(--text-dim)' }}>
+              <span className="inline-block w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
               Limited Seats Available • Batch Closing Soon
             </p>
           </div>
 
           {/* Right Content - Course Card Preview */}
-          <div className="animate-fade-rise-delay relative hidden lg:block">
-            <div className="relative">
-              <div className="liquid-glass rounded-2xl p-8 relative z-10">
+          <motion.div
+            className="animate-fade-rise-delay relative hidden lg:block"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <motion.div
+              className="relative"
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
+            >
+              <div className="card-hover-lift rounded-2xl p-8 relative z-10" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 flex items-center justify-center">
-                    <GraduationCap className="w-6 h-6 text-emerald-400" />
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'oklch(72% 0.18 162 / 0.15)' }}>
+                    <GraduationCap className="w-6 h-6" style={{ color: 'var(--accent-primary)' }} />
                   </div>
                   <div>
-                    <p className="text-foreground font-medium">NST ELITE</p>
-                    <p className="text-xs text-muted-foreground">Batch 2027</p>
+                    <p className="font-medium" style={{ color: 'var(--text-primary)' }}>NST ELITE</p>
+                    <p className="text-xs" style={{ color: 'var(--text-dim)' }}>Batch 2027</p>
                   </div>
                 </div>
-                
+
                 <div className="space-y-3 mb-6">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Check className="w-4 h-4 text-emerald-400" />
+                  <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
+                    <Check className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
                     <span>Live Classes + Recordings</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Check className="w-4 h-4 text-emerald-400" />
+                  <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
+                    <Check className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
                     <span>PDF Notes in Tamil</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Check className="w-4 h-4 text-emerald-400" />
+                  <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
+                    <Check className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
                     <span>1-on-1 Doubt Clearing</span>
                   </div>
                 </div>
 
                 <div className="flex items-baseline gap-2">
-                  <span className="text-2xl text-foreground font-light" style={{ fontFamily: "'Instrument Serif', serif" }}>₹14,999</span>
-                  <span className="text-sm text-muted-foreground line-through">₹30,000</span>
-                  <span className="text-xs text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">51% OFF</span>
+                  <span className="text-2xl font-light" style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}>₹14,999</span>
+                  <span className="text-sm" style={{ color: 'var(--text-dim)', textDecoration: 'line-through' }}>₹30,000</span>
+                  <span className="text-xs px-2 py-0.5 rounded" style={{ background: 'oklch(72% 0.18 162 / 0.15)', color: 'var(--accent-primary)' }}>51% OFF</span>
                 </div>
               </div>
 
               {/* Floating Badge */}
-              <div className="absolute -top-6 -right-6 liquid-glass rounded-2xl px-5 py-3 z-20">
-                <p className="text-[11px] text-muted-foreground uppercase tracking-wider">Avg. Score</p>
-                <p className="text-2xl text-foreground font-light" style={{ fontFamily: "'Instrument Serif', serif" }}>156/180</p>
-              </div>
-            </div>
-          </div>
+              <motion.div
+                className="absolute -top-6 -right-6 rounded-2xl px-5 py-3 z-20"
+                style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)' }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
+                <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-dim)' }}>Avg. Score</p>
+                <p className="text-2xl font-light" style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}>156/180</p>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -237,65 +276,66 @@ function YouTubeSection() {
   ]
 
   return (
-    <section className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(26,86,219,0.08)_0%,transparent_50%)]" />
-      
+    <section className="relative py-20 overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,oklch(45%_0.12_162/0.06)_0%,transparent_50%)]" />
+
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
-        <motion.div 
-          className="text-center mb-16"
+        <motion.div
+          className="text-center mb-10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-xs uppercase tracking-widest text-muted-foreground">YouTube Authority</span>
-          <h2 
-            className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
-            style={{ fontFamily: "'Instrument Serif', serif" }}
-          >
-            Trusted by <em className="not-italic text-muted-foreground">Lakhs</em> of NEET Aspirants
+          <span className="section-label">YouTube Authority</span>
+          <h2 className="heading-xl mt-4">
+            Trusted by <em className="not-italic" style={{ color: 'var(--accent-muted)' }}>Lakhs</em> of NEET Aspirants
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
+          <p className="body-text mt-4 max-w-xl mx-auto">
             Thousands of students improve their Physics score every year through our free Tamil medium content.
           </p>
         </motion.div>
 
         {/* Stats Pills */}
-        <motion.div 
-          className="flex flex-wrap justify-center gap-4 mb-12"
+        <motion.div
+          className="flex flex-wrap justify-center gap-4 mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <div className="liquid-glass rounded-full px-5 py-2.5 flex items-center gap-2">
-            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-            <span className="text-sm text-foreground">1L+ Subscribers</span>
+          <div className="rounded-full px-5 py-2.5 flex items-center gap-2" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
+            <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
+            <span className="text-sm" style={{ color: 'var(--text-primary)' }}>1L+ Subscribers</span>
           </div>
-          <div className="liquid-glass rounded-full px-5 py-2.5 flex items-center gap-2">
-            <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
-            <span className="text-sm text-foreground">150+ Strategy Sessions</span>
+          <div className="rounded-full px-5 py-2.5 flex items-center gap-2" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
+            <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-primary)' }} />
+            <span className="text-sm" style={{ color: 'var(--text-primary)' }}>150+ Strategy Sessions</span>
           </div>
-          <div className="liquid-glass rounded-full px-5 py-2.5 flex items-center gap-2">
-            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-            <span className="text-sm text-foreground">Tamil Medium First</span>
+          <div className="rounded-full px-5 py-2.5 flex items-center gap-2" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
+            <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--text-dim)' }} />
+            <span className="text-sm" style={{ color: 'var(--text-primary)' }}>Tamil Medium First</span>
           </div>
         </motion.div>
 
         {/* Video Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 items-start">
           {videos.map((video, i) => (
             <motion.a
               key={i}
               href={`https://www.youtube.com/watch?v=${video.id}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group liquid-glass rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-500 block"
+              className={cn(
+                "group rounded-xl overflow-hidden block h-full",
+                i === 0 ? "card-elevated" : "card-surface"
+              )}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
+              whileHover={{ y: -4 }}
             >
               <div
                 className="aspect-video relative flex items-center justify-center group-hover:scale-105 transition-transform duration-500"
@@ -305,16 +345,22 @@ function YouTubeSection() {
                   backgroundPosition: 'center'
                 }}
               >
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10" />
-                <Play className="w-12 h-12 text-white/90 z-20 drop-shadow-lg fill-current group-hover:scale-110 transition-transform" />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
+                <motion.div
+                  className="z-20"
+                  whileHover={{ scale: 1.15 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Play className="w-12 h-12 text-white/90 drop-shadow-lg fill-current" />
+                </motion.div>
                 <span className="absolute bottom-3 left-3 z-20 text-xs text-white/90 bg-black/60 px-2 py-0.5 rounded">
                   {video.duration}
                 </span>
               </div>
               <div className="p-5">
-                <h3 className="text-foreground font-medium text-sm mb-1 group-hover:text-blue-400 transition-colors">{video.title}</h3>
-                <p className="text-muted-foreground text-xs">{video.views} views • {video.time}</p>
+                <h3 className="font-medium text-sm mb-1 transition-colors duration-300" style={{ color: 'var(--text-primary)' }}>{video.title}</h3>
+                <p className="text-xs" style={{ color: 'var(--text-dim)' }}>{video.views} views • {video.time}</p>
               </div>
             </motion.a>
           ))}
@@ -1235,7 +1281,7 @@ function StickyMobileCTA() {
 // Main Landing Page Component
 export default function LandingPage() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-background">
+    <main className="relative min-h-screen overflow-x-hidden" style={{ background: 'var(--bg-base)' }}>
       <Navigation />
       <HeroSection />
       <YouTubeSection />
