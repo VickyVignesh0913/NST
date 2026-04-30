@@ -97,12 +97,17 @@ function Navigation() {
 function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen flex flex-col justify-center">
-      {/* Background */}
+      {/* Background - Cream base */}
       <div className="absolute inset-0" style={{ background: 'var(--bg-base)' }} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,oklch(45%_0.12_162/0.12)_0%,transparent_60%)] z-0" />
+      
+      {/* Mint glow near headline area */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_30%,var(--glow-mint)_0%,transparent_50%)] z-0" />
+      
+      {/* Peach glow near CTA area */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_70%,var(--glow-peach)_0%,transparent_40%)] z-0" />
 
-      {/* Subtle Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(oklch(100%_0_0/0.02)_1px,transparent_1px),linear-gradient(90deg,oklch(100%_0_0/0.02)_1px,transparent_1px)] bg-[size:60px_60px] z-0" />
+      {/* Subtle technical grid - light grey lines */}
+      <div className="absolute inset-0 bg-[linear-gradient(oklch(70%_0.01_95/0.08)_1px,transparent_1px),linear-gradient(90deg,oklch(70%_0.01_95/0.08)_1px,transparent_1px)] bg-[size:80px_80px] z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -278,7 +283,7 @@ function YouTubeSection() {
 
   return (
     <section className="relative py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,oklch(45%_0.12_162/0.06)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,var(--glow-mint)_0%,transparent_50%)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -381,7 +386,7 @@ function InsideClassSection() {
 
   return (
     <section id="inside" className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(0,194,255,0.05)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,var(--glow-peach)_0%,transparent_50%)]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -528,7 +533,7 @@ function CoursesSection() {
 
   return (
     <section id="courses" className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_40%_60%,rgba(26,86,219,0.06)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_40%_60%,var(--glow-mint)_0%,transparent_50%)]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -623,7 +628,7 @@ function ResultsSection() {
 
   return (
     <section id="results" className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(26,86,219,0.08)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,var(--glow-mint)_0%,transparent_60%)]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -755,7 +760,7 @@ function MethodSection() {
 
   return (
     <section className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,rgba(0,194,255,0.05)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,var(--glow-peach)_0%,transparent_50%)]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -916,7 +921,7 @@ function TestimonialsSection() {
 
   return (
     <section className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_70%,rgba(26,86,219,0.06)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_70%,var(--glow-mint)_0%,transparent_50%)]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
@@ -970,7 +975,7 @@ function TestimonialsSection() {
 function AboutSection() {
   return (
     <section id="about" className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(0,194,255,0.05)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,var(--glow-peach)_0%,transparent_50%)]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -1142,7 +1147,7 @@ function CTASection() {
   if (formState === 'success') {
     return (
       <section id="contact" className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,oklch(72%_0.18_162/0.15)_0%,transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,var(--glow-mint)_0%,transparent_60%)]" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <div className="liquid-glass rounded-2xl p-12">
             <div className="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-6">
@@ -1173,7 +1178,7 @@ function CTASection() {
 
   return (
     <section id="contact" className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,oklch(72%_0.18_162/0.15)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,var(--glow-mint)_0%,transparent_60%)]" />
       
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <span className="section-label">Start Today</span>

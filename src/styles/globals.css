@@ -4,18 +4,23 @@
 
 @layer base {
   :root {
-    /* Brand Color System — oklch */
-    --bg-base: oklch(18% 0.025 240);
-    --bg-surface: oklch(22% 0.022 240);
-    --bg-elevated: oklch(26% 0.020 238);
-    --accent-primary: oklch(72% 0.18 162);
-    --accent-warm: oklch(78% 0.14 55);
-    --accent-muted: oklch(55% 0.08 240);
-    --text-primary: oklch(95% 0.008 240);
-    --text-secondary: oklch(72% 0.010 240);
-    --text-dim: oklch(52% 0.008 240);
-    --border-subtle: oklch(28% 0.018 240);
-    --border-accent: oklch(45% 0.12 162);
+    /* Brand Color System — Light Premium oklch */
+    --bg-base: oklch(98% 0.01 95);
+    --bg-surface: oklch(100% 0 0);
+    --bg-elevated: oklch(96% 0.02 95);
+    --accent-primary: oklch(55% 0.15 162);
+    --accent-warm: oklch(65% 0.14 55);
+    --accent-muted: oklch(60% 0.06 240);
+    --text-primary: oklch(28% 0.03 250);
+    --text-secondary: oklch(52% 0.02 240);
+    --text-dim: oklch(65% 0.015 240);
+    --border-subtle: oklch(85% 0.02 95);
+    --border-accent: oklch(55% 0.12 162);
+    
+    /* Glow accents */
+    --glow-mint: oklch(86% 0.06 165 / 0.20);
+    --glow-peach: oklch(88% 0.07 70 / 0.16);
+    --grid-lines: oklch(70% 0.01 95 / 0.10);
 
     /* Legacy HSL mappings (kept for compatibility) */
     --background: 201 100% 13%;
@@ -53,13 +58,13 @@
 @layer components {
   .liquid-glass {
     position: relative;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     box-shadow: 
-      inset 0 1px 0 rgba(255, 255, 255, 0.05),
-      0 4px 20px rgba(0, 0, 0, 0.1);
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      0 4px 20px rgba(0, 0, 0, 0.05);
   }
 
   .liquid-glass::before {
@@ -70,13 +75,13 @@
     padding: 1px;
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(255, 255, 255, 0) 50%,
-      rgba(255, 255, 255, 0.05) 100%
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0.7) 100%
     );
     -webkit-mask: 
-      linear-gradient(#fff 0 0) content-box, 
-      linear-gradient(#fff 0 0);
+      linear-gradient(#000 0 0) content-box, 
+      linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
