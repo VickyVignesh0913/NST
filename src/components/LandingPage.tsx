@@ -242,7 +242,13 @@ function YouTubeSection() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <span className="text-xs uppercase tracking-widest text-muted-foreground">YouTube Authority</span>
           <h2 
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
@@ -253,10 +259,16 @@ function YouTubeSection() {
           <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
             Thousands of students improve their Physics score every year through our free Tamil medium content.
           </p>
-        </div>
+        </motion.div>
 
         {/* Stats Pills */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <motion.div 
+          className="flex flex-wrap justify-center gap-4 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <div className="liquid-glass rounded-full px-5 py-2.5 flex items-center gap-2">
             <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
             <span className="text-sm text-foreground">1L+ Subscribers</span>
@@ -269,21 +281,25 @@ function YouTubeSection() {
             <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
             <span className="text-sm text-foreground">Tamil Medium First</span>
           </div>
-        </div>
+        </motion.div>
 
         {/* Video Cards */}
         <div className="grid md:grid-cols-3 gap-6">
           {videos.map((video, i) => (
-            <a 
-              key={i} 
+            <motion.a
+              key={i}
               href={`https://www.youtube.com/watch?v=${video.id}`}
               target="_blank"
               rel="noopener noreferrer"
               className="group liquid-glass rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-500 block"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <div 
+              <div
                 className="aspect-video relative flex items-center justify-center group-hover:scale-105 transition-transform duration-500"
-                style={{ 
+                style={{
                   backgroundImage: `url(https://img.youtube.com/vi/${video.id}/mqdefault.jpg)`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center'
@@ -300,7 +316,7 @@ function YouTubeSection() {
                 <h3 className="text-foreground font-medium text-sm mb-1 group-hover:text-blue-400 transition-colors">{video.title}</h3>
                 <p className="text-muted-foreground text-xs">{video.views} views • {video.time}</p>
               </div>
-            </a>
+            </motion.a>
           ))}
         </div>
       </div>
