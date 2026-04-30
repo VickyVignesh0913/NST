@@ -58,48 +58,48 @@
 @layer components {
   .liquid-glass {
     position: relative;
-    background: linear-gradient(145deg, #1e293b, #0f172a); /* Light black to darker black */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(145deg, #0f2922, #06120e); /* Deep Rich Teal / Forest */
+    border: 1px solid rgba(16, 185, 129, 0.15); /* Subtle emerald border */
     box-shadow: 
-      0 4px 20px rgba(0, 0, 0, 0.15),
+      0 8px 32px rgba(6, 18, 14, 0.3),
       0 0 1px rgba(255, 255, 255, 0.1) inset;
     color: #ffffff;
     /* Override text variables for dark background */
     --foreground: 0 0% 100%;
-    --secondary: 210 40% 80%;
+    --secondary: 160 20% 75%; /* Soft mint-grey */
     --text-primary: oklch(100% 0 0);
-    --text-secondary: oklch(90% 0 0);
-    --text-dim: oklch(80% 0 0);
+    --text-secondary: oklch(90% 0.02 162); /* Mint tinted light text */
+    --text-dim: oklch(80% 0.02 162);
   }
 }
 
 @layer components {
   .card-surface {
-    background: linear-gradient(145deg, #1e293b, #0f172a); /* Light black to darker black */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(145deg, #0f2922, #06120e); /* Deep Rich Teal */
+    border: 1px solid rgba(16, 185, 129, 0.15);
     border-radius: 12px;
     transition: all 0.18s ease-out;
     color: #ffffff;
     /* Override text variables for dark background */
     --foreground: 0 0% 100%;
-    --secondary: 210 40% 80%;
+    --secondary: 160 20% 75%;
     --text-primary: oklch(100% 0 0);
-    --text-secondary: oklch(90% 0 0);
-    --text-dim: oklch(80% 0 0);
+    --text-secondary: oklch(90% 0.02 162);
+    --text-dim: oklch(80% 0.02 162);
   }
 
   .card-elevated {
-    background: linear-gradient(145deg, #1e3a8a, #172554); /* Dark blue */
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: linear-gradient(145deg, #113c31, #0a241c); /* Slightly lighter, vibrant dark teal */
+    border: 1px solid rgba(16, 185, 129, 0.3); /* Stronger emerald border */
     border-radius: 12px;
     transition: all 0.18s ease-out;
     color: #ffffff;
     /* Override text variables for dark background */
     --foreground: 0 0% 100%;
-    --secondary: 210 40% 80%;
+    --secondary: 160 20% 80%;
     --text-primary: oklch(100% 0 0);
-    --text-secondary: oklch(90% 0 0);
-    --text-dim: oklch(80% 0 0);
+    --text-secondary: oklch(90% 0.03 162);
+    --text-dim: oklch(80% 0.03 162);
   }
 
   .btn-primary {
