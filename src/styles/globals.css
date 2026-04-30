@@ -58,48 +58,27 @@
 @layer components {
   .liquid-glass {
     position: relative;
-    background: linear-gradient(145deg, #0f2922, #06120e); /* Deep Rich Teal / Forest */
-    border: 1px solid rgba(16, 185, 129, 0.15); /* Subtle emerald border */
+    background: linear-gradient(145deg, #ecfdf5, #d1fae5); /* Subtle light emerald */
+    border: 1px solid rgba(16, 185, 129, 0.2);
     box-shadow: 
-      0 8px 32px rgba(6, 18, 14, 0.3),
-      0 0 1px rgba(255, 255, 255, 0.1) inset;
-    color: #ffffff;
-    /* Override text variables for dark background */
-    --foreground: 0 0% 100%;
-    --secondary: 160 20% 75%; /* Soft mint-grey */
-    --text-primary: oklch(100% 0 0);
-    --text-secondary: oklch(90% 0.02 162); /* Mint tinted light text */
-    --text-dim: oklch(80% 0.02 162);
+      0 8px 32px rgba(16, 185, 129, 0.08),
+      0 0 1px rgba(255, 255, 255, 0.5) inset;
   }
 }
 
 @layer components {
   .card-surface {
-    background: linear-gradient(145deg, #0f2922, #06120e); /* Deep Rich Teal */
-    border: 1px solid rgba(16, 185, 129, 0.15);
+    background: linear-gradient(145deg, #ecfdf5, #d1fae5); /* Subtle light emerald */
+    border: 1px solid rgba(16, 185, 129, 0.2);
     border-radius: 12px;
     transition: all 0.18s ease-out;
-    color: #ffffff;
-    /* Override text variables for dark background */
-    --foreground: 0 0% 100%;
-    --secondary: 160 20% 75%;
-    --text-primary: oklch(100% 0 0);
-    --text-secondary: oklch(90% 0.02 162);
-    --text-dim: oklch(80% 0.02 162);
   }
 
   .card-elevated {
-    background: linear-gradient(145deg, #113c31, #0a241c); /* Slightly lighter, vibrant dark teal */
-    border: 1px solid rgba(16, 185, 129, 0.3); /* Stronger emerald border */
+    background: linear-gradient(145deg, #d1fae5, #a7f3d0); /* Slightly richer light emerald */
+    border: 1px solid rgba(16, 185, 129, 0.3);
     border-radius: 12px;
     transition: all 0.18s ease-out;
-    color: #ffffff;
-    /* Override text variables for dark background */
-    --foreground: 0 0% 100%;
-    --secondary: 160 20% 80%;
-    --text-primary: oklch(100% 0 0);
-    --text-secondary: oklch(90% 0.03 162);
-    --text-dim: oklch(80% 0.03 162);
   }
 
   .btn-primary {
