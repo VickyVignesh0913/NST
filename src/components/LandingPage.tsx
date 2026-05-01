@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useRef } from 'react'
 import { cn } from '../lib/utils'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 import { 
@@ -18,56 +18,21 @@ import {
   ChevronDown
 } from 'lucide-react'
 
-// Hook: track scroll position with rAF throttle
-function useScrollPosition() {
-  const [scrollY, setScrollY] = useState(0)
-  useEffect(() => {
-    let raf: number
-    const onScroll = () => {
-      setScrollY(window.scrollY)
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => {
-      cancelAnimationFrame(raf)
-      window.removeEventListener('scroll', onScroll)
-    }
-  }, [])
-  return scrollY
-}
-
-// Hook: parallax offset for an element
-function useParallax(speed = 0.3) {
-  const scrollY = useScrollPosition()
-  const ref = useRef<HTMLDivElement>(null)
-  const [offset, setOffset] = useState(0)
-
-  useEffect(() => {
-    if (!ref.current) return
-    const rect = ref.current.getBoundingClientRect()
-    const viewH = window.innerHeight
-    if (rect.top < viewH && rect.bottom > 0) {
-      setOffset(scrollY * speed * 0.5)
-    }
-  }, [scrollY, speed])
-
-  return { ref, offset }
-}
-
 // Animated Section: fade-up on scroll
 function AnimatedSection({ children, delay = 0, className }: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
+  const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <div ref={ref} className={className}>
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
-      >
-        {children}
-      </motion.div>
-    </div>
+    <motion.div
+      ref={ref}
+      className={className}
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
+    >
+      {children}
+    </motion.div>
   )
 }
 
@@ -83,15 +48,13 @@ function StaggeredSection({ children, className, stagger = 0.1 }: { children: Re
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * stagger }}
-         >
-           {child}
-         </motion.div>
-       ))}
-     </div>
-   )
- }
-
-
+        >
+          {child}
+        </motion.div>
+      ))}
+    </div>
+  )
+}
 function Navigation() {
   const [scrolled, setScrolled] = useState(false)
 
@@ -467,14 +430,9 @@ function YouTubeSection() {
       time: "3 days ago" 
     },
   ]
-  const scrollY = useScrollPosition()
 
   return (
     <section className="relative py-20">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-      />
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-10"
@@ -707,14 +665,8 @@ function CoursesSection() {
     }
   ]
 
-  const scrollY = useScrollPosition()
-
   return (
     <section id="courses" className="relative py-20">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-      />
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="max-w-2xl mb-16"
@@ -927,14 +879,8 @@ function MethodSection() {
     { num: "04", title: "1-on-1 Mentoring", desc: "Personal doubt sessions. Dr. S tracks your progress personally until you hit your target.", highlight: true },
   ]
 
-  const scrollY = useScrollPosition()
-
   return (
     <section className="relative py-20">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-      />
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -1093,14 +1039,9 @@ function TestimonialsSection() {
       initial: "M"
     },
   ]
-  const scrollY = useScrollPosition()
 
   return (
     <section className="relative py-20">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-      />
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-16"
@@ -1393,7 +1334,6 @@ function ClassDropdown() {
 
 function CTASection() {
   const [formState, setFormState] = React.useState<'idle' | 'submitting' | 'success'>('idle')
-  const scrollY = useScrollPosition()
    
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -1407,10 +1347,6 @@ function CTASection() {
   if (formState === 'success') {
     return (
       <section id="contact" className="relative py-20">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-        />
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="card rounded-2xl p-12">
             <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ background: 'oklch(72% 0.18 162 / 0.15)' }}>
@@ -1440,10 +1376,6 @@ function CTASection() {
 
   return (
     <section id="contact" className="relative py-20">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-      />
       <div className="max-w-4xl mx-auto px-6 text-center">
         <span className="section-label">Start Today</span>
         <h2 className="heading-xl mt-4" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>
