@@ -1063,7 +1063,7 @@ function AboutSection() {
               className="text-4xl sm:text-5xl text-foreground leading-tight"
               style={{ fontFamily: "'Instrument Serif', serif" }}
             >
-              From Self-Study NEET Ranker (SR 1207) to Mentor of 1000+ 120+ Scorers
+              SR 1207 → 1000+ 120+ Scorers
             </h2>
             <p className="text-foreground font-medium mt-4 text-lg">
               Teaching NEET Physics in Tamil — like a brother, with real exam strategies.
