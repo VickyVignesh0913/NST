@@ -37,7 +37,7 @@
   body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -113,7 +113,7 @@
 
   .hero-btn-primary:hover {
     background: var(--accent-hover);
-    box-shadow: 0 8px 20px oklch(40% 0.10 145 / 0.25);
+    box-shadow: 0 8px 24px oklch(40% 0.10 145 / 0.3), 0 0 40px oklch(40% 0.10 145 / 0.12);
   }
 
   .hero-btn-secondary {
@@ -122,13 +122,13 @@
     border: 1.5px solid var(--border-subtle);
     border-radius: 10px;
     font-weight: 500;
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out, color 0.2s ease-out;
   }
 
   .hero-btn-secondary:hover {
     border-color: var(--accent-primary);
     color: var(--accent-primary);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 12px oklch(40% 0.10 145 / 0.1);
   }
 
   .btn-primary {
@@ -164,12 +164,12 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--text-dim);
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   .heading-xl {
     font-size: clamp(32px, 5vw, 56px);
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     color: var(--text-primary);
     line-height: 1.05;
   }
@@ -266,7 +266,7 @@
   }
 
   .font-english {
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     letter-spacing: 0.02em;
   }
 

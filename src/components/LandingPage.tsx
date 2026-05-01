@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { cn } from '../lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
@@ -51,7 +51,7 @@ function Navigation() {
           <a href="#home" className="flex items-baseline">
             <span
               className="text-2xl tracking-tight"
-              style={{ fontFamily: "'General Sans', sans-serif", color: 'var(--text-primary)' }}
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: 'var(--text-primary)' }}
             >
               NST
             </span>
@@ -88,26 +88,159 @@ function Navigation() {
   )
 }
 
+// Physics SVG Layer
+function PhysicsLayer() {
+  return (
+    <svg
+      className="absolute inset-0 w-full h-full pointer-events-none z-0"
+      style={{ opacity: 0.04 }}
+      viewBox="0 0 1200 800"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <style>
+        {`
+          @keyframes drift-slow {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(12px, -8px) rotate(0.5deg); }
+          }
+          @keyframes drift-medium {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-8px, 12px) rotate(-0.3deg); }
+          }
+          .drift-1 { animation: drift-slow 18s ease-in-out infinite; }
+          .drift-2 { animation: drift-medium 14s ease-in-out infinite; }
+          .drift-3 { animation: drift-slow 20s ease-in-out infinite; }
+        `}
+      </style>
+      <g className="drift-1">
+        <text x="60" y="120" fontSize="28" fontFamily="serif" fill="currentColor">E = mc²</text>
+        <text x="60" y="160" fontSize="22" fontFamily="serif" fill="currentColor">F = ma</text>
+      </g>
+      <g className="drift-2">
+        <path d="M700 100 Q720 130 740 100 Q760 70 780 100 Q800 130 820 100" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <text x="710" y="155" fontSize="18" fontFamily="serif" fill="currentColor">y = A sin(ωt)</text>
+      </g>
+      <g className="drift-3">
+        <circle cx="900" cy="350" r="40" stroke="currentColor" strokeWidth="1" fill="none" />
+        <line x1="860" y1="350" x2="940" y2="350" stroke="currentColor" strokeWidth="0.5" />
+        <line x1="900" y1="310" x2="900" y2="390" stroke="currentColor" strokeWidth="0.5" />
+        <text x="930" y="410" fontSize="16" fontFamily="serif" fill="currentColor">θ</text>
+      </g>
+      <g className="drift-1">
+        <text x="100" y="500" fontSize="24" fontFamily="serif" fill="currentColor">∇ × E = −∂B/∂t</text>
+      </g>
+      <g className="drift-2">
+        <path d="M400 600 L440 560 L480 580 L520 540 L560 560 L600 520" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <circle cx="440" cy="560" r="3" fill="currentColor" />
+        <circle cx="480" cy="580" r="3" fill="currentColor" />
+        <circle cx="520" cy="540" r="3" fill="currentColor" />
+        <circle cx="560" cy="560" r="3" fill="currentColor" />
+        <circle cx="600" cy="520" r="3" fill="currentColor" />
+      </g>
+      <g className="drift-3">
+        <text x="750" y="550" fontSize="22" fontFamily="serif" fill="currentColor">λ = h/mv</text>
+      </g>
+      <g className="drift-1">
+        <text x="200" y="700" fontSize="20" fontFamily="serif" fill="currentColor">PV = nRT</text>
+      </g>
+      <g className="drift-2">
+        <path d="M800 650 L850 600 L850 700 Z" stroke="currentColor" strokeWidth="1" fill="none" />
+        <text x="860" y="660" fontSize="16" fontFamily="serif" fill="currentColor">ΔS ≥ 0</text>
+      </g>
+    </svg>
+  )
+}
+
+// Cursor Glow
+function CursorGlow() {
+  const [pos, setPos] = useState({ x: 0, y: 0 })
+  const rafRef = useRef<number>()
+  const targetRef = useRef({ x: 0, y: 0 })
+  const currentRef = useRef({ x: 0, y: 0 })
+
+  useEffect(() => {
+    const handleMove = (e: MouseEvent) => {
+      targetRef.current = { x: e.clientX, y: e.clientY }
+    }
+    window.addEventListener('mousemove', handleMove)
+
+    const animate = () => {
+      currentRef.current.x += (targetRef.current.x - currentRef.current.x) * 0.08
+      currentRef.current.y += (targetRef.current.y - currentRef.current.y) * 0.08
+      setPos({ ...currentRef.current })
+      rafRef.current = requestAnimationFrame(animate)
+    }
+    rafRef.current = requestAnimationFrame(animate)
+
+    return () => {
+      window.removeEventListener('mousemove', handleMove)
+      cancelAnimationFrame(rafRef.current!)
+    }
+  }, [])
+
+  return (
+    <div
+      className="absolute inset-0 pointer-events-none z-0"
+      style={{
+        background: `radial-gradient(600px circle at ${pos.x}px ${pos.y}px, oklch(40% 0.10 145 / 0.06), transparent 60%)`,
+      }}
+    />
+  )
+}
+
 function HeroSection() {
+  const imgRef = useRef<HTMLDivElement>(null)
+  const overlayRef = useRef<HTMLDivElement>(null)
+  const [overlayOpacity, setOverlayOpacity] = useState(0)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setOverlayOpacity(1), 100)
+    return () => clearTimeout(timer)
+  }, [])
+
+  const handleScroll = useCallback(() => {
+    if (!imgRef.current) return
+    const scrolled = window.scrollY
+    const offset = scrolled * 0.08
+    const clamped = Math.min(offset, 20)
+    imgRef.current.style.transform = `translateY(${clamped}px)`
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [handleScroll])
+
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">
-      {/* Right-side Hero Image */}
-      <div className="absolute inset-y-0 right-0 w-[68%] lg:block hidden">
+      {/* Cursor Glow */}
+      <CursorGlow />
+
+      {/* Physics Layer */}
+      <PhysicsLayer />
+
+      {/* Right-side Hero Image with Parallax */}
+      <div
+        ref={imgRef}
+        className="absolute inset-y-0 right-0 w-[65%] lg:block hidden"
+        style={{ willChange: 'transform', transition: 'transform 0.08s linear' }}
+      >
         <img
           src="/hero.png"
           alt="NEET Physics coaching - Student studying"
           className="absolute inset-0 w-full h-full object-cover object-right"
-          style={{
-            filter: 'contrast(1.05) saturate(1.02)',
-          }}
+          style={{ filter: 'contrast(1.05) saturate(1.02)' }}
           loading="eager"
         />
       </div>
 
       {/* Gradient Overlay — left-to-right fade */}
       <div
-        className="absolute inset-0"
+        ref={overlayRef}
+        className="absolute inset-0 transition-opacity duration-700 ease-out"
         style={{
+          opacity: overlayOpacity,
           background: 'linear-gradient(to right, rgba(246,246,244,0.92) 0%, rgba(246,246,244,0.6) 40%, rgba(246,246,244,0.1) 100%)'
         }}
       />
@@ -116,47 +249,77 @@ function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto w-full px-6 h-screen flex items-center">
         <div className="w-full max-w-[520px]">
           {/* Eyebrow Label */}
-          <div className="animate-fade-rise mb-6">
-            <span className="text-xs tracking-wider" style={{ color: 'var(--text-dim)', fontFamily: "'General Sans', sans-serif" }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
+            className="mb-6"
+          >
+            <span className="text-xs tracking-wider" style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               Dr. Sudharshan R. | MBBS
             </span>
-          </div>
+          </motion.div>
 
           {/* Main Headline */}
-          <h1
-            className="animate-fade-rise tracking-tight leading-[1.1]"
-            style={{ fontFamily: "'General Sans', sans-serif", color: 'var(--text-primary)', letterSpacing: '0.02em' }}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.24 }}
+            className="tracking-tight leading-[1.1]"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: 'var(--text-primary)', letterSpacing: '0.02em' }}
           >
             <span className="inline text-3xl sm:text-4xl lg:text-[48px] font-[500]">
               Physics Easy{' '}
               <span className="text-academic" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>— ஆ</span>
               {' '}<span style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }} className="font-bold">Feel பண்ணுங்க</span>
             </span>
-          </h1>
+          </motion.h1>
 
           {/* Tamil Emotional Line */}
-          <div className="animate-fade-rise-delay mt-6">
-            <p className="text-2xl sm:text-3xl lg:text-[32px] leading-[1.2]" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0, color: 'var(--text-secondary)' }}>
+          <motion.div
+            initial={{ opacity: 0, filter: 'blur(6px)' }}
+            animate={{ opacity: 1, filter: 'blur(0px)' }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.54 }}
+            className="mt-5"
+          >
+            <p className="text-xl sm:text-2xl lg:text-[28px] leading-[1.25]" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0, color: 'var(--text-secondary)' }}>
               Doctor ஆகும் உங்கள் பயணம்
             </p>
-            <p className="text-2xl sm:text-3xl lg:text-[32px] leading-[1.15] mt-0.5 font-bold" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0, color: 'var(--text-emphasis)' }}>
+            <p className="text-xl sm:text-2xl lg:text-[28px] leading-[1.2] mt-0.5 font-bold" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0, color: 'var(--text-emphasis)' }}>
               இன்றே தொடங்கட்டும்
             </p>
-          </div>
+          </motion.div>
 
           {/* Supporting Paragraph */}
-          <p className="animate-fade-rise-delay text-[15px] mt-6 leading-relaxed max-w-[500px]" style={{ color: 'var(--text-secondary)', fontFamily: "'General Sans', sans-serif", letterSpacing: '0.01em' }}>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+            className="text-[15px] mt-5 leading-relaxed max-w-[500px]"
+            style={{ color: 'var(--text-secondary)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}
+          >
             Premium NEET Physics coaching crafted for Tamil medium aspirants who aim for medical excellence.
-          </p>
+          </motion.p>
 
           {/* Inline Credibility */}
-          <p className="animate-fade-rise-delay text-sm mt-5 flex items-center gap-2" style={{ color: 'var(--text-dim)', fontFamily: "'General Sans', sans-serif", letterSpacing: '0.01em' }}>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.7 }}
+            className="text-sm mt-4 flex items-center gap-2"
+            style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}
+          >
             <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: 'var(--accent-primary)' }} />
             Trusted by 1000+ NEET aspirants across Tamil Nadu
-          </p>
+          </motion.p>
 
           {/* CTA Row */}
-          <div className="animate-fade-rise-delay-2 flex flex-wrap items-center gap-3.5 mt-9">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.82 }}
+            className="flex flex-wrap items-center gap-3.5 mt-8"
+          >
             <motion.a
               href="#courses"
               className="hero-btn-primary px-7 py-3.5 text-sm inline-flex items-center gap-2"
@@ -177,13 +340,19 @@ function HeroSection() {
               <Play className="w-4 h-4" />
               Get Free Demo Class
             </motion.a>
-          </div>
+          </motion.div>
 
           {/* Subtext */}
-          <p className="animate-fade-rise-delay-2 text-[11px] uppercase tracking-[0.15em] mt-4 flex items-center gap-2.5" style={{ color: 'var(--text-dim)', fontFamily: "'General Sans', sans-serif" }}>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.94 }}
+            className="text-[11px] uppercase tracking-[0.15em] mt-4 flex items-center gap-2.5"
+            style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+          >
             <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
             Limited seats available. Batch closing soon.
-          </p>
+          </motion.p>
         </div>
       </div>
     </section>
@@ -322,7 +491,7 @@ function InsideClassSection() {
             <span className="text-xs uppercase tracking-widest text-secondary">Experience</span>
             <h2
               className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
-              style={{ fontFamily: "'General Sans', sans-serif" }}
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
               Inside a Real <em className="not-italic text-academic">NST Class</em>
             </h2>
@@ -462,7 +631,7 @@ function CoursesSection() {
           <span className="text-xs uppercase tracking-widest text-secondary">Programs</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
-            style={{ fontFamily: "'General Sans', sans-serif" }}
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
             Programs built for <em className="not-italic text-academic">NEET dominance</em>
           </h2>
@@ -497,7 +666,7 @@ function CoursesSection() {
 
               <div className="mb-6">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-3xl text-foreground font-light" style={{ fontFamily: "'General Sans', sans-serif" }}>
+                  <span className="text-3xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                     {course.price}
                   </span>
                   <span className="text-sm text-secondary line-through">{course.original}</span>
@@ -552,7 +721,7 @@ function ResultsSection() {
           <span className="text-xs uppercase tracking-widest text-secondary">Results</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
-            style={{ fontFamily: "'General Sans', sans-serif" }}
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
             Scoreboards that <em className="not-italic text-academic">speak louder</em>
           </h2>
@@ -578,7 +747,7 @@ function ResultsSection() {
               </div>
               
               <p className="text-secondary text-xs uppercase tracking-wider mb-2">{student.name}</p>
-              <p className="text-5xl text-foreground font-light mb-1" style={{ fontFamily: "'General Sans', sans-serif" }}>
+              <p className="text-5xl text-foreground font-light mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                 {student.score}<span className="text-2xl text-secondary">/{student.total}</span>
               </p>
               <p style={{ color: 'var(--accent-primary)' }} className="text-sm">{student.story}</p>
@@ -599,7 +768,7 @@ function ResultsSection() {
                 <span className="inline-block mb-3 text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '12px', paddingBlock: '4px', borderRadius: '9999px' }}>
                   Featured Case Study
                 </span>
-                <h3 className="text-2xl md:text-3xl text-foreground font-light mb-2" style={{ fontFamily: "'General Sans', sans-serif" }}>
+                <h3 className="text-2xl md:text-3xl text-foreground font-light mb-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                   From 40 → 165 in 6 months
                 </h3>
                 <p className="text-secondary text-sm md:text-base leading-relaxed max-w-md">
@@ -617,12 +786,12 @@ function ResultsSection() {
                 <div className="flex items-center gap-4">
                   <div className="text-center">
                     <p className="text-secondary text-xs uppercase tracking-wider mb-1">Before</p>
-                    <p className="text-4xl text-secondary font-light" style={{ fontFamily: "'General Sans', sans-serif" }}>40</p>
+                    <p className="text-4xl text-secondary font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>40</p>
                   </div>
                   <ArrowRight className="w-8 h-8" style={{ color: 'var(--accent-primary)' }} />
                   <div className="text-center">
                     <p style={{ color: 'var(--accent-primary)' }} className="text-xs uppercase tracking-wider mb-1">After</p>
-                    <p className="text-4xl text-foreground font-light" style={{ fontFamily: "'General Sans', sans-serif" }}>165</p>
+                    <p className="text-4xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>165</p>
                   </div>
                 </div>
               </div>
@@ -676,7 +845,7 @@ function MethodSection() {
             <span className="text-xs uppercase tracking-widest text-secondary">The Method</span>
             <h2
               className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
-              style={{ fontFamily: "'General Sans', sans-serif" }}
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
               How we turn <em className="not-italic text-academic">fear into 150+</em>
             </h2>
@@ -699,7 +868,7 @@ function MethodSection() {
                   "flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-light text-xl",
                   step.highlight ? "text-background" : "card"
                 )} style={{ 
-                  fontFamily: "'General Sans', sans-serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   background: step.highlight ? 'var(--accent-primary)' : undefined,
                   color: step.highlight ? '#f6f6f4' : 'var(--accent-primary)'
                 }}>
@@ -740,7 +909,7 @@ function ComparisonSection() {
           <span className="text-xs uppercase tracking-widest text-secondary">Comparison</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4"
-            style={{ fontFamily: "'General Sans', sans-serif" }}
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
             Why Students Choose <em className="not-italic text-academic">NST</em>
           </h2>
@@ -837,7 +1006,7 @@ function TestimonialsSection() {
           <span className="text-xs uppercase tracking-widest text-secondary">Stories</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4"
-            style={{ fontFamily: "'General Sans', sans-serif" }}
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
             Voices from the <em className="not-italic text-academic">white coat journey</em>
           </h2>
@@ -854,7 +1023,7 @@ function TestimonialsSection() {
               className="card rounded-2xl p-8"
             >
               <Quote className="w-8 h-8 mb-4" style={{ color: 'oklch(72% 0.18 162 / 0.3)' }} />
-              <p className="text-lg text-foreground italic leading-relaxed mb-6" style={{ fontFamily: "'General Sans', sans-serif" }}>
+              <p className="text-lg text-foreground italic leading-relaxed mb-6" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                 "{t.quote}"
               </p>
               <div className="flex items-center gap-3">
@@ -897,7 +1066,7 @@ function AboutSection() {
                 <div className="w-36 h-36 mx-auto card rounded-full flex items-center justify-center mb-4 relative">
                   <div className="absolute inset-[2px] rounded-full bg-gradient-to-tr from-emerald-200/60 via-transparent to-blue-200/60 animate-[spin_8s_linear_infinite]" />
                   <div className="w-28 h-28 rounded-full flex items-center justify-center relative z-10" style={{ background: '#2F4F6F' }}>
-                    <span className="text-3xl text-white font-light" style={{ fontFamily: "'General Sans', sans-serif" }}>DR. S</span>
+                    <span className="text-3xl text-white font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>DR. S</span>
                   </div>
                   <motion.div 
                     className="absolute -top-1 -right-1 z-20"
@@ -910,7 +1079,7 @@ function AboutSection() {
                     </div>
                   </motion.div>
                 </div>
-                <p className="text-2xl text-foreground font-light" style={{ fontFamily: "'General Sans', sans-serif" }}>Dr. Sudharshan R.</p>
+                <p className="text-2xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Dr. Sudharshan R.</p>
                 <p className="text-sm mt-1" style={{ color: 'var(--accent-primary)' }}>MBBS, Govt. Erode Medical College</p>
                 <div className="flex flex-wrap justify-center gap-2 mt-4">
                   <motion.span 
@@ -935,7 +1104,7 @@ function AboutSection() {
               whileHover={{ y: -3 }}
               transition={{ duration: 0.25 }}
             >
-              <p className="text-3xl text-foreground font-light" style={{ fontFamily: "'General Sans', sans-serif" }}>2019</p>
+              <p className="text-3xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>2019</p>
               <p className="text-secondary text-xs uppercase tracking-wider">NEET Cracker</p>
             </motion.div>
             <div className="absolute -top-4 -left-4 text-background px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wider shadow-lg z-20" style={{ background: 'var(--accent-primary)' }}>
@@ -954,7 +1123,7 @@ function AboutSection() {
             
             <h2
               className="text-4xl sm:text-5xl text-foreground leading-tight"
-              style={{ fontFamily: "'General Sans', sans-serif" }}
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
               SR 1207 → 1000+ 120+ Scorers
             </h2>
@@ -979,15 +1148,15 @@ function AboutSection() {
 
             <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-8">
               <div className="card p-4 rounded-xl flex flex-col items-center justify-center text-center">
-                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'General Sans', sans-serif" }}>SR 1207</p>
+                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>SR 1207</p>
                 <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">NEET 2019 Rank</p>
               </div>
               <div className="card p-4 rounded-xl flex flex-col items-center justify-center text-center">
-                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'General Sans', sans-serif" }}>1000+</p>
+                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>1000+</p>
                 <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">120+ Scorers</p>
               </div>
               <div className="card p-4 rounded-xl flex flex-col items-center justify-center text-center">
-                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'General Sans', sans-serif" }}>30+</p>
+                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>30+</p>
                 <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">MCQs / Year</p>
               </div>
             </div>
@@ -1138,7 +1307,7 @@ function CTASection() {
                 <Check className="w-6 h-6" style={{ color: 'var(--accent-primary)' }} />
               </div>
             </div>
-            <h3 className="text-2xl text-foreground mb-4" style={{ fontFamily: "'General Sans', sans-serif" }}>
+            <h3 className="text-2xl text-foreground mb-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               Application Received!
             </h3>
             <p className="text-secondary mb-6">
@@ -1284,10 +1453,10 @@ function Footer() {
     <footer className="relative py-12" style={{ borderTop: '1px solid var(--border-subtle)' }}>
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 card rounded-md flex items-center justify-center text-foreground font-bold text-sm" style={{ fontFamily: "'General Sans', sans-serif" }}>
+          <div className="w-8 h-8 card rounded-md flex items-center justify-center text-foreground font-bold text-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
             N
           </div>
-          <span className="font-medium text-foreground" style={{ fontFamily: "'General Sans', sans-serif" }}>NST</span>
+          <span className="font-medium text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>NST</span>
         </div>
         <div className="flex gap-6 text-sm text-secondary">
           <a href="#home" className="hover:text-foreground transition-colors">Home</a>
