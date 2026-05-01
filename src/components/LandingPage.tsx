@@ -29,7 +29,7 @@ function AnimatedSection({ children, delay = 0, className }: { children: React.R
       className={className}
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay }}
     >
       {children}
     </motion.div>
@@ -47,7 +47,7 @@ function StaggeredSection({ children, className, stagger = 0.1 }: { children: Re
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * stagger }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * stagger }}
         >
           {child}
         </motion.div>
@@ -88,11 +88,11 @@ function Navigation() {
           <a href="#home" className="flex items-baseline">
             <span
               className="text-2xl tracking-tight"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: 'var(--text-primary)' }}
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: scrolled ? 'var(--text-primary)' : '#1a1a1a' }}
             >
               NST
             </span>
-            <sup className="text-[10px] ml-0.5" style={{ color: 'var(--text-dim)' }}>®</sup>
+            <sup className="text-[10px] ml-0.5" style={{ color: scrolled ? 'var(--text-dim)' : '#666' }}>®</sup>
           </a>
 
           <div className="hidden md:flex items-center gap-8">
@@ -101,9 +101,9 @@ function Navigation() {
                 key={link.label}
                 href={link.href}
                 className="text-sm transition-colors duration-200"
-                style={{ color: 'var(--text-dim)' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-primary)'}
-                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-dim)'}
+                style={{ color: scrolled ? 'var(--text-dim)' : '#333' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = scrolled ? 'var(--accent-primary)' : 'var(--accent-primary)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = scrolled ? 'var(--text-dim)' : '#333'}
               >
                 {link.label}
               </a>
@@ -276,7 +276,7 @@ function HeroSection() {
         className="absolute inset-0 z-[2] transition-opacity duration-700 ease-out"
         style={{
           opacity: overlayOpacity,
-          background: 'linear-gradient(to right, rgba(246,246,244,0.95) 0%, rgba(246,246,244,0.7) 35%, rgba(246,246,244,0.2) 65%, rgba(246,246,244,0.02) 100%)'
+          background: 'linear-gradient(to right, var(--bg-base) 0%, color-mix(in srgb, var(--bg-base) 70%, transparent) 35%, color-mix(in srgb, var(--bg-base) 20%, transparent) 65%, color-mix(in srgb, var(--bg-base) 2%, transparent) 100%)'
         }}
       />
 
@@ -294,7 +294,7 @@ function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.12 }}
             className="mb-6"
           >
             <span className="text-xs tracking-wider" style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -306,7 +306,7 @@ function HeroSection() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.24 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.24 }}
             className="tracking-tight leading-[1.1]"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: 'var(--text-primary)', letterSpacing: '0.02em' }}
           >
@@ -321,7 +321,7 @@ function HeroSection() {
           <motion.div
             initial={{ opacity: 0, filter: 'blur(6px)' }}
             animate={{ opacity: 1, filter: 'blur(0px)' }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.54 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.54 }}
             className="mt-5"
           >
             <p className="text-xl sm:text-2xl lg:text-[28px] leading-[1.25]" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0, color: 'var(--text-secondary)' }}>
@@ -336,7 +336,7 @@ function HeroSection() {
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
             className="text-[15px] mt-5 leading-relaxed max-w-[500px]"
             style={{ color: 'var(--text-secondary)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}
           >
@@ -347,7 +347,7 @@ function HeroSection() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.7 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
             className="text-sm mt-4 flex items-center gap-2"
             style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}
           >
@@ -359,7 +359,7 @@ function HeroSection() {
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.82 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.82 }}
             className="flex flex-wrap items-center gap-3.5 mt-8"
           >
             <motion.a
@@ -388,7 +388,7 @@ function HeroSection() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.94 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.94 }}
             className="text-[11px] uppercase tracking-[0.15em] mt-4 flex items-center gap-2.5"
             style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
@@ -403,38 +403,38 @@ function HeroSection() {
 
 function YouTubeSection() {
   const videos = [
-    { 
+    {
       id: "Aq_P9_BZQZg",
-      title: "Wasted 11th To Govt MBBS Seat NEET 2027- How? 1 Year Plan to Score 650+ in NEET Exam", 
-      duration: "18:42", 
-      views: "45K", 
-      time: "2 weeks ago" 
+      title: "Wasted 11th To Govt MBBS Seat NEET 2027- How? 1 Year Plan to Score 650+ in NEET Exam",
+      duration: "18:42",
+      views: "45K",
+      time: "2 weeks ago"
     },
-    { 
+    {
       id: "H8anJmFwjQQ",
-      title: "Units & Measurements | Dimensional Analysis Part - 1 | NST", 
-      duration: "32:15", 
-      views: "22K", 
-      time: "1 month ago" 
+      title: "Units & Measurements | Dimensional Analysis Part - 1 | NST",
+      duration: "32:15",
+      views: "22K",
+      time: "1 month ago"
     },
-    { 
+    {
       id: "TBmdKepSgX8",
-      title: "Revolution in NEET Physics Coaching: Zero 2 Hero NEET/JEE 2026 Physics Course NST", 
-      duration: "15:28", 
-      views: "38K", 
-      time: "3 days ago" 
+      title: "Revolution in NEET Physics Coaching: Zero 2 Hero NEET/JEE 2026 Physics Course NST",
+      duration: "15:28",
+      views: "38K",
+      time: "3 days ago"
     },
   ]
 
   return (
-    <section className="relative py-20">
+    <section className="relative py-16">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="section-label">YouTube Authority</span>
           <h2 className="heading-xl mt-4">
@@ -450,7 +450,7 @@ function YouTubeSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
         >
           <div className="card rounded-full px-5 py-2.5 flex items-center gap-2">
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
@@ -473,21 +473,27 @@ function YouTubeSection() {
               href={`https://www.youtube.com/watch?v=${video.id}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-xl overflow-hidden block h-full card-surface"
+              className={cn(
+                "group rounded-xl overflow-hidden block h-full card",
+                i === 0 ? "md:col-span-1" : i === 1 ? "md:col-span-1 md:mt-8" : "md:col-span-1 md:mt-4"
+              )}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
               whileHover={{ y: -4 }}
             >
-              <div
-                className="aspect-video relative flex items-center justify-center group-hover:scale-105 transition-transform duration-500"
-                style={{
-                  backgroundImage: `url(https://img.youtube.com/vi/${video.id}/mqdefault.jpg)`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
-              >
+               <div
+                 className="aspect-video relative flex items-center justify-center group-hover:scale-105 transition-transform duration-500 bg-slate-200"
+               >
+                 <img 
+                   src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
+                   alt={video.title}
+                   className="absolute inset-0 w-full h-full object-cover"
+                   onError={(e) => {
+                     (e.target as HTMLImageElement).style.display = 'none';
+                   }}
+                 />
                 <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/10 transition-colors duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent z-10" />
                 <motion.div
@@ -521,14 +527,14 @@ function InsideClassSection() {
   ]
 
   return (
-    <section id="inside" className="relative py-20">
+    <section id="inside" className="relative py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="text-xs uppercase tracking-widest text-secondary">Experience</span>
             <h2
@@ -549,7 +555,7 @@ function InsideClassSection() {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
                  >
                    <div className="w-10 h-10 card rounded-lg flex items-center justify-center flex-shrink-0">
                     <feature.icon className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
@@ -575,7 +581,7 @@ function InsideClassSection() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           >
             <div className="card overflow-hidden rounded-2xl">
               <div className="aspect-video bg-gradient-to-br from-slate-100 to-slate-200 relative flex items-center justify-center">
@@ -612,7 +618,7 @@ function InsideClassSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
              >
                <div className="flex items-center gap-2 mb-2">
                  <FileText className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
@@ -668,7 +674,7 @@ function CoursesSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="text-xs uppercase tracking-widest text-secondary">Programs</span>
           <h2
@@ -682,18 +688,18 @@ function CoursesSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 items-start">
           {courses.map((course, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.15 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.15 }}
                className={cn(
-                "card rounded-2xl p-6 relative overflow-hidden",
-                course.popular ? "border-[oklch(55%_0.15_162/0.3)]" : ""
-              )}
+                 "card rounded-2xl p-6 relative overflow-hidden",
+                 course.popular ? "border-[oklch(55%_0.15_162/0.3)] md:scale-105 md:z-10" : i === 0 ? "md:mt-8" : "md:mt-4"
+               )}
             >
               {course.popular && (
                 <div className="absolute top-4 right-4 text-xs" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '8px', paddingBlock: '4px', borderRadius: '9999px' }}>
@@ -751,14 +757,14 @@ function ResultsSection() {
   ]
 
   return (
-    <section id="results" className="relative py-20">
+    <section id="results" className="relative py-16">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
          >
            <span className="text-xs uppercase tracking-widest text-secondary">Results</span>
           <h2
@@ -769,15 +775,18 @@ function ResultsSection() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
+        <div className="grid md:grid-cols-3 gap-6 mb-8 items-start">
           {students.map((student, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.15 }}
-               className="card rounded-2xl p-8 text-center relative"
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.15 }}
+               className={cn(
+                 "card rounded-2xl p-8 text-center relative",
+                 i === 1 ? "md:mt-8" : i === 2 ? "md:mt-16" : ""
+               )}
             >
               <div className="absolute top-4 right-4 flex items-center gap-1" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', fontSize: '10px', fontWeight: '500', letterSpacing: '0.05em', textTransform: 'uppercase', paddingInline: '8px', paddingBlock: '4px', borderRadius: '9999px' }}>
                 <Check className="w-3 h-3" />
@@ -802,7 +811,7 @@ function ResultsSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
          >
            <div className="card rounded-2xl p-8 md:p-10 relative overflow-hidden">
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
@@ -846,7 +855,7 @@ function ResultsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
          >
            <div className="card rounded-full px-6 py-3 flex items-center gap-2">
              <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-primary)' }} />
@@ -875,14 +884,14 @@ function MethodSection() {
   ]
 
   return (
-    <section className="relative py-20">
+    <section className="relative py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="text-xs uppercase tracking-widest text-secondary">The Method</span>
             <h2
@@ -904,7 +913,7 @@ function MethodSection() {
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
                >
                  <div className={cn(
                   "flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-light text-xl",
@@ -939,14 +948,14 @@ function ComparisonSection() {
   ]
 
   return (
-    <section className="relative py-20">
+    <section className="relative py-16">
       <div className="max-w-4xl mx-auto px-6">
         <motion.div
           className="text-center mb-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
          >
            <span className="text-xs uppercase tracking-widest text-secondary">Comparison</span>
           <h2
@@ -962,7 +971,7 @@ function ComparisonSection() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
          >
            <div className="grid grid-cols-3 text-sm font-medium border-b" style={{ borderColor: 'var(--border-subtle)' }}>
             <div className="px-6 py-4 text-secondary">Feature</div>
@@ -976,7 +985,7 @@ function ComparisonSection() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.05 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.05 }}
              >
                <div className="px-6 py-4 text-foreground">{feature.name}</div>
               <div className="px-6 py-4 text-center">
@@ -1009,41 +1018,41 @@ function ComparisonSection() {
 
 function TestimonialsSection() {
   const testimonials = [
-    { 
-      quote: "Vetri's score jumped from 5 to 176. That was impossible before NST. The Tamil explanations changed everything.", 
-      name: "Vetrivel", 
+    {
+      quote: "Vetri's score jumped from 5 to 176. That was impossible before NST. The Tamil explanations changed everything.",
+      name: "Vetrivel",
       detail: "Score: 176/180 Physics",
       initial: "V"
     },
-    { 
-      quote: "Ashwini chose NST over Allen and secured 690 total. The prediction tests alone are worth ten times the price.", 
-      name: "Ashwini", 
+    {
+      quote: "Ashwini chose NST over Allen and secured 690 total. The prediction tests alone are worth ten times the price.",
+      name: "Ashwini",
       detail: "Score: 690 Total NEET",
       initial: "A"
     },
-    { 
-      quote: "Santhosh scored full marks 180/180 in Tamil medium. NST made it happen. The confidence Dr. S gives is unreal.", 
-      name: "Santhosh", 
+    {
+      quote: "Santhosh scored full marks 180/180 in Tamil medium. NST made it happen. The confidence Dr. S gives is unreal.",
+      name: "Santhosh",
       detail: "Score: 180/180 Physics",
       initial: "S"
     },
-    { 
-      quote: "Mehaa's Physics crossed 150+ after the prediction tests. Every rupee spent on NST returned a hundredfold in score.", 
-      name: "Mehaa", 
+    {
+      quote: "Mehaa's Physics crossed 150+ after the prediction tests. Every rupee spent on NST returned a hundredfold in score.",
+      name: "Mehaa",
       detail: "Score: 150+ Physics",
       initial: "M"
     },
   ]
 
   return (
-    <section className="relative py-20">
+    <section className="relative py-24">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="text-xs uppercase tracking-widest text-secondary">Stories</span>
           <h2
@@ -1054,15 +1063,18 @@ function TestimonialsSection() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 items-start">
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
-               className="card rounded-2xl p-8"
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
+               className={cn(
+                 "card rounded-2xl p-8",
+                 i % 2 === 0 ? "md:mt-8" : "md:mt-0"
+               )}
             >
               <Quote className="w-8 h-8 mb-4" style={{ color: 'oklch(72% 0.18 162 / 0.3)' }} />
               <p className="text-lg text-foreground italic leading-relaxed mb-6" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -1089,7 +1101,7 @@ function AboutSection() {
   const [isStoryExpanded, setIsStoryExpanded] = useState(false);
 
   return (
-    <section id="about" className="relative py-20">
+    <section id="about" className="relative py-16">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -1097,7 +1109,7 @@ function AboutSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
            >
              <motion.div 
                className="aspect-square card rounded-3xl flex items-center justify-center relative overflow-hidden"
@@ -1158,16 +1170,16 @@ function AboutSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
             className="flex flex-col justify-center"
           >
             <span className="text-xs uppercase tracking-widest text-secondary mb-3 block">The Mentor</span>
             
             <h2
-              className="text-4xl sm:text-5xl text-foreground leading-tight"
+              className="text-3xl sm:text-4xl text-foreground leading-tight"
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
-              SR 1207 → 1000+ 120+ Scorers
+              From State Rank 1207 to mentoring 1000+ students scoring 120+
             </h2>
             <p className="text-foreground font-medium mt-4 text-lg">
               Teaching NEET Physics in Tamil — like a brother, with real exam strategies.
@@ -1188,16 +1200,16 @@ function AboutSection() {
               ))}
             </div>
 
-            <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-8">
-              <div className="card p-4 rounded-xl flex flex-col items-center justify-center text-center">
+            <div className="flex flex-wrap gap-3 sm:gap-4 mt-8 justify-center">
+              <div className="card p-4 rounded-xl flex flex-col items-center justify-center text-center min-w-[100px] flex-1">
                 <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>SR 1207</p>
                 <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">NEET 2019 Rank</p>
               </div>
-              <div className="card p-4 rounded-xl flex flex-col items-center justify-center text-center">
-                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>1000+</p>
+              <div className="card p-6 rounded-xl flex flex-col items-center justify-center text-center min-w-[120px] flex-2 bg-[oklch(72%_0.18_162/0.05)]">
+                <p className="text-4xl sm:text-5xl text-foreground font-light mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>1000+</p>
                 <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">120+ Scorers</p>
               </div>
-              <div className="card p-4 rounded-xl flex flex-col items-center justify-center text-center">
+              <div className="card p-4 rounded-xl flex flex-col items-center justify-center text-center min-w-[100px] flex-1">
                 <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>30+</p>
                 <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">MCQs / Year</p>
               </div>
@@ -1215,11 +1227,11 @@ function AboutSection() {
               <AnimatePresence>
                 {isStoryExpanded && (
                   <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="overflow-hidden"
+                    initial={{ opacity: 0, scaleY: 0.95 }}
+                    animate={{ opacity: 1, scaleY: 1 }}
+                    exit={{ opacity: 0, scaleY: 0.95 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="overflow-hidden origin-top"
                   >
                     <p className="text-secondary mt-4 text-base leading-relaxed p-5 card rounded-xl" style={{ borderColor: 'var(--border-subtle)' }}>
                       Dr. Sudharshan R (MBBS, Govt. Erode Medical College) cracked NEET 2019 with State Rank 1207 through self-study as a fresher. Since then, through NST (NEET Strategies Tamil), he has guided 1000+ students to score 120+ in Physics. His content is widely followed for predicting NEET MCQs, with 30+ questions appearing in Physics and Chemistry every year over the past 6 years.
@@ -1229,7 +1241,7 @@ function AboutSection() {
               </AnimatePresence>
             </div>
 
-            <div className="mt-8 pl-4" style={{ borderLeft: '2px solid oklch(72% 0.18 162 / 0.3)' }}>
+            <div className="mt-8 pl-4 accent-highlight">
               <p className="text-foreground font-medium">
                 "Physics will no longer be your weak subject. That's a promise."
               </p>
@@ -1341,7 +1353,7 @@ function CTASection() {
   
   if (formState === 'success') {
     return (
-      <section id="contact" className="relative py-20">
+      <section id="contact" className="relative py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="card rounded-2xl p-12">
             <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ background: 'oklch(72% 0.18 162 / 0.15)' }}>
@@ -1370,7 +1382,7 @@ function CTASection() {
   }
 
   return (
-    <section id="contact" className="relative py-20">
+    <section id="contact" className="relative py-24">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <span className="section-label">Start Today</span>
         <h2 className="heading-xl mt-4" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>
@@ -1507,8 +1519,8 @@ function Footer() {
           <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
         </div>
         <div className="flex gap-4">
-          <motion.a 
-            href="https://www.youtube.com/@NeetstrategiesinTamil" 
+          <motion.a
+            href="https://www.youtube.com/@NeetstrategiesinTamil"
             target="_blank"
             rel="noopener noreferrer"
             className="w-9 h-9 card rounded-full flex items-center justify-center text-secondary hover:text-red-500 transition-colors"
@@ -1516,7 +1528,9 @@ function Footer() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="text-xs">YT</span>
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
           </motion.a>
           <motion.a 
             href="https://wa.me/918610690010" 
@@ -1525,7 +1539,7 @@ function Footer() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="text-xs">WA</span>
+            <MessageCircle className="w-4 h-4" />
           </motion.a>
           <motion.a 
             href="tel:+918610690010" 
@@ -1534,7 +1548,7 @@ function Footer() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="text-xs">Ph</span>
+            <Phone className="w-4 h-4" />
           </motion.a>
         </div>
       </div>

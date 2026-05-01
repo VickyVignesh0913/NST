@@ -63,45 +63,6 @@
     box-shadow: 0 16px 40px rgba(0,0,0,0.08);
   }
 
-  .card-surface {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .card-surface:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
-  }
-
-  .card-elevated {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .card-elevated:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
-  }
-
-  .liquid-glass {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .liquid-glass:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
-  }
-
   .hero-btn-primary {
     background: var(--accent-primary);
     color: var(--bg-base);
@@ -273,6 +234,12 @@
   .font-tamil {
     font-family: 'Arima Madurai', sans-serif;
     letter-spacing: 0;
+  }
+
+  .accent-highlight {
+    background: oklch(72% 0.18 162 / 0.1);
+    border-radius: 4px;
+    padding-left: 12px;
   }
 }
 
