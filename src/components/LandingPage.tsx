@@ -91,11 +91,29 @@ function Navigation() {
 
 function HeroSection() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center">
-      <div className="max-w-7xl mx-auto w-full px-6 pt-32 pb-16">
+    <section id="home" className="relative min-h-screen overflow-hidden">
+      {/* Hero Image Background */}
+      <img
+        src="/hero.png"
+        alt="NEET Physics coaching - Student studying"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ filter: 'saturate(0.85) brightness(0.9)' }}
+        loading="eager"
+      />
+
+      {/* Gradient Overlay */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(to right, #F7F3EE 25%, rgba(247,243,238,0.85) 55%, rgba(247,243,238,0.4) 80%, transparent 100%)'
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 pt-36 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: Text Content */}
-          <div className="relative z-10">
+          <div>
             <div className="animate-fade-rise inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
               <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--accent-primary)' }} />
               <span className="text-xs" style={{ color: 'var(--text-dim)' }}>Dr. Sudharshan R. | MBBS</span>
@@ -169,58 +187,48 @@ function HeroSection() {
             </p>
           </div>
 
-          {/* Right: Hero Image */}
-          <motion.div
-            className="relative h-[500px] lg:h-[600px] hidden lg:block rounded-2xl overflow-hidden"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <img
-              src="/hero.png"
-              alt="NEET Physics coaching - Student studying"
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{
-                filter: 'saturate(0.85) brightness(0.9)',
-              }}
-              loading="eager"
-            />
-            <div
-              className="absolute inset-0"
-              style={{
-                background: 'linear-gradient(to right, #F7F3EE 20%, rgba(247,243,238,0.6) 60%, transparent 100%)'
-              }}
-            />
-
-            <div className="absolute top-6 right-6 z-10 card p-5">
-              <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-dim)' }}>Avg. Score</p>
-              <p className="text-2xl font-light" style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}>156/180</p>
-            </div>
-
-            <div className="absolute bottom-6 left-6 z-10 card p-5">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'oklch(72% 0.18 162 / 0.15)' }}>
-                  <GraduationCap className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
-                </div>
-                <div>
-                  <p className="font-medium text-sm" style={{ color: 'var(--text-primary)' }}>NST ELITE</p>
-                  <p className="text-xs" style={{ color: 'var(--text-dim)' }}>Batch 2027</p>
-                </div>
-              </div>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-xs" style={{ color: 'var(--text-secondary)' }}>
-                  <Check className="w-3 h-3" style={{ color: 'var(--accent-primary)' }} />
-                  <span>Live Classes + Recordings</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs" style={{ color: 'var(--text-secondary)' }}>
-                  <Check className="w-3 h-3" style={{ color: 'var(--accent-primary)' }} />
-                  <span>PDF Notes in Tamil</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+          {/* Right: Empty for image to show through */}
+          <div className="hidden lg:block" />
         </div>
       </div>
+
+      {/* Floating Cards on Image */}
+      <motion.div
+        className="absolute top-8 right-8 z-10 card p-5 hidden lg:block"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-dim)' }}>Avg. Score</p>
+        <p className="text-2xl font-light" style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}>156/180</p>
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-8 right-8 z-10 card p-5 max-w-[260px] hidden lg:block"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.7 }}
+      >
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'oklch(72% 0.18 162 / 0.15)' }}>
+            <GraduationCap className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
+          </div>
+          <div>
+            <p className="font-medium text-sm" style={{ color: 'var(--text-primary)' }}>NST ELITE</p>
+            <p className="text-xs" style={{ color: 'var(--text-dim)' }}>Batch 2027</p>
+          </div>
+        </div>
+        <div className="space-y-2">
+          <div className="flex items-center gap-2 text-xs" style={{ color: 'var(--text-secondary)' }}>
+            <Check className="w-3 h-3" style={{ color: 'var(--accent-primary)' }} />
+            <span>Live Classes + Recordings</span>
+          </div>
+          <div className="flex items-center gap-2 text-xs" style={{ color: 'var(--text-secondary)' }}>
+            <Check className="w-3 h-3" style={{ color: 'var(--accent-primary)' }} />
+            <span>PDF Notes in Tamil</span>
+          </div>
+        </div>
+      </motion.div>
     </section>
   )
 }
