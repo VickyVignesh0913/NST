@@ -19,7 +19,6 @@ import {
   ChevronDown
 } from 'lucide-react'
 
-// Navigation Component
 function Navigation() {
   const [scrolled, setScrolled] = useState(false)
 
@@ -48,9 +47,8 @@ function Navigation() {
         borderColor: scrolled ? 'var(--border-subtle)' : 'transparent'
       }}
     >
-      <div className="max-w-7xl mx-auto px-8 py-5">
+      <div className="max-w-7xl mx-auto px-6 py-5">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <a href="#home" className="flex items-baseline">
             <span
               className="text-2xl tracking-tight"
@@ -61,7 +59,6 @@ function Navigation() {
             <sup className="text-[10px] ml-0.5" style={{ color: 'var(--text-dim)' }}>®</sup>
           </a>
 
-          {/* Nav Links - Desktop Only */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
@@ -77,7 +74,6 @@ function Navigation() {
             ))}
           </div>
 
-          {/* CTA Button */}
           <motion.a
             href="#contact"
             className="btn-primary btn-glow px-5 py-2 text-sm relative overflow-hidden"
@@ -93,30 +89,18 @@ function Navigation() {
   )
 }
 
-// Hero Section
 function HeroSection() {
   return (
-    <section id="home" className="relative min-h-screen flex flex-col justify-center">
-      {/* Mint glow near headline area */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_30%,var(--glow-mint)_0%,transparent_50%)] z-0" />
-      
-      {/* Peach glow near CTA area */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_70%,var(--glow-peach)_0%,transparent_40%)] z-0" />
-
-      
-      
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-36 pb-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
-          <div>
-            {/* Badge */}
+    <section id="home" className="relative min-h-screen flex items-center">
+      <div className="max-w-7xl mx-auto w-full px-6 pt-32 pb-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left: Text Content */}
+          <div className="relative z-10">
             <div className="animate-fade-rise inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
               <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--accent-primary)' }} />
               <span className="text-xs" style={{ color: 'var(--text-dim)' }}>Dr. Sudharshan R. | MBBS</span>
             </div>
 
-            {/* H1 */}
             <h1
               className="animate-fade-rise text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight font-normal"
               style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}
@@ -127,13 +111,11 @@ function HeroSection() {
               <span className="text-4xl sm:text-5xl lg:text-6xl">Feel பண்ணு</span>
             </h1>
 
-            {/* Subtext */}
             <p className="animate-fade-rise-delay text-lg max-w-lg mt-8 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               Premium NEET Physics coaching crafted for Tamil medium aspirants who dream of white coats.
               6 years of proven results.
             </p>
 
-            {/* Stats */}
             <div className="animate-fade-rise-delay-2 flex gap-12 mt-10">
               <div className="accent-left pl-4">
                 <p className="text-3xl font-light" style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--accent-primary)' }}>1000+</p>
@@ -151,7 +133,6 @@ function HeroSection() {
               </div>
             </div>
 
-            {/* CTAs */}
             <div className="animate-fade-rise-delay-2 flex flex-wrap items-center gap-4 mt-10">
               <motion.a
                 href="#courses"
@@ -182,68 +163,61 @@ function HeroSection() {
               </motion.a>
             </div>
 
-            {/* Urgency */}
             <p className="animate-fade-rise-delay-2 text-[11px] uppercase tracking-[0.15em] mt-5 flex items-center gap-2.5" style={{ color: 'var(--text-dim)' }}>
               <span className="inline-block w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
               Limited Seats Available • Batch Closing Soon
             </p>
           </div>
 
-          {/* Right Content - Course Card Preview */}
+          {/* Right: Hero Image */}
           <motion.div
-            className="animate-fade-rise-delay relative hidden lg:block"
-            initial={{ opacity: 0, x: 30 }}
+            className="relative h-[500px] lg:h-[600px] hidden lg:block rounded-2xl overflow-hidden"
+            initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <motion.div
-              className="relative"
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
-            >
-              <div className="card-hover-lift rounded-2xl p-8 relative z-10 liquid-glass">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'oklch(72% 0.18 162 / 0.15)' }}>
-                    <GraduationCap className="w-6 h-6" style={{ color: 'var(--accent-primary)' }} />
-                  </div>
-                  <div>
-                    <p className="font-medium" style={{ color: 'var(--text-primary)' }}>NST ELITE</p>
-                    <p className="text-xs" style={{ color: 'var(--text-dim)' }}>Batch 2027</p>
-                  </div>
-                </div>
+            <img
+              src="/hero.png"
+              alt="NEET Physics coaching - Student studying"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{
+                filter: 'saturate(0.85) brightness(0.9)',
+              }}
+              loading="eager"
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(to right, #F7F3EE 20%, rgba(247,243,238,0.6) 60%, transparent 100%)'
+              }}
+            />
 
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
-                    <Check className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
-                    <span>Live Classes + Recordings</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
-                    <Check className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
-                    <span>PDF Notes in Tamil</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
-                    <Check className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
-                    <span>1-on-1 Doubt Clearing</span>
-                  </div>
-                </div>
+            <div className="absolute top-6 right-6 z-10 card p-5">
+              <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-dim)' }}>Avg. Score</p>
+              <p className="text-2xl font-light" style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}>156/180</p>
+            </div>
 
-                <div className="flex items-baseline gap-2">
-                  <span className="text-2xl font-light" style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}>₹14,999</span>
-                  <span className="text-sm" style={{ color: 'var(--text-dim)', textDecoration: 'line-through' }}>₹30,000</span>
-                  <span className="text-xs px-2 py-0.5 rounded" style={{ background: 'oklch(72% 0.18 162 / 0.15)', color: 'var(--accent-primary)' }}>51% OFF</span>
+            <div className="absolute bottom-6 left-6 z-10 card p-5">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'oklch(72% 0.18 162 / 0.15)' }}>
+                  <GraduationCap className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
+                </div>
+                <div>
+                  <p className="font-medium text-sm" style={{ color: 'var(--text-primary)' }}>NST ELITE</p>
+                  <p className="text-xs" style={{ color: 'var(--text-dim)' }}>Batch 2027</p>
                 </div>
               </div>
-
-              {/* Floating Badge */}
-              <motion.div
-                className="absolute -top-6 -right-6 rounded-2xl px-5 py-3 z-20 liquid-glass"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.2 }}
-              >
-                <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-dim)' }}>Avg. Score</p>
-                <p className="text-2xl font-light" style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}>156/180</p>
-              </motion.div>
-            </motion.div>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-xs" style={{ color: 'var(--text-secondary)' }}>
+                  <Check className="w-3 h-3" style={{ color: 'var(--accent-primary)' }} />
+                  <span>Live Classes + Recordings</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs" style={{ color: 'var(--text-secondary)' }}>
+                  <Check className="w-3 h-3" style={{ color: 'var(--accent-primary)' }} />
+                  <span>PDF Notes in Tamil</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -251,7 +225,6 @@ function HeroSection() {
   )
 }
 
-// YouTube Authority Section
 function YouTubeSection() {
   const videos = [
     { 
@@ -278,16 +251,10 @@ function YouTubeSection() {
   ]
 
   return (
-    <section className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,var(--glow-mint)_0%,transparent_50%)]" />
-
-      
-      
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* Header */}
+    <section className="relative py-20">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          className="text-center mb-10 relative"
+          className="text-center mb-10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -302,7 +269,6 @@ function YouTubeSection() {
           </p>
         </motion.div>
 
-        {/* Stats Pills */}
         <motion.div
           className="flex flex-wrap justify-center gap-4 mb-10"
           initial={{ opacity: 0, y: 20 }}
@@ -310,21 +276,20 @@ function YouTubeSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <div className="rounded-full px-5 py-2.5 flex items-center gap-2" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
+          <div className="card rounded-full px-5 py-2.5 flex items-center gap-2">
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
             <span className="text-sm" style={{ color: 'var(--text-primary)' }}>1L+ Subscribers</span>
           </div>
-          <div className="rounded-full px-5 py-2.5 flex items-center gap-2" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
+          <div className="card rounded-full px-5 py-2.5 flex items-center gap-2">
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-primary)' }} />
             <span className="text-sm" style={{ color: 'var(--text-primary)' }}>150+ Strategy Sessions</span>
           </div>
-          <div className="rounded-full px-5 py-2.5 flex items-center gap-2" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
+          <div className="card rounded-full px-5 py-2.5 flex items-center gap-2">
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--text-dim)' }} />
             <span className="text-sm" style={{ color: 'var(--text-primary)' }}>Tamil Medium First</span>
           </div>
         </motion.div>
 
-        {/* Video Cards */}
         <div className="grid md:grid-cols-3 gap-6 items-start">
           {videos.map((video, i) => (
             <motion.a
@@ -372,7 +337,6 @@ function YouTubeSection() {
   )
 }
 
-// Inside the Class Section
 function InsideClassSection() {
   const features = [
     { icon: BookOpen, title: "Tamil Explanation", desc: "Every concept explained in pure Tamil. No English barrier." },
@@ -381,15 +345,9 @@ function InsideClassSection() {
   ]
 
   return (
-    <section id="inside" className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,var(--glow-peach)_0%,transparent_50%)]" />
-
-      
-      
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+    <section id="inside" className="relative py-20">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -417,8 +375,8 @@ function InsideClassSection() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
                 >
-                  <div className="w-10 h-10 liquid-glass rounded-lg flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-5 h-5 text-blue-400" />
+                  <div className="w-10 h-10 card rounded-lg flex items-center justify-center flex-shrink-0">
+                    <feature.icon className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
                   </div>
                   <div>
                     <h4 className="text-foreground font-medium">{feature.title}</h4>
@@ -429,14 +387,13 @@ function InsideClassSection() {
             </div>
 
             <div className="mt-8 flex items-center gap-3">
-              <span className="text-xs font-medium uppercase tracking-wider text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-full">
+              <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '12px', paddingBlock: '4px', borderRadius: '9999px' }}>
                 Live Class Preview
               </span>
               <span className="text-xs text-secondary">Recorded & Available 24/7</span>
             </div>
           </motion.div>
 
-          {/* Right Content - Video Player Mock */}
           <motion.div
             className="relative"
             initial={{ opacity: 0, x: 30 }}
@@ -444,9 +401,8 @@ function InsideClassSection() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="liquid-glass rounded-2xl overflow-hidden">
+            <div className="card overflow-hidden rounded-2xl">
               <div className="aspect-video bg-gradient-to-br from-slate-100 to-slate-200 relative flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent" />
                 <div className="relative z-10 text-center">
                   <div className="w-16 h-16 mx-auto bg-white shadow-lg rounded-full flex items-center justify-center mb-3 cursor-pointer hover:scale-110 transition-transform">
                     <Play className="w-7 h-7 text-blue-500 ml-1 fill-current" />
@@ -457,7 +413,7 @@ function InsideClassSection() {
               </div>
               <div className="p-5">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/10 flex items-center justify-center text-blue-400 font-bold text-xs">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/10 flex items-center justify-center" style={{ color: 'var(--accent-primary)', fontWeight: 'bold', fontSize: '12px' }}>
                     DR
                   </div>
                   <div>
@@ -467,7 +423,7 @@ function InsideClassSection() {
                 </div>
                 <div className="flex gap-2">
                   {['HD Video', 'PDF Notes', 'Q&A Live'].map((tag) => (
-                    <span key={tag} className="px-3 py-1 bg-surface rounded-md text-xs text-secondary border border-subtle">
+                    <span key={tag} className="px-3 py-1 rounded-md text-xs text-secondary border border-subtle" style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-subtle)' }}>
                       {tag}
                     </span>
                   ))}
@@ -475,16 +431,15 @@ function InsideClassSection() {
               </div>
             </div>
 
-            {/* Floating Notes Card */}
             <motion.div
-              className="absolute -bottom-6 -right-6 liquid-glass p-4 rounded-xl max-w-[200px] hidden sm:block"
+              className="absolute -bottom-6 -right-6 card p-4 rounded-xl max-w-[200px] hidden sm:block"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.5 }}
             >
               <div className="flex items-center gap-2 mb-2">
-                <FileText className="w-4 h-4 text-blue-400" />
+                <FileText className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
                 <span className="text-foreground font-medium text-sm">Class Notes</span>
               </div>
               <p className="text-secondary text-xs">
@@ -498,7 +453,6 @@ function InsideClassSection() {
   )
 }
 
-// Courses Section
 function CoursesSection() {
   const courses = [
     {
@@ -531,22 +485,15 @@ function CoursesSection() {
   ]
 
   return (
-    <section id="courses" className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,var(--glow-mint)_0%,transparent_50%)]" />
-
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_40%_60%,var(--glow-mint)_0%,transparent_50%)]" />
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* Header */}
+    <section id="courses" className="relative py-20">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          className="max-w-2xl mb-16 relative"
+          className="max-w-2xl mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          
-          
           <span className="text-xs uppercase tracking-widest text-secondary">Programs</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
@@ -559,7 +506,6 @@ function CoursesSection() {
           </p>
         </motion.div>
 
-        {/* Course Cards */}
         <div className="grid md:grid-cols-3 gap-6">
           {courses.map((course, i) => (
             <motion.div
@@ -569,12 +515,12 @@ function CoursesSection() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className={cn(
-                "liquid-glass rounded-2xl p-6 relative overflow-hidden hover:scale-[1.02] transition-transform duration-500",
-                course.popular && "border-blue-400/30"
+                "card rounded-2xl p-6 relative overflow-hidden",
+                course.popular ? "border-[oklch(55%_0.15_162/0.3)]" : ""
               )}
             >
               {course.popular && (
-                <div className="absolute top-4 right-4 text-xs text-blue-400 bg-blue-400/10 px-2 py-1 rounded-full">
+                <div className="absolute top-4 right-4 text-xs" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '8px', paddingBlock: '4px', borderRadius: '9999px' }}>
                   {course.tag}
                 </div>
               )}
@@ -591,7 +537,7 @@ function CoursesSection() {
                   </span>
                   <span className="text-sm text-secondary line-through">{course.original}</span>
                 </div>
-                <span className="text-xs text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded inline-block mt-2">
+                <span className="text-xs" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '8px', paddingBlock: '2px', borderRadius: '4px', display: 'inline-block', marginTop: '8px' }}>
                   {course.discount}
                 </span>
               </div>
@@ -599,7 +545,7 @@ function CoursesSection() {
               <ul className="space-y-2 mb-6">
                 {course.features.map((feature, j) => (
                   <li key={j} className="flex items-center gap-2 text-sm text-secondary">
-                    <Check className="w-4 h-4 text-emerald-400" />
+                    <Check className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
                     {feature}
                   </li>
                 ))}
@@ -621,7 +567,6 @@ function CoursesSection() {
   )
 }
 
-// Results Section
 function ResultsSection() {
   const students = [
     { name: "Vetrivel", score: "176", total: "180", story: "From 5 to 176. Unthinkable.", initial: "V" },
@@ -630,22 +575,15 @@ function ResultsSection() {
   ]
 
   return (
-    <section id="results" className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,var(--glow-peach)_0%,transparent_50%)]" />
-
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,var(--glow-mint)_0%,transparent_60%)]" />
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* Header */}
+    <section id="results" className="relative py-20">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          className="text-center mb-16 relative"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          
-          
           <span className="text-xs uppercase tracking-widest text-secondary">Results</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
@@ -655,7 +593,6 @@ function ResultsSection() {
           </h2>
         </motion.div>
 
-        {/* Student Cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           {students.map((student, i) => (
             <motion.div
@@ -664,14 +601,14 @@ function ResultsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="liquid-glass rounded-2xl p-8 text-center relative"
+              className="card rounded-2xl p-8 text-center relative"
             >
-              <div className="absolute top-4 right-4 flex items-center gap-1 text-emerald-400 bg-emerald-400/10 text-[10px] font-medium uppercase tracking-wider px-2 py-1 rounded-full">
+              <div className="absolute top-4 right-4 flex items-center gap-1" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', fontSize: '10px', fontWeight: '500', letterSpacing: '0.05em', textTransform: 'uppercase', paddingInline: '8px', paddingBlock: '4px', borderRadius: '9999px' }}>
                 <Check className="w-3 h-3" />
                 Verified
               </div>
               
-              <div className="w-12 h-12 mx-auto liquid-glass rounded-full flex items-center justify-center text-blue-400 font-bold text-lg mb-4">
+              <div className="w-12 h-12 mx-auto card rounded-full flex items-center justify-center font-bold text-lg mb-4" style={{ color: 'var(--accent-primary)' }}>
                 {student.initial}
               </div>
               
@@ -679,12 +616,11 @@ function ResultsSection() {
               <p className="text-5xl text-foreground font-light mb-1" style={{ fontFamily: "'Instrument Serif', serif" }}>
                 {student.score}<span className="text-2xl text-secondary">/{student.total}</span>
               </p>
-              <p className="text-blue-400 text-sm">{student.story}</p>
+              <p style={{ color: 'var(--accent-primary)' }} className="text-sm">{student.story}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Case Study */}
         <motion.div
           className="max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
@@ -692,11 +628,10 @@ function ResultsSection() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div className="liquid-glass rounded-2xl p-8 md:p-10 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-blue-500/5 rounded-full blur-2xl" />
+          <div className="card rounded-2xl p-8 md:p-10 relative overflow-hidden">
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
               <div className="text-center md:text-left">
-                <span className="inline-block mb-3 text-xs font-medium uppercase tracking-wider text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-full">
+                <span className="inline-block mb-3 text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '12px', paddingBlock: '4px', borderRadius: '9999px' }}>
                   Featured Case Study
                 </span>
                 <h3 className="text-2xl md:text-3xl text-foreground font-light mb-2" style={{ fontFamily: "'Instrument Serif', serif" }}>
@@ -706,7 +641,7 @@ function ResultsSection() {
                   "I joined NST as a dropper with barely 40 marks in Physics. Dr. S didn't just teach formulas — he changed how I think about Physics."
                 </p>
                 <div className="mt-4 flex items-center gap-3">
-                  <div className="w-10 h-10 liquid-glass rounded-full flex items-center justify-center text-blue-400 font-bold">R</div>
+                  <div className="w-10 h-10 card rounded-full flex items-center justify-center font-bold" style={{ color: 'var(--accent-primary)' }}>R</div>
                   <div>
                     <p className="text-foreground font-medium text-sm">Rohini K.</p>
                     <p className="text-secondary text-xs">NEET 2025 • Govt. Medical College</p>
@@ -719,9 +654,9 @@ function ResultsSection() {
                     <p className="text-secondary text-xs uppercase tracking-wider mb-1">Before</p>
                     <p className="text-4xl text-secondary font-light" style={{ fontFamily: "'Instrument Serif', serif" }}>40</p>
                   </div>
-                  <ArrowRight className="w-8 h-8 text-blue-400" />
+                  <ArrowRight className="w-8 h-8" style={{ color: 'var(--accent-primary)' }} />
                   <div className="text-center">
-                    <p className="text-blue-400 text-xs uppercase tracking-wider mb-1">After</p>
+                    <p style={{ color: 'var(--accent-primary)' }} className="text-xs uppercase tracking-wider mb-1">After</p>
                     <p className="text-4xl text-foreground font-light" style={{ fontFamily: "'Instrument Serif', serif" }}>165</p>
                   </div>
                 </div>
@@ -730,7 +665,6 @@ function ResultsSection() {
           </div>
         </motion.div>
 
-        {/* Stats Pills */}
         <motion.div
           className="mt-12 flex flex-wrap justify-center gap-4"
           initial={{ opacity: 0, y: 20 }}
@@ -738,16 +672,16 @@ function ResultsSection() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <div className="liquid-glass rounded-full px-6 py-3 flex items-center gap-2">
-            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+          <div className="card rounded-full px-6 py-3 flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-primary)' }} />
             <span className="text-sm text-foreground">1000+ students trained</span>
           </div>
-          <div className="liquid-glass rounded-full px-6 py-3 flex items-center gap-2">
-            <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+          <div className="card rounded-full px-6 py-3 flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full animate-pulse" style={{ color: 'var(--accent-muted)' }} />
             <span className="text-sm text-foreground">6 years of predictions</span>
           </div>
-          <div className="liquid-glass rounded-full px-6 py-3 flex items-center gap-2">
-            <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
+          <div className="card rounded-full px-6 py-3 flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--text-dim)' }} />
             <span className="text-sm text-foreground">Tamil medium first</span>
           </div>
         </motion.div>
@@ -756,7 +690,6 @@ function ResultsSection() {
   )
 }
 
-// Method Section
 function MethodSection() {
   const steps = [
     { num: "01", title: "Concept First", desc: "Every topic broken down into intuitive Tamil explanations. No textbook jargon." },
@@ -766,10 +699,8 @@ function MethodSection() {
   ]
 
   return (
-    <section className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,var(--glow-peach)_0%,transparent_50%)]" />
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+    <section className="relative py-20">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -801,8 +732,12 @@ function MethodSection() {
               >
                 <div className={cn(
                   "flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-light text-xl",
-                  step.highlight ? "bg-blue-400 text-background" : "liquid-glass text-blue-400"
-                )} style={{ fontFamily: "'Instrument Serif', serif" }}>
+                  step.highlight ? "text-background" : "card"
+                )} style={{ 
+                  fontFamily: "'Instrument Serif', serif",
+                  background: step.highlight ? 'var(--accent-primary)' : undefined,
+                  color: step.highlight ? '#F7F3EE' : 'var(--accent-primary)'
+                }}>
                   {step.num}
                 </div>
                 <div>
@@ -818,7 +753,6 @@ function MethodSection() {
   )
 }
 
-// Comparison Section
 function ComparisonSection() {
   const features = [
     { name: "Tamil Explanation", nst: true, others: false },
@@ -829,8 +763,8 @@ function ComparisonSection() {
   ]
 
   return (
-    <section className="relative py-32 overflow-hidden">
-      <div className="relative z-10 max-w-4xl mx-auto px-6">
+    <section className="relative py-20">
+      <div className="max-w-4xl mx-auto px-6">
         <motion.div
           className="text-center mb-14"
           initial={{ opacity: 0, y: 30 }}
@@ -848,21 +782,21 @@ function ComparisonSection() {
         </motion.div>
 
         <motion.div
-          className="liquid-glass rounded-2xl overflow-hidden"
+          className="card rounded-2xl overflow-hidden"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="grid grid-cols-3 text-sm font-medium border-b border-subtle">
+          <div className="grid grid-cols-3 text-sm font-medium border-b" style={{ borderColor: 'var(--border-subtle)' }}>
             <div className="px-6 py-4 text-secondary">Feature</div>
-            <div className="px-6 py-4 text-foreground bg-surface text-center font-medium">NST</div>
+            <div className="px-6 py-4 text-foreground bg-surface text-center font-medium" style={{ background: 'var(--bg-surface)' }}>NST</div>
             <div className="px-6 py-4 text-secondary text-center">Others</div>
           </div>
           {features.map((feature, i) => (
             <motion.div
               key={i}
-              className="grid grid-cols-3 text-sm border-b border-border/30 last:border-0 items-center"
+              className="grid grid-cols-3 text-sm border-b last:border-0 items-center" style={{ borderColor: 'var(--border-subtle)' }}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -897,7 +831,6 @@ function ComparisonSection() {
   )
 }
 
-// Testimonials Section
 function TestimonialsSection() {
   const testimonials = [
     { 
@@ -927,12 +860,10 @@ function TestimonialsSection() {
   ]
 
   return (
-    <section className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_70%,var(--glow-mint)_0%,transparent_50%)]" />
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+    <section className="relative py-20">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          className="text-center mb-16 relative"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -955,14 +886,14 @@ function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="liquid-glass rounded-2xl p-8"
+              className="card rounded-2xl p-8"
             >
-              <Quote className="w-8 h-8 text-blue-400/30 mb-4" />
+              <Quote className="w-8 h-8 mb-4" style={{ color: 'oklch(72% 0.18 162 / 0.3)' }} />
               <p className="text-lg text-foreground italic leading-relaxed mb-6" style={{ fontFamily: "'Instrument Serif', serif" }}>
                 "{t.quote}"
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 liquid-glass rounded-full flex items-center justify-center text-blue-400 font-bold">
+                <div className="w-10 h-10 card rounded-full flex items-center justify-center font-bold" style={{ color: 'var(--accent-primary)' }}>
                   {t.initial}
                 </div>
                 <div>
@@ -978,20 +909,13 @@ function TestimonialsSection() {
   )
 }
 
-// About Section
 function AboutSection() {
   const [isStoryExpanded, setIsStoryExpanded] = useState(false);
 
   return (
-    <section id="about" className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,var(--glow-peach)_0%,transparent_50%)]" />
-
-      
-      
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+    <section id="about" className="relative py-20">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Image Card */}
           <motion.div
             className="relative"
             initial={{ opacity: 0, y: 20 }}
@@ -1000,19 +924,14 @@ function AboutSection() {
             transition={{ duration: 0.6 }}
           >
             <motion.div 
-              className="aspect-square liquid-glass rounded-3xl flex items-center justify-center relative overflow-hidden"
-              whileHover={{ 
-                y: -6, 
-                boxShadow: "0 25px 50px -12px rgba(16, 185, 129, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.3)" 
-              }}
+              className="aspect-square card rounded-3xl flex items-center justify-center relative overflow-hidden"
+              whileHover={{ y: -6 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
             >
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.15),transparent_60%)] z-0" />
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:24px_24px] z-0" />
               <div className="relative z-10 text-center">
-                <div className="w-36 h-36 mx-auto liquid-glass rounded-full flex items-center justify-center mb-4 relative">
+                <div className="w-36 h-36 mx-auto card rounded-full flex items-center justify-center mb-4 relative">
                   <div className="absolute inset-[2px] rounded-full bg-gradient-to-tr from-emerald-200/60 via-transparent to-blue-200/60 animate-[spin_8s_linear_infinite]" />
-                  <div className="w-28 h-28 bg-[#2F4F6F] rounded-full flex items-center justify-center relative z-10 backdrop-blur-sm">
+                  <div className="w-28 h-28 rounded-full flex items-center justify-center relative z-10" style={{ background: '#2F4F6F' }}>
                     <span className="text-3xl text-white font-light" style={{ fontFamily: "'Instrument Serif', serif" }}>DR. S</span>
                   </div>
                   <motion.div 
@@ -1027,19 +946,19 @@ function AboutSection() {
                   </motion.div>
                 </div>
                 <p className="text-2xl text-foreground font-light" style={{ fontFamily: "'Instrument Serif', serif" }}>Dr. Sudharshan R.</p>
-                <p className="text-blue-400 text-sm mt-1">MBBS, Govt. Erode Medical College</p>
+                <p className="text-sm mt-1" style={{ color: 'var(--accent-primary)' }}>MBBS, Govt. Erode Medical College</p>
                 <div className="flex flex-wrap justify-center gap-2 mt-4">
                   <motion.span 
-                    className="px-3 py-1 liquid-glass rounded-full text-xs text-blue-400 cursor-pointer"
-                    whileHover={{ scale: 1.03, filter: "brightness(0.95)" }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    className="px-3 py-1 card rounded-full text-xs cursor-pointer" style={{ color: 'var(--accent-primary)' }}
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ duration: 0.2 }}
                   >
                     NEET 2019 Cracker
                   </motion.span>
                   <motion.span 
-                    className="px-3 py-1 liquid-glass rounded-full text-xs text-blue-400 cursor-pointer"
-                    whileHover={{ scale: 1.03, filter: "brightness(0.95)" }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    className="px-3 py-1 card rounded-full text-xs cursor-pointer" style={{ color: 'var(--accent-primary)' }}
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ duration: 0.2 }}
                   >
                     1,000+ Students
                   </motion.span>
@@ -1047,19 +966,18 @@ function AboutSection() {
               </div>
             </motion.div>
             <motion.div 
-              className="absolute -bottom-6 -right-6 liquid-glass p-4 rounded-xl z-20"
-              whileHover={{ y: -3, boxShadow: "0 10px 20px -5px rgba(0,0,0,0.1)" }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="absolute -bottom-6 -right-6 card p-4 rounded-xl z-20"
+              whileHover={{ y: -3 }}
+              transition={{ duration: 0.25 }}
             >
               <p className="text-3xl text-foreground font-light" style={{ fontFamily: "'Instrument Serif', serif" }}>2019</p>
               <p className="text-secondary text-xs uppercase tracking-wider">NEET Cracker</p>
             </motion.div>
-            <div className="absolute -top-4 -left-4 bg-blue-400 text-background px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-400/20 z-20">
+            <div className="absolute -top-4 -left-4 text-background px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wider shadow-lg z-20" style={{ background: 'var(--accent-primary)' }}>
               Authority
             </div>
           </motion.div>
 
-          {/* Right - Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1069,7 +987,6 @@ function AboutSection() {
           >
             <span className="text-xs uppercase tracking-widest text-secondary mb-3 block">The Mentor</span>
             
-            {/* Headline & Subheading */}
             <h2
               className="text-4xl sm:text-5xl text-foreground leading-tight"
               style={{ fontFamily: "'Instrument Serif', serif" }}
@@ -1080,7 +997,6 @@ function AboutSection() {
               Teaching NEET Physics in Tamil — like a brother, with real exam strategies.
             </p>
 
-            {/* Minimal Achievement Chips */}
             <div className="flex flex-wrap gap-2 mt-5">
               {[
                 'MBBS • Govt. Erode Medical College', 
@@ -1088,34 +1004,33 @@ function AboutSection() {
               ].map((tag) => (
                 <span 
                   key={tag} 
-                  className="px-3 py-1.5 border border-border/40 bg-surface/30 rounded-full text-[11px] text-secondary inline-block"
+                  className="px-3 py-1.5 border rounded-full text-[11px] text-secondary inline-block"
+                  style={{ borderColor: 'var(--border-subtle)', background: 'var(--bg-surface)' }}
                 >
                   {tag}
                 </span>
               ))}
             </div>
 
-            {/* Stats Blocks */}
             <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-8">
-              <div className="liquid-glass p-4 rounded-xl flex flex-col items-center justify-center text-center">
+              <div className="card p-4 rounded-xl flex flex-col items-center justify-center text-center">
                 <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Instrument Serif', serif" }}>SR 1207</p>
                 <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">NEET 2019 Rank</p>
               </div>
-              <div className="liquid-glass p-4 rounded-xl flex flex-col items-center justify-center text-center">
+              <div className="card p-4 rounded-xl flex flex-col items-center justify-center text-center">
                 <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Instrument Serif', serif" }}>1000+</p>
                 <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">120+ Scorers</p>
               </div>
-              <div className="liquid-glass p-4 rounded-xl flex flex-col items-center justify-center text-center">
+              <div className="card p-4 rounded-xl flex flex-col items-center justify-center text-center">
                 <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Instrument Serif', serif" }}>30+</p>
                 <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">MCQs / Year</p>
               </div>
             </div>
 
-            {/* Expandable Story Section */}
             <div className="mt-8">
               <button 
                 onClick={() => setIsStoryExpanded(!isStoryExpanded)}
-                className="text-sm font-medium text-blue-500 hover:text-blue-400 transition-colors flex items-center gap-1 group"
+                className="text-sm font-medium transition-colors flex items-center gap-1 group" style={{ color: 'var(--accent-primary)' }}
               >
                 {isStoryExpanded ? 'Hide Story' : 'Read Full Story'}
                 <ChevronDown className={cn("w-4 h-4 transition-transform duration-300", isStoryExpanded ? "rotate-180" : "group-hover:translate-y-0.5")} />
@@ -1130,7 +1045,7 @@ function AboutSection() {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <p className="text-secondary mt-4 text-base leading-relaxed p-5 liquid-glass rounded-xl shadow-inner border border-border/20">
+                    <p className="text-secondary mt-4 text-base leading-relaxed p-5 card rounded-xl" style={{ borderColor: 'var(--border-subtle)' }}>
                       Dr. Sudharshan R (MBBS, Govt. Erode Medical College) cracked NEET 2019 with State Rank 1207 through self-study as a fresher. Since then, through NST (NEET Strategies Tamil), he has guided 1000+ students to score 120+ in Physics. His content is widely followed for predicting NEET MCQs, with 30+ questions appearing in Physics and Chemistry every year over the past 6 years.
                     </p>
                   </motion.div>
@@ -1138,7 +1053,7 @@ function AboutSection() {
               </AnimatePresence>
             </div>
 
-            <div className="mt-8 border-l-2 border-emerald-400/30 pl-4">
+            <div className="mt-8 pl-4" style={{ borderLeft: '2px solid oklch(72% 0.18 162 / 0.3)' }}>
               <p className="text-foreground font-medium">
                 "Physics will no longer be your weak subject. That's a promise."
               </p>
@@ -1153,7 +1068,6 @@ function AboutSection() {
   )
 }
 
-// Class Dropdown Component
 function ClassDropdown() {
   const [isOpen, setIsOpen] = useState(false)
   const [selected, setSelected] = useState({ label: 'Select Class', value: '' })
@@ -1175,7 +1089,8 @@ function ClassDropdown() {
       <motion.button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-4 py-3 bg-surface border border-border rounded-lg text-foreground focus:outline-none focus:border-blue-400/50 transition-all flex items-center justify-between text-left"
+        className="w-full px-4 py-3 border rounded-lg text-foreground focus:outline-none transition-all flex items-center justify-between text-left"
+        style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-subtle)' }}
         whileTap={{ scale: 0.99 }}
       >
         <span className={selected.value ? 'text-foreground' : 'text-secondary'}>
@@ -1196,7 +1111,8 @@ function ClassDropdown() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.15 }}
-            className="absolute w-full mt-2 rounded-lg border border-border overflow-hidden z-50 bg-background/95 backdrop-blur-md shadow-xl"
+            className="absolute w-full mt-2 rounded-lg border overflow-hidden z-50 shadow-xl"
+            style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-subtle)' }}
           >
             {options.map((option, index) => (
               <motion.button
@@ -1210,7 +1126,7 @@ function ClassDropdown() {
                   "w-full px-4 py-3 text-left transition-colors duration-200 flex items-center justify-between group",
                   selected.value === option.value
                     ? "bg-white/10 text-foreground"
-                    : "text-secondary hover:bg-surface hover:text-foreground"
+                    : "text-secondary hover:text-foreground"
                 )}
               >
                 <div>
@@ -1223,7 +1139,7 @@ function ClassDropdown() {
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 400, damping: 25 }}
                   >
-                    <Check className="w-4 h-4 text-blue-400" />
+                    <Check className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
                   </motion.div>
                 )}
               </motion.button>
@@ -1235,7 +1151,6 @@ function ClassDropdown() {
   )
 }
 
-// CTA Section
 function CTASection() {
   const [formState, setFormState] = React.useState<'idle' | 'submitting' | 'success'>('idle')
   
@@ -1243,8 +1158,6 @@ function CTASection() {
     e.preventDefault()
     setFormState('submitting')
     
-    // Netlify handles the form submission automatically
-    // Show success message after brief delay
     setTimeout(() => {
       setFormState('success')
     }, 1000)
@@ -1252,15 +1165,12 @@ function CTASection() {
   
   if (formState === 'success') {
     return (
-      <section id="contact" className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,var(--glow-mint)_0%,transparent_60%)]" />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <div className="liquid-glass rounded-2xl p-12">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-6">
-              <div className="relative">
-                <div className="w-12 h-12 rounded-full border-2 border-emerald-400 flex items-center justify-center">
-                  <Check className="w-6 h-6 text-emerald-400" />
-                </div>
+      <section id="contact" className="relative py-20">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="card rounded-2xl p-12">
+            <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ background: 'oklch(72% 0.18 162 / 0.15)' }}>
+              <div className="w-12 h-12 rounded-full border-2 flex items-center justify-center" style={{ borderColor: 'var(--accent-primary)' }}>
+                <Check className="w-6 h-6" style={{ color: 'var(--accent-primary)' }} />
               </div>
             </div>
             <h3 className="text-2xl text-foreground mb-4" style={{ fontFamily: "'Instrument Serif', serif" }}>
@@ -1271,7 +1181,8 @@ function CTASection() {
             </p>
             <a 
               href="https://wa.me/918610690010" 
-              className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors"
+              className="inline-flex items-center gap-2 hover:text-emerald-400 transition-colors"
+              style={{ color: 'var(--accent-primary)' }}
             >
               <MessageCircle className="w-5 h-5" />
               Or message us on WhatsApp
@@ -1283,14 +1194,10 @@ function CTASection() {
   }
 
   return (
-    <section id="contact" className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,var(--glow-mint)_0%,transparent_60%)]" />
-      
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+    <section id="contact" className="relative py-20">
+      <div className="max-w-4xl mx-auto px-6 text-center">
         <span className="section-label">Start Today</span>
-        <h2 
-          className="heading-xl mt-4"
-        >
+        <h2 className="heading-xl mt-4">
           உங்கள் Doctor பயணம்<br />
           <em className="not-italic text-academic">இன்றே தொடங்கட்டும்</em>
         </h2>
@@ -1298,7 +1205,6 @@ function CTASection() {
           One decision. One year. One white coat. Call now and book your free demo class.
         </p>
 
-        {/* Contact Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mt-10">
           <motion.a 
             href="tel:+918610690010" 
@@ -1320,7 +1226,6 @@ function CTASection() {
           </motion.a>
         </div>
 
-        {/* Form - Netlify Forms enabled */}
         <form 
           name="contact"
           method="POST"
@@ -1329,7 +1234,6 @@ function CTASection() {
           onSubmit={handleSubmit}
           className="mt-12 max-w-lg mx-auto space-y-4 text-left"
         >
-          {/* Honeypot field for spam protection */}
           <input type="hidden" name="bot-field" />
           <input type="hidden" name="form-name" value="contact" />
           
@@ -1340,7 +1244,8 @@ function CTASection() {
                 type="text" 
                 name="firstName"
                 required 
-                className="w-full px-4 py-3 bg-surface border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors input-glow"
+                className="w-full px-4 py-3 border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none transition-colors input-glow"
+                style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-subtle)' }}
                 placeholder="Enter first name"
               />
             </div>
@@ -1350,7 +1255,8 @@ function CTASection() {
                 type="text" 
                 name="lastName"
                 required 
-                className="w-full px-4 py-3 bg-surface border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors input-glow"
+                className="w-full px-4 py-3 border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none transition-colors input-glow"
+                style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-subtle)' }}
                 placeholder="Enter last name"
               />
             </div>
@@ -1363,7 +1269,8 @@ function CTASection() {
                 name="phone"
                 required 
                 pattern="[0-9]{10}"
-                className="w-full px-4 py-3 bg-surface border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors input-glow"
+                className="w-full px-4 py-3 border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none transition-colors input-glow"
+                style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-subtle)' }}
                 placeholder="10-digit number"
               />
             </div>
@@ -1374,7 +1281,8 @@ function CTASection() {
             <input 
               type="text" 
               name="targetScore"
-              className="w-full px-4 py-3 bg-surface border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors input-glow"
+              className="w-full px-4 py-3 border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none transition-colors input-glow"
+              style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-subtle)' }}
               placeholder="e.g., 650+"
             />
           </div>
@@ -1383,7 +1291,8 @@ function CTASection() {
             <textarea 
               name="message"
               rows={3}
-              className="w-full px-4 py-3 bg-surface border border-border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-blue-400/50 transition-colors resize-none input-glow"
+              className="w-full px-4 py-3 border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none transition-colors resize-none input-glow"
+              style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-subtle)' }}
               placeholder="Any specific requirements..."
             />
           </div>
@@ -1405,13 +1314,12 @@ function CTASection() {
   )
 }
 
-// Footer
 function Footer() {
   return (
-    <footer className="relative py-12 border-t border-border/30">
+    <footer className="relative py-12" style={{ borderTop: '1px solid var(--border-subtle)' }}>
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 liquid-glass rounded-md flex items-center justify-center text-foreground font-bold text-sm" style={{ fontFamily: "'Instrument Serif', serif" }}>
+          <div className="w-8 h-8 card rounded-md flex items-center justify-center text-foreground font-bold text-sm" style={{ fontFamily: "'Instrument Serif', serif" }}>
             N
           </div>
           <span className="font-medium text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>NST</span>
@@ -1427,7 +1335,7 @@ function Footer() {
             href="https://www.youtube.com/@NeetstrategiesinTamil" 
             target="_blank"
             rel="noopener noreferrer"
-            className="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-secondary hover:text-red-500 transition-colors"
+            className="w-9 h-9 card rounded-full flex items-center justify-center text-secondary hover:text-red-500 transition-colors"
             title="YouTube"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
@@ -1436,7 +1344,7 @@ function Footer() {
           </motion.a>
           <motion.a 
             href="https://wa.me/918610690010" 
-            className="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-secondary hover:text-emerald-500 transition-colors"
+            className="w-9 h-9 card rounded-full flex items-center justify-center text-secondary hover:text-emerald-500 transition-colors"
             title="WhatsApp"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
@@ -1445,7 +1353,7 @@ function Footer() {
           </motion.a>
           <motion.a 
             href="tel:+918610690010" 
-            className="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-secondary hover:text-blue-400 transition-colors"
+            className="w-9 h-9 card rounded-full flex items-center justify-center text-secondary hover:text-blue-400 transition-colors"
             title="Call"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
@@ -1454,20 +1362,20 @@ function Footer() {
           </motion.a>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-6 mt-8 pt-8 border-t border-border/20 text-center text-xs text-secondary">
+      <div className="max-w-7xl mx-auto px-6 mt-8 pt-8 text-center text-xs text-secondary" style={{ borderTop: '1px solid var(--border-subtle)' }}>
         © 2026 NEET Strategies Tamil. All rights reserved.
       </div>
     </footer>
   )
 }
 
-// Sticky Mobile CTA
 function StickyMobileCTA() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-background/95 backdrop-blur-md border-t border-subtle px-4 py-3 flex items-center justify-between gap-3">
+    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden flex items-center justify-between gap-3 px-4 py-3" style={{ background: 'var(--bg-base)', borderTop: '1px solid var(--border-subtle)' }}>
       <a 
         href="tel:+918610690010" 
-        className="flex-1 bg-blue-400 text-background text-sm font-medium py-3 rounded-full text-center flex items-center justify-center gap-2"
+        className="flex-1 text-background text-sm font-medium py-3 rounded-full text-center flex items-center justify-center gap-2"
+        style={{ background: 'var(--accent-primary)' }}
       >
         <Phone className="w-4 h-4" />
         Call Now
@@ -1482,16 +1390,9 @@ function StickyMobileCTA() {
   )
 }
 
-// Main Landing Page Component
 export default function LandingPage() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-[var(--bg-base)]">
-      {/* Minimal Editorial Background */}
-      <div 
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{ background: 'linear-gradient(to bottom, #FAF7F2 0%, #F1ECE6 100%)' }}
-      />
-
+    <main className="relative min-h-screen overflow-x-hidden" style={{ background: '#F7F3EE' }}>
       <div className="relative z-10">
         <Navigation />
         <HeroSection />
@@ -1507,7 +1408,6 @@ export default function LandingPage() {
         <Footer />
         <StickyMobileCTA />
         
-        {/* Spacer for mobile CTA */}
         <div className="h-20 md:hidden" />
       </div>
     </main>

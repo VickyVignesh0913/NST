@@ -4,31 +4,24 @@
 
 @layer base {
   :root {
-    /* Brand Color System — Light Premium oklch */
-    --bg-base: #F5F1EA;
-    --bg-surface: oklch(100% 0 0);
-    --bg-elevated: oklch(96% 0.02 95);
+    --bg-base: #F7F3EE;
+    --bg-surface: #FFFFFF;
+    --bg-elevated: #FAFAF7;
     --accent-primary: oklch(55% 0.15 162);
     --accent-warm: oklch(65% 0.14 55);
     --accent-muted: oklch(60% 0.06 240);
-    --text-primary: oklch(10% 0.03 250); /* Darkened for high visibility */
-    --text-secondary: oklch(35% 0.02 240); /* Darkened for high visibility */
+    --text-primary: oklch(10% 0.03 250);
+    --text-secondary: oklch(35% 0.02 240);
     --text-dim: oklch(50% 0.015 240);
-    --border-subtle: oklch(85% 0.02 95);
+    --border-subtle: #E8E2D8;
     --border-accent: oklch(55% 0.12 162);
-    
-    /* Glow accents */
-    --glow-mint: oklch(86% 0.06 165 / 0.20);
-    --glow-peach: oklch(88% 0.07 70 / 0.16);
-    --grid-lines: oklch(70% 0.01 95 / 0.10);
 
-    /* Legacy HSL mappings (Updated to light theme so text-foreground is black) */
     --background: 0 0% 98%;
-    --foreground: 0 0% 10%; /* Black text */
+    --foreground: 0 0% 10%;
     --muted-foreground: 0 0% 40%;
     --primary: 0 0% 10%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 40%; /* Grey text */
+    --secondary: 0 0% 40%;
     --muted: 0 0% 90%;
     --accent: 0 0% 90%;
     --border: 0 0% 80%;
@@ -56,31 +49,56 @@
 }
 
 @layer components {
-  .liquid-glass {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    position: relative;
-    background: rgba(255, 255, 255, 0.8);
+  .card {
+    background: #FFFFFF;
     border: 1px solid #E8E2D8;
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
-}
 
-@layer components {
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  }
+
   .card-surface {
-    background: rgba(255, 255, 255, 0.9);
+    background: #FFFFFF;
     border: 1px solid #E8E2D8;
-    border-radius: 12px;
-    box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.04);
-    transition: all 0.18s ease-out;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card-surface:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
   }
 
   .card-elevated {
     background: #FFFFFF;
     border: 1px solid #E8E2D8;
-    border-radius: 12px;
-    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.06);
-    transition: all 0.18s ease-out;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card-elevated:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  }
+
+  .liquid-glass {
+    background: #FFFFFF;
+    border: 1px solid #E8E2D8;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .liquid-glass:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
   }
 
   .btn-primary {
@@ -138,7 +156,6 @@
     color: var(--text-dim);
   }
 
-  /* Enhanced Micro-interactions */
   .btn-glow {
     position: relative;
     overflow: hidden;
@@ -162,15 +179,6 @@
     height: 300%;
   }
 
-  .card-hover-lift {
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease-out;
-  }
-
-  .card-hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px oklch(0% 0 0 / 0.15);
-  }
-
   .link-underline {
     position: relative;
     display: inline-block;
@@ -191,36 +199,10 @@
     width: 100%;
   }
 
-  .text-shimmer {
-    background: linear-gradient(
-      90deg,
-      var(--text-primary) 0%,
-      var(--accent-primary) 50%,
-      var(--text-primary) 100%
-    );
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shimmer 3s linear infinite;
-  }
-
-  .icon-bounce {
-    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-
-  .icon-bounce:hover {
-    transform: scale(1.15) rotate(-5deg);
-  }
-
   .input-glow:focus {
     outline: none;
     border-color: var(--accent-primary);
     box-shadow: 0 0 0 3px oklch(72% 0.18 162 / 0.15);
-  }
-
-  .badge-pulse {
-    animation: badge-pulse 2s ease-in-out infinite;
   }
 
   .gradient-border {
@@ -288,24 +270,6 @@
   }
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
-@keyframes badge-pulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 oklch(72% 0.18 162 / 0.4);
-  }
-  50% {
-    box-shadow: 0 0 0 8px oklch(72% 0.18 162 / 0);
-  }
-}
-
 @keyframes gradient-rotate {
   0% {
     background-position: 0% 50%;
@@ -315,23 +279,5 @@
   }
   100% {
     background-position: 0% 50%;
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
   }
 }
