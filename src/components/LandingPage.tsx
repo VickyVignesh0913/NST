@@ -424,6 +424,20 @@ function YouTubeSection() {
       views: "38K",
       time: "3 days ago"
     },
+    {
+      id: "wSyU_PqMYz0",
+      title: "NEET 2026 Strategy: Last 6 Months Preparation Plan",
+      duration: "22:18",
+      views: "67K",
+      time: "1 week ago"
+    },
+    {
+      id: "jAss1aYSXNU",
+      title: "Physics Shortcuts: Solve in 30 Seconds | NST Tamil",
+      duration: "12:45",
+      views: "89K",
+      time: "5 days ago"
+    },
   ]
 
   return (
@@ -466,53 +480,85 @@ function YouTubeSection() {
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 items-start">
-          {videos.map((video, i) => (
-            <motion.a
-              key={i}
-              href={`https://www.youtube.com/watch?v=${video.id}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                "group rounded-xl overflow-hidden block h-full card",
-                i === 0 ? "md:col-span-1" : i === 1 ? "md:col-span-1 md:mt-8" : "md:col-span-1 md:mt-4"
-              )}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
-              whileHover={{ y: -4 }}
+        <div className="grid md:grid-cols-12 gap-6">
+          <motion.a
+            href={`https://www.youtube.com/watch?v=${videos[0].id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="md:col-span-8 group rounded-xl overflow-hidden block card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ y: -4 }}
+          >
+            <div
+              className="aspect-video relative flex items-center justify-center group-hover:scale-105 transition-transform duration-500 bg-slate-200"
             >
-               <div
-                 className="aspect-video relative flex items-center justify-center group-hover:scale-105 transition-transform duration-500 bg-slate-200"
-               >
-                 <img 
-                   src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
-                   alt={video.title}
-                   className="absolute inset-0 w-full h-full object-cover"
-                   onError={(e) => {
-                     (e.target as HTMLImageElement).style.display = 'none';
-                   }}
-                 />
-                <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/10 transition-colors duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent z-10" />
-                <motion.div
-                  className="z-20"
-                  whileHover={{ scale: 1.15 }}
-                  transition={{ duration: 0.2 }}
+              <img
+                src={`https://img.youtube.com/vi/${videos[0].id}/mqdefault.jpg`}
+                alt={videos[0].title}
+                className="absolute inset-0 w-full h-full object-cover"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
+              />
+              <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/10 transition-colors duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent z-10" />
+              <motion.div
+                className="z-20"
+                whileHover={{ scale: 1.15 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Play className="w-16 h-16 text-white/90 drop-shadow-lg fill-current" />
+              </motion.div>
+              <span className="absolute bottom-3 left-3 z-20 text-xs text-white/90 bg-slate-900/60 px-2 py-0.5 rounded">
+                {videos[0].duration}
+              </span>
+            </div>
+            <div className="p-6">
+              <h3 className="font-medium text-base mb-2 transition-colors duration-300" style={{ color: 'var(--text-primary)' }}>{videos[0].title}</h3>
+              <p className="text-sm" style={{ color: 'var(--text-dim)' }}>{videos[0].views} views • {videos[0].time}</p>
+            </div>
+          </motion.a>
+
+          <div className="md:col-span-4 space-y-4">
+            {videos.slice(1).map((video, i) => (
+              <motion.a
+                key={i}
+                href={`https://www.youtube.com/watch?v=${video.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-xl overflow-hidden block card flex gap-4 p-4"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                whileHover={{ y: -2 }}
+              >
+                <div
+                  className="w-32 flex-shrink-0 relative rounded-lg overflow-hidden"
                 >
-                  <Play className="w-12 h-12 text-white/90 drop-shadow-lg fill-current" />
-                </motion.div>
-                <span className="absolute bottom-3 left-3 z-20 text-xs text-white/90 bg-slate-900/60 px-2 py-0.5 rounded">
-                  {video.duration}
-                </span>
-              </div>
-              <div className="p-5">
-                <h3 className="font-medium text-sm mb-1 transition-colors duration-300" style={{ color: 'var(--text-primary)' }}>{video.title}</h3>
-                <p className="text-xs" style={{ color: 'var(--text-dim)' }}>{video.views} views • {video.time}</p>
-              </div>
-            </motion.a>
-          ))}
+                  <img
+                    src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
+                    alt={video.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-slate-900/20" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Play className="w-6 h-6 text-white/80" />
+                  </div>
+                </div>
+                <div className="flex-1 py-1">
+                  <h4 className="font-medium text-sm mb-1 leading-snug" style={{ color: 'var(--text-primary)' }}>{video.title}</h4>
+                  <p className="text-xs" style={{ color: 'var(--text-dim)' }}>{video.views} • {video.time}</p>
+                </div>
+              </motion.a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -643,15 +689,15 @@ function CoursesSection() {
       price: "₹14,999",
       original: "₹30,000",
       discount: "51% OFF",
-      features: ["Full Syllabus Coverage", "Live + Recorded", "PDF Notes", "Mock Tests"],
+      features: ["Full Syllabus Coverage", "Live + Recorded", "PDF Notes", "Mock Tests", "Doubt Clearing"],
       popular: true
     },
     {
       name: "NST FLEXI",
       tag: "Flexible",
-      price: "₹9,999",
-      original: "₹20,000",
-      discount: "50% OFF",
+      price: "₹11,999",
+      original: "₹21,000",
+      discount: "43% OFF",
       features: ["Chapter-wise Purchase", "Self-paced", "PDF Notes", "Doubt Support"],
       popular: false
     },
@@ -663,7 +709,22 @@ function CoursesSection() {
       discount: "40% OFF",
       features: ["Prediction Tests", "NEET Pattern", "Analysis Report", "Rank Predictor"],
       popular: false
+    },
+    {
+      name: "Boot Camp",
+      tag: "Crash Course",
+      price: "₹249",
+      original: "₹2,000",
+      discount: "88% OFF",
+      features: ["3-Day Intensive", "Last Minute Prep", "Shortcut Techniques", "Priority Support"],
+      popular: false
     }
+  ]
+
+  const testimonials = [
+    { name: "Bhuvanessh S", rating: "⭐⭐⭐⭐⭐", text: "Amazing teaching like wow my best and first teacher in the Physics I see" },
+    { name: "Ashwini", rating: "⭐⭐⭐⭐⭐", text: "Hi Anna Thank you so much ennaku shm idhu varaikum lvalo crystal clear understand aagala" },
+    { name: "Priya Darshini M", rating: "⭐⭐⭐⭐⭐", text: "Physics concept lam super aa crystal clear aa understand aachi. Best online platform" }
   ]
 
   return (
@@ -688,62 +749,127 @@ function CoursesSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 items-start">
-          {courses.map((course, i) => (
+        <div className="grid md:grid-cols-12 gap-6">
+          <motion.div
+            className="md:col-span-8 card rounded-2xl p-8 md:p-10 relative overflow-hidden"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {courses[0].popular && (
+              <div className="absolute top-4 right-4 text-xs" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '8px', paddingBlock: '4px', borderRadius: '9999px' }}>
+                {courses[0].tag}
+              </div>
+            )}
+
+            <div className="mb-6">
+              <h3 className="text-3xl text-foreground font-medium">{courses[0].name}</h3>
+              <p className="text-xs text-secondary mt-1">{courses[0].tag}</p>
+            </div>
+
+            <div className="mb-8">
+              <div className="flex items-baseline gap-2">
+                <span className="text-5xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  {courses[0].price}
+                </span>
+                <span className="text-lg text-secondary line-through">{courses[0].original}</span>
+              </div>
+              <span className="text-xs" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '8px', paddingBlock: '2px', borderRadius: '4px', display: 'inline-block', marginTop: '8px' }}>
+                {courses[0].discount}
+              </span>
+            </div>
+
+            <ul className="space-y-3 mb-8">
+              {courses[0].features.map((feature, j) => (
+                <li key={j} className="flex items-center gap-2 text-base text-secondary">
+                  <Check className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            <motion.a 
+              href="#contact"
+              className="inline-block btn-primary btn-glow py-3 px-8 text-base text-center relative overflow-hidden"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Start Scoring 150+
+            </motion.a>
+          </motion.div>
+
+          <div className="md:col-span-4 space-y-4">
+            {courses.slice(1).map((course, i) => (
+              <motion.div
+                key={i}
+                className="card rounded-xl p-5 relative"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              >
+                <div className="mb-3">
+                  <h3 className="text-lg text-foreground font-medium">{course.name}</h3>
+                  <p className="text-xs text-secondary mt-1">{course.tag}</p>
+                </div>
+
+                <div className="mb-4">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                      {course.price}
+                    </span>
+                    <span className="text-sm text-secondary line-through">{course.original}</span>
+                  </div>
+                  <span className="text-xs" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '8px', paddingBlock: '2px', borderRadius: '4px', display: 'inline-block', marginTop: '8px' }}>
+                    {course.discount}
+                  </span>
+                </div>
+
+                <ul className="space-y-2 mb-4">
+                  {course.features.slice(0, 2).map((feature, j) => (
+                    <li key={j} className="flex items-center gap-2 text-sm text-secondary">
+                      <Check className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <motion.a 
+                  href="#contact"
+                  className="block w-full btn-primary py-2.5 text-sm text-center"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  View Details
+                </motion.a>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <motion.div
+          className="mt-12 grid md:grid-cols-3 gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+        >
+          {testimonials.map((t, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
+              className="card rounded-xl p-5"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.15 }}
-               className={cn(
-                 "card rounded-2xl p-6 relative overflow-hidden",
-                 course.popular ? "border-[oklch(55%_0.15_162/0.3)] md:scale-105 md:z-10" : i === 0 ? "md:mt-8" : "md:mt-4"
-               )}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
             >
-              {course.popular && (
-                <div className="absolute top-4 right-4 text-xs" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '8px', paddingBlock: '4px', borderRadius: '9999px' }}>
-                  {course.tag}
-                </div>
-              )}
-              
-              <div className="mb-6">
-                <h3 className="text-xl text-foreground font-medium">{course.name}</h3>
-                {!course.popular && <p className="text-xs text-secondary mt-1">{course.tag}</p>}
-              </div>
-
-              <div className="mb-6">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-3xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                    {course.price}
-                  </span>
-                  <span className="text-sm text-secondary line-through">{course.original}</span>
-                </div>
-                <span className="text-xs" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '8px', paddingBlock: '2px', borderRadius: '4px', display: 'inline-block', marginTop: '8px' }}>
-                  {course.discount}
-                </span>
-              </div>
-
-              <ul className="space-y-2 mb-6">
-                {course.features.map((feature, j) => (
-                  <li key={j} className="flex items-center gap-2 text-sm text-secondary">
-                    <Check className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <motion.a 
-                href="#contact"
-                className="w-full btn-primary btn-glow py-3 text-sm text-center block relative overflow-hidden"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Start Scoring 150+
-              </motion.a>
+              <p className="text-yellow-500 text-sm mb-2">{t.rating}</p>
+              <p className="text-secondary text-sm mb-3 leading-relaxed">"{t.text}"</p>
+              <p className="text-foreground text-xs font-medium">{t.name}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
@@ -760,50 +886,77 @@ function ResultsSection() {
     <section id="results" className="relative py-16">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          className="text-center mb-16"
+          className="max-w-2xl mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-         >
-           <span className="text-xs uppercase tracking-widest text-secondary">Results</span>
+        >
+            <span className="text-xs uppercase tracking-widest text-secondary">Results</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
             Scoreboards that <em className="not-italic text-academic">speak louder</em>
           </h2>
+          <p className="text-secondary mt-4 text-lg">
+            Every number here represents a white coat earned through Tamil medium excellence.
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-8 items-start">
-          {students.map((student, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.15 }}
-               className={cn(
-                 "card rounded-2xl p-8 text-center relative",
-                 i === 1 ? "md:mt-8" : i === 2 ? "md:mt-16" : ""
-               )}
-            >
-              <div className="absolute top-4 right-4 flex items-center gap-1" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', fontSize: '10px', fontWeight: '500', letterSpacing: '0.05em', textTransform: 'uppercase', paddingInline: '8px', paddingBlock: '4px', borderRadius: '9999px' }}>
-                <Check className="w-3 h-3" />
-                Verified
+        <div className="grid md:grid-cols-12 gap-6">
+          <motion.div
+            className="md:col-span-8 card rounded-2xl p-8 md:p-12 relative overflow-hidden"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="absolute top-4 right-4 flex items-center gap-1" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', fontSize: '10px', fontWeight: '500', letterSpacing: '0.05em', textTransform: 'uppercase', paddingInline: '8px', paddingBlock: '4px', borderRadius: '9999px' }}>
+              <Check className="w-3 h-3" />
+              Verified
+            </div>
+
+            <div className="flex flex-col md:flex-row gap-8 items-start">
+              <div className="flex-shrink-0">
+                <div className="w-20 h-20 card rounded-full flex items-center justify-center font-bold text-3xl" style={{ color: 'var(--accent-primary)' }}>
+                  {students[0].initial}
+                </div>
               </div>
-              
-              <div className="w-12 h-12 mx-auto card rounded-full flex items-center justify-center font-bold text-lg mb-4" style={{ color: 'var(--accent-primary)' }}>
-                {student.initial}
+
+              <div className="flex-1">
+                <p className="text-secondary text-xs uppercase tracking-wider mb-2">{students[0].name}</p>
+                <p className="text-7xl md:text-8xl text-foreground font-light mb-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  {students[0].score}<span className="text-3xl md:text-4xl text-secondary">/{students[0].total}</span>
+                </p>
+                <p style={{ color: 'var(--accent-primary)' }} className="text-lg font-medium">{students[0].story}</p>
               </div>
-              
-              <p className="text-secondary text-xs uppercase tracking-wider mb-2">{student.name}</p>
-              <p className="text-5xl text-foreground font-light mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                {student.score}<span className="text-2xl text-secondary">/{student.total}</span>
-              </p>
-              <p style={{ color: 'var(--accent-primary)' }} className="text-sm">{student.story}</p>
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
+
+          <div className="md:col-span-4 space-y-4">
+            {students.slice(1).map((student, i) => (
+              <motion.div
+                key={i}
+                className="card rounded-xl p-5 relative flex items-center gap-4"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              >
+                <div className="flex-shrink-0 w-12 h-12 card rounded-full flex items-center justify-center font-bold" style={{ color: 'var(--accent-primary)' }}>
+                  {student.initial}
+                </div>
+                <div className="flex-1">
+                  <p className="text-secondary text-xs uppercase tracking-wider mb-1">{student.name}</p>
+                  <p className="text-3xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    {student.score}<span className="text-xl text-secondary">/{student.total}</span>
+                  </p>
+                  <p className="text-sm" style={{ color: 'var(--accent-primary)' }}>{student.story}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         <motion.div
