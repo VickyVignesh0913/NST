@@ -57,27 +57,29 @@
 
 @layer components {
   .liquid-glass {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     position: relative;
-    background: linear-gradient(145deg, #ecfdf5, #d1fae5); /* Subtle light emerald */
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    box-shadow: 
-      0 8px 32px rgba(16, 185, 129, 0.08),
-      0 0 1px rgba(255, 255, 255, 0.5) inset;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #E8E2D8;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
   }
 }
 
 @layer components {
   .card-surface {
-    background: linear-gradient(145deg, #ecfdf5, #d1fae5); /* Subtle light emerald */
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #E8E2D8;
     border-radius: 12px;
+    box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.04);
     transition: all 0.18s ease-out;
   }
 
   .card-elevated {
-    background: linear-gradient(145deg, #d1fae5, #a7f3d0); /* Slightly richer light emerald */
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    background: #FFFFFF;
+    border: 1px solid #E8E2D8;
     border-radius: 12px;
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.06);
     transition: all 0.18s ease-out;
   }
 

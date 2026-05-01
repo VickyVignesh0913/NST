@@ -103,7 +103,7 @@ function HeroSection() {
       {/* Peach glow near CTA area */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_70%,var(--glow-peach)_0%,transparent_40%)] z-0" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-36 pb-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div>
@@ -275,7 +275,7 @@ function YouTubeSection() {
   ]
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,var(--glow-mint)_0%,transparent_50%)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -375,7 +375,7 @@ function InsideClassSection() {
   ]
 
   return (
-    <section id="inside" className="relative py-24 overflow-hidden">
+    <section id="inside" className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,var(--glow-peach)_0%,transparent_50%)]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -522,7 +522,7 @@ function CoursesSection() {
   ]
 
   return (
-    <section id="courses" className="relative py-24 overflow-hidden">
+    <section id="courses" className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_40%_60%,var(--glow-mint)_0%,transparent_50%)]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -617,7 +617,7 @@ function ResultsSection() {
   ]
 
   return (
-    <section id="results" className="relative py-24 overflow-hidden">
+    <section id="results" className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,var(--glow-mint)_0%,transparent_60%)]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -749,7 +749,7 @@ function MethodSection() {
   ]
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,var(--glow-peach)_0%,transparent_50%)]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -812,7 +812,7 @@ function ComparisonSection() {
   ]
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-32 overflow-hidden">
       <div className="relative z-10 max-w-4xl mx-auto px-6">
         <motion.div
           className="text-center mb-14"
@@ -910,7 +910,7 @@ function TestimonialsSection() {
   ]
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_70%,var(--glow-mint)_0%,transparent_50%)]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -966,7 +966,7 @@ function AboutSection() {
   const [isStoryExpanded, setIsStoryExpanded] = useState(false);
 
   return (
-    <section id="about" className="relative py-24 overflow-hidden">
+    <section id="about" className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,var(--glow-peach)_0%,transparent_50%)]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -1232,7 +1232,7 @@ function CTASection() {
   
   if (formState === 'success') {
     return (
-      <section id="contact" className="relative py-24 overflow-hidden">
+      <section id="contact" className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,var(--glow-mint)_0%,transparent_60%)]" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <div className="liquid-glass rounded-2xl p-12">
@@ -1263,7 +1263,7 @@ function CTASection() {
   }
 
   return (
-    <section id="contact" className="relative py-24 overflow-hidden">
+    <section id="contact" className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,var(--glow-mint)_0%,transparent_60%)]" />
       
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
@@ -1466,26 +1466,11 @@ function StickyMobileCTA() {
 export default function LandingPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-[var(--bg-base)]">
-      {/* Premium Academic Background Elements */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        {/* Subtle Grid Overlay */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `linear-gradient(to right, #E6E0D6 1px, transparent 1px), linear-gradient(to bottom, #E6E0D6 1px, transparent 1px)`,
-            backgroundSize: '40px 40px',
-            opacity: 0.6
-          }}
-        />
-        {/* Soft Paper Grain/Noise Texture */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat'
-          }}
-        />
-      </div>
+      {/* Minimal Editorial Background */}
+      <div 
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{ background: 'linear-gradient(to bottom, #FAF7F2 0%, #F1ECE6 100%)' }}
+      />
 
       <div className="relative z-10">
         <Navigation />
