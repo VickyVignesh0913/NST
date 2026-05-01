@@ -546,12 +546,7 @@ function CoursesSection() {
           transition={{ duration: 0.6 }}
         >
           
-          {/* Background Decor - Magnetic Field */}
-          <svg className="absolute right-0 top-0 w-[200px] h-[200px] text-[#D8D2C6] pointer-events-none z-[-1]" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <path d="M 100 60 C 140 20, 180 60, 100 180" />
-            <path d="M 100 60 C 60 20, 20 60, 100 180" />
-            <line x1="100" y1="40" x2="100" y2="180" strokeDasharray="4 4" />
-          </svg>
+          
           <span className="text-xs uppercase tracking-widest text-secondary">Programs</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
@@ -650,12 +645,7 @@ function ResultsSection() {
           transition={{ duration: 0.6 }}
         >
           
-          {/* Background Decor - Normal Distribution */}
-          <svg className="absolute top-0 left-0 w-[250px] h-[250px] text-[#D8D2C6] pointer-events-none z-[-1]" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <line x1="20" y1="150" x2="180" y2="150" />
-            <path d="M 20 150 C 60 150, 80 50, 100 50 C 120 50, 140 150, 180 150" />
-            <line x1="100" y1="50" x2="100" y2="150" strokeDasharray="4 4" />
-          </svg>
+          
           <span className="text-xs uppercase tracking-widest text-secondary">Results</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
