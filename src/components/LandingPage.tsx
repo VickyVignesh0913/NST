@@ -503,14 +503,14 @@ function YouTubeSection() {
               </motion.a>
             </div>
 
-<div className="md:col-span-4 flex flex-col" style={{ alignSelf: 'start', height: '100%', justifyContent: 'space-between' }}>
+<div className="md:col-span-4 flex flex-col" style={{ alignSelf: 'stretch', height: '100%', alignItems: 'stretch' }}>
               {videos.slice(1, 4).map((video, i) => (
                 <motion.a
                   key={i}
                   href={`https://www.youtube.com/watch?v=${video.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-xl overflow-hidden block card flex items-center p-3"
+                  className="group rounded-xl overflow-hidden block card flex items-center p-3" style={{ flex: 1 }}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
