@@ -97,17 +97,11 @@ function Navigation() {
 function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen flex flex-col justify-center">
-      {/* Background - Cream base */}
-      <div className="absolute inset-0" style={{ background: 'var(--bg-base)' }} />
-      
       {/* Mint glow near headline area */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_30%,var(--glow-mint)_0%,transparent_50%)] z-0" />
       
       {/* Peach glow near CTA area */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_70%,var(--glow-peach)_0%,transparent_40%)] z-0" />
-
-      {/* Subtle technical grid - light grey lines */}
-      <div className="absolute inset-0 bg-[linear-gradient(oklch(70%_0.01_95/0.08)_1px,transparent_1px),linear-gradient(90deg,oklch(70%_0.01_95/0.08)_1px,transparent_1px)] bg-[size:80px_80px] z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -1471,23 +1465,46 @@ function StickyMobileCTA() {
 // Main Landing Page Component
 export default function LandingPage() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden" style={{ background: 'var(--bg-base)' }}>
-      <Navigation />
-      <HeroSection />
-      <YouTubeSection />
-      <InsideClassSection />
-      <CoursesSection />
-      <ResultsSection />
-      <MethodSection />
-      <ComparisonSection />
-      <TestimonialsSection />
-      <AboutSection />
-      <CTASection />
-      <Footer />
-      <StickyMobileCTA />
-      
-      {/* Spacer for mobile CTA */}
-      <div className="h-20 md:hidden" />
+    <main className="relative min-h-screen overflow-x-hidden bg-[var(--bg-base)]">
+      {/* Premium Academic Background Elements */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        {/* Subtle Grid Overlay */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `linear-gradient(to right, #E6E0D6 1px, transparent 1px), linear-gradient(to bottom, #E6E0D6 1px, transparent 1px)`,
+            backgroundSize: '40px 40px',
+            opacity: 0.6
+          }}
+        />
+        {/* Soft Paper Grain/Noise Texture */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat'
+          }}
+        />
+      </div>
+
+      <div className="relative z-10">
+        <Navigation />
+        <HeroSection />
+        <YouTubeSection />
+        <InsideClassSection />
+        <CoursesSection />
+        <ResultsSection />
+        <MethodSection />
+        <ComparisonSection />
+        <TestimonialsSection />
+        <AboutSection />
+        <CTASection />
+        <Footer />
+        <StickyMobileCTA />
+        
+        {/* Spacer for mobile CTA */}
+        <div className="h-20 md:hidden" />
+      </div>
     </main>
   )
 }

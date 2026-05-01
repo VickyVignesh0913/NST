@@ -5,7 +5,7 @@
 @layer base {
   :root {
     /* Brand Color System — Light Premium oklch */
-    --bg-base: oklch(98% 0.01 95);
+    --bg-base: #F5F1EA;
     --bg-surface: oklch(100% 0 0);
     --bg-elevated: oklch(96% 0.02 95);
     --accent-primary: oklch(55% 0.15 162);
