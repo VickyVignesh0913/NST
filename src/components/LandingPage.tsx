@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { cn } from '../lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
@@ -92,8 +92,8 @@ function Navigation() {
 function PhysicsLayer() {
   return (
     <svg
-      className="absolute inset-0 w-full h-full pointer-events-none z-0"
-      style={{ opacity: 0.04 }}
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      style={{ opacity: 0.07, color: '#1a1a1a' }}
       viewBox="0 0 1200 800"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -190,7 +190,7 @@ function CursorGlow() {
 }
 
 function HeroSection() {
-  const imgRef = useRef<HTMLDivElement>(null)
+  const [scrollY, setScrollY] = useState(0)
   const [overlayOpacity, setOverlayOpacity] = useState(0)
 
   useEffect(() => {
@@ -198,45 +198,59 @@ function HeroSection() {
     return () => clearTimeout(timer)
   }, [])
 
-  const handleScroll = useCallback(() => {
-    if (!imgRef.current) return
-    const scrolled = window.scrollY
-    const offset = scrolled * 0.08
-    const clamped = Math.min(offset, 20)
-    imgRef.current.style.transform = `translateY(${clamped}px)`
+  useEffect(() => {
+    let raf: number
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [])
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [handleScroll])
+  const imgParallax = Math.min(scrollY * 0.4, 120)
+  const contentFade = Math.min(scrollY / 350, 1)
+  const physicsDrift = scrollY * 0.2
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">
       {/* Cursor Glow */}
       <CursorGlow />
 
-      {/* Physics SVG Layer */}
-      <PhysicsLayer />
-
-      {/* Full-width Image Background */}
+      {/* Full-width Image Background with Parallax */}
       <div
-        ref={imgRef}
         className="absolute inset-0"
-        style={{ willChange: 'transform' }}
+        style={{
+          transform: `translateY(${imgParallax}px) scale(1.05)`,
+          transition: 'transform 0.1s linear',
+          willChange: 'transform',
+        }}
       >
         <img
           src="/hero.png"
           alt="NEET Physics coaching - Student studying"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="w-full h-[120%] -mt-[10%] object-cover"
           style={{ filter: 'contrast(1.05) saturate(1.02)' }}
           loading="eager"
         />
       </div>
 
-      {/* Gradient Overlay — left-to-right fade revealing image on right */}
+      {/* Physics SVG Layer with Scroll Drift */}
       <div
-        className="absolute inset-0 transition-opacity duration-700 ease-out"
+        className="absolute inset-0 pointer-events-none z-[1]"
+        style={{
+          transform: `translateY(${-physicsDrift}px)`,
+          transition: 'transform 0.1s linear',
+        }}
+      >
+        <PhysicsLayer />
+      </div>
+
+      {/* Gradient Overlay */}
+      <div
+        className="absolute inset-0 z-[2] transition-opacity duration-700 ease-out"
         style={{
           opacity: overlayOpacity,
           background: 'linear-gradient(to right, rgba(246,246,244,0.95) 0%, rgba(246,246,244,0.7) 35%, rgba(246,246,244,0.2) 65%, rgba(246,246,244,0.02) 100%)'
@@ -244,7 +258,14 @@ function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 h-screen flex items-center">
+      <div
+        className="relative z-10 max-w-7xl mx-auto w-full px-6 h-screen flex items-center"
+        style={{
+          opacity: 1 - contentFade,
+          transform: `translateY(${scrollY * 0.15}px)`,
+          transition: 'opacity 0.1s linear, transform 0.1s linear',
+        }}
+      >
         <div className="w-full max-w-[520px]">
           {/* Eyebrow Label */}
           <motion.div
