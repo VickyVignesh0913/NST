@@ -689,7 +689,7 @@ function CoursesSection() {
       price: "₹14,999",
       original: "₹30,000",
       discount: "51% OFF",
-      features: ["Full Syllabus Coverage", "Live + Recorded", "PDF Notes", "Mock Tests", "Doubt Clearing"],
+      features: ["Structured schedule with planned classes", "Live + Recorded NEET-oriented lectures", "Personal Mentorship & performance tracking", "Daily Practice Tests (DPT)", "Chapter, Weekly & Monthly Tests", "Detailed Test Analysis & Discussion", "Premium Notes PDF for quick revision", "24×7 Doubt Solving Support"],
       popular: true
     },
     {
@@ -783,7 +783,7 @@ function CoursesSection() {
             <ul className="space-y-3 mb-8">
               {courses[0].features.map((feature, j) => (
                 <li key={j} className="flex items-center gap-2 text-base text-secondary">
-                  <Check className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
+                  <Check className="w-5 h-5 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
                   {feature}
                 </li>
               ))}
