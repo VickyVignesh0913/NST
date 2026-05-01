@@ -244,6 +244,14 @@
 }
 
 @layer utilities {
+  .text-academic {
+    color: #2F4F6F;
+    transition: color 0.2s ease-in-out;
+  }
+  .text-academic:hover {
+    color: #1E3A5F;
+  }
+
   .animate-fade-rise {
     animation: fade-rise 0.8s ease-out forwards;
   }

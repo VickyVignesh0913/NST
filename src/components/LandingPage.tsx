@@ -125,7 +125,7 @@ function HeroSection() {
               style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}
             >
               Physics{' '}
-              <em className="not-italic" style={{ color: 'var(--accent-muted)' }}>Easy-ஆ</em>
+              <em className="not-italic text-academic">Easy-ஆ</em>
               <br />
               <span className="text-4xl sm:text-5xl lg:text-6xl">Feel பண்ணு</span>
             </h1>
@@ -295,7 +295,7 @@ function YouTubeSection() {
         >
           <span className="section-label">YouTube Authority</span>
           <h2 className="heading-xl mt-4">
-            Trusted by <em className="not-italic" style={{ color: 'var(--accent-muted)' }}>Lakhs</em> of NEET Aspirants
+            Trusted by <em className="not-italic text-academic">Lakhs</em> of NEET Aspirants
           </h2>
           <p className="body-text mt-4 max-w-xl mx-auto">
             Thousands of students improve their Physics score every year through our free Tamil medium content.
@@ -401,7 +401,7 @@ function InsideClassSection() {
               className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
               style={{ fontFamily: "'Instrument Serif', serif" }}
             >
-              Inside a Real <em className="not-italic text-accent">NST Class</em>
+              Inside a Real <em className="not-italic text-academic">NST Class</em>
             </h2>
             <p className="text-secondary mt-6 text-lg leading-relaxed">
               Not just lectures. A complete learning environment designed for Tamil medium NEET dominance.
@@ -548,7 +548,7 @@ function CoursesSection() {
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
             style={{ fontFamily: "'Instrument Serif', serif" }}
           >
-            Programs built for <em className="not-italic text-secondary">NEET dominance</em>
+            Programs built for <em className="not-italic text-academic">NEET dominance</em>
           </h2>
           <p className="text-secondary mt-4 text-lg">
             Every batch is engineered around one goal: maximum Physics score in Tamil medium.
@@ -643,7 +643,7 @@ function ResultsSection() {
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
             style={{ fontFamily: "'Instrument Serif', serif" }}
           >
-            Scoreboards that <em className="not-italic text-secondary">speak louder</em>
+            Scoreboards that <em className="not-italic text-academic">speak louder</em>
           </h2>
         </motion.div>
 
@@ -774,7 +774,7 @@ function MethodSection() {
               className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
               style={{ fontFamily: "'Instrument Serif', serif" }}
             >
-              How we turn <em className="not-italic text-secondary">fear into 150+</em>
+              How we turn <em className="not-italic text-academic">fear into 150+</em>
             </h2>
             <p className="text-secondary mt-6 text-lg leading-relaxed">
               No rote memorization. No English-only explanations. Just pure conceptual clarity in Tamil, delivered by a doctor who cracked NEET himself.
@@ -835,7 +835,7 @@ function ComparisonSection() {
             className="text-4xl sm:text-5xl text-foreground mt-4"
             style={{ fontFamily: "'Instrument Serif', serif" }}
           >
-            Why Students Choose <em className="not-italic text-secondary">NST</em>
+            Why Students Choose <em className="not-italic text-academic">NST</em>
           </h2>
         </motion.div>
 
@@ -935,7 +935,7 @@ function TestimonialsSection() {
             className="text-4xl sm:text-5xl text-foreground mt-4"
             style={{ fontFamily: "'Instrument Serif', serif" }}
           >
-            Voices from the <em className="not-italic text-secondary">white coat journey</em>
+            Voices from the <em className="not-italic text-academic">white coat journey</em>
           </h2>
         </motion.div>
 
@@ -1027,7 +1027,7 @@ function AboutSection() {
               className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
               style={{ fontFamily: "'Instrument Serif', serif" }}
             >
-              A doctor who <em className="not-italic text-secondary">teaches like one</em>
+              A doctor who <em className="not-italic text-academic">teaches like one</em>
             </h2>
             <p className="text-secondary mt-6 text-lg leading-relaxed">
               From Govt. Erode Medical College, Dr. Sudharshan cracked NEET 2019 and has since guided over 1,000 Tamil medium students to Physics scores above 120. His SR 1207 self-study roadmap is now legendary.
@@ -1185,7 +1185,7 @@ function CTASection() {
           className="heading-xl mt-4"
         >
           உங்கள் Doctor பயணம்<br />
-          <em className="not-italic" style={{ color: 'var(--accent-muted)' }}>இன்றே தொடங்கட்டும்</em>
+          <em className="not-italic text-academic">இன்றே தொடங்கட்டும்</em>
         </h2>
         <p className="body-text mt-6 max-w-xl mx-auto">
           One decision. One year. One white coat. Call now and book your free demo class.
