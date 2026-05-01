@@ -15,7 +15,6 @@ import {
   BookOpen,
   Clock,
   FileText,
-  GraduationCap,
   ChevronDown
 } from 'lucide-react'
 
@@ -92,143 +91,91 @@ function Navigation() {
 function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">
-      {/* Hero Image Background */}
-      <img
-        src="/hero.png"
-        alt="NEET Physics coaching - Student studying"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ filter: 'saturate(0.85) brightness(0.9)' }}
-        loading="eager"
-      />
+      {/* Right-side Hero Image */}
+      <div className="absolute inset-y-0 right-0 w-[70%] lg:block hidden">
+        <img
+          src="/hero.png"
+          alt="NEET Physics coaching - Student studying"
+          className="absolute inset-0 w-full h-full object-cover object-right"
+          loading="eager"
+        />
+      </div>
 
-      {/* Gradient Overlay */}
+      {/* Gradient Overlay — left-to-right fade */}
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(to right, #F7F3EE 25%, rgba(247,243,238,0.85) 55%, rgba(247,243,238,0.4) 80%, transparent 100%)'
+          background: 'linear-gradient(to right, rgba(250,250,248,0.92) 0%, rgba(250,250,248,0.6) 55%, rgba(250,250,248,0.1) 100%)'
         }}
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 pt-36 pb-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left: Text Content */}
-          <div>
-            <div className="animate-fade-rise inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
-              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--accent-primary)' }} />
-              <span className="text-xs" style={{ color: 'var(--text-dim)' }}>Dr. Sudharshan R. | MBBS</span>
-            </div>
-
-            <h1
-              className="animate-fade-rise text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight font-normal"
-              style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}
-            >
-              Physics{' '}
-              <em className="not-italic text-academic">Easy-ஆ</em>
-              <br />
-              <span className="text-4xl sm:text-5xl lg:text-6xl">Feel பண்ணு</span>
-            </h1>
-
-            <p className="animate-fade-rise-delay text-lg max-w-lg mt-8 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Premium NEET Physics coaching crafted for Tamil medium aspirants who dream of white coats.
-              6 years of proven results.
-            </p>
-
-            <div className="animate-fade-rise-delay-2 flex gap-12 mt-10">
-              <div className="accent-left pl-4">
-                <p className="text-3xl font-light" style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--accent-primary)' }}>1000+</p>
-                <p className="text-xs mt-1" style={{ color: 'var(--text-dim)' }}>Students</p>
-              </div>
-              <div className="w-px" style={{ background: 'var(--border-subtle)' }} />
-              <div>
-                <p className="text-3xl font-light" style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}>6</p>
-                <p className="text-xs mt-1" style={{ color: 'var(--text-dim)' }}>Years</p>
-              </div>
-              <div className="w-px" style={{ background: 'var(--border-subtle)' }} />
-              <div>
-                <p className="text-3xl font-light" style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}>150+</p>
-                <p className="text-xs mt-1" style={{ color: 'var(--text-dim)' }}>Physics Avg</p>
-              </div>
-            </div>
-
-            <div className="animate-fade-rise-delay-2 flex flex-wrap items-center gap-4 mt-10">
-              <motion.a
-                href="#courses"
-                className="btn-primary btn-glow px-8 py-4 text-sm inline-flex items-center gap-2 group relative overflow-hidden"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
-              >
-                Join 2027 Batch Now
-                <motion.span
-                  className="inline-block"
-                  initial={{ x: 0 }}
-                  whileHover={{ x: 4 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <ArrowRight className="w-4 h-4" />
-                </motion.span>
-              </motion.a>
-              <motion.a
-                href="#inside"
-                className="btn-secondary px-8 py-4 text-sm inline-flex items-center gap-2"
-                whileHover={{ scale: 1.03, borderColor: 'var(--accent-primary)' }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Play className="w-4 h-4" />
-                Get Free Demo Class
-              </motion.a>
-            </div>
-
-            <p className="animate-fade-rise-delay-2 text-[11px] uppercase tracking-[0.15em] mt-5 flex items-center gap-2.5" style={{ color: 'var(--text-dim)' }}>
-              <span className="inline-block w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
-              Limited Seats Available • Batch Closing Soon
-            </p>
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 h-screen flex items-center">
+        <div className="w-full max-w-[520px]">
+          {/* Label */}
+          <div className="animate-fade-rise mb-8">
+            <span className="text-xs tracking-wider" style={{ color: 'var(--text-dim)' }}>
+              Dr. Sudharshan R. | MBBS
+            </span>
           </div>
 
-          {/* Right: Empty for image to show through */}
-          <div className="hidden lg:block" />
+          {/* Headline */}
+          <h1
+            className="animate-fade-rise tracking-tight leading-[1.1]"
+            style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}
+          >
+            <span className="block text-5xl sm:text-6xl lg:text-7xl font-normal">
+              Physics Easy{' '}
+              <span className="text-academic">— ஆ</span>
+            </span>
+            <span className="block text-5xl sm:text-6xl lg:text-[72px] mt-1 font-bold leading-[1.05]">
+              Feel பண்ணு
+            </span>
+          </h1>
+
+          {/* Supporting Text */}
+          <p className="animate-fade-rise-delay text-base mt-8 leading-relaxed max-w-[480px]" style={{ color: 'var(--text-secondary)' }}>
+            Premium NEET Physics coaching crafted for Tamil medium aspirants who dream of white coats.
+            6 years of proven results.
+          </p>
+
+          {/* Inline Credibility */}
+          <p className="animate-fade-rise-delay text-sm mt-6 flex items-center gap-2" style={{ color: 'var(--text-dim)' }}>
+            <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: 'var(--accent-primary)' }} />
+            Trusted by 1000+ NEET aspirants across Tamil Nadu
+          </p>
+
+          {/* CTA Row */}
+          <div className="animate-fade-rise-delay-2 flex flex-wrap items-center gap-4 mt-10">
+            <motion.a
+              href="#courses"
+              className="hero-btn-primary px-7 py-3.5 text-sm inline-flex items-center gap-2"
+              whileHover={{ y: -2 }}
+              whileTap={{ y: 0 }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
+            >
+              Join 2027 Batch
+              <ArrowRight className="w-4 h-4" />
+            </motion.a>
+            <motion.a
+              href="#inside"
+              className="hero-btn-secondary px-7 py-3.5 text-sm inline-flex items-center gap-2"
+              whileHover={{ y: -2 }}
+              whileTap={{ y: 0 }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
+            >
+              <Play className="w-4 h-4" />
+              Get Free Demo Class
+            </motion.a>
+          </div>
+
+          {/* Subtext */}
+          <p className="animate-fade-rise-delay-2 text-[11px] uppercase tracking-[0.15em] mt-5 flex items-center gap-2.5" style={{ color: 'var(--text-dim)' }}>
+            <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
+            Limited seats available. Batch closing soon.
+          </p>
         </div>
       </div>
-
-      {/* Floating Cards on Image */}
-      <motion.div
-        className="absolute top-8 right-8 z-10 card p-5 hidden lg:block"
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        <p className="text-[11px] uppercase tracking-wider" style={{ color: 'var(--text-dim)' }}>Avg. Score</p>
-        <p className="text-2xl font-light" style={{ fontFamily: "'Instrument Serif', serif", color: 'var(--text-primary)' }}>156/180</p>
-      </motion.div>
-
-      <motion.div
-        className="absolute bottom-8 right-8 z-10 card p-5 max-w-[260px] hidden lg:block"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.7 }}
-      >
-        <div className="flex items-center gap-3 mb-3">
-          <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'oklch(72% 0.18 162 / 0.15)' }}>
-            <GraduationCap className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
-          </div>
-          <div>
-            <p className="font-medium text-sm" style={{ color: 'var(--text-primary)' }}>NST ELITE</p>
-            <p className="text-xs" style={{ color: 'var(--text-dim)' }}>Batch 2027</p>
-          </div>
-        </div>
-        <div className="space-y-2">
-          <div className="flex items-center gap-2 text-xs" style={{ color: 'var(--text-secondary)' }}>
-            <Check className="w-3 h-3" style={{ color: 'var(--accent-primary)' }} />
-            <span>Live Classes + Recordings</span>
-          </div>
-          <div className="flex items-center gap-2 text-xs" style={{ color: 'var(--text-secondary)' }}>
-            <Check className="w-3 h-3" style={{ color: 'var(--accent-primary)' }} />
-            <span>PDF Notes in Tamil</span>
-          </div>
-        </div>
-      </motion.div>
     </section>
   )
 }
@@ -1400,7 +1347,7 @@ function StickyMobileCTA() {
 
 export default function LandingPage() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden" style={{ background: '#F7F3EE' }}>
+    <main className="relative min-h-screen overflow-x-hidden" style={{ background: '#f6f6f4' }}>
       <div className="relative z-10">
         <Navigation />
         <HeroSection />
