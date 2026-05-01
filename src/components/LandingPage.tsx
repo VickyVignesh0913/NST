@@ -132,7 +132,7 @@ function HeroSection() {
               <span className="text-academic" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>— ஆ</span>
             </span>
             <span className="block text-5xl sm:text-6xl lg:text-[68px] mt-1 font-bold leading-[1.05]" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>
-              Feel பண்ணு
+              Feel பண்ணுங்க
             </span>
           </h1>
 
