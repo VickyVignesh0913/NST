@@ -1,7 +1,7 @@
 import React from 'react'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { cn } from '../lib/utils'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useInView } from 'framer-motion'
 import { 
   Play, 
   Check,
@@ -17,6 +17,80 @@ import {
   FileText,
   ChevronDown
 } from 'lucide-react'
+
+// Hook: track scroll position with rAF throttle
+function useScrollPosition() {
+  const [scrollY, setScrollY] = useState(0)
+  useEffect(() => {
+    let raf: number
+    const onScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [])
+  return scrollY
+}
+
+// Hook: parallax offset for an element
+function useParallax(speed = 0.3) {
+  const scrollY = useScrollPosition()
+  const ref = useRef<HTMLDivElement>(null)
+  const [offset, setOffset] = useState(0)
+
+  useEffect(() => {
+    if (!ref.current) return
+    const rect = ref.current.getBoundingClientRect()
+    const viewH = window.innerHeight
+    if (rect.top < viewH && rect.bottom > 0) {
+      setOffset(scrollY * speed * 0.5)
+    }
+  }, [scrollY, speed])
+
+  return { ref, offset }
+}
+
+// Animated Section: fade-up on scroll
+function AnimatedSection({ children, delay = 0, className }: { children: React.ReactNode; delay?: number; className?: string }) {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-60px' })
+
+  return (
+    <div ref={ref} className={className}>
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
+      >
+        {children}
+      </motion.div>
+    </div>
+  )
+}
+
+// Staggered children: each child fades up in sequence
+function StaggeredSection({ children, className, stagger = 0.1 }: { children: React.ReactNode; className?: string; stagger?: number }) {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-40px' })
+
+  return (
+    <div ref={ref} className={className}>
+      {React.Children.map(children, (child, i) => (
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * stagger }}
+         >
+           {child}
+         </motion.div>
+       ))}
+     </div>
+   )
+ }
+
 
 function Navigation() {
   const [scrolled, setScrolled] = useState(false)
@@ -237,16 +311,7 @@ function HeroSection() {
         />
       </div>
 
-      {/* Physics SVG Layer with Scroll Drift */}
-      <div
-        className="absolute inset-0 pointer-events-none z-[1]"
-        style={{
-          transform: `translateY(${-physicsDrift}px)`,
-          transition: 'transform 0.1s linear',
-        }}
-      >
-        <PhysicsLayer />
-      </div>
+
 
       {/* Gradient Overlay */}
       <div
@@ -402,16 +467,21 @@ function YouTubeSection() {
       time: "3 days ago" 
     },
   ]
+  const scrollY = useScrollPosition()
 
   return (
     <section className="relative py-20">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ transform: `translateY(${scrollY * 0.05}px)` }}
+      />
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <span className="section-label">YouTube Authority</span>
           <h2 className="heading-xl mt-4">
@@ -427,7 +497,7 @@ function YouTubeSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
         >
           <div className="card rounded-full px-5 py-2.5 flex items-center gap-2">
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
@@ -454,7 +524,7 @@ function YouTubeSection() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
               whileHover={{ y: -4 }}
             >
               <div
@@ -505,7 +575,7 @@ function InsideClassSection() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="text-xs uppercase tracking-widest text-secondary">Experience</span>
             <h2
@@ -526,9 +596,9 @@ function InsideClassSection() {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                >
-                  <div className="w-10 h-10 card rounded-lg flex items-center justify-center flex-shrink-0">
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
+                 >
+                   <div className="w-10 h-10 card rounded-lg flex items-center justify-center flex-shrink-0">
                     <feature.icon className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
                   </div>
                   <div>
@@ -552,7 +622,7 @@ function InsideClassSection() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           >
             <div className="card overflow-hidden rounded-2xl">
               <div className="aspect-video bg-gradient-to-br from-slate-100 to-slate-200 relative flex items-center justify-center">
@@ -589,11 +659,11 @@ function InsideClassSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.5 }}
-            >
-              <div className="flex items-center gap-2 mb-2">
-                <FileText className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
-                <span className="text-foreground font-medium text-sm">Class Notes</span>
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+             >
+               <div className="flex items-center gap-2 mb-2">
+                 <FileText className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
+                 <span className="text-foreground font-medium text-sm">Class Notes</span>
               </div>
               <p className="text-secondary text-xs">
                 Every session comes with downloadable Tamil notes & practice sheets.
@@ -637,15 +707,21 @@ function CoursesSection() {
     }
   ]
 
+  const scrollY = useScrollPosition()
+
   return (
     <section id="courses" className="relative py-20">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ transform: `translateY(${scrollY * 0.05}px)` }}
+      />
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="max-w-2xl mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <span className="text-xs uppercase tracking-widest text-secondary">Programs</span>
           <h2
@@ -666,8 +742,8 @@ function CoursesSection() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className={cn(
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.15 }}
+               className={cn(
                 "card rounded-2xl p-6 relative overflow-hidden",
                 course.popular ? "border-[oklch(55%_0.15_162/0.3)]" : ""
               )}
@@ -735,9 +811,9 @@ function ResultsSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="text-xs uppercase tracking-widest text-secondary">Results</span>
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+         >
+           <span className="text-xs uppercase tracking-widest text-secondary">Results</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
@@ -753,8 +829,8 @@ function ResultsSection() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="card rounded-2xl p-8 text-center relative"
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.15 }}
+               className="card rounded-2xl p-8 text-center relative"
             >
               <div className="absolute top-4 right-4 flex items-center gap-1" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', fontSize: '10px', fontWeight: '500', letterSpacing: '0.05em', textTransform: 'uppercase', paddingInline: '8px', paddingBlock: '4px', borderRadius: '9999px' }}>
                 <Check className="w-3 h-3" />
@@ -779,9 +855,9 @@ function ResultsSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <div className="card rounded-2xl p-8 md:p-10 relative overflow-hidden">
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+         >
+           <div className="card rounded-2xl p-8 md:p-10 relative overflow-hidden">
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
               <div className="text-center md:text-left">
                 <span className="inline-block mb-3 text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '12px', paddingBlock: '4px', borderRadius: '9999px' }}>
@@ -823,11 +899,11 @@ function ResultsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <div className="card rounded-full px-6 py-3 flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-primary)' }} />
-            <span className="text-sm text-foreground">1000+ students trained</span>
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+         >
+           <div className="card rounded-full px-6 py-3 flex items-center gap-2">
+             <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-primary)' }} />
+             <span className="text-sm text-foreground">1000+ students trained</span>
           </div>
           <div className="card rounded-full px-6 py-3 flex items-center gap-2">
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ color: 'var(--accent-muted)' }} />
@@ -851,15 +927,21 @@ function MethodSection() {
     { num: "04", title: "1-on-1 Mentoring", desc: "Personal doubt sessions. Dr. S tracks your progress personally until you hit your target.", highlight: true },
   ]
 
+  const scrollY = useScrollPosition()
+
   return (
     <section className="relative py-20">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ transform: `translateY(${scrollY * 0.05}px)` }}
+      />
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="text-xs uppercase tracking-widest text-secondary">The Method</span>
             <h2
@@ -881,9 +963,9 @@ function MethodSection() {
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-              >
-                <div className={cn(
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
+               >
+                 <div className={cn(
                   "flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-light text-xl",
                   step.highlight ? "text-background" : "card"
                 )} style={{ 
@@ -923,9 +1005,9 @@ function ComparisonSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="text-xs uppercase tracking-widest text-secondary">Comparison</span>
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+         >
+           <span className="text-xs uppercase tracking-widest text-secondary">Comparison</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
@@ -939,9 +1021,9 @@ function ComparisonSection() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <div className="grid grid-cols-3 text-sm font-medium border-b" style={{ borderColor: 'var(--border-subtle)' }}>
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+         >
+           <div className="grid grid-cols-3 text-sm font-medium border-b" style={{ borderColor: 'var(--border-subtle)' }}>
             <div className="px-6 py-4 text-secondary">Feature</div>
             <div className="px-6 py-4 text-foreground bg-surface text-center font-medium" style={{ background: 'var(--bg-surface)' }}>NST</div>
             <div className="px-6 py-4 text-secondary text-center">Others</div>
@@ -953,9 +1035,9 @@ function ComparisonSection() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: i * 0.05 }}
-            >
-              <div className="px-6 py-4 text-foreground">{feature.name}</div>
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.05 }}
+             >
+               <div className="px-6 py-4 text-foreground">{feature.name}</div>
               <div className="px-6 py-4 text-center">
                 <span className={cn(
                   "inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold",
@@ -1011,16 +1093,21 @@ function TestimonialsSection() {
       initial: "M"
     },
   ]
+  const scrollY = useScrollPosition()
 
   return (
     <section className="relative py-20">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ transform: `translateY(${scrollY * 0.05}px)` }}
+      />
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <span className="text-xs uppercase tracking-widest text-secondary">Stories</span>
           <h2
@@ -1038,8 +1125,8 @@ function TestimonialsSection() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="card rounded-2xl p-8"
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
+               className="card rounded-2xl p-8"
             >
               <Quote className="w-8 h-8 mb-4" style={{ color: 'oklch(72% 0.18 162 / 0.3)' }} />
               <p className="text-lg text-foreground italic leading-relaxed mb-6" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -1074,10 +1161,10 @@ function AboutSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.div 
-              className="aspect-square card rounded-3xl flex items-center justify-center relative overflow-hidden"
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+           >
+             <motion.div 
+               className="aspect-square card rounded-3xl flex items-center justify-center relative overflow-hidden"
               whileHover={{ y: -6 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
             >
@@ -1135,7 +1222,7 @@ function AboutSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
             className="flex flex-col justify-center"
           >
             <span className="text-xs uppercase tracking-widest text-secondary mb-3 block">The Mentor</span>
@@ -1306,7 +1393,8 @@ function ClassDropdown() {
 
 function CTASection() {
   const [formState, setFormState] = React.useState<'idle' | 'submitting' | 'success'>('idle')
-  
+  const scrollY = useScrollPosition()
+   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setFormState('submitting')
@@ -1319,6 +1407,10 @@ function CTASection() {
   if (formState === 'success') {
     return (
       <section id="contact" className="relative py-20">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ transform: `translateY(${scrollY * 0.05}px)` }}
+        />
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="card rounded-2xl p-12">
             <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ background: 'oklch(72% 0.18 162 / 0.15)' }}>
@@ -1348,6 +1440,10 @@ function CTASection() {
 
   return (
     <section id="contact" className="relative py-20">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ transform: `translateY(${scrollY * 0.05}px)` }}
+      />
       <div className="max-w-4xl mx-auto px-6 text-center">
         <span className="section-label">Start Today</span>
         <h2 className="heading-xl mt-4" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>
@@ -1546,6 +1642,9 @@ function StickyMobileCTA() {
 export default function LandingPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden" style={{ background: '#f6f6f4' }}>
+      <div className="fixed inset-0 pointer-events-none" style={{ opacity: 0.03, zIndex: 0 }}>
+        <PhysicsLayer />
+      </div>
       <div className="relative z-10">
         <Navigation />
         <HeroSection />
