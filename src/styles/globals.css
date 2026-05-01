@@ -37,7 +37,7 @@
   body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'General Sans', sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -164,12 +164,12 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--text-dim);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'General Sans', sans-serif;
   }
 
   .heading-xl {
     font-size: clamp(32px, 5vw, 56px);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'General Sans', sans-serif;
     color: var(--text-primary);
     line-height: 1.05;
   }
@@ -266,7 +266,7 @@
   }
 
   .font-english {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'General Sans', sans-serif;
     letter-spacing: 0.02em;
   }
 

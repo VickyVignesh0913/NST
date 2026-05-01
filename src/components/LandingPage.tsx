@@ -51,7 +51,7 @@ function Navigation() {
           <a href="#home" className="flex items-baseline">
             <span
               className="text-2xl tracking-tight"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: 'var(--text-primary)' }}
+              style={{ fontFamily: "'General Sans', sans-serif", color: 'var(--text-primary)' }}
             >
               NST
             </span>
@@ -117,7 +117,7 @@ function HeroSection() {
         <div className="w-full max-w-[520px]">
           {/* Eyebrow Label */}
           <div className="animate-fade-rise mb-6">
-            <span className="text-xs tracking-wider" style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <span className="text-xs tracking-wider" style={{ color: 'var(--text-dim)', fontFamily: "'General Sans', sans-serif" }}>
               Dr. Sudharshan R. | MBBS
             </span>
           </div>
@@ -125,7 +125,7 @@ function HeroSection() {
           {/* Main Headline */}
           <h1
             className="animate-fade-rise tracking-tight leading-[1.1]"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: 'var(--text-primary)', letterSpacing: '0.02em' }}
+            style={{ fontFamily: "'General Sans', sans-serif", color: 'var(--text-primary)', letterSpacing: '0.02em' }}
           >
             <span className="block text-5xl sm:text-6xl lg:text-[68px] font-[500]">
               Physics Easy{' '}
@@ -147,12 +147,12 @@ function HeroSection() {
           </div>
 
           {/* Supporting Paragraph */}
-          <p className="animate-fade-rise-delay text-[15px] mt-6 leading-relaxed max-w-[500px]" style={{ color: 'var(--text-secondary)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}>
+          <p className="animate-fade-rise-delay text-[15px] mt-6 leading-relaxed max-w-[500px]" style={{ color: 'var(--text-secondary)', fontFamily: "'General Sans', sans-serif", letterSpacing: '0.01em' }}>
             Premium NEET Physics coaching crafted for Tamil medium aspirants who aim for medical excellence.
           </p>
 
           {/* Inline Credibility */}
-          <p className="animate-fade-rise-delay text-sm mt-5 flex items-center gap-2" style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}>
+          <p className="animate-fade-rise-delay text-sm mt-5 flex items-center gap-2" style={{ color: 'var(--text-dim)', fontFamily: "'General Sans', sans-serif", letterSpacing: '0.01em' }}>
             <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: 'var(--accent-primary)' }} />
             Trusted by 1000+ NEET aspirants across Tamil Nadu
           </p>
@@ -182,7 +182,7 @@ function HeroSection() {
           </div>
 
           {/* Subtext */}
-          <p className="animate-fade-rise-delay-2 text-[11px] uppercase tracking-[0.15em] mt-4 flex items-center gap-2.5" style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          <p className="animate-fade-rise-delay-2 text-[11px] uppercase tracking-[0.15em] mt-4 flex items-center gap-2.5" style={{ color: 'var(--text-dim)', fontFamily: "'General Sans', sans-serif" }}>
             <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
             Limited seats available. Batch closing soon.
           </p>
@@ -324,7 +324,7 @@ function InsideClassSection() {
             <span className="text-xs uppercase tracking-widest text-secondary">Experience</span>
             <h2
               className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+              style={{ fontFamily: "'General Sans', sans-serif" }}
             >
               Inside a Real <em className="not-italic text-academic">NST Class</em>
             </h2>
@@ -464,7 +464,7 @@ function CoursesSection() {
           <span className="text-xs uppercase tracking-widest text-secondary">Programs</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            style={{ fontFamily: "'General Sans', sans-serif" }}
           >
             Programs built for <em className="not-italic text-academic">NEET dominance</em>
           </h2>
@@ -499,7 +499,7 @@ function CoursesSection() {
 
               <div className="mb-6">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-3xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  <span className="text-3xl text-foreground font-light" style={{ fontFamily: "'General Sans', sans-serif" }}>
                     {course.price}
                   </span>
                   <span className="text-sm text-secondary line-through">{course.original}</span>
@@ -554,7 +554,7 @@ function ResultsSection() {
           <span className="text-xs uppercase tracking-widest text-secondary">Results</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            style={{ fontFamily: "'General Sans', sans-serif" }}
           >
             Scoreboards that <em className="not-italic text-academic">speak louder</em>
           </h2>
@@ -580,7 +580,7 @@ function ResultsSection() {
               </div>
               
               <p className="text-secondary text-xs uppercase tracking-wider mb-2">{student.name}</p>
-              <p className="text-5xl text-foreground font-light mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              <p className="text-5xl text-foreground font-light mb-1" style={{ fontFamily: "'General Sans', sans-serif" }}>
                 {student.score}<span className="text-2xl text-secondary">/{student.total}</span>
               </p>
               <p style={{ color: 'var(--accent-primary)' }} className="text-sm">{student.story}</p>
@@ -601,7 +601,7 @@ function ResultsSection() {
                 <span className="inline-block mb-3 text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '12px', paddingBlock: '4px', borderRadius: '9999px' }}>
                   Featured Case Study
                 </span>
-                <h3 className="text-2xl md:text-3xl text-foreground font-light mb-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <h3 className="text-2xl md:text-3xl text-foreground font-light mb-2" style={{ fontFamily: "'General Sans', sans-serif" }}>
                   From 40 → 165 in 6 months
                 </h3>
                 <p className="text-secondary text-sm md:text-base leading-relaxed max-w-md">
@@ -619,12 +619,12 @@ function ResultsSection() {
                 <div className="flex items-center gap-4">
                   <div className="text-center">
                     <p className="text-secondary text-xs uppercase tracking-wider mb-1">Before</p>
-                    <p className="text-4xl text-secondary font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>40</p>
+                    <p className="text-4xl text-secondary font-light" style={{ fontFamily: "'General Sans', sans-serif" }}>40</p>
                   </div>
                   <ArrowRight className="w-8 h-8" style={{ color: 'var(--accent-primary)' }} />
                   <div className="text-center">
                     <p style={{ color: 'var(--accent-primary)' }} className="text-xs uppercase tracking-wider mb-1">After</p>
-                    <p className="text-4xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>165</p>
+                    <p className="text-4xl text-foreground font-light" style={{ fontFamily: "'General Sans', sans-serif" }}>165</p>
                   </div>
                 </div>
               </div>
@@ -678,7 +678,7 @@ function MethodSection() {
             <span className="text-xs uppercase tracking-widest text-secondary">The Method</span>
             <h2
               className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+              style={{ fontFamily: "'General Sans', sans-serif" }}
             >
               How we turn <em className="not-italic text-academic">fear into 150+</em>
             </h2>
@@ -701,7 +701,7 @@ function MethodSection() {
                   "flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-light text-xl",
                   step.highlight ? "text-background" : "card"
                 )} style={{ 
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontFamily: "'General Sans', sans-serif",
                   background: step.highlight ? 'var(--accent-primary)' : undefined,
                   color: step.highlight ? '#f6f6f4' : 'var(--accent-primary)'
                 }}>
@@ -742,7 +742,7 @@ function ComparisonSection() {
           <span className="text-xs uppercase tracking-widest text-secondary">Comparison</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            style={{ fontFamily: "'General Sans', sans-serif" }}
           >
             Why Students Choose <em className="not-italic text-academic">NST</em>
           </h2>
@@ -839,7 +839,7 @@ function TestimonialsSection() {
           <span className="text-xs uppercase tracking-widest text-secondary">Stories</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            style={{ fontFamily: "'General Sans', sans-serif" }}
           >
             Voices from the <em className="not-italic text-academic">white coat journey</em>
           </h2>
@@ -856,7 +856,7 @@ function TestimonialsSection() {
               className="card rounded-2xl p-8"
             >
               <Quote className="w-8 h-8 mb-4" style={{ color: 'oklch(72% 0.18 162 / 0.3)' }} />
-              <p className="text-lg text-foreground italic leading-relaxed mb-6" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              <p className="text-lg text-foreground italic leading-relaxed mb-6" style={{ fontFamily: "'General Sans', sans-serif" }}>
                 "{t.quote}"
               </p>
               <div className="flex items-center gap-3">
@@ -899,7 +899,7 @@ function AboutSection() {
                 <div className="w-36 h-36 mx-auto card rounded-full flex items-center justify-center mb-4 relative">
                   <div className="absolute inset-[2px] rounded-full bg-gradient-to-tr from-emerald-200/60 via-transparent to-blue-200/60 animate-[spin_8s_linear_infinite]" />
                   <div className="w-28 h-28 rounded-full flex items-center justify-center relative z-10" style={{ background: '#2F4F6F' }}>
-                    <span className="text-3xl text-white font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>DR. S</span>
+                    <span className="text-3xl text-white font-light" style={{ fontFamily: "'General Sans', sans-serif" }}>DR. S</span>
                   </div>
                   <motion.div 
                     className="absolute -top-1 -right-1 z-20"
@@ -912,7 +912,7 @@ function AboutSection() {
                     </div>
                   </motion.div>
                 </div>
-                <p className="text-2xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Dr. Sudharshan R.</p>
+                <p className="text-2xl text-foreground font-light" style={{ fontFamily: "'General Sans', sans-serif" }}>Dr. Sudharshan R.</p>
                 <p className="text-sm mt-1" style={{ color: 'var(--accent-primary)' }}>MBBS, Govt. Erode Medical College</p>
                 <div className="flex flex-wrap justify-center gap-2 mt-4">
                   <motion.span 
@@ -937,7 +937,7 @@ function AboutSection() {
               whileHover={{ y: -3 }}
               transition={{ duration: 0.25 }}
             >
-              <p className="text-3xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>2019</p>
+              <p className="text-3xl text-foreground font-light" style={{ fontFamily: "'General Sans', sans-serif" }}>2019</p>
               <p className="text-secondary text-xs uppercase tracking-wider">NEET Cracker</p>
             </motion.div>
             <div className="absolute -top-4 -left-4 text-background px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wider shadow-lg z-20" style={{ background: 'var(--accent-primary)' }}>
@@ -956,7 +956,7 @@ function AboutSection() {
             
             <h2
               className="text-4xl sm:text-5xl text-foreground leading-tight"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+              style={{ fontFamily: "'General Sans', sans-serif" }}
             >
               SR 1207 → 1000+ 120+ Scorers
             </h2>
@@ -981,15 +981,15 @@ function AboutSection() {
 
             <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-8">
               <div className="card p-4 rounded-xl flex flex-col items-center justify-center text-center">
-                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>SR 1207</p>
+                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'General Sans', sans-serif" }}>SR 1207</p>
                 <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">NEET 2019 Rank</p>
               </div>
               <div className="card p-4 rounded-xl flex flex-col items-center justify-center text-center">
-                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>1000+</p>
+                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'General Sans', sans-serif" }}>1000+</p>
                 <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">120+ Scorers</p>
               </div>
               <div className="card p-4 rounded-xl flex flex-col items-center justify-center text-center">
-                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>30+</p>
+                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'General Sans', sans-serif" }}>30+</p>
                 <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">MCQs / Year</p>
               </div>
             </div>
@@ -1140,7 +1140,7 @@ function CTASection() {
                 <Check className="w-6 h-6" style={{ color: 'var(--accent-primary)' }} />
               </div>
             </div>
-            <h3 className="text-2xl text-foreground mb-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <h3 className="text-2xl text-foreground mb-4" style={{ fontFamily: "'General Sans', sans-serif" }}>
               Application Received!
             </h3>
             <p className="text-secondary mb-6">
@@ -1286,10 +1286,10 @@ function Footer() {
     <footer className="relative py-12" style={{ borderTop: '1px solid var(--border-subtle)' }}>
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 card rounded-md flex items-center justify-center text-foreground font-bold text-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          <div className="w-8 h-8 card rounded-md flex items-center justify-center text-foreground font-bold text-sm" style={{ fontFamily: "'General Sans', sans-serif" }}>
             N
           </div>
-          <span className="font-medium text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>NST</span>
+          <span className="font-medium text-foreground" style={{ fontFamily: "'General Sans', sans-serif" }}>NST</span>
         </div>
         <div className="flex gap-6 text-sm text-secondary">
           <a href="#home" className="hover:text-foreground transition-colors">Home</a>
