@@ -5,23 +5,24 @@
 @layer base {
   :root {
     --bg-base: #f6f6f4;
-    --bg-surface: #FFFFFF;
+    --bg-surface: #FEFDFB;
     --bg-elevated: #FAFAF7;
-    --accent-primary: oklch(42% 0.12 145);
-    --accent-warm: oklch(65% 0.14 55);
-    --accent-muted: oklch(60% 0.06 240);
-    --text-primary: oklch(12% 0.02 95);
-    --text-secondary: oklch(38% 0.015 95);
-    --text-dim: oklch(52% 0.01 95);
+    --accent-primary: oklch(40% 0.10 145);
+    --accent-hover: oklch(34% 0.09 145);
+    --accent-warm: oklch(62% 0.13 50);
+    --accent-muted: oklch(55% 0.05 240);
+    --text-primary: oklch(14% 0.015 95);
+    --text-secondary: oklch(40% 0.012 95);
+    --text-dim: oklch(55% 0.008 95);
     --border-subtle: #ddd8d0;
-    --border-accent: oklch(42% 0.12 145);
+    --border-accent: oklch(40% 0.10 145);
 
-    --background: 0 0% 98%;
-    --foreground: 0 0% 12%;
-    --muted-foreground: 0 0% 42%;
-    --primary: 0 0% 12%;
+    --background: 0 0% 97%;
+    --foreground: 0 0% 14%;
+    --muted-foreground: 0 0% 44%;
+    --primary: 0 0% 14%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 42%;
+    --secondary: 0 0% 44%;
     --muted: 0 0% 90%;
     --accent: 0 0% 90%;
     --border: 0 0% 82%;
@@ -35,23 +36,21 @@
   body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', 'Catamaran', sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Instrument Serif', serif;
     color: var(--text-primary);
-    line-height: 1.05;
   }
 }
 
 @layer components {
   .card {
-    background: #FFFFFF;
-    border: 1px solid #E8E2D8;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.04);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -63,8 +62,8 @@
   }
 
   .card-surface {
-    background: #FFFFFF;
-    border: 1px solid #E8E2D8;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.04);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -76,8 +75,8 @@
   }
 
   .card-elevated {
-    background: #FFFFFF;
-    border: 1px solid #E8E2D8;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.04);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -89,8 +88,8 @@
   }
 
   .liquid-glass {
-    background: #FFFFFF;
-    border: 1px solid #E8E2D8;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.04);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -103,15 +102,16 @@
 
   .hero-btn-primary {
     background: var(--accent-primary);
-    color: #f6f6f4;
+    color: var(--bg-base);
     border-radius: 10px;
     font-weight: 500;
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-    box-shadow: 0 4px 12px oklch(42% 0.12 145 / 0.15);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background 0.2s ease-out;
+    box-shadow: 0 4px 12px oklch(40% 0.10 145 / 0.15);
   }
 
   .hero-btn-primary:hover {
-    box-shadow: 0 8px 20px oklch(42% 0.12 145 / 0.25);
+    background: var(--accent-hover);
+    box-shadow: 0 8px 20px oklch(40% 0.10 145 / 0.25);
   }
 
   .hero-btn-secondary {
@@ -131,7 +131,7 @@
 
   .btn-primary {
     background: var(--accent-primary);
-    color: #f6f6f4;
+    color: var(--bg-base);
     border-radius: 8px;
     font-weight: 500;
     transition: all 0.18s ease-out;
@@ -167,7 +167,7 @@
 
   .heading-xl {
     font-size: clamp(32px, 5vw, 56px);
-    font-family: 'Instrument Serif', serif;
+    font-family: 'Catamaran', 'Inter', sans-serif;
     color: var(--text-primary);
     line-height: 1.05;
   }
@@ -207,7 +207,7 @@
   .input-glow:focus {
     outline: none;
     border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px oklch(72% 0.18 162 / 0.15);
+    box-shadow: 0 0 0 3px oklch(72% 0.18 145 / 0.15);
   }
 
   .gradient-border {
@@ -238,7 +238,7 @@
     transition: color 0.2s ease-in-out;
   }
   .text-academic:hover {
-    color: oklch(35% 0.10 145);
+    color: var(--accent-hover);
   }
 
   .animate-fade-rise {
@@ -261,6 +261,10 @@
 
   .top-accent {
     border-top: 3px solid var(--accent-primary);
+  }
+
+  .font-tamil {
+    font-family: 'Catamaran', sans-serif;
   }
 }
 
