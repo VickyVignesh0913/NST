@@ -127,12 +127,10 @@ function HeroSection() {
             className="animate-fade-rise tracking-tight leading-[1.1]"
             style={{ fontFamily: "'General Sans', sans-serif", color: 'var(--text-primary)', letterSpacing: '0.02em' }}
           >
-            <span className="block text-4xl sm:text-5xl lg:text-[56px] font-[500]">
+            <span className="inline text-3xl sm:text-4xl lg:text-[48px] font-[500]">
               Physics Easy{' '}
               <span className="text-academic" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>— ஆ</span>
-            </span>
-            <span className="block text-5xl sm:text-6xl lg:text-[68px] mt-1 font-bold leading-[1.05]" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>
-              Feel பண்ணுங்க
+              {' '}<span style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }} className="font-bold">Feel பண்ணுங்க</span>
             </span>
           </h1>
 
