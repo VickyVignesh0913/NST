@@ -104,7 +104,7 @@ function HeroSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_70%,var(--glow-peach)_0%,transparent_40%)] z-0" />
 
       {/* Background Decor - Wave Ray Diagram */}
-      <svg className="absolute -top-10 -right-20 w-96 h-96 opacity-[0.03] text-stone-800 pointer-events-none z-0 transform rotate-12 blur-[1px]" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="0.5">
+      <svg className="absolute top-10 right-10 w-[400px] h-[400px] opacity-[0.08] text-stone-700 pointer-events-none z-0 transform -rotate-12" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M0 100 Q 50 0, 100 100 T 200 100" />
         <line x1="0" y1="100" x2="200" y2="100" strokeDasharray="4 4" />
       </svg>
@@ -285,13 +285,13 @@ function YouTubeSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,var(--glow-mint)_0%,transparent_50%)]" />
 
       {/* Background Decor - Geometric Ray */}
-      <svg className="absolute -bottom-20 -right-10 w-80 h-80 opacity-[0.03] text-stone-800 pointer-events-none z-0 blur-[1px]" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="0.5">
+      <svg className="absolute bottom-10 -right-10 w-[400px] h-[400px] opacity-[0.08] text-stone-700 pointer-events-none z-0" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="1.5">
         <circle cx="100" cy="100" r="60" strokeDasharray="2 4" />
         <line x1="40" y1="100" x2="160" y2="100" />
         <line x1="100" y1="40" x2="100" y2="160" />
         <line x1="57" y1="57" x2="143" y2="143" />
         <path d="M 100 100 L 150 50" />
-        <text x="155" y="45" fontSize="12" fontFamily="sans-serif">v</text>
+        <text x="155" y="45" fontSize="12" fontFamily="sans-serif" fill="currentColor" stroke="none">v</text>
       </svg>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -395,11 +395,11 @@ function InsideClassSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,var(--glow-peach)_0%,transparent_50%)]" />
 
       {/* Background Decor - Physics Formula */}
-      <svg className="absolute top-10 -left-10 w-64 h-32 opacity-[0.03] text-stone-800 pointer-events-none z-0 blur-[1px]" viewBox="0 0 200 100" fill="none" stroke="currentColor" strokeWidth="0.5">
-        <text x="10" y="50" fontSize="24" fontFamily="serif" fontStyle="italic">F = G</text>
-        <text x="75" y="40" fontSize="16" fontFamily="serif" fontStyle="italic">m₁m₂</text>
+      <svg className="absolute top-10 -left-10 w-[300px] h-[150px] opacity-[0.08] text-stone-700 pointer-events-none z-0" viewBox="0 0 200 100" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <text x="10" y="50" fontSize="24" fontFamily="serif" fontStyle="italic" fill="currentColor" stroke="none">F = G</text>
+        <text x="75" y="40" fontSize="16" fontFamily="serif" fontStyle="italic" fill="currentColor" stroke="none">m₁m₂</text>
         <line x1="70" y1="45" x2="115" y2="45" />
-        <text x="85" y="65" fontSize="16" fontFamily="serif" fontStyle="italic">r²</text>
+        <text x="85" y="65" fontSize="16" fontFamily="serif" fontStyle="italic" fill="currentColor" stroke="none">r²</text>
       </svg>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -994,7 +994,7 @@ function AboutSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,var(--glow-peach)_0%,transparent_50%)]" />
 
       {/* Background Decor - Heartbeat Motif */}
-      <svg className="absolute top-20 -left-10 w-96 h-48 opacity-[0.03] text-stone-800 pointer-events-none z-0 blur-[1px]" viewBox="0 0 200 100" fill="none" stroke="currentColor" strokeWidth="0.75" strokeLinejoin="round">
+      <svg className="absolute top-20 -left-10 w-[400px] h-[200px] opacity-[0.08] text-stone-700 pointer-events-none z-0" viewBox="0 0 200 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round">
         <path d="M0 50 L 50 50 L 60 30 L 70 80 L 85 20 L 95 60 L 105 50 L 200 50" />
       </svg>
       
