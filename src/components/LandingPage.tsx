@@ -127,11 +127,11 @@ function HeroSection() {
             className="animate-fade-rise tracking-tight leading-[1.1]"
             style={{ fontFamily: "'General Sans', sans-serif", color: 'var(--text-primary)', letterSpacing: '0.02em' }}
           >
-            <span className="block text-5xl sm:text-6xl lg:text-[68px] font-[500]">
+            <span className="block text-4xl sm:text-5xl lg:text-[56px] font-[500]">
               Physics Easy{' '}
               <span className="text-academic" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>— ஆ</span>
             </span>
-            <span className="block text-5xl sm:text-6xl lg:text-[72px] mt-0.5 font-bold leading-[1.05]" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>
+            <span className="block text-5xl sm:text-6xl lg:text-[68px] mt-1 font-bold leading-[1.05]" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>
               Feel பண்ணு
             </span>
           </h1>
@@ -1164,7 +1164,7 @@ function CTASection() {
     <section id="contact" className="relative py-20">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <span className="section-label">Start Today</span>
-        <h2 className="heading-xl mt-4">
+        <h2 className="heading-xl mt-4" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>
           உங்கள் Doctor பயணம்<br />
           <em className="not-italic text-academic">இன்றே தொடங்கட்டும்</em>
         </h2>
