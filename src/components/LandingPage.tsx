@@ -332,10 +332,7 @@ function YouTubeSection() {
               href={`https://www.youtube.com/watch?v=${video.id}`}
               target="_blank"
               rel="noopener noreferrer"
-              className={cn(
-                "group rounded-xl overflow-hidden block h-full",
-                i === 0 ? "card-elevated" : "card-surface"
-              )}
+              className="group rounded-xl overflow-hidden block h-full card-surface"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -1001,8 +998,8 @@ function AboutSection() {
               <div className="relative z-10 text-center">
                 <div className="w-36 h-36 mx-auto liquid-glass rounded-full flex items-center justify-center mb-4 relative">
                   <div className="absolute inset-[2px] rounded-full bg-gradient-to-tr from-emerald-200/60 via-transparent to-blue-200/60 animate-[spin_8s_linear_infinite]" />
-                  <div className="w-28 h-28 bg-black/40 rounded-full flex items-center justify-center relative z-10 backdrop-blur-sm">
-                    <span className="text-3xl text-blue-400 font-light" style={{ fontFamily: "'Instrument Serif', serif" }}>DR. S</span>
+                  <div className="w-28 h-28 bg-[#2F4F6F] rounded-full flex items-center justify-center relative z-10 backdrop-blur-sm">
+                    <span className="text-3xl text-white font-light" style={{ fontFamily: "'Instrument Serif', serif" }}>DR. S</span>
                   </div>
                   <motion.div 
                     className="absolute -top-1 -right-1 z-20"
