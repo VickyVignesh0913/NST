@@ -981,46 +981,77 @@ function AboutSection() {
           {/* Left - Image Card */}
           <motion.div
             className="relative"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <div className="aspect-square liquid-glass rounded-3xl flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 to-transparent" />
+            <motion.div 
+              className="aspect-square liquid-glass rounded-3xl flex items-center justify-center relative overflow-hidden"
+              whileHover={{ 
+                y: -6, 
+                boxShadow: "0 25px 50px -12px rgba(16, 185, 129, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.3)" 
+              }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.15),transparent_60%)] z-0" />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:24px_24px] z-0" />
               <div className="relative z-10 text-center">
                 <div className="w-36 h-36 mx-auto liquid-glass rounded-full flex items-center justify-center mb-4 relative">
-                  <div className="w-28 h-28 bg-black/40 rounded-full flex items-center justify-center">
+                  <div className="absolute inset-[2px] rounded-full bg-gradient-to-tr from-emerald-200/60 via-transparent to-blue-200/60 animate-[spin_8s_linear_infinite]" />
+                  <div className="w-28 h-28 bg-black/40 rounded-full flex items-center justify-center relative z-10 backdrop-blur-sm">
                     <span className="text-3xl text-blue-400 font-light" style={{ fontFamily: "'Instrument Serif', serif" }}>DR. S</span>
                   </div>
-                  <div className="absolute -top-1 -right-1 bg-emerald-500 text-background text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
-                    <Check className="w-3 h-3" />
-                    Verified
-                  </div>
+                  <motion.div 
+                    className="absolute -top-1 -right-1 z-20"
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <div className="bg-emerald-500 text-background text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-lg shadow-emerald-500/20">
+                      <Check className="w-3 h-3" />
+                      Verified
+                    </div>
+                  </motion.div>
                 </div>
                 <p className="text-2xl text-foreground font-light" style={{ fontFamily: "'Instrument Serif', serif" }}>Dr. Sudharshan R.</p>
                 <p className="text-blue-400 text-sm mt-1">MBBS, Govt. Erode Medical College</p>
                 <div className="flex flex-wrap justify-center gap-2 mt-4">
-                  <span className="px-3 py-1 liquid-glass rounded-full text-xs text-blue-400">NEET 2019 Cracker</span>
-                  <span className="px-3 py-1 liquid-glass rounded-full text-xs text-blue-400">1,000+ Students</span>
+                  <motion.span 
+                    className="px-3 py-1 liquid-glass rounded-full text-xs text-blue-400 cursor-pointer"
+                    whileHover={{ scale: 1.03, filter: "brightness(0.95)" }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                  >
+                    NEET 2019 Cracker
+                  </motion.span>
+                  <motion.span 
+                    className="px-3 py-1 liquid-glass rounded-full text-xs text-blue-400 cursor-pointer"
+                    whileHover={{ scale: 1.03, filter: "brightness(0.95)" }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                  >
+                    1,000+ Students
+                  </motion.span>
                 </div>
               </div>
-            </div>
-            <div className="absolute -bottom-6 -right-6 liquid-glass p-4 rounded-xl">
+            </motion.div>
+            <motion.div 
+              className="absolute -bottom-6 -right-6 liquid-glass p-4 rounded-xl z-20"
+              whileHover={{ y: -3, boxShadow: "0 10px 20px -5px rgba(0,0,0,0.1)" }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+            >
               <p className="text-3xl text-foreground font-light" style={{ fontFamily: "'Instrument Serif', serif" }}>2019</p>
               <p className="text-secondary text-xs uppercase tracking-wider">NEET Cracker</p>
-            </div>
-            <div className="absolute -top-4 -left-4 bg-blue-400 text-background px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wider">
+            </motion.div>
+            <div className="absolute -top-4 -left-4 bg-blue-400 text-background px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-400/20 z-20">
               Authority
             </div>
           </motion.div>
 
           {/* Right - Content */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
           >
             <span className="text-xs uppercase tracking-widest text-secondary">The Mentor</span>
             <h2
@@ -1034,9 +1065,14 @@ function AboutSection() {
             </p>
             <div className="flex flex-wrap gap-3 mt-8">
               {['MBBS Graduate', 'NEET 2019 Cracker', 'SR 1207 Method', '6 Years Experience'].map((tag) => (
-                <span key={tag} className="px-4 py-2 liquid-glass rounded-full text-sm text-foreground">
+                <motion.span 
+                  key={tag} 
+                  className="px-4 py-2 liquid-glass rounded-full text-sm text-foreground cursor-pointer inline-block"
+                  whileHover={{ scale: 1.03, filter: "brightness(0.95)" }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                >
                   {tag}
-                </span>
+                </motion.span>
               ))}
             </div>
           </motion.div>
