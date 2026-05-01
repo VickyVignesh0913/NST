@@ -8,8 +8,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ['"Instrument Serif"', 'serif'],
-        body: ['"Inter"', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', 'sans-serif'],
+        body: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',

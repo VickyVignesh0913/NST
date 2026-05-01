@@ -13,6 +13,7 @@
     --accent-muted: oklch(55% 0.05 240);
     --text-primary: oklch(14% 0.015 95);
     --text-secondary: oklch(40% 0.012 95);
+    --text-emphasis: oklch(22% 0.012 95);
     --text-dim: oklch(55% 0.008 95);
     --border-subtle: #ddd8d0;
     --border-accent: oklch(40% 0.10 145);
@@ -36,10 +37,11 @@
   body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: 'Inter', 'Catamaran', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.01em;
   }
 
   h1, h2, h3, h4 {
@@ -167,7 +169,7 @@
 
   .heading-xl {
     font-size: clamp(32px, 5vw, 56px);
-    font-family: 'Catamaran', 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     color: var(--text-primary);
     line-height: 1.05;
   }
@@ -263,8 +265,14 @@
     border-top: 3px solid var(--accent-primary);
   }
 
+  .font-english {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: 0.02em;
+  }
+
   .font-tamil {
-    font-family: 'Catamaran', sans-serif;
+    font-family: 'Arima Madurai', sans-serif;
+    letter-spacing: 0;
   }
 }
 
