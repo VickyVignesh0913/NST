@@ -503,7 +503,7 @@ function YouTubeSection() {
               </motion.a>
             </div>
 
-<div className="md:col-span-4 flex flex-col gap-4" style={{ alignSelf: 'start' }}>
+<div className="md:col-span-4 flex flex-col" style={{ alignSelf: 'start', height: '100%', justifyContent: 'space-between' }}>
               {videos.slice(1, 4).map((video, i) => (
                 <motion.a
                   key={i}
