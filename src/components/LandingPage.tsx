@@ -1058,13 +1058,28 @@ function AboutSection() {
               className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
               style={{ fontFamily: "'Instrument Serif', serif" }}
             >
-              A doctor who <em className="not-italic text-academic">teaches like one</em>
+              From Self-Study NEET Ranker (SR 1207) to Mentor of 1000+ 120+ Scorers
             </h2>
-            <p className="text-secondary mt-6 text-lg leading-relaxed">
-              From Govt. Erode Medical College, Dr. Sudharshan cracked NEET 2019 and has since guided over 1,000 Tamil medium students to Physics scores above 120. His SR 1207 self-study roadmap is now legendary.
+            <p className="text-foreground font-medium mt-4 text-lg">
+              Teaching NEET Physics in Tamil — like a brother, with real exam strategies.
+            </p>
+            <p className="text-secondary mt-4 text-lg leading-relaxed">
+              Dr. Sudharshan R (MBBS, Govt. Erode Medical College) cracked NEET 2019 with State Rank 1207 through self-study as a fresher. Since then, through NST (NEET Strategies Tamil), he has guided 1000+ students to score 120+ in Physics. His content is widely followed for predicting NEET MCQs, with 30+ questions appearing in Physics and Chemistry every year over the past 6 years.
+            </p>
+            <p className="text-foreground font-medium mt-6">
+              Physics will no longer be your weak subject. That's a promise.
+            </p>
+            <p className="text-secondary text-sm mt-1">
+              Join NST Family and start your NEET preparation with clarity and confidence.
             </p>
             <div className="flex flex-wrap gap-3 mt-8">
-              {['MBBS Graduate', 'NEET 2019 Cracker', 'SR 1207 Method', '6 Years Experience'].map((tag) => (
+              {[
+                'MBBS • Govt. Erode Medical College', 
+                'NEET 2019 • State Rank 1207', 
+                'Self-Study • No Coaching', 
+                '1000+ Students Scored 120+ in Physics', 
+                'Predicting 30+ NEET MCQs / Year'
+              ].map((tag) => (
                 <motion.span 
                   key={tag} 
                   className="px-4 py-2 liquid-glass rounded-full text-sm text-foreground cursor-pointer inline-block"
