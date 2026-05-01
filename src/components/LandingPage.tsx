@@ -503,14 +503,14 @@ function YouTubeSection() {
               </motion.a>
             </div>
 
-            <div className="md:col-span-4 grid grid-rows-3 gap-4 h-full">
+<div className="md:col-span-4 flex flex-col gap-4" style={{ alignSelf: 'start' }}>
               {videos.slice(1, 4).map((video, i) => (
                 <motion.a
                   key={i}
                   href={`https://www.youtube.com/watch?v=${video.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-xl overflow-hidden block card"
+                  className="group rounded-xl overflow-hidden block card flex items-center p-3"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
@@ -518,7 +518,8 @@ function YouTubeSection() {
                   whileHover={{ y: -2 }}
                 >
                   <div
-                    className="h-full relative flex items-center justify-center group-hover:scale-105 transition-transform duration-500 bg-slate-200"
+                    className="relative flex items-center justify-center group-hover:scale-105 transition-transform duration-500 bg-slate-200"
+                    style={{ width: '120px', height: '68px', flexShrink: 0, borderRadius: '6px', overflow: 'hidden' }}
                   >
                     <img
                       src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
@@ -533,7 +534,11 @@ function YouTubeSection() {
                     <motion.div className="z-20" whileHover={{ scale: 1.15 }} transition={{ duration: 0.2 }}>
                       <Play className="w-6 h-6 text-white/90" />
                     </motion.div>
-                    <span className="absolute bottom-3 left-3 z-20 text-xs text-white/90 bg-slate-900/60 px-2 py-0.5 rounded">{video.duration}</span>
+                    <span className="absolute bottom-1 left-1 z-20 text-xs text-white/90 bg-slate-900/60 px-1.5 py-0.5 rounded">{video.duration}</span>
+                  </div>
+                  <div className="flex-1 min-w-0" style={{ alignSelf: 'center', paddingLeft: '12px' }}>
+                    <h3 className="font-medium text-sm mb-1 transition-colors duration-300 line-clamp-2" style={{ color: 'var(--text-primary)' }}>{video.title}</h3>
+                    <p className="text-xs" style={{ color: 'var(--text-dim)' }}>{video.views} views</p>
                   </div>
                 </motion.a>
               ))}
@@ -1010,72 +1015,7 @@ function ResultsSection() {
               </div>
             </div>
           </motion.div>
-        </div>
-
-        <motion.div
-          className="max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-         >
-           <div className="card rounded-2xl p-8 md:p-10 relative overflow-hidden">
-            <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
-              <div className="text-center md:text-left">
-                <span className="inline-block mb-3 text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '12px', paddingBlock: '4px', borderRadius: '9999px' }}>
-                  Featured Case Study
-                </span>
-                <h3 className="text-2xl md:text-3xl text-foreground font-light mb-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                  From 40 → 165 in 6 months
-                </h3>
-                <p className="text-secondary text-sm md:text-base leading-relaxed max-w-md">
-                  "I joined NST as a dropper with barely 40 marks in Physics. Dr. S didn't just teach formulas — he changed how I think about Physics."
-                </p>
-                <div className="mt-4 flex items-center gap-3">
-                  <div className="w-10 h-10 card rounded-full flex items-center justify-center font-bold" style={{ color: 'var(--accent-primary)' }}>R</div>
-                  <div>
-                    <p className="text-foreground font-medium text-sm">Rohini K.</p>
-                    <p className="text-secondary text-xs">NEET 2025 • Govt. Medical College</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex-shrink-0">
-                <div className="flex items-center gap-4">
-                  <div className="text-center">
-                    <p className="text-secondary text-xs uppercase tracking-wider mb-1">Before</p>
-                    <p className="text-4xl text-secondary font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>40</p>
-                  </div>
-                  <ArrowRight className="w-8 h-8" style={{ color: 'var(--accent-primary)' }} />
-                  <div className="text-center">
-                    <p style={{ color: 'var(--accent-primary)' }} className="text-xs uppercase tracking-wider mb-1">After</p>
-                    <p className="text-4xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>165</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="mt-12 flex flex-wrap justify-center gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-         >
-           <div className="card rounded-full px-6 py-3 flex items-center gap-2">
-             <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-primary)' }} />
-             <span className="text-sm text-foreground">1000+ students trained</span>
-          </div>
-          <div className="card rounded-full px-6 py-3 flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full animate-pulse" style={{ color: 'var(--accent-muted)' }} />
-            <span className="text-sm text-foreground">6 years of predictions</span>
-          </div>
-          <div className="card rounded-full px-6 py-3 flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--text-dim)' }} />
-            <span className="text-sm text-foreground">Tamil medium first</span>
-          </div>
-        </motion.div>
+</div>
       </div>
     </section>
   )
