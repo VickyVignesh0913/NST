@@ -1262,10 +1262,10 @@ function AboutSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-           >
-             <motion.div 
-               className="aspect-square card rounded-3xl flex items-center justify-center relative overflow-hidden"
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <motion.div 
+              className="aspect-square card rounded-3xl flex items-center justify-center relative overflow-hidden"
               whileHover={{ y: -6 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
             >
@@ -1290,14 +1290,16 @@ function AboutSection() {
                 <p className="text-sm mt-1" style={{ color: 'var(--accent-primary)' }}>MBBS, Govt. Erode Medical College</p>
                 <div className="flex flex-wrap justify-center gap-2 mt-4">
                   <motion.span 
-                    className="px-3 py-1 card rounded-full text-xs cursor-pointer" style={{ color: 'var(--accent-primary)' }}
+                    className="px-3 py-1 card rounded-full text-xs cursor-pointer"
+                    style={{ color: 'var(--accent-primary)' }}
                     whileHover={{ scale: 1.03 }}
                     transition={{ duration: 0.2 }}
                   >
                     NEET 2019 Cracker
                   </motion.span>
                   <motion.span 
-                    className="px-3 py-1 card rounded-full text-xs cursor-pointer" style={{ color: 'var(--accent-primary)' }}
+                    className="px-3 py-1 card rounded-full text-xs cursor-pointer"
+                    style={{ color: 'var(--accent-primary)' }}
                     whileHover={{ scale: 1.03 }}
                     transition={{ duration: 0.2 }}
                   >
@@ -1306,6 +1308,7 @@ function AboutSection() {
                 </div>
               </div>
             </motion.div>
+
             <motion.div 
               className="absolute -bottom-6 -right-6 card p-4 rounded-xl z-20"
               whileHover={{ y: -3 }}
@@ -1314,6 +1317,7 @@ function AboutSection() {
               <p className="text-3xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>2019</p>
               <p className="text-secondary text-xs uppercase tracking-wider">NEET Cracker</p>
             </motion.div>
+
             <div className="absolute -top-4 -left-4 text-background px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wider shadow-lg z-20" style={{ background: 'var(--accent-primary)' }}>
               Authority
             </div>
@@ -1332,13 +1336,34 @@ function AboutSection() {
               className="text-3xl sm:text-4xl text-foreground leading-tight"
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
-              From State Rank 1207 to mentoring 1000+ students scoring 120+
+              Cracked NEET 2019 with State Rank 1207 — now mentors 1000+ students
             </h2>
             <p className="text-foreground font-medium mt-4 text-lg">
               Teaching NEET Physics in Tamil — like a brother, with real exam strategies.
             </p>
 
-            <div className="flex flex-wrap gap-2 mt-5">
+            <div className="flex flex-col gap-3 mt-6">
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
+                <p className="text-secondary text-sm">
+                  <strong className="text-foreground">Self-study success:</strong> No coaching, just strategy — proved it's possible
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
+                <p className="text-secondary text-sm">
+                  <strong className="text-foreground">1000+ students:</strong> Mentored to score 120+ in Physics through NST
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
+                <p className="text-secondary text-sm">
+                  <strong className="text-foreground">30+ MCQs yearly:</strong> Predicted questions that appear in NEET Physics & Chemistry
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-2 mt-6">
               {[
                 'MBBS • Govt. Erode Medical College', 
                 'Self-Study • No Coaching'
@@ -1351,21 +1376,6 @@ function AboutSection() {
                   {tag}
                 </span>
               ))}
-            </div>
-
-            <div className="flex flex-wrap gap-3 sm:gap-4 mt-8 justify-center">
-              <div className="card p-4 rounded-xl flex flex-col items-center justify-center text-center min-w-[100px] flex-1">
-                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>SR 1207</p>
-                <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">NEET 2019 Rank</p>
-              </div>
-              <div className="card p-6 rounded-xl flex flex-col items-center justify-center text-center min-w-[120px] flex-2 bg-[oklch(72%_0.18_162/0.05)]">
-                <p className="text-4xl sm:text-5xl text-foreground font-light mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>1000+</p>
-                <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">120+ Scorers</p>
-              </div>
-              <div className="card p-4 rounded-xl flex flex-col items-center justify-center text-center min-w-[100px] flex-1">
-                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>30+</p>
-                <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">MCQs / Year</p>
-              </div>
             </div>
 
             <div className="mt-8">
@@ -1394,7 +1404,7 @@ function AboutSection() {
               </AnimatePresence>
             </div>
 
-            <div className="mt-8 pl-4 accent-highlight">
+            <div className="mt-8 pl-4" style={{ borderLeft: '2px solid oklch(72% 0.18 162 / 0.3)' }}>
               <p className="text-foreground font-medium">
                 "Physics will no longer be your weak subject. That's a promise."
               </p>
