@@ -191,7 +191,6 @@ function CursorGlow() {
 
 function HeroSection() {
   const imgRef = useRef<HTMLDivElement>(null)
-  const overlayRef = useRef<HTMLDivElement>(null)
   const [overlayOpacity, setOverlayOpacity] = useState(0)
 
   useEffect(() => {
@@ -217,31 +216,30 @@ function HeroSection() {
       {/* Cursor Glow */}
       <CursorGlow />
 
-      {/* Physics Layer */}
+      {/* Physics SVG Layer */}
       <PhysicsLayer />
 
-      {/* Right-side Hero Image with Parallax */}
+      {/* Full-width Image Background */}
       <div
         ref={imgRef}
-        className="absolute inset-y-0 right-0 w-[65%] lg:block hidden"
-        style={{ willChange: 'transform', transition: 'transform 0.08s linear' }}
+        className="absolute inset-0"
+        style={{ willChange: 'transform' }}
       >
         <img
           src="/hero.png"
           alt="NEET Physics coaching - Student studying"
-          className="absolute inset-0 w-full h-full object-cover object-right"
+          className="absolute inset-0 w-full h-full object-cover"
           style={{ filter: 'contrast(1.05) saturate(1.02)' }}
           loading="eager"
         />
       </div>
 
-      {/* Gradient Overlay — left-to-right fade */}
+      {/* Gradient Overlay — left-to-right fade revealing image on right */}
       <div
-        ref={overlayRef}
         className="absolute inset-0 transition-opacity duration-700 ease-out"
         style={{
           opacity: overlayOpacity,
-          background: 'linear-gradient(to right, rgba(246,246,244,0.92) 0%, rgba(246,246,244,0.6) 40%, rgba(246,246,244,0.1) 100%)'
+          background: 'linear-gradient(to right, rgba(246,246,244,0.95) 0%, rgba(246,246,244,0.7) 35%, rgba(246,246,244,0.2) 65%, rgba(246,246,244,0.02) 100%)'
         }}
       />
 
