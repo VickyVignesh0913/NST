@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { cn } from '../lib/utils'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 import { 
@@ -236,20 +236,15 @@ function HeroSection() {
   }, [])
 
   useEffect(() => {
-    let raf: number
     const handleScroll = () => {
       setScrollY(window.scrollY)
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => {
-      cancelAnimationFrame(raf)
-      window.removeEventListener('scroll', handleScroll)
-    }
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const imgParallax = Math.min(scrollY * 0.4, 120)
   const contentFade = Math.min(scrollY / 350, 1)
-  const physicsDrift = scrollY * 0.2
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">
