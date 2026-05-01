@@ -431,14 +431,10 @@ function YouTubeSection() {
       views: "67K",
       time: "1 week ago"
     },
-    {
-      id: "jAss1aYSXNU",
-      title: "Physics Shortcuts: Solve in 30 Seconds | NST Tamil",
-      duration: "12:45",
-      views: "89K",
-      time: "5 days ago"
-    },
   ]
+
+  const [activeIndex, setActiveIndex] = useState(0)
+  const activeVideo = videos[activeIndex]
 
   return (
     <section className="relative py-16">
@@ -459,93 +455,103 @@ function YouTubeSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-12 gap-6 items-stretch">
-            <div className="md:col-span-8">
-              <motion.a
-                href={`https://www.youtube.com/watch?v=${videos[0].id}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group rounded-xl overflow-hidden block card flex flex-col h-full"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -4 }}
-              >
-                <div
-                  className="aspect-video relative flex-shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-500 bg-slate-200"
-                >
-                  <img
-                    src={`https://img.youtube.com/vi/${videos[0].id}/mqdefault.jpg`}
-                    alt={videos[0].title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/10 transition-colors duration-300" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent z-10" />
-                  <motion.div
-                    className="z-20"
-                    whileHover={{ scale: 1.15 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Play className="w-16 h-16 text-white/90 drop-shadow-lg fill-current" />
-                  </motion.div>
-                  <span className="absolute bottom-3 left-3 z-20 text-xs text-white/90 bg-slate-900/60 px-2 py-0.5 rounded">
-                    {videos[0].duration}
-                  </span>
-                </div>
-                <div className="p-6 flex-1">
-                  <h3 className="font-medium text-base mb-2 transition-colors duration-300" style={{ color: 'var(--text-primary)' }}>{videos[0].title}</h3>
-                  <p className="text-sm" style={{ color: 'var(--text-dim)' }}>{videos[0].views} views • {videos[0].time}</p>
-                </div>
-              </motion.a>
-            </div>
+        <motion.div
+          className="flex flex-wrap justify-center gap-4 mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+        >
+          <div className="card rounded-full px-5 py-2.5 flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
+            <span className="text-sm" style={{ color: 'var(--text-primary)' }}>1L+ Subscribers</span>
+          </div>
+          <div className="card rounded-full px-5 py-2.5 flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-primary)' }} />
+            <span className="text-sm" style={{ color: 'var(--text-primary)' }}>150+ Strategy Sessions</span>
+          </div>
+          <div className="card rounded-full px-5 py-2.5 flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--text-dim)' }} />
+            <span className="text-sm" style={{ color: 'var(--text-primary)' }}>Tamil Medium First</span>
+          </div>
+        </motion.div>
 
-<div className="md:col-span-4 flex flex-col" style={{ alignSelf: 'stretch', height: '100%', alignItems: 'stretch' }}>
-              {videos.slice(1, 4).map((video, i) => (
-                <motion.a
-                  key={i}
-                  href={`https://www.youtube.com/watch?v=${video.id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group rounded-xl overflow-hidden block card flex items-center p-3" style={{ flex: 1 }}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                  whileHover={{ y: -2 }}
-                >
-                  <div
-                    className="relative flex items-center justify-center group-hover:scale-105 transition-transform duration-500 bg-slate-200"
-                    style={{ width: '120px', height: '68px', flexShrink: 0, borderRadius: '6px', overflow: 'hidden' }}
-                  >
-                    <img
-                      src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
-                      alt={video.title}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = 'none';
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/10 transition-colors duration-300" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent z-10" />
-                    <motion.div className="z-20" whileHover={{ scale: 1.15 }} transition={{ duration: 0.2 }}>
-                      <Play className="w-6 h-6 text-white/90" />
-                    </motion.div>
-                    <span className="absolute bottom-1 left-1 z-20 text-xs text-white/90 bg-slate-900/60 px-1.5 py-0.5 rounded">{video.duration}</span>
-                  </div>
-                  <div className="flex-1 min-w-0" style={{ alignSelf: 'center', paddingLeft: '12px' }}>
-                    <h3 className="font-medium text-sm mb-1 transition-colors duration-300 line-clamp-2" style={{ color: 'var(--text-primary)' }}>{video.title}</h3>
-                    <p className="text-xs" style={{ color: 'var(--text-dim)' }}>{video.views} views</p>
-                  </div>
-                </motion.a>
-              ))}
+        <motion.a
+          href={`https://www.youtube.com/watch?v=${activeVideo.id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group rounded-2xl overflow-hidden block card"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div
+            className="relative w-full aspect-video bg-slate-200"
+            style={{ borderRadius: '12px', overflow: 'hidden' }}
+          >
+            <img
+              src={`https://img.youtube.com/vi/${activeVideo.id}/maxresdefault.jpg`}
+              alt={activeVideo.title}
+              className="absolute inset-0 w-full h-full object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${activeVideo.id}/hqdefault.jpg`;
+              }}
+            />
+            <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/10 transition-colors duration-300" />
+            <motion.div
+              className="absolute inset-0 z-20 flex items-center justify-center"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Play className="w-20 h-20 text-white/90 drop-shadow-lg fill-current" />
+            </motion.div>
+            <span className="absolute bottom-3 left-3 z-20 text-xs text-white/90 bg-slate-900/60 px-2 py-0.5 rounded">
+              {activeVideo.duration}
+            </span>
+            <div
+              className="absolute bottom-0 left-0 right-0 z-10"
+              style={{ padding: '1.5rem', background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)' }}
+            >
+              <h3 className="font-medium text-lg text-white mb-1">{activeVideo.title}</h3>
+              <p className="text-sm text-white/70">{activeVideo.views} views • {activeVideo.time}</p>
             </div>
           </div>
+        </motion.a>
+
+        <div className="grid grid-cols-4 gap-3" style={{ marginTop: '0.75rem' }}>
+          {videos.map((video, i) => (
+            <motion.button
+              key={i}
+              type="button"
+              onClick={() => setActiveIndex(i)}
+              className="relative w-full aspect-video rounded-lg overflow-hidden cursor-pointer group"
+              style={{
+                aspectRatio: '16/9',
+                objectFit: 'cover',
+                borderRadius: '8px',
+                outline: activeIndex === i ? '2px solid var(--accent-primary)' : 'none',
+                outlineOffset: '2px'
+              }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+              <img
+                src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
+                alt={video.title}
+                className="absolute inset-0 w-full h-full object-cover group-hover:opacity-85 transition-opacity duration-180"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
+              />
+              <span className="absolute bottom-1 left-1 z-10 text-xs text-white/90 bg-slate-900/60 px-1.5 py-0.5 rounded">{video.duration}</span>
+            </motion.button>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
   )
 }
 
