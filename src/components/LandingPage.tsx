@@ -972,6 +972,8 @@ function TestimonialsSection() {
 
 // About Section
 function AboutSection() {
+  const [isStoryExpanded, setIsStoryExpanded] = useState(false);
+
   return (
     <section id="about" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,var(--glow-peach)_0%,transparent_50%)]" />
@@ -1052,10 +1054,13 @@ function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.15 }}
+            className="flex flex-col justify-center"
           >
-            <span className="text-xs uppercase tracking-widest text-secondary">The Mentor</span>
+            <span className="text-xs uppercase tracking-widest text-secondary mb-3 block">The Mentor</span>
+            
+            {/* Headline & Subheading */}
             <h2
-              className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
+              className="text-4xl sm:text-5xl text-foreground leading-tight"
               style={{ fontFamily: "'Instrument Serif', serif" }}
             >
               From Self-Study NEET Ranker (SR 1207) to Mentor of 1000+ 120+ Scorers
@@ -1063,32 +1068,72 @@ function AboutSection() {
             <p className="text-foreground font-medium mt-4 text-lg">
               Teaching NEET Physics in Tamil — like a brother, with real exam strategies.
             </p>
-            <p className="text-secondary mt-4 text-lg leading-relaxed">
-              Dr. Sudharshan R (MBBS, Govt. Erode Medical College) cracked NEET 2019 with State Rank 1207 through self-study as a fresher. Since then, through NST (NEET Strategies Tamil), he has guided 1000+ students to score 120+ in Physics. His content is widely followed for predicting NEET MCQs, with 30+ questions appearing in Physics and Chemistry every year over the past 6 years.
-            </p>
-            <p className="text-foreground font-medium mt-6">
-              Physics will no longer be your weak subject. That's a promise.
-            </p>
-            <p className="text-secondary text-sm mt-1">
-              Join NST Family and start your NEET preparation with clarity and confidence.
-            </p>
-            <div className="flex flex-wrap gap-3 mt-8">
+
+            {/* Minimal Achievement Chips */}
+            <div className="flex flex-wrap gap-2 mt-5">
               {[
                 'MBBS • Govt. Erode Medical College', 
-                'NEET 2019 • State Rank 1207', 
-                'Self-Study • No Coaching', 
-                '1000+ Students Scored 120+ in Physics', 
-                'Predicting 30+ NEET MCQs / Year'
+                'Self-Study • No Coaching'
               ].map((tag) => (
-                <motion.span 
+                <span 
                   key={tag} 
-                  className="px-4 py-2 liquid-glass rounded-full text-sm text-foreground cursor-pointer inline-block"
-                  whileHover={{ scale: 1.03, filter: "brightness(0.95)" }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  className="px-3 py-1.5 border border-border/40 bg-surface/30 rounded-full text-[11px] text-secondary inline-block"
                 >
                   {tag}
-                </motion.span>
+                </span>
               ))}
+            </div>
+
+            {/* Stats Blocks */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-8">
+              <div className="liquid-glass p-4 rounded-xl flex flex-col items-center justify-center text-center">
+                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Instrument Serif', serif" }}>SR 1207</p>
+                <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">NEET 2019 Rank</p>
+              </div>
+              <div className="liquid-glass p-4 rounded-xl flex flex-col items-center justify-center text-center">
+                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Instrument Serif', serif" }}>1000+</p>
+                <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">120+ Scorers</p>
+              </div>
+              <div className="liquid-glass p-4 rounded-xl flex flex-col items-center justify-center text-center">
+                <p className="text-3xl sm:text-4xl text-foreground font-light mb-1" style={{ fontFamily: "'Instrument Serif', serif" }}>30+</p>
+                <p className="text-[10px] sm:text-xs uppercase tracking-wider text-secondary">MCQs / Year</p>
+              </div>
+            </div>
+
+            {/* Expandable Story Section */}
+            <div className="mt-8">
+              <button 
+                onClick={() => setIsStoryExpanded(!isStoryExpanded)}
+                className="text-sm font-medium text-blue-500 hover:text-blue-400 transition-colors flex items-center gap-1 group"
+              >
+                {isStoryExpanded ? 'Hide Story' : 'Read Full Story'}
+                <ChevronDown className={cn("w-4 h-4 transition-transform duration-300", isStoryExpanded ? "rotate-180" : "group-hover:translate-y-0.5")} />
+              </button>
+              
+              <AnimatePresence>
+                {isStoryExpanded && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <p className="text-secondary mt-4 text-base leading-relaxed p-5 liquid-glass rounded-xl shadow-inner border border-border/20">
+                      Dr. Sudharshan R (MBBS, Govt. Erode Medical College) cracked NEET 2019 with State Rank 1207 through self-study as a fresher. Since then, through NST (NEET Strategies Tamil), he has guided 1000+ students to score 120+ in Physics. His content is widely followed for predicting NEET MCQs, with 30+ questions appearing in Physics and Chemistry every year over the past 6 years.
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <div className="mt-8 border-l-2 border-emerald-400/30 pl-4">
+              <p className="text-foreground font-medium">
+                "Physics will no longer be your weak subject. That's a promise."
+              </p>
+              <p className="text-secondary text-sm mt-1">
+                Join NST Family and start your NEET preparation with clarity and confidence.
+              </p>
             </div>
           </motion.div>
         </div>
