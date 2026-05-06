@@ -113,21 +113,21 @@ function PhysicsLayer() {
         `}
       </style>
       <g className="drift-1">
-        <text x="60" y="120" fontSize="28" fontFamily="serif" fill="currentColor">E = mc^2</text>
+        <text x="60" y="120" fontSize="28" fontFamily="serif" fill="currentColor">E = mc2</text>
         <text x="60" y="160" fontSize="22" fontFamily="serif" fill="currentColor">F = ma</text>
       </g>
       <g className="drift-2">
         <path d="M700 100 Q720 130 740 100 Q760 70 780 100 Q800 130 820 100" stroke="currentColor" strokeWidth="1.5" fill="none" />
-        <text x="710" y="155" fontSize="18" fontFamily="serif" fill="currentColor">y = A sin(wt)</text>
+        <text x="710" y="155" fontSize="18" fontFamily="serif" fill="currentColor">y = A sin t</text>
       </g>
       <g className="drift-3">
         <circle cx="900" cy="350" r="40" stroke="currentColor" strokeWidth="1" fill="none" />
         <line x1="860" y1="350" x2="940" y2="350" stroke="currentColor" strokeWidth="0.5" />
         <line x1="900" y1="310" x2="900" y2="390" stroke="currentColor" strokeWidth="0.5" />
-        <text x="930" y="410" fontSize="16" fontFamily="serif" fill="currentColor">theta</text>
+        <text x="930" y="410" fontSize="16" fontFamily="serif" fill="currentColor">angle</text>
       </g>
       <g className="drift-1">
-        <text x="100" y="500" fontSize="24" fontFamily="serif" fill="currentColor">grad x E = -dB/dt</text>
+        <text x="100" y="500" fontSize="24" fontFamily="serif" fill="currentColor">field shift</text>
       </g>
       <g className="drift-2">
         <path d="M400 600 L440 560 L480 580 L520 540 L560 560 L600 520" stroke="currentColor" strokeWidth="1.5" fill="none" />
@@ -138,7 +138,7 @@ function PhysicsLayer() {
         <circle cx="600" cy="520" r="3" fill="currentColor" />
       </g>
       <g className="drift-3">
-        <text x="750" y="550" fontSize="22" fontFamily="serif" fill="currentColor">lambda = h/mv</text>
+        <text x="750" y="550" fontSize="22" fontFamily="serif" fill="currentColor">wave motion</text>
       </g>
       <g className="drift-1">
         <text x="200" y="700" fontSize="20" fontFamily="serif" fill="currentColor">PV = nRT</text>
@@ -719,74 +719,85 @@ function CoursesSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-12 gap-6 items-stretch">
+        <div className="grid items-stretch gap-6 md:grid-cols-12">
           <motion.div
-            className="md:col-span-8 card rounded-2xl p-8 md:p-10 relative overflow-hidden flex flex-col h-full"
+            className="card relative flex h-full flex-col overflow-hidden rounded-2xl p-6 sm:p-8 md:col-span-8 md:p-10"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             {primaryCourse?.popular && (
-              <div className="absolute right-3 top-3 text-[11px] sm:right-4 sm:top-4" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '8px', paddingBlock: '4px', borderRadius: '9999px' }}>
+              <div className="absolute right-3 top-3 rounded-full px-2.5 py-1 text-[11px] font-medium sm:right-4 sm:top-4" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)' }}>
                 {primaryCourse.tag}
               </div>
             )}
 
-            <div className="mb-6">
-              <h3 className="pr-20 text-3xl font-medium text-foreground sm:pr-0">{primaryCourse?.name}</h3>
-              <p className="text-xs text-secondary mt-1">{primaryCourse?.tag}</p>
-            </div>
-
-            <div className="mb-8">
-              <div className="flex flex-wrap items-baseline gap-2">
-                <span className="text-4xl font-light text-foreground sm:text-5xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                  {primaryCourse?.price}
-                </span>
-                <span className="text-lg text-secondary line-through">{primaryCourse?.original}</span>
+            <div className="mb-8 flex flex-col gap-6 border-b pb-8 sm:gap-7 md:flex-row md:items-end md:justify-between" style={{ borderColor: 'var(--border-subtle)' }}>
+              <div>
+                <h3 className="pr-20 text-3xl font-medium text-foreground sm:pr-0">{primaryCourse?.name}</h3>
+                <p className="mt-2 max-w-xl text-sm leading-6 text-secondary">
+                  Full-system mentoring for Tamil medium aspirants who want structure, accountability, and a serious push toward top NEET Physics scores.
+                </p>
               </div>
-              <span className="text-xs" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '8px', paddingBlock: '2px', borderRadius: '4px', display: 'inline-block', marginTop: '8px' }}>
-                {primaryCourse?.discount}
-              </span>
+              <div className="rounded-2xl px-4 py-4 sm:px-5" style={{ background: 'var(--bg-elevated)' }}>
+                <div className="flex flex-wrap items-baseline gap-2">
+                  <span className="text-4xl font-light text-foreground sm:text-5xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    {primaryCourse?.price}
+                  </span>
+                  <span className="text-lg text-secondary line-through">{primaryCourse?.original}</span>
+                </div>
+                <span className="mt-2 inline-block rounded-md px-2 py-1 text-xs font-medium" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)' }}>
+                  {primaryCourse?.discount}
+                </span>
+              </div>
             </div>
 
-<h4 className="text-sm font-medium mb-2" style={{ color: 'var(--text-primary)' }}>Why ELITE Batch?</h4>
-<ul className="space-y-3 mb-8">
-  {primaryCourse?.features.map((feature, j) => (
-    <li key={j} className="flex items-center gap-2 text-base text-secondary">
-      <Check className="w-5 h-5 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
-      {feature}
-    </li>
-  ))}
-</ul>
+            <div className="grid gap-5 md:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)]">
+              <div className="space-y-5">
+                <div>
+                  <h4 className="mb-3 text-sm font-medium text-foreground">Why ELITE Batch?</h4>
+                  <ul className="space-y-3">
+                    {primaryCourse?.features.map((feature, j) => (
+                      <li key={j} className="flex items-start gap-3 text-sm leading-6 text-secondary sm:text-base">
+                        <Check className="mt-0.5 h-5 w-5 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
 
-<div className="mb-6">
-  <h4 className="text-sm font-medium mb-2" style={{ color: 'var(--text-primary)' }}>Who is this for?</h4>
-  <ul className="space-y-2">
-    {primaryCourse?.whoIsFor?.map((item, j) => (
-      <li key={j} className="flex items-center gap-2 text-sm text-secondary">
-        <Check className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
-        {item}
-      </li>
-    ))}
-  </ul>
-</div>
+              <div className="space-y-4">
+                <div className="rounded-2xl border px-4 py-4 sm:px-5" style={{ borderColor: 'var(--border-subtle)', background: 'var(--bg-elevated)' }}>
+                  <h4 className="mb-3 text-sm font-medium text-foreground">Who is this for?</h4>
+                  <ul className="space-y-2.5">
+                    {primaryCourse?.whoIsFor?.map((item, j) => (
+                      <li key={j} className="flex items-start gap-2.5 text-sm leading-6 text-secondary">
+                        <Check className="mt-1 h-4 w-4 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-<div className="mb-6">
-  <h4 className="text-sm font-medium mb-2" style={{ color: 'var(--text-primary)' }}>What Makes ELITE Special?</h4>
-  <ul className="space-y-2">
-    {primaryCourse?.whatMakesSpecial?.map((item, j) => (
-      <li key={j} className="flex items-center gap-2 text-sm text-secondary">
-        <Check className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
-        {item}
-      </li>
-    ))}
-  </ul>
-</div>
-
+                <div className="rounded-2xl border px-4 py-4 sm:px-5" style={{ borderColor: 'var(--border-subtle)', background: 'var(--bg-elevated)' }}>
+                  <h4 className="mb-3 text-sm font-medium text-foreground">What makes it special?</h4>
+                  <ul className="space-y-2.5">
+                    {primaryCourse?.whatMakesSpecial?.map((item, j) => (
+                      <li key={j} className="flex items-start gap-2.5 text-sm leading-6 text-secondary">
+                        <Check className="mt-1 h-4 w-4 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+ 
             <motion.a 
               href="#contact"
-              className="relative block w-full overflow-hidden py-3 text-center text-base btn-primary btn-glow sm:inline-block sm:w-auto sm:px-8"
+              className="btn-primary btn-glow relative mt-8 block w-full overflow-hidden rounded-lg py-3 text-center text-base sm:inline-block sm:w-auto sm:px-8"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -798,41 +809,43 @@ function CoursesSection() {
               {secondaryCourses.map((course, i) => (
                 <motion.div
                   key={i}
-                  className="card rounded-xl p-5 relative flex-1"
+                  className="card relative flex flex-1 flex-col rounded-xl p-5"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
               >
-                <div className="mb-3">
-                  <h3 className="text-lg text-foreground font-medium">{course.name}</h3>
-                  <p className="text-xs text-secondary mt-1">{course.tag}</p>
+                <div className="mb-4 flex items-start justify-between gap-3">
+                  <div>
+                    <h3 className="text-lg text-foreground font-medium">{course.name}</h3>
+                    <p className="text-xs text-secondary mt-1">{course.tag}</p>
+                  </div>
+                  <span className="rounded-md px-2 py-1 text-[11px] font-medium" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)' }}>
+                    {course.discount}
+                  </span>
                 </div>
 
-                <div className="mb-4">
+                <div className="mb-4 border-b pb-4" style={{ borderColor: 'var(--border-subtle)' }}>
                   <div className="flex items-baseline gap-2">
                     <span className="text-2xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       {course.price}
                     </span>
                     <span className="text-sm text-secondary line-through">{course.original}</span>
                   </div>
-                  <span className="text-xs" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '8px', paddingBlock: '2px', borderRadius: '4px', display: 'inline-block', marginTop: '8px' }}>
-                    {course.discount}
-                  </span>
                 </div>
 
-                <ul className="space-y-2 mb-4">
-                  {course.features.slice(0, 2).map((feature, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm text-secondary">
-                      <Check className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
-                      {feature}
+                <ul className="space-y-2.5 mb-5">
+                  {course.features.slice(0, 3).map((feature, j) => (
+                    <li key={j} className="flex items-start gap-2.5 text-sm leading-6 text-secondary">
+                      <Check className="mt-1 h-4 w-4 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
+                      <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 <motion.a 
                   href="#contact"
-                  className="block w-full text-center text-sm btn-primary py-2.5"
+                  className="btn-primary mt-auto block w-full rounded-lg py-2.5 text-center text-sm"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -859,8 +872,13 @@ function CoursesSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
             >
-              <p className="text-yellow-500 text-sm mb-2">{t.rating}</p>
-              <p className="text-secondary text-sm mb-3 leading-relaxed">"{t.text}"</p>
+              <div className="mb-3 flex items-center justify-between gap-3">
+                <p className="text-sm font-medium text-yellow-500">{t.rating}</p>
+                <div className="rounded-full px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.08em]" style={{ background: 'var(--bg-elevated)', color: 'var(--accent-primary)' }}>
+                  Review
+                </div>
+              </div>
+              <p className="text-secondary text-sm mb-4 leading-6">"{t.text}"</p>
               <p className="text-foreground text-xs font-medium">{t.name}</p>
             </motion.div>
           ))}
