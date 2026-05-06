@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { cn } from '../lib/utils'
-import { motion, AnimatePresence, useInView } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { 
   Play, 
   Check,
@@ -17,44 +17,6 @@ import {
   FileText,
   ChevronDown
 } from 'lucide-react'
-
-// Animated Section: fade-up on scroll
-function AnimatedSection({ children, delay = 0, className }: { children: React.ReactNode; delay?: number; className?: string }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
-
-  return (
-    <motion.div
-      ref={ref}
-      className={className}
-      initial={{ opacity: 0, y: 40 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay }}
-    >
-      {children}
-    </motion.div>
-  )
-}
-
-// Staggered children: each child fades up in sequence
-function StaggeredSection({ children, className, stagger = 0.1 }: { children: React.ReactNode; className?: string; stagger?: number }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-40px' })
-
-  return (
-    <div ref={ref} className={className}>
-      {React.Children.map(children, (child, i) => (
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * stagger }}
-        >
-          {child}
-        </motion.div>
-      ))}
-    </div>
-  )
-}
 function Navigation() {
   const [scrolled, setScrolled] = useState(false)
 
@@ -247,7 +209,7 @@ function HeroSection() {
   const contentFade = Math.min(scrollY / 350, 1)
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden">
+    <section id="home" className="relative min-h-[100svh] overflow-hidden">
       {/* Cursor Glow */}
       <CursorGlow />
 
@@ -282,7 +244,7 @@ function HeroSection() {
 
       {/* Content */}
       <div
-        className="relative z-10 max-w-7xl mx-auto w-full px-6 h-screen flex items-center"
+        className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-7xl items-center px-6 py-24 md:py-0"
         style={{
           opacity: 1 - contentFade,
           transform: `translateY(${scrollY * 0.15}px)`,
@@ -519,7 +481,7 @@ function YouTubeSection() {
           </div>
         </motion.a>
 
-        <div className="grid grid-cols-4 gap-3" style={{ marginTop: '0.75rem' }}>
+        <div className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-4">
           {videos.map((video, i) => (
             <motion.button
               key={i}
@@ -622,9 +584,13 @@ function InsideClassSection() {
             <div className="card overflow-hidden rounded-2xl">
               <div className="aspect-video bg-gradient-to-br from-slate-100 to-slate-200 relative flex items-center justify-center">
                 <div className="relative z-10 text-center">
-                  <div className="w-16 h-16 mx-auto bg-white shadow-lg rounded-full flex items-center justify-center mb-3 cursor-pointer hover:scale-110 transition-transform">
+                  <button
+                    type="button"
+                    aria-label="Play NST class preview"
+                    className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-lg transition-transform hover:scale-110"
+                  >
                     <Play className="w-7 h-7 text-blue-500 ml-1 fill-current" />
-                  </div>
+                  </button>
                   <p className="text-foreground font-medium text-sm">NST ELITE Live Session</p>
                   <p className="text-secondary text-xs mt-1">Electrostatics – Tamil Medium</p>
                 </div>
@@ -712,6 +678,7 @@ function CoursesSection() {
       popular: false
     }
   ]
+  const [primaryCourse, ...secondaryCourses] = courses
 
   const testimonials = [
     { name: "Bhuvanessh S", rating: "⭐⭐⭐⭐⭐", text: "Amazing teaching like wow my best and first teacher in the Physics I see" },
@@ -749,32 +716,32 @@ function CoursesSection() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            {courses[0].popular && (
+            {primaryCourse?.popular && (
               <div className="absolute top-4 right-4 text-xs" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '8px', paddingBlock: '4px', borderRadius: '9999px' }}>
-                {courses[0].tag}
+                {primaryCourse.tag}
               </div>
             )}
 
             <div className="mb-6">
-              <h3 className="text-3xl text-foreground font-medium">{courses[0].name}</h3>
-              <p className="text-xs text-secondary mt-1">{courses[0].tag}</p>
+              <h3 className="text-3xl text-foreground font-medium">{primaryCourse?.name}</h3>
+              <p className="text-xs text-secondary mt-1">{primaryCourse?.tag}</p>
             </div>
 
             <div className="mb-8">
               <div className="flex items-baseline gap-2">
                 <span className="text-5xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                  {courses[0].price}
+                  {primaryCourse?.price}
                 </span>
-                <span className="text-lg text-secondary line-through">{courses[0].original}</span>
+                <span className="text-lg text-secondary line-through">{primaryCourse?.original}</span>
               </div>
               <span className="text-xs" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '8px', paddingBlock: '2px', borderRadius: '4px', display: 'inline-block', marginTop: '8px' }}>
-                {courses[0].discount}
+                {primaryCourse?.discount}
               </span>
             </div>
 
 <h4 className="text-sm font-medium mb-2" style={{ color: 'var(--text-primary)' }}>Why ELITE Batch?</h4>
 <ul className="space-y-3 mb-8">
-  {courses[0].features.map((feature, j) => (
+  {primaryCourse?.features.map((feature, j) => (
     <li key={j} className="flex items-center gap-2 text-base text-secondary">
       <Check className="w-5 h-5 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
       {feature}
@@ -785,7 +752,7 @@ function CoursesSection() {
 <div className="mb-6">
   <h4 className="text-sm font-medium mb-2" style={{ color: 'var(--text-primary)' }}>Who is this for?</h4>
   <ul className="space-y-2">
-    {courses[0].whoIsFor.map((item, j) => (
+    {primaryCourse?.whoIsFor?.map((item, j) => (
       <li key={j} className="flex items-center gap-2 text-sm text-secondary">
         <Check className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
         {item}
@@ -797,7 +764,7 @@ function CoursesSection() {
 <div className="mb-6">
   <h4 className="text-sm font-medium mb-2" style={{ color: 'var(--text-primary)' }}>What Makes ELITE Special?</h4>
   <ul className="space-y-2">
-    {courses[0].whatMakesSpecial.map((item, j) => (
+    {primaryCourse?.whatMakesSpecial?.map((item, j) => (
       <li key={j} className="flex items-center gap-2 text-sm text-secondary">
         <Check className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
         {item}
@@ -817,7 +784,7 @@ function CoursesSection() {
           </motion.div>
 
           <div className="md:col-span-4 grid grid-rows-3 gap-4 h-full">
-              {courses.slice(1).map((course, i) => (
+              {secondaryCourses.map((course, i) => (
                 <motion.div
                   key={i}
                   className="card rounded-xl p-5 relative flex-1"
@@ -921,7 +888,7 @@ function ResultsSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6" style={{ gridTemplateRows: 'auto auto' }}>
+        <div className="grid gap-6 md:grid-cols-2">
           {/* Vetrivel's card - left column */}
           <motion.div
             className="card rounded-2xl p-8 md:p-12 relative overflow-hidden"
@@ -929,7 +896,6 @@ function ResultsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            style={{ gridColumn: '1', gridRow: '1' }}
           >
             <div className="absolute top-4 right-4 flex items-center gap-1" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', fontSize: '10px', fontWeight: '500', letterSpacing: '0.05em', textTransform: 'uppercase', paddingInline: '8px', paddingBlock: '4px', borderRadius: '9999px' }}>
               <Check className="w-3 h-3" />
@@ -945,7 +911,7 @@ function ResultsSection() {
               
               <div className="flex-1">
                 <p className="text-secondary text-xs uppercase tracking-wider mb-2">{students[0].name}</p>
-                <p className="text-7xl md:text-8xl text-foreground font-light mb-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <p className="mb-2 text-6xl font-light text-foreground sm:text-7xl md:text-8xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                   {students[0].score}<span className="text-3xl md:text-4xl text-secondary">/{students[0].total}</span>
                 </p>
                 <p style={{ color: 'var(--accent-primary)' }} className="text-lg font-medium">{students[0].story}</p>
@@ -954,7 +920,7 @@ function ResultsSection() {
           </motion.div>
           
           {/* Right stacked column - Ashwini + Santhosh */}
-          <div className="flex flex-col gap-4" style={{ gridColumn: '2', gridRow: '1' }}>
+          <div className="flex flex-col gap-4">
             {students.slice(1).map((student, i) => (
               <motion.div
                 key={i}
@@ -980,12 +946,11 @@ function ResultsSection() {
           
           {/* Case study card - spans both columns */}
           <motion.div
-            className="max-w-3xl mx-auto card rounded-2xl p-8 md:p-10 relative overflow-hidden"
+            className="relative mx-auto max-w-3xl overflow-hidden rounded-2xl card p-8 md:col-span-2 md:p-10"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-            style={{ gridColumn: '1 / -1', gridRow: '2' }}
           >
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
               <div className="text-center md:text-left">
@@ -1125,22 +1090,22 @@ function ComparisonSection() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
          >
-           <div className="grid grid-cols-3 text-sm font-medium border-b" style={{ borderColor: 'var(--border-subtle)' }}>
-            <div className="px-6 py-4 text-secondary">Feature</div>
-            <div className="px-6 py-4 text-foreground bg-surface text-center font-medium" style={{ background: 'var(--bg-surface)' }}>NST</div>
-            <div className="px-6 py-4 text-secondary text-center">Others</div>
+           <div className="grid grid-cols-[minmax(0,1.5fr)_minmax(72px,0.75fr)_minmax(72px,0.75fr)] border-b text-xs font-medium sm:text-sm" style={{ borderColor: 'var(--border-subtle)' }}>
+            <div className="px-4 py-4 text-secondary sm:px-6">Feature</div>
+            <div className="bg-surface px-4 py-4 text-center font-medium text-foreground sm:px-6" style={{ background: 'var(--bg-surface)' }}>NST</div>
+            <div className="px-4 py-4 text-center text-secondary sm:px-6">Others</div>
           </div>
           {features.map((feature, i) => (
             <motion.div
               key={i}
-              className="grid grid-cols-3 text-sm border-b last:border-0 items-center" style={{ borderColor: 'var(--border-subtle)' }}
+              className="grid grid-cols-[minmax(0,1.5fr)_minmax(72px,0.75fr)_minmax(72px,0.75fr)] items-center border-b text-xs sm:text-sm last:border-0" style={{ borderColor: 'var(--border-subtle)' }}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.05 }}
              >
-               <div className="px-6 py-4 text-foreground">{feature.name}</div>
-              <div className="px-6 py-4 text-center">
+               <div className="px-4 py-4 text-foreground sm:px-6">{feature.name}</div>
+              <div className="px-4 py-4 text-center sm:px-6">
                 <span className={cn(
                   "inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold",
                   feature.nst ? "bg-emerald-400/10 text-emerald-400" : "bg-red-400/10 text-red-400"
@@ -1148,7 +1113,7 @@ function ComparisonSection() {
                   {feature.nst ? <Check className="w-3.5 h-3.5" /> : <X className="w-3.5 h-3.5" />}
                 </span>
               </div>
-              <div className="px-6 py-4 text-center">
+              <div className="px-4 py-4 text-center sm:px-6">
                 <span className={cn(
                   "inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold",
                   feature.others === true ? "bg-emerald-400/10 text-emerald-400" :
@@ -1309,7 +1274,7 @@ function AboutSection() {
             </motion.div>
 
             <motion.div 
-              className="absolute -bottom-6 -right-6 card p-4 rounded-xl z-20"
+              className="absolute -bottom-4 right-0 z-20 rounded-xl card p-4 sm:-bottom-6 sm:-right-6"
               whileHover={{ y: -3 }}
               transition={{ duration: 0.25 }}
             >
@@ -1317,7 +1282,7 @@ function AboutSection() {
               <p className="text-secondary text-xs uppercase tracking-wider">NEET Cracker</p>
             </motion.div>
 
-            <div className="absolute -top-4 -left-4 text-background px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wider shadow-lg z-20" style={{ background: 'var(--accent-primary)' }}>
+            <div className="absolute left-0 top-0 z-20 rounded-lg px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-background shadow-lg sm:-left-4 sm:-top-4" style={{ background: 'var(--accent-primary)' }}>
               Authority
             </div>
           </motion.div>
@@ -1379,6 +1344,8 @@ function AboutSection() {
 
             <div className="mt-8">
               <button 
+                type="button"
+                aria-expanded={isStoryExpanded}
                 onClick={() => setIsStoryExpanded(!isStoryExpanded)}
                 className="text-sm font-medium transition-colors flex items-center gap-1 group" style={{ color: 'var(--accent-primary)' }}
               >
@@ -1403,7 +1370,7 @@ function AboutSection() {
               </AnimatePresence>
             </div>
 
-            <div className="mt-8 pl-4" style={{ borderLeft: '2px solid oklch(72% 0.18 162 / 0.3)' }}>
+            <div className="mt-8 rounded-xl px-4 py-4" style={{ background: 'oklch(72% 0.18 162 / 0.08)' }}>
               <p className="text-foreground font-medium">
                 "Physics will no longer be your weak subject. That's a promise."
               </p>
@@ -1435,10 +1402,15 @@ function ClassDropdown() {
 
   return (
     <div className="relative">
-      <label className="block text-sm text-secondary mb-1.5">Class</label>
+      <label htmlFor="class-selection" className="block text-sm text-secondary mb-1.5">Class</label>
+      <input type="hidden" name="studentClass" value={selected.value} />
       <motion.button
+        id="class-selection"
         type="button"
         onClick={() => setIsOpen(!isOpen)}
+        aria-haspopup="listbox"
+        aria-expanded={isOpen}
+        aria-controls="class-options"
         className="w-full px-4 py-3 border rounded-lg text-foreground focus:outline-none transition-all flex items-center justify-between text-left"
         style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-subtle)' }}
         whileTap={{ scale: 0.99 }}
@@ -1457,6 +1429,8 @@ function ClassDropdown() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="class-options"
+            role="listbox"
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
@@ -1472,6 +1446,8 @@ function ClassDropdown() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.1, delay: index * 0.03 }}
                 onClick={() => handleSelect(option)}
+                role="option"
+                aria-selected={selected.value === option.value}
                 className={cn(
                   "w-full px-4 py-3 text-left transition-colors duration-200 flex items-center justify-between group",
                   selected.value === option.value
