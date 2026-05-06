@@ -145,7 +145,7 @@ function PhysicsLayer() {
       </g>
       <g className="drift-2">
         <path d="M800 650 L850 600 L850 700 Z" stroke="currentColor" strokeWidth="1" fill="none" />
-        <text x="860" y="660" fontSize="16" fontFamily="serif" fill="currentColor">Delta S ge 0</text>
+        <text x="860" y="660" fontSize="16" fontFamily="serif" fill="currentColor">Entropy rises</text>
       </g>
     </svg>
   )
@@ -1191,7 +1191,7 @@ function TestimonialsSection() {
           </h2>
         </motion.div>
 
-        <div className="grid gap-5 md:grid-cols-2 md:gap-6 items-start">
+        <div className="grid gap-5 items-start md:grid-cols-2 md:gap-6">
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
@@ -1200,27 +1200,27 @@ function TestimonialsSection() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
                className={cn(
-                  "card rounded-2xl p-6 sm:p-7 md:p-8",
+                 "card rounded-2xl p-6 sm:p-7 md:p-8",
                   i % 2 === 0 ? "md:mt-8" : "md:mt-0"
                 )}
             >
-              <div className="mb-5 flex items-center justify-between gap-3">
+              <div className="mb-5 flex items-start justify-between gap-4">
                 <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-medium uppercase tracking-[0.08em]" style={{ background: 'oklch(72% 0.18 162 / 0.1)', color: 'var(--accent-primary)' }}>
                   <Quote className="h-3.5 w-3.5" />
-                  Student Story
+                  Result Story
                 </div>
-                <span className="text-xs font-medium tracking-[0.18em] text-secondary">{t.detail}</span>
+                <span className="rounded-full px-2.5 py-1 text-[11px] font-medium tracking-[0.12em] text-secondary" style={{ background: 'var(--bg-elevated)' }}>{t.detail}</span>
               </div>
-              <p className="mb-6 text-base leading-relaxed text-foreground sm:text-lg" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              <p className="mb-6 text-base leading-7 text-foreground sm:text-lg" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                 "{t.quote}"
               </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 card rounded-full flex items-center justify-center font-bold" style={{ color: 'var(--accent-primary)' }}>
+              <div className="flex items-center gap-3 border-t pt-4" style={{ borderColor: 'var(--border-subtle)' }}>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full card font-bold" style={{ color: 'var(--accent-primary)' }}>
                   {t.initial}
                 </div>
                 <div>
                   <p className="text-foreground font-medium text-sm">{t.name}</p>
-                  <p className="text-secondary text-xs">NST Student</p>
+                  <p className="text-secondary text-xs">NST student result</p>
                 </div>
               </div>
             </motion.div>
@@ -1662,56 +1662,61 @@ function CTASection() {
 
 function Footer() {
   return (
-    <footer className="relative py-12" style={{ borderTop: '1px solid var(--border-subtle)' }}>
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 card rounded-md flex items-center justify-center text-foreground font-bold text-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+    <footer className="relative py-12 sm:py-14" style={{ borderTop: '1px solid var(--border-subtle)' }}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col gap-8 rounded-[20px] border px-5 py-6 sm:px-7 sm:py-8 md:flex-row md:items-center md:justify-between" style={{ borderColor: 'var(--border-subtle)', background: 'var(--bg-elevated)' }}>
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-md card text-sm font-bold text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
             N
+            </div>
+            <div>
+              <p className="font-medium text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>NST</p>
+              <p className="text-sm text-secondary">Tamil-first NEET Physics mentoring</p>
+            </div>
           </div>
-          <span className="font-medium text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>NST</span>
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-secondary md:gap-6">
+            <a href="#home" className="transition-colors hover:text-foreground">Home</a>
+            <a href="#courses" className="transition-colors hover:text-foreground">Courses</a>
+            <a href="#about" className="transition-colors hover:text-foreground">About</a>
+            <a href="#contact" className="transition-colors hover:text-foreground">Contact</a>
+          </div>
+          <div className="flex items-center justify-center gap-3">
+            <motion.a
+              href="https://www.youtube.com/@NeetstrategiesinTamil"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-10 w-10 items-center justify-center rounded-full card text-secondary transition-colors hover:text-red-500"
+              title="YouTube"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </motion.a>
+            <motion.a 
+              href="https://wa.me/918610690010" 
+              className="flex h-10 w-10 items-center justify-center rounded-full card text-secondary transition-colors hover:text-emerald-500"
+              title="WhatsApp"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <MessageCircle className="w-4 h-4" />
+            </motion.a>
+            <motion.a 
+              href="tel:+918610690010" 
+              className="flex h-10 w-10 items-center justify-center rounded-full card text-secondary transition-colors hover:text-blue-400"
+              title="Call"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Phone className="w-4 h-4" />
+            </motion.a>
+          </div>
         </div>
-        <div className="flex flex-wrap justify-center gap-4 text-sm text-secondary md:gap-6">
-          <a href="#home" className="hover:text-foreground transition-colors">Home</a>
-          <a href="#courses" className="hover:text-foreground transition-colors">Courses</a>
-          <a href="#about" className="hover:text-foreground transition-colors">About</a>
-          <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
+        <div className="mt-6 text-center text-xs text-secondary">
+          2026 NEET Strategies Tamil. All rights reserved.
         </div>
-        <div className="flex gap-4">
-          <motion.a
-            href="https://www.youtube.com/@NeetstrategiesinTamil"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-9 h-9 card rounded-full flex items-center justify-center text-secondary hover:text-red-500 transition-colors"
-            title="YouTube"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-            </svg>
-          </motion.a>
-          <motion.a 
-            href="https://wa.me/918610690010" 
-            className="w-9 h-9 card rounded-full flex items-center justify-center text-secondary hover:text-emerald-500 transition-colors"
-            title="WhatsApp"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <MessageCircle className="w-4 h-4" />
-          </motion.a>
-          <motion.a 
-            href="tel:+918610690010" 
-            className="w-9 h-9 card rounded-full flex items-center justify-center text-secondary hover:text-blue-400 transition-colors"
-            title="Call"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Phone className="w-4 h-4" />
-          </motion.a>
-        </div>
-      </div>
-      <div className="max-w-7xl mx-auto px-6 mt-8 pt-8 text-center text-xs text-secondary" style={{ borderTop: '1px solid var(--border-subtle)' }}>
-        (c) 2026 NEET Strategies Tamil. All rights reserved.
       </div>
     </footer>
   )
