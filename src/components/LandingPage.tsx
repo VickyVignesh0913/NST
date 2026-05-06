@@ -45,7 +45,7 @@ function Navigation() {
         borderColor: scrolled ? 'var(--border-subtle)' : 'transparent'
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-5">
+      <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 sm:py-5">
         <div className="flex items-center justify-between">
           <a href="#home" className="flex items-baseline">
             <span
@@ -74,7 +74,7 @@ function Navigation() {
 
           <motion.a
             href="#contact"
-            className="btn-primary btn-glow px-5 py-2 text-sm relative overflow-hidden"
+            className="btn-primary btn-glow relative overflow-hidden rounded-lg px-3.5 py-2 text-xs sm:px-5 sm:text-sm"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.2 }}
@@ -251,7 +251,7 @@ function HeroSection() {
           transition: 'opacity 0.1s linear, transform 0.1s linear',
         }}
       >
-        <div className="w-full max-w-[520px]">
+        <div className="w-full max-w-[560px]">
           {/* Eyebrow Label */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -274,8 +274,8 @@ function HeroSection() {
           >
             <span className="inline text-3xl sm:text-4xl lg:text-[48px] font-[500]">
               Physics Easy{' '}
-              <span className="text-academic" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}> - aa</span>
-              {' '}<span style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }} className="font-bold">Feel pannunga</span>
+              <span className="text-academic" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>— ஆ</span>
+              {' '}<span style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }} className="font-bold">Feel பண்ணுங்க</span>
             </span>
           </motion.h1>
 
@@ -287,10 +287,10 @@ function HeroSection() {
             className="mt-5"
           >
             <p className="text-xl sm:text-2xl lg:text-[28px] leading-[1.25]" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0, color: 'var(--text-secondary)' }}>
-              Doctor aagum ungal payanam
+              Doctor ஆகும் உங்கள் பயணம்
             </p>
             <p className="text-xl sm:text-2xl lg:text-[28px] leading-[1.2] mt-0.5 font-bold" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0, color: 'var(--text-emphasis)' }}>
-              indrae thodangattum
+              இன்றே தொடங்கட்டும்
             </p>
           </motion.div>
 
@@ -299,7 +299,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-            className="text-[15px] mt-5 leading-relaxed max-w-[500px]"
+            className="mt-5 max-w-[540px] text-[15px] leading-relaxed sm:text-base"
             style={{ color: 'var(--text-secondary)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}
           >
             Premium NEET Physics coaching crafted for Tamil medium aspirants who aim for medical excellence.
@@ -310,7 +310,7 @@ function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
-            className="text-sm mt-4 flex items-center gap-2"
+            className="mt-4 flex items-center gap-2 text-sm"
             style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}
           >
             <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: 'var(--accent-primary)' }} />
@@ -322,11 +322,11 @@ function HeroSection() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.82 }}
-            className="flex flex-wrap items-center gap-3.5 mt-8"
+            className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3.5"
           >
             <motion.a
               href="#courses"
-              className="hero-btn-primary px-7 py-3.5 text-sm inline-flex items-center gap-2"
+              className="hero-btn-primary inline-flex w-full items-center justify-center gap-2 px-7 py-3.5 text-sm sm:w-auto"
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
               transition={{ duration: 0.2, ease: 'easeOut' }}
@@ -336,7 +336,7 @@ function HeroSection() {
             </motion.a>
             <motion.a
               href="#inside"
-              className="hero-btn-secondary px-7 py-3.5 text-sm inline-flex items-center gap-2"
+              className="hero-btn-secondary inline-flex w-full items-center justify-center gap-2 px-7 py-3.5 text-sm sm:w-auto"
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
               transition={{ duration: 0.2, ease: 'easeOut' }}
@@ -351,7 +351,7 @@ function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.94 }}
-            className="text-[11px] uppercase tracking-[0.15em] mt-4 flex items-center gap-2.5"
+            className="mt-4 flex items-center gap-2.5 text-[11px] uppercase tracking-[0.15em]"
             style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
             <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
@@ -480,7 +480,10 @@ function YouTubeSection() {
               <p className="text-sm text-white/70">{activeVideo.views} views | {activeVideo.time}</p>
             </div>
           </div>
-          <div className="p-4 sm:hidden">
+          <div className="space-y-2 p-4 sm:hidden">
+            <div className="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.12em]" style={{ background: 'oklch(72% 0.18 162 / 0.1)', color: 'var(--accent-primary)' }}>
+              Now Playing
+            </div>
             <h3 className="line-clamp-2 text-base font-medium text-foreground">{activeVideo.title}</h3>
             <p className="mt-1 text-sm text-secondary">{activeVideo.views} views | {activeVideo.time}</p>
           </div>
@@ -494,13 +497,14 @@ function YouTubeSection() {
               onClick={() => setActiveIndex(i)}
               aria-pressed={activeIndex === i}
               aria-label={`Select video: ${video.title}`}
-              className="relative w-full aspect-video rounded-lg overflow-hidden cursor-pointer group"
+              className="group relative w-full cursor-pointer overflow-hidden rounded-lg"
               style={{
                 aspectRatio: '16/9',
                 objectFit: 'cover',
                 borderRadius: '8px',
                 outline: activeIndex === i ? '2px solid var(--accent-primary)' : 'none',
-                outlineOffset: '2px'
+                outlineOffset: '2px',
+                boxShadow: activeIndex === i ? '0 10px 24px oklch(40% 0.10 145 / 0.16)' : 'none'
               }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1540,8 +1544,8 @@ function CTASection() {
       <div className="max-w-4xl mx-auto px-6 text-center">
         <span className="section-label">Start Today</span>
         <h2 className="heading-xl mt-4" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>
-          Your doctor journey<br />
-          <em className="not-italic text-academic">starts today</em>
+          உங்கள் Doctor பயணம்<br />
+          <em className="not-italic text-academic">இன்றே தொடங்கட்டும்</em>
         </h2>
         <p className="body-text mt-6 max-w-xl mx-auto">
           One decision. One year. One white coat. Call now and book your free demo class.
