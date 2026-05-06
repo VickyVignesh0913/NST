@@ -442,7 +442,8 @@ function YouTubeSection() {
           href={`https://www.youtube.com/watch?v=${activeVideo.id}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="group rounded-2xl overflow-hidden block card"
+          aria-label={`Open YouTube video: ${activeVideo.title}`}
+          className="group block overflow-hidden rounded-2xl card"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -466,18 +467,22 @@ function YouTubeSection() {
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
-              <Play className="w-20 h-20 text-white/90 drop-shadow-lg fill-current" />
+              <Play className="h-14 w-14 fill-current text-white/90 drop-shadow-lg sm:h-20 sm:w-20" />
             </motion.div>
             <span className="absolute bottom-3 left-3 z-20 text-xs text-white/90 bg-slate-900/60 px-2 py-0.5 rounded">
               {activeVideo.duration}
             </span>
             <div
-              className="absolute bottom-0 left-0 right-0 z-10"
+              className="absolute bottom-0 left-0 right-0 z-10 hidden sm:block"
               style={{ padding: '1.5rem', background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)' }}
             >
               <h3 className="font-medium text-lg text-white mb-1">{activeVideo.title}</h3>
               <p className="text-sm text-white/70">{activeVideo.views} views • {activeVideo.time}</p>
             </div>
+          </div>
+          <div className="p-4 sm:hidden">
+            <h3 className="line-clamp-2 text-base font-medium text-foreground">{activeVideo.title}</h3>
+            <p className="mt-1 text-sm text-secondary">{activeVideo.views} views • {activeVideo.time}</p>
           </div>
         </motion.a>
 
@@ -487,6 +492,8 @@ function YouTubeSection() {
               key={i}
               type="button"
               onClick={() => setActiveIndex(i)}
+              aria-pressed={activeIndex === i}
+              aria-label={`Select video: ${video.title}`}
               className="relative w-full aspect-video rounded-lg overflow-hidden cursor-pointer group"
               style={{
                 aspectRatio: '16/9',
@@ -1269,12 +1276,20 @@ function AboutSection() {
                   >
                     1,000+ Students
                   </motion.span>
+                  <motion.span 
+                    className="px-3 py-1 card rounded-full text-xs cursor-pointer sm:hidden"
+                    style={{ color: 'var(--accent-primary)' }}
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    2019 NEET Cracker
+                  </motion.span>
                 </div>
               </div>
             </motion.div>
 
             <motion.div 
-              className="absolute -bottom-4 right-0 z-20 rounded-xl card p-4 sm:-bottom-6 sm:-right-6"
+              className="absolute -bottom-4 right-0 z-20 hidden rounded-xl card p-4 sm:block sm:-bottom-6 sm:-right-6"
               whileHover={{ y: -3 }}
               transition={{ duration: 0.25 }}
             >
