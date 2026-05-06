@@ -724,19 +724,19 @@ function CoursesSection() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             {primaryCourse?.popular && (
-              <div className="absolute top-4 right-4 text-xs" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '8px', paddingBlock: '4px', borderRadius: '9999px' }}>
+              <div className="absolute right-3 top-3 text-[11px] sm:right-4 sm:top-4" style={{ color: 'var(--accent-primary)', background: 'oklch(72% 0.18 162 / 0.1)', paddingInline: '8px', paddingBlock: '4px', borderRadius: '9999px' }}>
                 {primaryCourse.tag}
               </div>
             )}
 
             <div className="mb-6">
-              <h3 className="text-3xl text-foreground font-medium">{primaryCourse?.name}</h3>
+              <h3 className="pr-20 text-3xl font-medium text-foreground sm:pr-0">{primaryCourse?.name}</h3>
               <p className="text-xs text-secondary mt-1">{primaryCourse?.tag}</p>
             </div>
 
             <div className="mb-8">
-              <div className="flex items-baseline gap-2">
-                <span className="text-5xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              <div className="flex flex-wrap items-baseline gap-2">
+                <span className="text-4xl font-light text-foreground sm:text-5xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                   {primaryCourse?.price}
                 </span>
                 <span className="text-lg text-secondary line-through">{primaryCourse?.original}</span>
@@ -782,7 +782,7 @@ function CoursesSection() {
 
             <motion.a 
               href="#contact"
-              className="inline-block btn-primary btn-glow py-3 px-8 text-base text-center relative overflow-hidden"
+              className="relative block w-full overflow-hidden py-3 text-center text-base btn-primary btn-glow sm:inline-block sm:w-auto sm:px-8"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -790,7 +790,7 @@ function CoursesSection() {
             </motion.a>
           </motion.div>
 
-          <div className="md:col-span-4 grid grid-rows-3 gap-4 h-full">
+          <div className="grid gap-4 md:col-span-4 md:grid-rows-3 md:h-full">
               {secondaryCourses.map((course, i) => (
                 <motion.div
                   key={i}
@@ -828,7 +828,7 @@ function CoursesSection() {
 
                 <motion.a 
                   href="#contact"
-                  className="block w-full btn-primary py-2.5 text-sm text-center"
+                  className="block w-full text-center text-sm btn-primary py-2.5"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -840,7 +840,7 @@ function CoursesSection() {
         </div>
 
         <motion.div
-          className="mt-12 grid md:grid-cols-3 gap-4"
+          className="mt-12 grid gap-4 sm:grid-cols-2 md:grid-cols-3"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -1546,10 +1546,10 @@ function CTASection() {
           One decision. One year. One white coat. Call now and book your free demo class.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4 mt-10">
+        <div className="mt-10 grid gap-4 sm:flex sm:flex-wrap sm:justify-center">
           <motion.a 
             href="tel:+918610690010" 
-            className="btn-primary btn-glow px-8 py-4 inline-flex items-center gap-3"
+            className="inline-flex w-full items-center justify-center gap-3 px-8 py-4 btn-primary btn-glow sm:w-auto"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -1558,7 +1558,7 @@ function CTASection() {
           </motion.a>
           <motion.a 
             href="https://wa.me/918610690010" 
-            className="btn-secondary px-8 py-4 inline-flex items-center gap-3"
+            className="inline-flex w-full items-center justify-center gap-3 px-8 py-4 btn-secondary sm:w-auto"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -1665,7 +1665,7 @@ function Footer() {
           </div>
           <span className="font-medium text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>NST</span>
         </div>
-        <div className="flex gap-6 text-sm text-secondary">
+        <div className="flex flex-wrap justify-center gap-4 text-sm text-secondary md:gap-6">
           <a href="#home" className="hover:text-foreground transition-colors">Home</a>
           <a href="#courses" className="hover:text-foreground transition-colors">Courses</a>
           <a href="#about" className="hover:text-foreground transition-colors">About</a>
@@ -1714,10 +1714,10 @@ function Footer() {
 
 function StickyMobileCTA() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden flex items-center justify-between gap-3 px-4 py-3" style={{ background: 'var(--bg-base)', borderTop: '1px solid var(--border-subtle)' }}>
+    <div className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-between gap-2 px-3 py-3 shadow-[0_-12px_30px_rgba(0,0,0,0.06)] md:hidden" style={{ background: 'var(--bg-base)', borderTop: '1px solid var(--border-subtle)' }}>
       <a 
         href="tel:+918610690010" 
-        className="flex-1 text-background text-sm font-medium py-3 rounded-full text-center flex items-center justify-center gap-2"
+        className="flex flex-1 items-center justify-center gap-2 rounded-full py-3 text-center text-sm font-medium text-background"
         style={{ background: 'var(--accent-primary)' }}
       >
         <Phone className="w-4 h-4" />
@@ -1725,7 +1725,7 @@ function StickyMobileCTA() {
       </a>
       <a 
         href="#contact" 
-        className="flex-1 bg-foreground text-background text-sm font-medium py-3 rounded-full text-center"
+        className="flex-1 rounded-full bg-foreground py-3 text-center text-sm font-medium text-background"
       >
         Join Now
       </a>
@@ -1754,7 +1754,7 @@ export default function LandingPage() {
         <Footer />
         <StickyMobileCTA />
         
-        <div className="h-20 md:hidden" />
+        <div className="h-24 md:hidden" />
       </div>
     </main>
   )
