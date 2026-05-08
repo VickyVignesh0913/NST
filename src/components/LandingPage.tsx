@@ -1444,9 +1444,10 @@ function EnrollmentSection() {
                      whileHover={{ scale: 1.02, y: -2 }}
                      whileTap={{ scale: 0.98 }}
                      className="ml-auto px-10 py-4 rounded-xl bg-primary text-background text-sm font-bold tracking-tight shadow-lg shadow-primary/10 transition-all group-hover:bg-accent-primary"
+                     onClick={() => handleEnrollment("presence-cohort")}
                    >
                      {cohorts[0].cta}
-                   </motion.button onClick={() => handleEnrollment("presence-cohort")}>
+                   </motion.button>
                 </div>
               </div>
             </div>
@@ -1477,6 +1478,7 @@ function EnrollmentSection() {
                   </div>
                   <motion.button
                     whileHover={{ x: 4 }}
+                    onClick={() => handleEnrollment(cohort.title.toLowerCase().replace(/ /g, '-'))}
                     className="mt-10 flex items-center gap-3 text-[10px] font-bold text-primary uppercase tracking-[0.2em] group-hover:text-accent-primary transition-colors"
                   >
                     {cohort.cta}
@@ -1627,6 +1629,7 @@ function FinalAspirationSection() {
           <div className="mt-20 flex flex-col sm:flex-row items-center justify-center gap-8">
              <motion.a
                href="tel:+918610690010"
+               onClick={() => trackEvent('cta_phone_final')}
                whileHover={{ scale: 1.05, y: -2 }}
                whileTap={{ scale: 0.98 }}
                className="px-12 py-5 rounded-2xl bg-primary text-background text-lg font-bold tracking-tight shadow-2xl shadow-primary/20"
@@ -1635,6 +1638,7 @@ function FinalAspirationSection() {
              </motion.a>
              <motion.a
                href="https://wa.me/918610690010"
+               onClick={() => trackEvent('cta_whatsapp_final')}
                whileHover={{ scale: 1.05, y: -2 }}
                className="px-12 py-5 rounded-2xl border border-subtle/50 text-primary text-lg font-bold tracking-tight backdrop-blur-md bg-white/5"
              >
