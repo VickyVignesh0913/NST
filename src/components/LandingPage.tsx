@@ -265,32 +265,19 @@ function HeroSection() {
       <CursorGlow />
       <FloatingTypography />
 
-      {/* Hero Image Background */}
-      <div
-        className="absolute inset-0 z-0 portrait-grain"
-        style={{
-          transform: `translateY(${imgParallax}px) scale(1.02)`,
-          transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
-          willChange: 'transform',
-        }}
-      >
-        <img
-          src="/hero.png"
-          alt="Premium English mastery training"
-          className="w-full h-[120%] -mt-[10%] object-cover documentary-image"
-          style={{ filter: 'grayscale(1) contrast(1.1) brightness(0.5)' }}
-          loading="eager"
+      {/* Atmospheric Background (Image-less) */}
+      <div className="absolute inset-0 z-0 bg-base overflow-hidden">
+        <div 
+          className="absolute inset-0 opacity-40"
+          style={{
+            background: 'radial-gradient(circle at 80% 20%, var(--accent-primary) 0%, transparent 40%), radial-gradient(circle at 20% 80%, var(--accent-warm) 0%, transparent 40%)',
+            filter: 'blur(120px)',
+            transform: `translateY(${scrollY * 0.2}px)`,
+          }}
         />
+        <div className="absolute inset-0 portrait-grain opacity-[0.03] pointer-events-none" />
       </div>
 
-      {/* Cinematic Gradient Overlay */}
-      <div
-        className="absolute inset-0 z-[2] transition-opacity duration-1000 ease-out"
-        style={{
-          opacity: overlayOpacity,
-          background: 'linear-gradient(to right, var(--bg-base) 0%, color-mix(in srgb, var(--bg-base) 90%, transparent) 50%, transparent 100%)'
-        }}
-      />
 
       {/* Content Container */}
       <div
