@@ -4,30 +4,30 @@
 
 @layer base {
   :root {
-    --bg-base: #0a0a0b;
-    --bg-surface: #111113;
-    --bg-elevated: #161618;
-    --accent-primary: oklch(72% 0.07 75);
-    --accent-hover: oklch(65% 0.06 75);
-    --accent-warm: oklch(68% 0.08 55);
-    --accent-muted: oklch(55% 0.03 240);
-    --text-primary: oklch(94% 0.005 80);
-    --text-secondary: oklch(72% 0.01 80);
-    --text-emphasis: oklch(85% 0.01 80);
-    --text-dim: oklch(55% 0.008 80);
-    --border-subtle: rgba(255, 255, 255, 0.06);
-    --border-accent: oklch(72% 0.07 75);
+    --bg-base: #f6f6f4;
+    --bg-surface: #FEFDFB;
+    --bg-elevated: #FAFAF7;
+    --accent-primary: oklch(40% 0.10 145);
+    --accent-hover: oklch(34% 0.09 145);
+    --accent-warm: oklch(62% 0.13 50);
+    --accent-muted: oklch(55% 0.05 240);
+    --text-primary: oklch(14% 0.015 95);
+    --text-secondary: oklch(40% 0.012 95);
+    --text-emphasis: oklch(22% 0.012 95);
+    --text-dim: oklch(55% 0.008 95);
+    --border-subtle: #ddd8d0;
+    --border-accent: oklch(40% 0.10 145);
 
-    --background: 0 0% 4%;
-    --foreground: 0 0% 94%;
-    --muted-foreground: 0 0% 55%;
-    --primary: 0 0% 94%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 55%;
-    --muted: 0 0% 14%;
-    --accent: 0 0% 14%;
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
+    --background: 0 0% 97%;
+    --foreground: 0 0% 14%;
+    --muted-foreground: 0 0% 44%;
+    --primary: 0 0% 14%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 44%;
+    --muted: 0 0% 90%;
+    --accent: 0 0% 90%;
+    --border: 0 0% 82%;
+    --input: 0 0% 82%;
   }
 
   * {
@@ -37,7 +37,7 @@
   body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -46,8 +46,6 @@
 
   h1, h2, h3, h4 {
     color: var(--text-primary);
-    font-family: 'Clash Display', sans-serif;
-    letter-spacing: -0.02em;
   }
 
   a:focus-visible,
@@ -64,14 +62,14 @@
     background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
     }
   }
 
@@ -81,12 +79,12 @@
     border-radius: 10px;
     font-weight: 500;
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background 0.2s ease-out;
-    box-shadow: 0 4px 12px oklch(72% 0.07 75 / 0.2);
+    box-shadow: 0 4px 12px oklch(40% 0.10 145 / 0.15);
   }
 
   .hero-btn-primary:hover {
     background: var(--accent-hover);
-    box-shadow: 0 8px 24px oklch(72% 0.07 75 / 0.35), 0 0 40px oklch(72% 0.07 75 / 0.15);
+    box-shadow: 0 8px 24px oklch(40% 0.10 145 / 0.3), 0 0 40px oklch(40% 0.10 145 / 0.12);
   }
 
   .hero-btn-secondary {
@@ -101,7 +99,7 @@
   .hero-btn-secondary:hover {
     border-color: var(--accent-primary);
     color: var(--accent-primary);
-    box-shadow: 0 4px 12px oklch(72% 0.07 75 / 0.12);
+    box-shadow: 0 4px 12px oklch(40% 0.10 145 / 0.1);
   }
 
   .btn-primary {
@@ -137,12 +135,12 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--text-dim);
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   .heading-xl {
     font-size: clamp(32px, 5vw, 56px);
-    font-family: 'Clash Display', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     color: var(--text-primary);
     line-height: 1.05;
   }
@@ -182,7 +180,7 @@
   .input-glow:focus {
     outline: none;
     border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px oklch(72% 0.07 75 / 0.15);
+    box-shadow: 0 0 0 3px oklch(72% 0.18 145 / 0.15);
   }
 
   .gradient-border {
@@ -239,7 +237,7 @@
   }
 
   .font-english {
-    font-family: 'General Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     letter-spacing: 0.02em;
   }
 
@@ -249,7 +247,7 @@
   }
 
   .accent-highlight {
-    background: oklch(72% 0.07 75 / 0.1);
+    background: oklch(72% 0.18 162 / 0.1);
     border-radius: 4px;
     padding-left: 12px;
   }

@@ -41,7 +41,7 @@ function Navigation() {
         scrolled ? "border-b" : "border-transparent"
       )}
       style={{
-        background: scrolled ? 'var(--bg-base)' : 'rgba(10, 10, 11, 0.6)',
+        background: scrolled ? 'var(--bg-base)' : 'transparent',
         borderColor: scrolled ? 'var(--border-subtle)' : 'transparent'
       }}
     >
@@ -50,11 +50,11 @@ function Navigation() {
           <a href="#home" className="flex items-baseline">
             <span
               className="text-2xl tracking-tight"
-              style={{ fontFamily: "'Clash Display', sans-serif", color: 'var(--text-primary)' }}
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: scrolled ? 'var(--text-primary)' : '#1a1a1a' }}
             >
               NST
             </span>
-            <sup className="text-[10px] ml-0.5" style={{ color: 'var(--text-dim)' }}>(R)</sup>
+            <sup className="text-[10px] ml-0.5" style={{ color: scrolled ? 'var(--text-dim)' : '#666' }}>(R)</sup>
           </a>
 
           <div className="hidden md:flex items-center gap-8">
@@ -63,9 +63,9 @@ function Navigation() {
                 key={link.label}
                 href={link.href}
                 className="text-sm transition-colors duration-200"
-                style={{ color: 'var(--text-dim)' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-primary)'}
-                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-dim)'}
+                style={{ color: scrolled ? 'var(--text-dim)' : '#333' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = scrolled ? 'var(--accent-primary)' : 'var(--accent-primary)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = scrolled ? 'var(--text-dim)' : '#333'}
               >
                 {link.label}
               </a>
@@ -87,12 +87,12 @@ function Navigation() {
   )
 }
 
-// Language Typography Layer
+// Physics SVG Layer
 function PhysicsLayer() {
   return (
     <svg
       className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ opacity: 0.06, color: 'rgba(255,255,255,0.18)' }}
+      style={{ opacity: 0.07, color: '#1a1a1a' }}
       viewBox="0 0 1200 800"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -107,73 +107,45 @@ function PhysicsLayer() {
             0%, 100% { transform: translate(0, 0) rotate(0deg); }
             50% { transform: translate(-8px, 12px) rotate(-0.3deg); }
           }
-          @keyframes drift-float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(6px, -14px) rotate(0.2deg); }
-            66% { transform: translate(-10px, 4px) rotate(-0.2deg); }
-          }
-          .drift-1 { animation: drift-slow 22s ease-in-out infinite; }
-          .drift-2 { animation: drift-medium 16s ease-in-out infinite; }
-          .drift-3 { animation: drift-float 24s ease-in-out infinite; }
+          .drift-1 { animation: drift-slow 18s ease-in-out infinite; }
+          .drift-2 { animation: drift-medium 14s ease-in-out infinite; }
+          .drift-3 { animation: drift-slow 20s ease-in-out infinite; }
         `}
       </style>
-      {/* Large typography fragments */}
       <g className="drift-1">
-        <text x="80" y="140" fontSize="42" fontFamily="'Clash Display', serif" fontWeight="600" fill="currentColor" opacity="0.8">fluency</text>
-        <text x="80" y="190" fontSize="20" fontFamily="'General Sans', sans-serif" fill="currentColor" opacity="0.5">/ˈfluːənsi/</text>
+        <text x="60" y="120" fontSize="28" fontFamily="serif" fill="currentColor">E = mc2</text>
+        <text x="60" y="160" fontSize="22" fontFamily="serif" fill="currentColor">F = ma</text>
       </g>
-
-      {/* Tamil excellence */}
       <g className="drift-2">
-        <text x="720" y="120" fontSize="34" fontFamily="'Arima Madurai', serif" fill="currentColor" opacity="0.7">சிறப்பு</text>
-        <text x="720" y="160" fontSize="16" fontFamily="'General Sans', sans-serif" fill="currentColor" opacity="0.4">excellence</text>
+        <path d="M700 100 Q720 130 740 100 Q760 70 780 100 Q800 130 820 100" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <text x="710" y="155" fontSize="18" fontFamily="serif" fill="currentColor">y = A sin t</text>
       </g>
-
-      {/* Quotation marks & editorial */}
       <g className="drift-3">
-        <text x="950" y="320" fontSize="72" fontFamily="serif" fill="currentColor" opacity="0.25">“</text>
-        <text x="980" y="380" fontSize="72" fontFamily="serif" fill="currentColor" opacity="0.15">”</text>
+        <circle cx="900" cy="350" r="40" stroke="currentColor" strokeWidth="1" fill="none" />
+        <line x1="860" y1="350" x2="940" y2="350" stroke="currentColor" strokeWidth="0.5" />
+        <line x1="900" y1="310" x2="900" y2="390" stroke="currentColor" strokeWidth="0.5" />
+        <text x="930" y="410" fontSize="16" fontFamily="serif" fill="currentColor">angle</text>
       </g>
-
-      {/* Sentence structure */}
       <g className="drift-1">
-        <text x="120" y="480" fontSize="18" fontFamily="'General Sans', sans-serif" fill="currentColor" opacity="0.5">Subject → Verb → Object</text>
-        <text x="120" y="510" fontSize="14" fontFamily="'General Sans', sans-serif" fill="currentColor" opacity="0.35">syntax · rhetoric · voice</text>
+        <text x="100" y="500" fontSize="24" fontFamily="serif" fill="currentColor">field shift</text>
       </g>
-
-      {/* Communication wave line */}
       <g className="drift-2">
-        <path d="M380 620 Q400 580 420 620 Q440 660 460 620 Q480 580 500 620 Q520 660 540 620 Q560 580 580 620" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.4" />
-        <text x="420" y="670" fontSize="15" fontFamily="'General Sans', sans-serif" fill="currentColor" opacity="0.4">intonation · rhythm</text>
+        <path d="M400 600 L440 560 L480 580 L520 540 L560 560 L600 520" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <circle cx="440" cy="560" r="3" fill="currentColor" />
+        <circle cx="480" cy="580" r="3" fill="currentColor" />
+        <circle cx="520" cy="540" r="3" fill="currentColor" />
+        <circle cx="560" cy="560" r="3" fill="currentColor" />
+        <circle cx="600" cy="520" r="3" fill="currentColor" />
       </g>
-
-      {/* Phonetic confidence */}
       <g className="drift-3">
-        <text x="780" y="560" fontSize="28" fontFamily="'Clash Display', serif" fontWeight="500" fill="currentColor" opacity="0.6">confidence</text>
-        <text x="780" y="595" fontSize="16" fontFamily="'General Sans', sans-serif" fill="currentColor" opacity="0.4">/ˈkɒnfɪdəns/</text>
+        <text x="750" y="550" fontSize="22" fontFamily="serif" fill="currentColor">wave motion</text>
       </g>
-
-      {/* English + Tamil */}
       <g className="drift-1">
-        <text x="220" y="720" fontSize="32" fontFamily="'Arima Madurai', serif" fill="currentColor" opacity="0.5">ஆங்கிலம்</text>
-        <text x="340" y="750" fontSize="16" fontFamily="'General Sans', sans-serif" fill="currentColor" opacity="0.35">English — the leverage</text>
+        <text x="200" y="700" fontSize="20" fontFamily="serif" fill="currentColor">PV = nRT</text>
       </g>
-
-      {/* Editorial symbols */}
       <g className="drift-2">
-        <text x="860" y="700" fontSize="48" fontFamily="serif" fill="currentColor" opacity="0.2">§</text>
-        <text x="900" y="680" fontSize="24" fontFamily="serif" fill="currentColor" opacity="0.3">¶</text>
-        <text x="940" y="720" fontSize="36" fontFamily="serif" fill="currentColor" opacity="0.2">—</text>
-      </g>
-
-      {/* Small floating words */}
-      <g className="drift-3">
-        <text x="600" y="260" fontSize="14" fontFamily="'General Sans', sans-serif" fill="currentColor" opacity="0.3">vocabulary</text>
-        <text x="620" y="290" fontSize="14" fontFamily="'General Sans', sans-serif" fill="currentColor" opacity="0.25">articulation</text>
-      </g>
-
-      <g className="drift-1">
-        <text x="1050" y="500" fontSize="18" fontFamily="'Clash Display', serif" fill="currentColor" opacity="0.35">communication</text>
+        <path d="M800 650 L850 600 L850 700 Z" stroke="currentColor" strokeWidth="1" fill="none" />
+        <text x="860" y="660" fontSize="16" fontFamily="serif" fill="currentColor">Entropy rises</text>
       </g>
     </svg>
   )
@@ -210,7 +182,7 @@ function CursorGlow() {
     <div
       className="absolute inset-0 pointer-events-none z-0"
       style={{
-        background: `radial-gradient(600px circle at ${pos.x}px ${pos.y}px, oklch(72% 0.07 75 / 0.07), transparent 60%)`,
+        background: `radial-gradient(600px circle at ${pos.x}px ${pos.y}px, oklch(40% 0.10 145 / 0.06), transparent 60%)`,
       }}
     />
   )
@@ -252,7 +224,7 @@ function HeroSection() {
       >
         <img
           src="/hero.png"
-          alt="English mastery platform - Premium learning experience"
+          alt="NEET Physics coaching - Student studying"
           className="w-full h-[120%] -mt-[10%] object-cover"
           style={{ filter: 'contrast(1.05) saturate(1.02)' }}
           loading="eager"
@@ -279,8 +251,7 @@ function HeroSection() {
           transition: 'opacity 0.1s linear, transform 0.1s linear',
         }}
       >
-        <div className="flex w-full flex-col items-start gap-10 lg:flex-row lg:items-center lg:justify-between">
-          <div className="w-full max-w-[560px]">
+        <div className="w-full max-w-[560px]">
           {/* Eyebrow Label */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -288,8 +259,8 @@ function HeroSection() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.12 }}
             className="mb-6"
           >
-            <span className="text-xs tracking-widest uppercase" style={{ color: 'var(--text-dim)', fontFamily: "'General Sans', sans-serif" }}>
-              Premium English Mastery
+            <span className="text-xs tracking-wider" style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              Dr. Sudharshan R. | MBBS
             </span>
           </motion.div>
 
@@ -299,11 +270,12 @@ function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.24 }}
             className="tracking-tight leading-[1.1]"
-            style={{ fontFamily: "'Clash Display', sans-serif", color: 'var(--text-primary)', letterSpacing: '-0.02em' }}
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: 'var(--text-primary)', letterSpacing: '0.02em' }}
           >
-            <span className="inline text-3xl sm:text-4xl lg:text-[52px] font-[600]">
-              English is your{' '}
-              <span className="font-[700]" style={{ color: 'var(--accent-primary)' }}>greatest leverage.</span>
+            <span className="inline text-3xl sm:text-4xl lg:text-[48px] font-[500]">
+              Physics Easy{' '}
+              <span className="text-academic" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>— ஆ</span>
+              {' '}<span style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }} className="font-bold">Feel பண்ணுங்க</span>
             </span>
           </motion.h1>
 
@@ -315,10 +287,10 @@ function HeroSection() {
             className="mt-5"
           >
             <p className="text-xl sm:text-2xl lg:text-[28px] leading-[1.25]" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0, color: 'var(--text-secondary)' }}>
-              உங்கள் எதிர்காலம் ஆங்கிலத்தில் பேசுகிறது
+              Doctor ஆகும் உங்கள் பயணம்
             </p>
             <p className="text-xl sm:text-2xl lg:text-[28px] leading-[1.2] mt-0.5 font-bold" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0, color: 'var(--text-emphasis)' }}>
-              இன்றே கற்றலைத் தொடங்குங்கள்
+              இன்றே தொடங்கட்டும்
             </p>
           </motion.div>
 
@@ -328,9 +300,9 @@ function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
             className="mt-5 max-w-[540px] text-[15px] leading-relaxed sm:text-base"
-            style={{ color: 'var(--text-secondary)', fontFamily: "'General Sans', sans-serif", letterSpacing: '0.01em' }}
+            style={{ color: 'var(--text-secondary)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}
           >
-            Premium English training crafted for Tamil-speaking students who refuse to settle. Communication is the highest-leverage skill you can own.
+            Premium NEET Physics coaching crafted for Tamil medium aspirants who aim for medical excellence.
           </motion.p>
 
           {/* Inline Credibility */}
@@ -339,10 +311,10 @@ function HeroSection() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
             className="mt-4 flex items-center gap-2 text-sm"
-            style={{ color: 'var(--text-dim)', fontFamily: "'General Sans', sans-serif", letterSpacing: '0.01em' }}
+            style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}
           >
             <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: 'var(--accent-primary)' }} />
-            Trusted by 2,000+ students across Tamil Nadu
+            Trusted by 1000+ NEET aspirants across Tamil Nadu
           </motion.p>
 
           {/* CTA Row */}
@@ -359,7 +331,7 @@ function HeroSection() {
               whileTap={{ y: 0 }}
               transition={{ duration: 0.2, ease: 'easeOut' }}
             >
-              Start Your Journey
+              Join 2027 Batch
               <ArrowRight className="w-4 h-4" />
             </motion.a>
             <motion.a
@@ -370,7 +342,7 @@ function HeroSection() {
               transition={{ duration: 0.2, ease: 'easeOut' }}
             >
               <Play className="w-4 h-4" />
-              Watch Free Demo
+              Get Free Demo Class
             </motion.a>
           </motion.div>
 
@@ -380,114 +352,13 @@ function HeroSection() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.94 }}
             className="mt-4 flex items-center gap-2.5 text-[11px] uppercase tracking-[0.15em]"
-            style={{ color: 'var(--text-dim)', fontFamily: "'General Sans', sans-serif" }}
+            style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
             <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
-            New cohort opening soon. Limited intake per batch.
+            Limited seats available. Batch closing soon.
           </motion.p>
         </div>
-
-          {/* Right-Side Editorial Visual */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-            className="hidden lg:flex flex-col items-center justify-center"
-          >
-            <div
-              className="relative overflow-hidden rounded-2xl border px-10 py-12"
-              style={{
-                borderColor: 'var(--border-subtle)',
-                background: 'linear-gradient(145deg, color-mix(in srgb, var(--bg-surface) 80%, transparent), color-mix(in srgb, var(--bg-base) 60%, transparent))',
-                backdropFilter: 'blur(12px)',
-                boxShadow: '0 24px 64px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06)',
-                minWidth: '320px',
-              }}
-            >
-              {/* Large editorial Aa */}
-              <div className="relative z-10 text-center">
-                <p
-                  className="text-[6rem] leading-none font-[600] tracking-tighter"
-                  style={{
-                    fontFamily: "'Clash Display', sans-serif",
-                    background: 'linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    opacity: 0.95,
-                  }}
-                >
-                  Aa
-                </p>
-                <p
-                  className="mt-3 text-sm tracking-widest uppercase"
-                  style={{ fontFamily: "'General Sans', sans-serif", color: 'var(--text-dim)' }}
-                >
-                  Alphabet to Authority
-                </p>
-              </div>
-
-              {/* Decorative corner accents */}
-              <div
-                className="absolute top-0 left-0 h-16 w-px"
-                style={{ background: 'linear-gradient(to bottom, var(--accent-primary), transparent)' }}
-              />
-              <div
-                className="absolute top-0 left-0 h-px w-16"
-                style={{ background: 'linear-gradient(to right, var(--accent-primary), transparent)' }}
-              />
-              <div
-                className="absolute bottom-0 right-0 h-16 w-px"
-                style={{ background: 'linear-gradient(to top, var(--accent-primary), transparent)' }}
-              />
-              <div
-                className="absolute bottom-0 right-0 h-px w-16"
-                style={{ background: 'linear-gradient(to left, var(--accent-primary), transparent)' }}
-              />
-
-              {/* Floating micro badge */}
-              <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-4 -right-4 flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium"
-                style={{
-                  borderColor: 'var(--border-subtle)',
-                  background: 'var(--bg-elevated)',
-                  color: 'var(--text-primary)',
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
-                  fontFamily: "'General Sans', sans-serif",
-                }}
-              >
-                <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ background: 'var(--accent-warm)' }} />
-                2,000+ Students
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
       </div>
-
-      {/* Bottom scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
-      >
-        <span className="text-[10px] uppercase tracking-[0.2em]" style={{ color: 'var(--text-dim)', fontFamily: "'General Sans', sans-serif" }}>
-          Scroll
-        </span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-          className="h-6 w-px rounded-full"
-          style={{ background: 'linear-gradient(to bottom, var(--accent-primary), transparent)' }}
-        />
-      </motion.div>
-
-      {/* Bottom gradient fade into next section */}
-      <div
-        className="absolute bottom-0 left-0 right-0 z-[5] h-24 pointer-events-none"
-        style={{ background: 'linear-gradient(to top, var(--bg-base), transparent)' }}
-      />
     </section>
   )
 }
