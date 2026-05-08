@@ -257,7 +257,7 @@ function HeroSection() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const imgParallax = Math.min(scrollY * 0.3, 100)
+  const imgParallax = -Math.min(scrollY * 0.15, 60)
   const contentFade = Math.min(scrollY / 400, 1)
 
   return (
@@ -277,7 +277,7 @@ function HeroSection() {
         <img
           src="/hero.png"
           alt="Premium English mastery training"
-          className="w-full h-[110%] -mt-[5%] object-cover documentary-image"
+          className="w-full h-[120%] -mt-[10%] object-cover documentary-image"
           style={{ filter: 'grayscale(1) contrast(1.1) brightness(0.8)' }}
           loading="eager"
         />
@@ -288,7 +288,7 @@ function HeroSection() {
         className="absolute inset-0 z-[2] transition-opacity duration-1000 ease-out"
         style={{
           opacity: overlayOpacity,
-          background: 'radial-gradient(circle at 20% 50%, var(--bg-base) 0%, color-mix(in srgb, var(--bg-base) 90%, transparent) 40%, color-mix(in srgb, var(--bg-base) 10%, transparent) 100%)'
+          background: 'linear-gradient(to right, var(--bg-base) 0%, color-mix(in srgb, var(--bg-base) 95%, transparent) 40%, transparent 100%)'
         }}
       />
 
@@ -363,7 +363,6 @@ function HeroSection() {
             <motion.a
               href="#courses"
               className="hero-btn-primary px-10 py-4 text-base flex items-center justify-center gap-3 group"
-              whileHover={{ y: -4, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onMouseMove={(e) => {
                 const rect = e.currentTarget.getBoundingClientRect();
@@ -382,16 +381,15 @@ function HeroSection() {
             <motion.a
               href="#inside"
               className="hero-btn-secondary px-10 py-4 text-base flex items-center justify-center gap-3"
-              whileHover={{ y: -4, background: 'var(--bg-elevated)' }}
               whileTap={{ scale: 0.98 }}
               onMouseMove={(e) => {
                 const rect = e.currentTarget.getBoundingClientRect();
                 const x = (e.clientX - rect.left - rect.width / 2) * 0.15;
                 const y = (e.clientY - rect.top - rect.height / 2) * 0.15;
-                e.currentTarget.style.transform = `translate(${x}px, ${y}px)`;
+                e.currentTarget.style.transform = `translate(${x}px, ${y}px) scale(1.01)`;
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translate(0px, 0px)';
+                e.currentTarget.style.transform = 'translate(0px, 0px) scale(1)';
               }}
             >
               <Play className="w-4 h-4" />
@@ -421,7 +419,6 @@ function HeroSection() {
           </motion.div>
         </div>
       </div>
-      <CommunicationSilence />
     </section>
   )
 }
@@ -1797,6 +1794,7 @@ export default function LandingPage() {
       <div className="relative z-10">
         <Navigation />
         <HeroSection />
+        <CommunicationSilence />
         <TrustNarrativeSection />
         <TransformationJourneySection />
         <EcosystemShowcaseSection />
