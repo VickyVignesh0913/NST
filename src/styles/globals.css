@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    --bg-base: #f6f6f4;
-    --bg-surface: #FEFDFB;
-    --bg-elevated: #FAFAF7;
+    --bg-base: oklch(97% 0.005 145);
+    --bg-surface: oklch(99% 0.003 145);
+    --bg-elevated: oklch(98% 0.004 145);
     --accent-primary: oklch(40% 0.10 145);
     --accent-hover: oklch(34% 0.09 145);
     --accent-warm: oklch(62% 0.13 50);
@@ -15,7 +15,7 @@
     --text-secondary: oklch(40% 0.012 95);
     --text-emphasis: oklch(22% 0.012 95);
     --text-dim: oklch(55% 0.008 95);
-    --border-subtle: #ddd8d0;
+    --border-subtle: oklch(90% 0.005 145);
     --border-accent: oklch(40% 0.10 145);
 
     --background: 0 0% 97%;
@@ -153,7 +153,7 @@
     font-size: 16px;
     color: var(--text-secondary);
     line-height: 1.6;
-    max-width: 60ch;
+    max-width: 65ch;
   }
 
   .meta-text {
@@ -519,7 +519,7 @@ body::before {
 /* Memory Anchor: The Silence Threshold */
 .silence-threshold {
   background: var(--bg-base);
-  height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;

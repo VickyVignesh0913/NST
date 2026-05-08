@@ -94,11 +94,11 @@ function Navigation() {
           <a href="#home" className="flex items-baseline">
             <span
               className="text-2xl tracking-tight"
-              style={{ fontFamily: "'General Sans', sans-serif", color: scrolled ? 'var(--text-primary)' : '#1a1a1a' }}
+              style={{ fontFamily: "'General Sans', sans-serif", color: 'var(--text-primary)' }}
             >
               NST
             </span>
-            <sup className="text-[10px] ml-0.5" style={{ color: scrolled ? 'var(--text-dim)' : '#666' }}>(R)</sup>
+            <sup className="text-[10px] ml-0.5" style={{ color: 'var(--text-dim)' }}>(R)</sup>
           </a>
 
           <div className="hidden md:flex items-center gap-8">
@@ -107,9 +107,9 @@ function Navigation() {
                 key={link.label}
                 href={link.href}
                 className="text-sm transition-colors duration-200"
-                style={{ color: scrolled ? 'var(--text-dim)' : '#333' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = scrolled ? 'var(--accent-primary)' : 'var(--accent-primary)'}
-                onMouseLeave={(e) => e.currentTarget.style.color = scrolled ? 'var(--text-dim)' : '#333'}
+                style={{ color: scrolled ? 'var(--text-dim)' : 'var(--text-secondary)' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-primary)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = scrolled ? 'var(--text-dim)' : 'var(--text-secondary)'}
               >
                 {link.label}
               </a>
@@ -365,6 +365,15 @@ function HeroSection() {
               className="hero-btn-primary px-10 py-4 text-base flex items-center justify-center gap-3 group"
               whileHover={{ y: -4, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const x = (e.clientX - rect.left - rect.width / 2) * 0.15;
+                const y = (e.clientY - rect.top - rect.height / 2) * 0.15;
+                e.currentTarget.style.transform = `translate(${x}px, ${y}px) scale(1.02)`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translate(0px, 0px) scale(1)';
+              }}
             >
               Explore Batches
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -375,6 +384,15 @@ function HeroSection() {
               className="hero-btn-secondary px-10 py-4 text-base flex items-center justify-center gap-3"
               whileHover={{ y: -4, background: 'var(--bg-elevated)' }}
               whileTap={{ scale: 0.98 }}
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const x = (e.clientX - rect.left - rect.width / 2) * 0.15;
+                const y = (e.clientY - rect.top - rect.height / 2) * 0.15;
+                e.currentTarget.style.transform = `translate(${x}px, ${y}px)`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translate(0px, 0px)';
+              }}
             >
               <Play className="w-4 h-4" />
               Watch Experience
