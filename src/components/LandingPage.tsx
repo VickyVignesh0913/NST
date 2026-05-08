@@ -1594,6 +1594,7 @@ function FounderVisionSection() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12 asymmetric-layout">
+        {/* LEFT: Portrait Layer */}
         <div className="tension-col-left">
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
@@ -1602,8 +1603,6 @@ function FounderVisionSection() {
             transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-          {/* LEFT: Portrait Layer */}
-          <div className="relative">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -1625,40 +1624,40 @@ function FounderVisionSection() {
                  <p className="text-dim text-xs uppercase tracking-[0.3em] font-bold mt-2">Linguistic Observer</p>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
+        </div>
 
-          <div className="tension-col-right">
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            >
-              <span className="section-label resonance-field">A Vision for Confidence</span>
-              <h2 className="heading-xl mt-8 leading-[0.9] tracking-tighter signature-reveal">
-                Communication is the bridge <br />
-                <span className="text-secondary italic">to who you can become.</span>
-              </h2>
-              
-              <div className="mt-12 space-y-8 text-xl text-secondary leading-relaxed font-english italic">
-                <p>
-                  "I've spent years observing a painful pattern: brilliant students and ambitious professionals staying silent in rooms where they should be leading. It wasn't a lack of knowledge—it was a lack of psychological safety in their own expression."
-                </p>
-                <p className="opacity-80">
-                  "I built this environment to be more than a school. It is a space where you can fail safely until you speak brilliantly. Where your Tamil roots aren't a barrier, but the ground you stand on while you master a global tongue."
-                </p>
-                <p className="opacity-60">
-                  "This transformation changes your career, but more importantly, it changes your social identity. It's time to be heard."
-                </p>
-              </div>
+        {/* RIGHT: Narrative Layer */}
+        <div className="tension-col-right">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          >
+            <span className="section-label resonance-field">A Vision for Confidence</span>
+            <h2 className="heading-xl mt-8 leading-[0.9] tracking-tighter signature-reveal">
+              Communication is the bridge <br />
+              <span className="text-secondary italic">to who you can become.</span>
+            </h2>
+            
+            <div className="mt-12 space-y-8 text-xl text-secondary leading-relaxed font-english italic">
+              <p>
+                "I've spent years observing a painful pattern: brilliant students and ambitious professionals staying silent in rooms where they should be leading. It wasn't a lack of knowledge—it was a lack of psychological safety in their own expression."
+              </p>
+              <p className="opacity-80">
+                "I built this environment to be more than a school. It is a space where you can fail safely until you speak brilliantly. Where your Tamil roots aren't a barrier, but the ground you stand on while you master a global tongue."
+              </p>
+              <p className="opacity-60">
+                "This transformation changes your career, but more importantly, it changes your social identity. It's time to be heard."
+              </p>
+            </div>
 
-              <div className="mt-16 flex items-center gap-6">
-                 <div className="h-[1px] w-16 bg-border-subtle" />
-                 <span className="text-[10px] uppercase tracking-[0.3em] text-accent-primary font-bold">The Founder's Conviction</span>
-              </div>
-            </motion.div>
-          </div>
-
+            <div className="mt-16 flex items-center gap-6">
+               <div className="h-[1px] w-16 bg-border-subtle" />
+               <span className="text-[10px] uppercase tracking-[0.3em] text-accent-primary font-bold">The Founder's Conviction</span>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
