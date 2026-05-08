@@ -877,21 +877,19 @@ function ResultsArchiveSection() {
               <span className="text-secondary italic">personal evolution.</span>
             </h2>
           </motion.div>
-          <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="text-xs uppercase tracking-[0.4em] text-dim font-bold pb-4"
-          >
-            Observational Documentation
-          </motion.p>
-        </div>
-            <div className="lg:text-right pb-2">
-              <p className="text-sm text-dim max-w-xs font-english italic">
-                A curated record of transformations that began with a single conversation.
-              </p>
-            </div>
-          </motion.div>
+          <div className="lg:text-right pb-4">
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="text-xs uppercase tracking-[0.4em] text-dim font-bold mb-4"
+            >
+              Observational Documentation
+            </motion.p>
+            <p className="text-sm text-dim max-w-xs font-english italic">
+              A curated record of transformations that began with a single conversation.
+            </p>
+          </div>
         </div>
 
         {/* Cinematic Gallery Grid */}
