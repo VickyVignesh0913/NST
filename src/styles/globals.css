@@ -37,15 +37,18 @@
   body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    line-height: 1.6;
+    font-family: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
   }
 
   h1, h2, h3, h4 {
     color: var(--text-primary);
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 
   a:focus-visible,
@@ -130,19 +133,20 @@
   }
 
   .section-label {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--text-dim);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'General Sans', sans-serif;
   }
 
   .heading-xl {
-    font-size: clamp(32px, 5vw, 56px);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(32px, 6vw, 64px);
+    font-family: 'Clash Display', sans-serif;
     color: var(--text-primary);
-    line-height: 1.05;
+    line-height: 1;
+    letter-spacing: -0.03em;
   }
 
   .body-text {
@@ -237,8 +241,8 @@
   }
 
   .font-english {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    letter-spacing: 0.02em;
+    font-family: 'General Sans', sans-serif;
+    letter-spacing: -0.01em;
   }
 
   .font-tamil {
@@ -273,5 +277,74 @@
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+/* PHASE 1: RESPONSIVE REFINEMENT & STABILITY */
+
+:root {
+  /* Fluid Typography Scaling */
+  --font-size-hero: clamp(3rem, 10vw, 8rem);
+  --font-size-h1: clamp(2.5rem, 8vw, 5rem);
+  --font-size-h2: clamp(2rem, 6vw, 3.5rem);
+  --font-size-body: clamp(1rem, 1.2vw, 1.125rem);
+  
+  /* Fluid Spacing System */
+  --space-unit: clamp(1rem, 2vw, 2rem);
+  --section-padding: clamp(5rem, 15vh, 12rem);
+}
+
+/* Stability Fixes for Safari & iOS */
+@supports (-webkit-backdrop-filter: none) {
+  .backdrop-blur-md {
+    -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* HW Acceleration for smooth transforms */
+.will-change-transform {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Refined Typography Classes */
+.heading-xl {
+  font-family: 'Clash Display', sans-serif;
+  font-size: var(--font-size-hero);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.section-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-weight: 800;
+  color: var(--accent-primary);
+  opacity: 0.8;
+  display: block;
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 4rem;
+  }
+  
+  .heading-xl {
+    line-height: 1;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
