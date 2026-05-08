@@ -230,7 +230,7 @@ function HeroSection() {
 
       {/* Hero Image Background */}
       <div
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 portrait-grain"
         style={{
           transform: `translateY(${imgParallax}px) scale(1.02)`,
           transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -240,8 +240,8 @@ function HeroSection() {
         <img
           src="/hero.png"
           alt="Premium English mastery training"
-          className="w-full h-[110%] -mt-[5%] object-cover opacity-[0.95]"
-          style={{ filter: 'contrast(1.02) saturate(0.9) brightness(1.02)' }}
+          className="w-full h-[110%] -mt-[5%] object-cover documentary-image"
+          style={{ filter: 'grayscale(1) contrast(1.1) brightness(0.8)' }}
           loading="eager"
         />
       </div>
@@ -270,11 +270,12 @@ function HeroSection() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            className="mb-8"
+            className="mb-8 flex items-center gap-4"
           >
             <span className="section-label">
               Premium Editorial Experience
             </span>
+            <span className="human-moment-tag">The Moment of Articulation</span>
           </motion.div>
 
           {/* Headline */}
@@ -468,26 +469,30 @@ function TransformationJourneySection() {
   const stages = [
     {
       title: "Hesitation",
+      moment: "Interview Anxiety",
       statement: "The weight of the unspoken.",
-      description: "You know the answer. You have the idea. But in the interview room or the client meeting, the words feel out of reach.",
+      description: "You know the answer. You have the idea. But the internal translation loop freezes you when the spotlight is on. We dissolve the barrier.",
       emphasis: "Release the pressure."
     },
     {
       title: "Expression",
-      statement: "Finding your natural rhythm.",
-      description: "Moving beyond robotic vocabulary into the art of articulation. Where your voice finally matches your intelligence.",
+      moment: "Natural Rhythm",
+      statement: "Finding your natural voice.",
+      description: "Moving beyond robotic vocabulary. No more rehearsed lines. Just fluid, instinctive articulation that matches your intelligence.",
       emphasis: "Find your truth."
     },
     {
       title: "Presence",
+      moment: "Quiet Authority",
       statement: "Owning the conversation.",
-      description: "It\'s not about being the loudest; it\'s about the quiet authority that makes the room listen when you speak.",
+      description: "It\'s not about being the loudest; it\'s about the quiet authority that makes the room listen when you speak. Presence is reclaimed.",
       emphasis: "Command the space."
     },
     {
       title: "Influence",
-      statement: "The transformation is career-wide.",
-      description: "When you speak with clarity, you change how the world responds to you. Opportunity moves toward presence.",
+      moment: "Career Mobility",
+      statement: "Opportunity moves toward presence.",
+      description: "When you speak with clarity, you change how the world responds to you. The interview becomes a conversation; the meeting becomes a lead.",
       emphasis: "Shape your future."
     }
   ];
@@ -538,7 +543,7 @@ function TransformationJourneySection() {
                 <div className="flex items-center gap-4 mb-6 ${i % 2 === 0 ? 'justify-center lg:justify-start' : 'justify-center lg:justify-end'}">
                   <span className="text-xs font-bold tracking-[0.3em] text-dim">0{i + 1}</span>
                   <div className="h-[1px] w-8 bg-border-subtle" />
-                  <span className="text-xs font-bold tracking-[0.2em] text-accent-primary uppercase">{stage.title}</span>
+                  <span className="human-moment-tag">{stage.moment}</span>
                 </div>
 
                 <h3 className="text-3xl sm:text-4xl lg:text-[48px] leading-[1] font-medium tracking-tight text-primary font-english">
@@ -1538,33 +1543,30 @@ function FounderVisionSection() {
             transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden grayscale opacity-80 group">
-               <div className="absolute inset-0 bg-gradient-to-t from-bg-base via-transparent to-transparent z-10" />
-               {/* Abstract Portrait Placeholder (Monochrome Silhouette style) */}
-               <div className="absolute inset-0 bg-gradient-to-br from-slate-400 to-slate-800" />
-               <div className="absolute inset-0 flex items-center justify-center opacity-40">
-                  <div className="w-[120%] h-[120%] bg-slate-900/40 blur-[100px] rounded-full" />
-               </div>
-               
-               {/* Editorial Meta */}
-               <div className="absolute bottom-12 left-12 z-20">
-                  <span className="text-[10px] uppercase tracking-[0.4em] text-white/50 font-bold block mb-2">The Visionary</span>
-                  <h3 className="text-2xl font-bold tracking-tighter text-white">Dr. Sudharshan R.</h3>
-                  <div className="h-[1px] w-8 bg-accent-primary/50 mt-4" />
-               </div>
-            </div>
-            
-            {/* Floating Philosophy Fragment */}
+          {/* LEFT: Portrait Layer */}
+          <div className="relative">
             <motion.div
-               animate={{ y: [0, -15, 0] }}
-               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-               className="absolute -top-12 -right-8 w-64 p-8 rounded-2xl border border-subtle/30 backdrop-blur-xl bg-white/5 z-20"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+              className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl portrait-grain"
             >
-               <p className="text-sm italic text-secondary leading-relaxed font-english">
-                 "Confidence is not a personality trait. It is a linguistic outcome."
-               </p>
+              <img 
+                src="/founder.png" 
+                alt="The Founder" 
+                className="w-full h-full object-cover documentary-image"
+                style={{ filter: 'grayscale(1) contrast(1.2) brightness(0.7)' }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-bg-base via-transparent to-transparent opacity-40" />
+              
+              <div className="absolute bottom-12 left-12">
+                 <span className="section-label mb-2 block">Quiet Authority</span>
+                 <h3 className="text-4xl font-bold tracking-tighter text-white">Vicky Vignesh</h3>
+                 <p className="text-dim text-xs uppercase tracking-[0.3em] font-bold mt-2">Linguistic Observer</p>
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
 
           {/* RIGHT: Manifesto-style Narrative */}
           <div className="flex flex-col justify-center">
