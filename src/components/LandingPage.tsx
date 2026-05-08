@@ -284,9 +284,9 @@ function HeroSection() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="heading-xl leading-[0.95] tracking-tight"
           >
-            <span className="block">English Mastery</span>
+            <span className="block">The silence ends</span>
             <span className="block mt-1 font-tamil font-medium text-[0.8em] opacity-90" style={{ color: 'var(--text-secondary)' }}>
-              ஆங்கில பேச்சு மேலோங்க
+              எங்கே பேச்சு தொடங்குகிறதோ...
             </span>
           </motion.h1>
 
@@ -298,10 +298,10 @@ function HeroSection() {
             className="mt-8 space-y-2"
           >
             <p className="text-2xl sm:text-3xl font-tamil leading-tight opacity-80" style={{ color: 'var(--text-secondary)' }}>
-              ஆங்கிலத்தில் வெற்றி பெற
+              அங்கே உலகம் உங்களை
             </p>
             <p className="text-2xl sm:text-3xl font-tamil font-bold leading-tight" style={{ color: 'var(--accent-primary)' }}>
-              உலகம் திறக்கும் திறவுகோல்
+              அடையாளம் காணும்.
             </p>
           </motion.div>
 
@@ -310,9 +310,9 @@ function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-            className="mt-8 max-w-[500px] text-lg leading-relaxed text-secondary font-english"
+            className="mt-8 max-w-[500px] text-lg leading-relaxed text-secondary font-english italic"
           >
-            A high-end linguistic transition system meticulously designed for Tamil professionals and students aiming for global authority.
+            Communication isn't just about language; it's about the confidence to speak your truth in every interview, every meeting, and every room you enter.
           </motion.p>
 
           {/* CTA Group */}
@@ -393,7 +393,7 @@ function TrustNarrativeSection() {
               className="group"
             >
               <div className="text-3xl font-bold tracking-tighter text-primary">50K+</div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-dim font-semibold mt-1">Linguistic Scholars</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-dim font-semibold mt-1">Careers Transformed</div>
               <div className="w-8 h-[1px] bg-border-subtle mt-4 transition-all group-hover:w-12" />
             </motion.div>
 
@@ -405,7 +405,7 @@ function TrustNarrativeSection() {
               className="group"
             >
               <div className="text-3xl font-bold tracking-tighter text-primary">1M+</div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-dim font-semibold mt-1">Speaking Sessions</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-dim font-semibold mt-1">Breakthrough Moments</div>
               <div className="w-8 h-[1px] bg-border-subtle mt-4 transition-all group-hover:w-12" />
             </motion.div>
           </div>
@@ -419,12 +419,12 @@ function TrustNarrativeSection() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             >
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] leading-[1.1] font-medium tracking-tight text-primary font-english">
-                Fluency is no longer a soft skill. <br />
-                <span className="text-secondary italic">It shapes opportunity, confidence, and perception.</span>
+                We understand the weight of <br />
+                <span className="text-secondary italic">unspoken intelligence.</span>
               </h2>
               <div className="mt-10 flex items-center justify-center gap-4">
                 <div className="h-[1px] w-12 bg-border-subtle" />
-                <span className="text-[11px] uppercase tracking-[0.25em] text-dim font-bold">The Editorial Standard</span>
+                <span className="text-[11px] uppercase tracking-[0.25em] text-dim font-bold">The Human Standard</span>
                 <div className="h-[1px] w-12 bg-border-subtle" />
               </div>
             </motion.div>
@@ -440,7 +440,7 @@ function TrustNarrativeSection() {
               className="group"
             >
               <div className="text-3xl font-bold tracking-tighter text-primary">94%</div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-dim font-semibold mt-1">Confidence Improvement</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-dim font-semibold mt-1">Social Confidence Rate</div>
               <div className="w-8 h-[1px] bg-border-subtle mt-4 ml-auto transition-all group-hover:w-12" />
             </motion.div>
 
@@ -451,8 +451,8 @@ function TrustNarrativeSection() {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
               className="group"
             >
-              <div className="text-xl font-medium tracking-tight text-secondary">PAN INDIA</div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-dim font-semibold mt-1">Learner Ecosystem</div>
+              <div className="text-xl font-medium tracking-tight text-secondary">REAL-WORLD</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-dim font-semibold mt-1">Lived Experience</div>
               <div className="w-8 h-[1px] bg-border-subtle mt-4 ml-auto transition-all group-hover:w-12" />
             </motion.div>
           </div>
@@ -468,27 +468,27 @@ function TransformationJourneySection() {
   const stages = [
     {
       title: "Hesitation",
-      statement: "Confidence begins where hesitation disappears.",
-      description: "The internal barrier between your thoughts and the world is the first thing we dissolve.",
-      emphasis: "Break the silence."
+      statement: "The weight of the unspoken.",
+      description: "You know the answer. You have the idea. But in the interview room or the client meeting, the words feel out of reach.",
+      emphasis: "Release the pressure."
     },
     {
       title: "Expression",
-      statement: "Fluency is the bridge between thinking and being.",
-      description: "Moving beyond vocabulary into the art of articulation, where your voice becomes your identity.",
-      emphasis: "Find your voice."
+      statement: "Finding your natural rhythm.",
+      description: "Moving beyond robotic vocabulary into the art of articulation. Where your voice finally matches your intelligence.",
+      emphasis: "Find your truth."
     },
     {
       title: "Presence",
-      statement: "Communication creates presence.",
-      description: "It\'s not just about what you say, but how the room shifts when you speak.",
-      emphasis: "Own the room."
+      statement: "Owning the conversation.",
+      description: "It\'s not about being the loudest; it\'s about the quiet authority that makes the room listen when you speak.",
+      emphasis: "Command the space."
     },
     {
       title: "Influence",
-      statement: "Expression creates opportunity.",
-      description: "When you speak with authority, you change how the world responds to you.",
-      emphasis: "Shape perception."
+      statement: "The transformation is career-wide.",
+      description: "When you speak with clarity, you change how the world responds to you. Opportunity moves toward presence.",
+      emphasis: "Shape your future."
     }
   ];
 
@@ -637,13 +637,16 @@ function EcosystemShowcaseSection() {
               viewport={{ once: true }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             >
+              <div className="mb-6">
+                 <span className="liveness-pulse">12 Scholars articulating now</span>
+              </div>
               <span className="section-label">The Ecosystem</span>
               <h2 className="heading-xl mt-8 leading-[0.95] tracking-tighter">
                 An environment <br />
-                <span className="text-secondary italic">built for immersion.</span>
+                <span className="text-secondary italic">built for human voices.</span>
               </h2>
               <p className="mt-10 text-xl text-secondary leading-relaxed max-w-lg font-english">
-                Fluency is not taught; it is cultivated. We have designed an intelligent space where communication becomes second nature.
+                Fluency isn't a technical skill you download. It is a biological presence you cultivate through consistent, real-world human interaction.
               </p>
 
               <div className="mt-16 space-y-12">
@@ -1571,27 +1574,27 @@ function FounderVisionSection() {
               viewport={{ once: true }}
               transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             >
-              <span className="section-label">A Manifesto on Expression</span>
+              <span className="section-label">A Vision for Confidence</span>
               <h2 className="heading-xl mt-8 leading-[0.9] tracking-tighter">
                 Communication is the bridge <br />
-                <span className="text-secondary italic">to human potential.</span>
+                <span className="text-secondary italic">to who you can become.</span>
               </h2>
               
               <div className="mt-12 space-y-8 text-xl text-secondary leading-relaxed font-english italic">
                 <p>
-                  "Many people are intelligent long before they become expressive. I built this environment because I saw too many voices remain silent simply because they lacked the framework for articulation."
+                  "I've spent years observing a painful pattern: brilliant students and ambitious professionals staying silent in rooms where they should be leading. It wasn't a lack of knowledge—it was a lack of psychological safety in their own expression."
                 </p>
                 <p className="opacity-80">
-                  "Fluency changes how your ability is perceived. It dictates opportunity, defines leadership, and shapes your identity in the world."
+                  "I built this environment to be more than a school. It is a space where you can fail safely until you speak brilliantly. Where your Tamil roots aren't a barrier, but the ground you stand on while you master a global tongue."
                 </p>
                 <p className="opacity-60">
-                  "This is not about learning a language. It is about reclaiming your presence."
+                  "This transformation changes your career, but more importantly, it changes your social identity. It's time to be heard."
                 </p>
               </div>
 
               <div className="mt-16 flex items-center gap-6">
                  <div className="h-[1px] w-16 bg-border-subtle" />
-                 <span className="text-[10px] uppercase tracking-[0.3em] text-accent-primary font-bold">The Deeper Vision</span>
+                 <span className="text-[10px] uppercase tracking-[0.3em] text-accent-primary font-bold">The Founder's Conviction</span>
               </div>
             </motion.div>
           </div>
