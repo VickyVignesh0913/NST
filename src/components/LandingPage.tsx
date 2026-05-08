@@ -350,7 +350,7 @@ function HeroSection() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
             className="mt-8 max-w-[500px] text-lg leading-relaxed text-secondary font-english italic"
           >
-            Communication isn't just about language; it's about the confidence to speak your truth in every interview, every meeting, and every room you enter.
+            We understand the loop: you think in your mother tongue, translate internally, and hesitate. We built this space to break that cycle and find your natural, unforced presence.
           </motion.p>
 
           {/* CTA Group */}
@@ -458,12 +458,12 @@ function TrustNarrativeSection() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             >
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] leading-[1.1] font-medium tracking-tight text-primary font-english">
-                We understand the weight of <br />
-                <span className="text-secondary italic">unspoken intelligence.</span>
+                Communication is a series of <br />
+                <span className="text-secondary italic">honest, imperfect breakthroughs.</span>
               </h2>
               <div className="mt-10 flex items-center justify-center gap-4">
                 <div className="h-[1px] w-12 bg-border-subtle" />
-                <span className="text-[11px] uppercase tracking-[0.25em] text-dim font-bold">The Human Standard</span>
+                <span className="text-[11px] uppercase tracking-[0.25em] text-dim font-bold">The Reality Standard</span>
                 <div className="h-[1px] w-12 bg-border-subtle" />
               </div>
             </motion.div>
@@ -507,31 +507,31 @@ function TransformationJourneySection() {
   const stages = [
     {
       title: "Hesitation",
-      moment: "Interview Anxiety",
-      statement: "The weight of the unspoken.",
-      description: "You know the answer. You have the idea. But the internal translation loop freezes you when the spotlight is on. We dissolve the barrier.",
-      emphasis: "Release the pressure."
+      moment: "Internal Translation",
+      statement: "The loop finally ends.",
+      description: "Thinking in Tamil, translating to English, and losing the moment. We break this internal friction first, moving you toward instinctive response.",
+      emphasis: "Stop translating."
     },
     {
       title: "Expression",
-      moment: "Natural Rhythm",
-      statement: "Finding your natural voice.",
-      description: "Moving beyond robotic vocabulary. No more rehearsed lines. Just fluid, instinctive articulation that matches your intelligence.",
-      emphasis: "Find your truth."
+      moment: "Breaking the Script",
+      statement: "Honest, unforced articulation.",
+      description: "Moving away from memorized lines. You begin to express your actual thoughts, even if they aren\'t perfectly polished yet.",
+      emphasis: "Be real, not perfect."
     },
     {
       title: "Presence",
-      moment: "Quiet Authority",
-      statement: "Owning the conversation.",
-      description: "It\'s not about being the loudest; it\'s about the quiet authority that makes the room listen when you speak. Presence is reclaimed.",
-      emphasis: "Command the space."
+      moment: "Conversational Calm",
+      statement: "Finding your breath.",
+      description: "The interview or presentation is no longer a performance. It\'s a conversation where you feel at home in your own presence.",
+      emphasis: "Stay composed."
     },
     {
       title: "Influence",
-      moment: "Career Mobility",
-      statement: "Opportunity moves toward presence.",
-      description: "When you speak with clarity, you change how the world responds to you. The interview becomes a conversation; the meeting becomes a lead.",
-      emphasis: "Shape your future."
+      moment: "Social Mobility",
+      statement: "Being heard, naturally.",
+      description: "The outcome isn\'t just a job or a lead. It\'s the quiet confidence of knowing you belong in every room you enter.",
+      emphasis: "Own your story."
     }
   ];
 
@@ -680,16 +680,17 @@ function EcosystemShowcaseSection() {
               viewport={{ once: true }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="mb-6">
-                 <span className="liveness-pulse">12 Scholars articulating now</span>
+              <div className="mb-6 flex flex-col gap-2">
+                 <span className="liveness-pulse">8 Scholars Practicing: Interview Composure</span>
+                 <span className="liveness-pulse" style={{ color: 'var(--text-dim)', opacity: 0.6 }}>4 Scholars Refining: Public Address</span>
               </div>
-              <span className="section-label">The Ecosystem</span>
+              <span className="section-label">The Practice Lab</span>
               <h2 className="heading-xl mt-8 leading-[0.95] tracking-tighter">
-                An environment <br />
-                <span className="text-secondary italic">built for human voices.</span>
+                Where breakthroughs <br />
+                <span className="text-secondary italic">are humanly forged.</span>
               </h2>
               <p className="mt-10 text-xl text-secondary leading-relaxed max-w-lg font-english">
-                Fluency isn't a technical skill you download. It is a biological presence you cultivate through consistent, real-world human interaction.
+                It isn't about perfect grammar. It's about staying calm when the meeting gets intense, and finding your voice when it matters most.
               </p>
 
               <div className="mt-16 space-y-12">
@@ -816,22 +817,22 @@ function EcosystemShowcaseSection() {
 function ResultsArchiveSection() {
   const archives = [
     {
-      quote: "I stopped avoiding conversations. My voice finally became an extension of my thoughts.",
+      quote: "I stopped over-preparing scripts. Now, I just speak my mind in meetings without that crushing internal translation loop.",
       author: "Aditi R.",
       role: "Software Architect",
-      transformation: "Fear to Authority"
+      transformation: "Breakthrough: Natural Meetings"
     },
     {
-      quote: "The hesitation is gone. I learned how to express myself with intentional clarity.",
+      quote: "The nervousness in my throat is gone. I don\'t mind if I make a mistake anymore, and that\'s why I speak so much better now.",
       author: "Rahul S.",
       role: "Product Manager",
-      transformation: "Silence to Impact"
+      transformation: "Breakthrough: Social Comfort"
     },
     {
-      quote: "Communication is no longer a barrier; it\'s my greatest advantage in every meeting.",
+      quote: "I used to stay silent because I was afraid of my accent. Now, I lead the client calls. They listen to the idea, not just the words.",
       author: "Meera K.",
       role: "Creative Lead",
-      transformation: "Shyness to Presence"
+      transformation: "Breakthrough: Project Authority"
     }
   ];
 
@@ -883,20 +884,18 @@ function ResultsArchiveSection() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: i * 0.15 }}
+              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: (i * 0.2) + (Math.random() * 0.1) }}
               className="flex flex-col group"
             >
-              {/* Cinematic Silhouette Portrait Placeholder */}
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-slate-200 to-slate-300 grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out opacity-80 group-hover:opacity-100">
+              {/* Cinematic Silhouette Portrait Treatment */}
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 shadow-xl portrait-grain bg-gradient-to-br from-slate-200 to-slate-300">
                 <div className="absolute inset-0 bg-accent-primary/5 mix-blend-overlay" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                   <div className="w-1/2 h-1/2 bg-slate-400/20 blur-[60px] rounded-full" />
-                </div>
                 {/* Meta Indicator */}
-                <div className="absolute bottom-6 left-6 flex items-center gap-3">
+                <div className="absolute bottom-6 left-6 flex items-center gap-3 z-10">
                    <div className="w-1.5 h-1.5 rounded-full bg-accent-primary" />
-                   <span className="text-[10px] uppercase tracking-widest text-primary font-bold">{item.transformation}</span>
+                   <span className="text-[10px] uppercase tracking-widest text-white font-bold">{item.transformation}</span>
                 </div>
+                <div className="absolute inset-0 bg-slate-900/40 mix-blend-multiply opacity-0 group-hover:opacity-40 transition-opacity duration-700" />
               </div>
 
               {/* Transformation Narrative */}
