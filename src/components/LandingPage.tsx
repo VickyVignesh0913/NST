@@ -278,7 +278,7 @@ function HeroSection() {
           src="/hero.png"
           alt="Premium English mastery training"
           className="w-full h-[120%] -mt-[10%] object-cover documentary-image"
-          style={{ filter: 'grayscale(1) contrast(1.1) brightness(0.8)' }}
+          style={{ filter: 'grayscale(1) contrast(1.1) brightness(0.5)' }}
           loading="eager"
         />
       </div>
@@ -288,7 +288,7 @@ function HeroSection() {
         className="absolute inset-0 z-[2] transition-opacity duration-1000 ease-out"
         style={{
           opacity: overlayOpacity,
-          background: 'linear-gradient(to right, var(--bg-base) 0%, color-mix(in srgb, var(--bg-base) 95%, transparent) 40%, transparent 100%)'
+          background: 'linear-gradient(to right, var(--bg-base) 0%, color-mix(in srgb, var(--bg-base) 90%, transparent) 50%, transparent 100%)'
         }}
       />
 
@@ -296,9 +296,8 @@ function HeroSection() {
       <div
         className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-7xl items-center px-8 sm:px-12 py-24 md:py-0"
         style={{
-          opacity: 1 - contentFade,
           transform: `translateY(${scrollY * 0.1}px)`,
-          transition: 'opacity 0.2s linear, transform 0.2s linear',
+          transition: 'transform 0.2s linear',
         }}
       >
         <div className="w-full max-w-[640px]">
