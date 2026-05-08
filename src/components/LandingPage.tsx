@@ -232,7 +232,7 @@ function HeroSection() {
       <div
         className="absolute inset-0 z-0"
         style={{
-          transform: \`translateY(${imgParallax}px) scale(1.02)\`,
+          transform: `translateY(${imgParallax}px) scale(1.02)`,
           transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
           willChange: 'transform',
         }}
@@ -260,7 +260,7 @@ function HeroSection() {
         className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-7xl items-center px-8 sm:px-12 py-24 md:py-0"
         style={{
           opacity: 1 - contentFade,
-          transform: \`translateY(${scrollY * 0.1}px)\`,
+          transform: `translateY(${scrollY * 0.1}px)`,
           transition: 'opacity 0.2s linear, transform 0.2s linear',
         }}
       >
