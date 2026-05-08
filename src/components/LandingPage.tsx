@@ -41,7 +41,25 @@ const staggerContainer = {
   viewport: { once: true }
 };
 
-const revealTransition = { duration: 1.2, ease: [0.16, 1, 0.3, 1] };
+const revealTransition = { duration: 1.5, ease: [0.16, 1, 0.3, 1] }; // Cinematic Pacing
+
+// Memory Anchor: Communication Silence
+function CommunicationSilence() {
+  return (
+    <section className="h-[40vh] flex items-center justify-center bg-base relative overflow-hidden">
+      <div className="resonance-ripple" style={{ animationDelay: '0s' }} />
+      <div className="resonance-ripple" style={{ animationDelay: '1s' }} />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.4 }}
+        transition={{ duration: 2 }}
+        className="text-[10px] uppercase tracking-[1em] text-dim font-bold"
+      >
+        Listen to the space between thoughts.
+      </motion.div>
+    </section>
+  );
+}
 
 function Navigation() {
   const [scrolled, setScrolled] = useState(false)
@@ -163,6 +181,7 @@ function FloatingTypography() {
 
 function CursorGlow() {
   const [pos, setPos] = useState({ x: 0, y: 0 })
+  const [ripples, setRipples] = useState<{ id: number, x: number, y: number }[]>([])
   const rafRef = useRef<number>()
   const targetRef = useRef({ x: 0, y: 0 })
   const currentRef = useRef({ x: 0, y: 0 })
@@ -174,7 +193,12 @@ function CursorGlow() {
     const handleMove = (e: MouseEvent) => {
       targetRef.current = { x: e.clientX, y: e.clientY }
     }
+    const handleClick = (e: MouseEvent) => {
+      setRipples(prev => [...prev, { id: Date.now(), x: e.clientX, y: e.clientY }].slice(-3))
+    }
+
     window.addEventListener('mousemove', handleMove, { passive: true })
+    window.addEventListener('click', handleClick)
 
     const animate = () => {
       currentRef.current.x += (targetRef.current.x - currentRef.current.x) * 0.05
@@ -186,6 +210,7 @@ function CursorGlow() {
 
     return () => {
       window.removeEventListener('mousemove', handleMove)
+      window.removeEventListener('click', handleClick)
       cancelAnimationFrame(rafRef.current!)
     }
   }, [shouldReduceMotion])
@@ -193,12 +218,24 @@ function CursorGlow() {
   if (shouldReduceMotion) return null;
 
   return (
-    <div
-      className="fixed inset-0 pointer-events-none z-0 will-change-transform"
-      style={{
-        background: `radial-gradient(1000px circle at ${pos.x}px ${pos.y}px, oklch(40% 0.10 145 / 0.02), transparent 70%)`,
-      }}
-    />
+    <>
+      <div
+        className="fixed inset-0 pointer-events-none z-0 will-change-transform"
+        style={{
+          background: `radial-gradient(1000px circle at ${pos.x}px ${pos.y}px, oklch(40% 0.10 145 / 0.02), transparent 70%)`,
+        }}
+      />
+      {ripples.map(ripple => (
+        <motion.div
+          key={ripple.id}
+          initial={{ width: 0, height: 0, opacity: 0.5, x: ripple.x, y: ripple.y }}
+          animate={{ width: 400, height: 400, opacity: 0, x: ripple.x - 200, y: ripple.y - 200 }}
+          className="fixed border border-accent-primary/20 rounded-full pointer-events-none z-[100]"
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          onAnimationComplete={() => setRipples(prev => prev.filter(r => r.id !== ripple.id))}
+        />
+      ))}
+    </>
   )
 }
 
@@ -280,12 +317,12 @@ function HeroSection() {
 
           {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="heading-xl leading-[0.95] tracking-tight"
+            initial={{ opacity: 0, filter: 'blur(20px)', y: 20 }}
+            animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            className="heading-xl leading-[0.95] tracking-tight resonance-field"
           >
-            <span className="block">The silence ends</span>
+            <span className="block signature-reveal">The silence ends</span>
             <span className="block mt-1 font-tamil font-medium text-[0.8em] opacity-90" style={{ color: 'var(--text-secondary)' }}>
               எங்கே பேச்சு தொடங்குகிறதோ...
             </span>
@@ -366,6 +403,7 @@ function HeroSection() {
           </motion.div>
         </div>
       </div>
+      <CommunicationSilence />
     </section>
   )
 }
@@ -806,21 +844,29 @@ function ResultsArchiveSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
         {/* Section Header */}
-        <div className="mb-24">
+        <div className="mb-24 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col lg:flex-row lg:items-end justify-between gap-8"
+            transition={revealTransition}
+            className="max-w-2xl resonance-field"
           >
-            <div className="max-w-2xl">
-              <span className="section-label">The Archive</span>
-              <h2 className="heading-xl mt-6 leading-none tracking-tighter">
-                Stories of <br />
-                <span className="text-secondary italic">personal evolution.</span>
-              </h2>
-            </div>
+            <span className="section-label">Results Archive</span>
+            <h2 className="heading-xl mt-8 leading-[0.9] tracking-tighter signature-reveal">
+              The archive of <br />
+              <span className="text-secondary italic">personal evolution.</span>
+            </h2>
+          </motion.div>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="text-xs uppercase tracking-[0.4em] text-dim font-bold pb-4"
+          >
+            Observational Documentation
+          </motion.p>
+        </div>
             <div className="lg:text-right pb-2">
               <p className="text-sm text-dim max-w-xs font-english italic">
                 A curated record of transformations that began with a single conversation.
@@ -1532,10 +1578,8 @@ function FounderVisionSection() {
          <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-accent-primary/5 blur-[140px] rounded-full opacity-20" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-          
-          {/* LEFT: Cinematic Portrait Treatment */}
+      <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12 asymmetric-layout">
+        <div className="tension-col-left">
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -1568,16 +1612,15 @@ function FounderVisionSection() {
             </motion.div>
           </div>
 
-          {/* RIGHT: Manifesto-style Narrative */}
-          <div className="flex flex-col justify-center">
+          <div className="tension-col-right">
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             >
-              <span className="section-label">A Vision for Confidence</span>
-              <h2 className="heading-xl mt-8 leading-[0.9] tracking-tighter">
+              <span className="section-label resonance-field">A Vision for Confidence</span>
+              <h2 className="heading-xl mt-8 leading-[0.9] tracking-tighter signature-reveal">
                 Communication is the bridge <br />
                 <span className="text-secondary italic">to who you can become.</span>
               </h2>

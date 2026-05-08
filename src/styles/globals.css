@@ -459,3 +459,80 @@ body::before {
   z-index: 10;
   pointer-events: none;
 }
+
+/* BRAND MEMORY SYSTEM: RESONANCE MOTIF & ASYMMETRY */
+
+.resonance-field {
+  position: relative;
+  overflow: hidden;
+}
+
+.resonance-field::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(var(--accent-primary-rgb), 0.03) 0%, transparent 60%);
+  transform: translate(-50%, -50%) scale(0.5);
+  animation: resonance-pulse 8s infinite cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes resonance-pulse {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+/* Interaction Language: Signature Reveal */
+.signature-reveal {
+  mask-image: linear-gradient(to right, black 50%, transparent 100%);
+  mask-size: 200% 100%;
+  mask-position: 100% 0;
+  transition: mask-position 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.signature-reveal:hover {
+  mask-position: 0 0;
+}
+
+/* Editorial Asymmetry & Tension Spacing */
+.asymmetric-layout {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+}
+
+.tension-col-left {
+  grid-column: 2 / span 5;
+}
+
+.tension-col-right {
+  grid-column: 8 / span 4;
+  align-self: flex-end;
+  margin-top: 4rem;
+}
+
+/* Memory Anchor: The Silence Threshold */
+.silence-threshold {
+  background: var(--bg-base);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resonance-ripple {
+  position: absolute;
+  border: 1px solid rgba(var(--accent-primary-rgb), 0.1);
+  border-radius: 50%;
+  animation: ripple 4s infinite cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes ripple {
+  from { width: 0; height: 0; opacity: 0.8; }
+  to { width: 500px; height: 500px; opacity: 0; }
+}
