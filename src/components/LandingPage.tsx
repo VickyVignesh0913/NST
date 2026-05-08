@@ -272,10 +272,10 @@ function HeroSection() {
             className="tracking-tight leading-[1.1]"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: 'var(--text-primary)', letterSpacing: '0.02em' }}
           >
-            <span className="inline text-3xl sm:text-4xl lg:text-[48px] font-[500]">
-              Physics Easy{' '}
+            <span className="inline text-3xl sm:text-4xl lg:text-[52px] font-[600]">
+              English Mastery{' '}
               <span className="text-academic" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>— ஆ</span>
-              {' '}<span style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }} className="font-bold">Feel பண்ணுங்க</span>
+              {' '}<span style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }} className="font-bold">பேச்சு மேலோங்க</span>
             </span>
           </motion.h1>
 
@@ -286,11 +286,11 @@ function HeroSection() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.54 }}
             className="mt-5"
           >
-            <p className="text-xl sm:text-2xl lg:text-[28px] leading-[1.25]" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0, color: 'var(--text-secondary)' }}>
-              Doctor ஆகும் உங்கள் பயணம்
+            <p className="text-xl sm:text-2xl lg:text-[32px] leading-[1.25]" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0, color: 'var(--text-secondary)' }}>
+              ஆங்கிலத்தில் வெற்றி பெற
             </p>
-            <p className="text-xl sm:text-2xl lg:text-[28px] leading-[1.2] mt-0.5 font-bold" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0, color: 'var(--text-emphasis)' }}>
-              இன்றே தொடங்கட்டும்
+            <p className="text-xl sm:text-2xl lg:text-[32px] leading-[1.2] mt-0.5 font-bold" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0, color: 'var(--text-emphasis)' }}>
+              உலகம் திறக்கும் திறவுகோல்
             </p>
           </motion.div>
 
@@ -302,7 +302,7 @@ function HeroSection() {
             className="mt-5 max-w-[540px] text-[15px] leading-relaxed sm:text-base"
             style={{ color: 'var(--text-secondary)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}
           >
-            Premium NEET Physics coaching crafted for Tamil medium aspirants who aim for medical excellence.
+            Premium English mastery training crafted for Tamil speakers who aim for global excellence and career advancement.
           </motion.p>
 
           {/* Inline Credibility */}
@@ -314,7 +314,7 @@ function HeroSection() {
             style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}
           >
             <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: 'var(--accent-primary)' }} />
-            Trusted by 1000+ NEET aspirants across Tamil Nadu
+            Trusted by 2,000+ English learners across Tamil Nadu
           </motion.p>
 
           {/* CTA Row */}
