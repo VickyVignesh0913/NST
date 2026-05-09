@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #f5f5f0;
+  --accent: #c9a86c;
+  --accent-muted: #a68a4a;
+  --text-muted: #a3a3a3;
+  --bg-surface: #111111;
+  --ease-cinematic: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@theme inline {
+  --color-bg: var(--background);
+  --color-bg-surface: var(--bg-surface);
+  --color-text: var(--foreground);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
+  --font-sans: 'Manrope', sans-serif;
+  --font-heading: 'ClashDisplay-Regular', sans-serif;
+  --font-tamil: 'Arima Madurai', sans-serif;
+  --ease-cinematic: var(--ease-cinematic);
+  --shadow-glow-sm: 0 0 20px rgba(201, 168, 108, 0.1);
+  --shadow-glow-md: 0 0 40px rgba(201, 168, 108, 0.2);
+  --max-width-container: 1200px;
+  --spacing-section: 120px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-muted);
+  border-radius: 9999px;
+}

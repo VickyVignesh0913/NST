@@ -29,7 +29,7 @@ function Navigation() {
   const navLinks = [
     { label: 'Home', href: '#home' },
     { label: 'Courses', href: '#courses' },
-    { label: 'Results', href: '#results' },
+    { label: 'Testimonials', href: '#results' },
     { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
   ]
@@ -52,9 +52,8 @@ function Navigation() {
               className="text-2xl tracking-tight"
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: scrolled ? 'var(--text-primary)' : '#1a1a1a' }}
             >
-              NST
+              English Boss
             </span>
-            <sup className="text-[10px] ml-0.5" style={{ color: scrolled ? 'var(--text-dim)' : '#666' }}>(R)</sup>
           </a>
 
           <div className="hidden md:flex items-center gap-8">
@@ -87,8 +86,8 @@ function Navigation() {
   )
 }
 
-// Physics SVG Layer
-function PhysicsLayer() {
+// English Learning SVG Layer
+function EnglishLayer() {
   return (
     <svg
       className="absolute inset-0 w-full h-full pointer-events-none"
@@ -113,21 +112,21 @@ function PhysicsLayer() {
         `}
       </style>
       <g className="drift-1">
-        <text x="60" y="120" fontSize="28" fontFamily="serif" fill="currentColor">E = mc2</text>
-        <text x="60" y="160" fontSize="22" fontFamily="serif" fill="currentColor">F = ma</text>
+        <text x="60" y="120" fontSize="28" fontFamily="serif" fill="currentColor">Think. Speak. Lead.</text>
+        <text x="60" y="160" fontSize="22" fontFamily="serif" fill="currentColor">Fluency = Practice × Confidence</text>
       </g>
       <g className="drift-2">
         <path d="M700 100 Q720 130 740 100 Q760 70 780 100 Q800 130 820 100" stroke="currentColor" strokeWidth="1.5" fill="none" />
-        <text x="710" y="155" fontSize="18" fontFamily="serif" fill="currentColor">y = A sin t</text>
+        <text x="710" y="155" fontSize="18" fontFamily="serif" fill="currentColor">Picture. Describe. Express.</text>
       </g>
       <g className="drift-3">
         <circle cx="900" cy="350" r="40" stroke="currentColor" strokeWidth="1" fill="none" />
         <line x1="860" y1="350" x2="940" y2="350" stroke="currentColor" strokeWidth="0.5" />
         <line x1="900" y1="310" x2="900" y2="390" stroke="currentColor" strokeWidth="0.5" />
-        <text x="930" y="410" fontSize="16" fontFamily="serif" fill="currentColor">angle</text>
+        <text x="930" y="410" fontSize="16" fontFamily="serif" fill="currentColor">growth</text>
       </g>
       <g className="drift-1">
-        <text x="100" y="500" fontSize="24" fontFamily="serif" fill="currentColor">field shift</text>
+        <text x="100" y="500" fontSize="24" fontFamily="serif" fill="currentColor">Unlearn. Relearn. Speak.</text>
       </g>
       <g className="drift-2">
         <path d="M400 600 L440 560 L480 580 L520 540 L560 560 L600 520" stroke="currentColor" strokeWidth="1.5" fill="none" />
@@ -138,14 +137,16 @@ function PhysicsLayer() {
         <circle cx="600" cy="520" r="3" fill="currentColor" />
       </g>
       <g className="drift-3">
-        <text x="750" y="550" fontSize="22" fontFamily="serif" fill="currentColor">wave motion</text>
+        <text x="850" y="560" fontSize="26" fontFamily="serif" fill="currentColor">"</text>
+        <text x="860" y="560" fontSize="22" fontFamily="serif" fill="currentColor">Unlearn the learning.</text>
+        <text x="1050" y="560" fontSize="26" fontFamily="serif" fill="currentColor">"</text>
       </g>
       <g className="drift-1">
-        <text x="200" y="700" fontSize="20" fontFamily="serif" fill="currentColor">PV = nRT</text>
+        <text x="200" y="700" fontSize="20" fontFamily="serif" fill="currentColor">Speak English with Confidence</text>
       </g>
       <g className="drift-2">
         <path d="M800 650 L850 600 L850 700 Z" stroke="currentColor" strokeWidth="1" fill="none" />
-        <text x="860" y="660" fontSize="16" fontFamily="serif" fill="currentColor">Entropy rises</text>
+        <text x="860" y="660" fontSize="16" fontFamily="serif" fill="currentColor">Every day, speak better</text>
       </g>
     </svg>
   )
@@ -223,8 +224,8 @@ function HeroSection() {
         }}
       >
         <img
-          src="/hero.png"
-          alt="NEET Physics coaching - Student studying"
+          src="/images/charles-william.jpg"
+          alt="Mr. Charles William - English Boss Founder"
           className="w-full h-[120%] -mt-[10%] object-cover"
           style={{ filter: 'contrast(1.05) saturate(1.02)' }}
           loading="eager"
@@ -260,7 +261,7 @@ function HeroSection() {
             className="mb-6"
           >
             <span className="text-xs tracking-wider" style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              Dr. Sudharshan R. | MBBS
+              Mr. Charles William | English Boss
             </span>
           </motion.div>
 
@@ -273,9 +274,7 @@ function HeroSection() {
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: 'var(--text-primary)', letterSpacing: '0.02em' }}
           >
             <span className="inline text-3xl sm:text-4xl lg:text-[48px] font-[500]">
-              Physics Easy{' '}
-              <span className="text-academic" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>— ஆ</span>
-              {' '}<span style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }} className="font-bold">Feel பண்ணுங்க</span>
+              Speak English with Confidence
             </span>
           </motion.h1>
 
@@ -286,11 +285,11 @@ function HeroSection() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.54 }}
             className="mt-5"
           >
-            <p className="text-xl sm:text-2xl lg:text-[28px] leading-[1.25]" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0, color: 'var(--text-secondary)' }}>
-              Doctor ஆகும் உங்கள் பயணம்
+            <p className="text-xl sm:text-2xl lg:text-[28px] leading-[1.25]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: 0, color: 'var(--text-secondary)' }}>
+              Fluent English. Real Confidence. Real Results.
             </p>
-            <p className="text-xl sm:text-2xl lg:text-[28px] leading-[1.2] mt-0.5 font-bold" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0, color: 'var(--text-emphasis)' }}>
-              இன்றே தொடங்கட்டும்
+            <p className="text-xl sm:text-2xl lg:text-[28px] leading-[1.2] mt-0.5 font-bold" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: 0, color: 'var(--text-emphasis)' }}>
+              Your journey to fluent English starts today.
             </p>
           </motion.div>
 
@@ -302,7 +301,7 @@ function HeroSection() {
             className="mt-5 max-w-[540px] text-[15px] leading-relaxed sm:text-base"
             style={{ color: 'var(--text-secondary)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}
           >
-            Premium NEET Physics coaching crafted for Tamil medium aspirants who aim for medical excellence.
+            Practical spoken English coaching for learners who want real confidence in real conversations.
           </motion.p>
 
           {/* Inline Credibility */}
@@ -314,7 +313,7 @@ function HeroSection() {
             style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}
           >
             <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: 'var(--accent-primary)' }} />
-            Trusted by 1000+ NEET aspirants across Tamil Nadu
+            Trusted by thousands of learners across India
           </motion.p>
 
           {/* CTA Row */}
@@ -331,7 +330,7 @@ function HeroSection() {
               whileTap={{ y: 0 }}
               transition={{ duration: 0.2, ease: 'easeOut' }}
             >
-              Join 2027 Batch
+            Start Free Demo
               <ArrowRight className="w-4 h-4" />
             </motion.a>
             <motion.a
@@ -366,29 +365,29 @@ function HeroSection() {
 function YouTubeSection() {
   const videos = [
     {
-      id: "Aq_P9_BZQZg",
-      title: "Wasted 11th To Govt MBBS Seat NEET 2027- How? 1 Year Plan to Score 650+ in NEET Exam",
+      id: "XPvaYKhNNlA",
+      title: "Practical Spoken English for You - English Boss",
       duration: "18:42",
       views: "45K",
       time: "2 weeks ago"
     },
     {
-      id: "H8anJmFwjQQ",
-      title: "Units & Measurements | Dimensional Analysis Part - 1 | NST",
+      id: "xI5_C6DeHxk",
+      title: "Picture Description Method - Learn English Fast | English Boss",
       duration: "32:15",
       views: "22K",
       time: "1 month ago"
     },
     {
-      id: "TBmdKepSgX8",
-      title: "Revolution in NEET Physics Coaching: Zero 2 Hero NEET/JEE 2026 Physics Course NST",
+      id: "0x6sgMnPZkw",
+      title: "Daily Verb Challenge - Improve Your Grammar | English Boss",
       duration: "15:28",
       views: "38K",
       time: "3 days ago"
     },
     {
-      id: "wSyU_PqMYz0",
-      title: "NEET 2026 Strategy: Last 6 Months Preparation Plan",
+      id: "jNwi7oji8go",
+      title: "English Boss Strategy: Last 6 Months Speaking Plan",
       duration: "22:18",
       views: "67K",
       time: "1 week ago"
@@ -410,10 +409,10 @@ function YouTubeSection() {
         >
           <span className="section-label">YouTube Authority</span>
           <h2 className="heading-xl mt-4">
-            Trusted by <em className="not-italic text-academic">Lakhs</em> of NEET Aspirants
+            Trusted by <em className="not-italic text-academic">Thousands</em> of English Learners
           </h2>
           <p className="body-text mt-4 max-w-xl mx-auto">
-            Thousands of students improve their Physics score every year through our free Tamil medium content.
+            Thousands of students improve their English fluency every year through our free practical content.
           </p>
         </motion.div>
 
@@ -426,15 +425,15 @@ function YouTubeSection() {
         >
           <div className="card rounded-full px-5 py-2.5 flex items-center gap-2">
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
-            <span className="text-sm" style={{ color: 'var(--text-primary)' }}>1L+ Subscribers</span>
+            <span className="text-sm" style={{ color: 'var(--text-primary)' }}>50K+ Subscribers</span>
           </div>
           <div className="card rounded-full px-5 py-2.5 flex items-center gap-2">
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--accent-primary)' }} />
-            <span className="text-sm" style={{ color: 'var(--text-primary)' }}>150+ Strategy Sessions</span>
+            <span className="text-sm" style={{ color: 'var(--text-primary)' }}>100+ Speaking Sessions</span>
           </div>
           <div className="card rounded-full px-5 py-2.5 flex items-center gap-2">
             <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--text-dim)' }} />
-            <span className="text-sm" style={{ color: 'var(--text-primary)' }}>Tamil Medium First</span>
+            <span className="text-sm" style={{ color: 'var(--text-primary)' }}>Practical English First</span>
           </div>
         </motion.div>
 
@@ -530,9 +529,9 @@ function YouTubeSection() {
 
 function InsideClassSection() {
   const features = [
-    { icon: BookOpen, title: "Tamil Explanation", desc: "Every concept explained in pure Tamil. No English barrier." },
-    { icon: Award, title: "Exam Pattern Focus", desc: "We teach what NEET asks. Not what textbooks write." },
-    { icon: Clock, title: "Shortcut Techniques", desc: "Solve complex Physics problems in under 60 seconds." },
+    { icon: BookOpen, title: "Picture Description Method", desc: "Describe real images and situations to build natural fluency. No memorization needed." },
+    { icon: Award, title: "Daily Verb Challenges", desc: "Master one powerful verb every day. Build vocabulary and confidence simultaneously." },
+    { icon: Clock, title: "Real-Life Conversations", desc: "Practice daily scenarios like interviews, travel, and office meetings with zero fear." },
   ]
 
   return (
@@ -550,10 +549,10 @@ function InsideClassSection() {
               className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
-              Inside a Real <em className="not-italic text-academic">NST Class</em>
+              Inside a Real <em className="not-italic text-academic">English Boss Class</em>
             </h2>
             <p className="text-secondary mt-6 text-lg leading-relaxed">
-              Not just lectures. A complete learning environment designed for Tamil medium NEET dominance.
+              Not just grammar. A complete speaking environment designed for real-world English confidence.
             </p>
 
             <div className="mt-8 space-y-4">
@@ -597,22 +596,22 @@ function InsideClassSection() {
                 <div className="relative z-10 text-center">
                   <button
                     type="button"
-                    aria-label="Play NST class preview"
+                    aria-label="Play English Boss class preview"
                     className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-lg transition-transform hover:scale-110"
                   >
                     <Play className="w-7 h-7 text-blue-500 ml-1 fill-current" />
                   </button>
-                  <p className="text-foreground font-medium text-sm">NST ELITE Live Session</p>
-                  <p className="text-secondary text-xs mt-1">Electrostatics - Tamil Medium</p>
+                  <p className="text-foreground font-medium text-sm">English Boss Live Session</p>
+                  <p className="text-secondary text-xs mt-1">Situational Speaking - English</p>
                 </div>
               </div>
               <div className="p-5">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/10 flex items-center justify-center" style={{ color: 'var(--accent-primary)', fontWeight: 'bold', fontSize: '12px' }}>
-                    DR
+                    CW
                   </div>
                   <div>
-                    <p className="text-foreground text-sm font-medium">Dr. Sudharshan R.</p>
+                    <p className="text-foreground text-sm font-medium">Mr. Charles William</p>
                     <p className="text-secondary text-xs">Live now | 247 watching</p>
                   </div>
                 </div>
@@ -638,7 +637,7 @@ function InsideClassSection() {
                  <span className="text-foreground font-medium text-sm">Class Notes</span>
               </div>
               <p className="text-secondary text-xs">
-                Every session comes with downloadable Tamil notes & practice sheets.
+                Every session comes with downloadable notes & practice exercises.
               </p>
             </motion.div>
           </motion.div>
@@ -651,50 +650,50 @@ function InsideClassSection() {
 function CoursesSection() {
   const courses = [
   {
-    name: "NST ELITE",
+    name: "English Boss ELITE",
     tag: "Most Popular",
-    price: "Rs. 14,999",
-    original: "Rs. 30,000",
-    discount: "51% OFF",
-    features: ["Structured schedule with planned classes", "Live + Recorded NEET-oriented lectures", "Personal Mentorship & performance tracking", "Daily Practice Tests (DPT)", "Chapter, Weekly & Monthly Tests", "Detailed Test Analysis & Discussion", "Premium Notes PDF for quick revision", "24x7 Doubt Solving Support"],
-    whoIsFor: ["Students who need proper guidance & discipline", "Serious NEET aspirants targeting top ranks", "Students who want mentor support + structured prep"],
-    whatMakesSpecial: ["Fixed schedule for consistency", "Mentor monitoring your progress", "Strong focus on rank improvement", "Complete NEET preparation system"],
+    price: "Rs. 6,200",
+    original: "Rs. 7,500",
+    discount: "18% OFF",
+    features: ["Live Classes", "Personal Feedback", "Picture Description", "Interview Prep", "Lifetime Access", "24x7 Doubt Support"],
+    whoIsFor: ["Students who need proper guidance & discipline", "Serious English learners targeting fluency", "Students who want mentor support + structured prep"],
+    whatMakesSpecial: ["Fixed schedule for consistency", "Mentor monitoring your progress", "Strong focus on speaking confidence", "Complete English mastery system"],
     popular: true
   },
     {
-      name: "NST FLEXI",
-      tag: "Flexible",
-      price: "Rs. 11,999",
-      original: "Rs. 21,000",
+      name: "Intermediate Course",
+      tag: "Standard",
+      price: "Rs. 3,999",
+      original: "Rs. 6,000",
+      discount: "33% OFF",
+      features: ["Speaking Skills", "Grammar Mastery", "Daily Practice", "Recorded Sessions", "Doubt Support"],
+      popular: false
+    },
+    {
+      name: "Essential Course",
+      tag: "Basic",
+      price: "Rs. 1,999",
+      original: "Rs. 3,500",
       discount: "43% OFF",
-      features: ["Chapter-wise Purchase", "Self-paced", "PDF Notes", "Doubt Support"],
+      features: ["Beginner Friendly", "Core Grammar", "Basic Conversations", "Self-Paced", "PDF Notes"],
       popular: false
     },
     {
-      name: "NPTS",
-      tag: "Test Series",
-      price: "Rs. 2,999",
-      original: "Rs. 5,000",
-      discount: "40% OFF",
-      features: ["Prediction Tests", "NEET Pattern", "Analysis Report", "Rank Predictor"],
-      popular: false
-    },
-    {
-      name: "Boot Camp",
-      tag: "Crash Course",
-      price: "Rs. 249",
-      original: "Rs. 2,000",
-      discount: "88% OFF",
-      features: ["3-Day Intensive", "Last Minute Prep", "Shortcut Techniques", "Priority Support"],
+      name: "Free Demo Class",
+      tag: "Intro",
+      price: "Rs. 0",
+      original: "Rs. 500",
+      discount: "100% FREE",
+      features: ["1 Live Session", "Course Overview", "Q&A with Charles", "No Registration Fee"],
       popular: false
     }
   ]
   const [primaryCourse, ...secondaryCourses] = courses
 
   const testimonials = [
-    { name: "Bhuvanessh S", rating: "5/5", text: "Amazing teaching like wow my best and first teacher in the Physics I see" },
-    { name: "Ashwini", rating: "5/5", text: "Hi Anna Thank you so much ennaku shm idhu varaikum lvalo crystal clear understand aagala" },
-    { name: "Priya Darshini M", rating: "5/5", text: "Physics concept lam super aa crystal clear aa understand aachi. Best online platform" }
+    { name: "Elamathi S.", rating: "5/5", text: "Not just English, but valuable life lessons. Sir guided me like a child and I can clearly see my improvement every single day." },
+    { name: "Uthesh R.", rating: "5/5", text: "The picture description exercises helped me see different perspectives. Now I can speak on any topic confidently without preparation." },
+    { name: "Arun Kumar S.", rating: "5/5", text: "Real-time, practical approach. His methodology is very effective. I am now communicating with a distinguished international professor." }
   ]
 
   return (
@@ -712,10 +711,10 @@ function CoursesSection() {
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
-            Programs built for <em className="not-italic text-academic">NEET dominance</em>
+            Programs built for <em className="not-italic text-academic">English fluency</em>
           </h2>
           <p className="text-secondary mt-4 text-lg">
-            Every batch is engineered around one goal: maximum Physics score in Tamil medium.
+            Every batch is engineered around one goal: maximum English confidence in real conversations.
           </p>
         </motion.div>
 
@@ -737,7 +736,7 @@ function CoursesSection() {
               <div>
                 <h3 className="pr-20 text-3xl font-medium text-foreground sm:pr-0">{primaryCourse?.name}</h3>
                 <p className="mt-2 max-w-xl text-sm leading-6 text-secondary">
-                  Full-system mentoring for Tamil medium aspirants who want structure, accountability, and a serious push toward top NEET Physics scores.
+                  Full-system mentoring for English learners who want structure, accountability, and a serious push toward top spoken English fluency.
                 </p>
               </div>
               <div className="rounded-2xl px-4 py-4 sm:px-5" style={{ background: 'var(--bg-elevated)' }}>
@@ -801,7 +800,7 @@ function CoursesSection() {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
-              Start Scoring 150+
+              Start Speaking Confidently
             </motion.a>
           </motion.div>
 
@@ -890,9 +889,9 @@ function CoursesSection() {
 
 function ResultsSection() {
   const students = [
-    { name: "Vetrivel", score: "176", total: "180", story: "From 5 to 176. Unthinkable.", initial: "V" },
-    { name: "Ashwini", score: "690", total: "Total", story: "Chose NST over Allen. Confident.", initial: "A" },
-    { name: "Santhosh", score: "180", total: "180", story: "Tamil medium. Full marks.", initial: "S" },
+    { name: "Elamathi S.", score: "40", total: "days", story: "From hesitant to fluent. Unthinkable. Now speaks confidently in any situation.", initial: "E" },
+    { name: "Uthesh R.", score: "100%", total: "", story: "Grammar mistakes, low confidence. Got selected in a reputed company interview.", initial: "U" },
+    { name: "Arun Kumar S.", score: "Global", total: "reach", story: "Could not communicate. Now confidently talking with international professors.", initial: "A" },
   ]
 
   return (
@@ -905,20 +904,20 @@ function ResultsSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-            <span className="text-xs uppercase tracking-widest text-secondary">Results</span>
+            <span className="text-xs uppercase tracking-widest text-secondary">Transformations</span>
           <h2
             className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
-            Scoreboards that <em className="not-italic text-academic">speak louder</em>
+            Stories that <em className="not-italic text-academic">speak louder</em>
           </h2>
           <p className="text-secondary mt-4 text-lg">
-            Every number here represents a white coat earned through Tamil medium excellence.
+            Every transformation here represents a life changed through English fluency and confidence.
           </p>
         </motion.div>
 
         <div className="grid gap-5 md:grid-cols-2 lg:gap-6">
-          {/* Vetrivel's card - left column */}
+          {/*               Elamathi's card - left column */}
           <motion.div
             className="card relative overflow-hidden rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12"
             initial={{ opacity: 0, y: 40 }}
@@ -987,16 +986,16 @@ function ResultsSection() {
                   Featured Case Study
                 </span>
                 <h3 className="text-2xl md:text-3xl text-foreground font-light mb-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                  From 40 to 165 in 6 months
+                  From Hesitant to Fluent in 40 Days
                 </h3>
                 <p className="text-secondary text-sm md:text-base leading-relaxed max-w-md">
-                  "I joined NST as a dropper with barely 40 marks in Physics. Dr. S did not just teach formulas, he changed how I think about Physics."
+                  "I joined English Boss as a beginner with zero confidence. Charles did not just teach grammar, he changed how I think and speak English."
                 </p>
                 <div className="mt-4 flex items-center justify-center gap-3 md:justify-start">
-                  <div className="w-10 h-10 card rounded-full flex items-center justify-center font-bold" style={{ color: 'var(--accent-primary)' }}>R</div>
+                  <div className="w-10 h-10 card rounded-full flex items-center justify-center font-bold" style={{ color: 'var(--accent-primary)' }}>E</div>
                   <div>
-                    <p className="text-foreground font-medium text-sm">Rohini K.</p>
-                    <p className="text-secondary text-xs">NEET 2025 | Govt. Medical College</p>
+                    <p className="text-foreground font-medium text-sm">Elamathi S.</p>
+                    <p className="text-secondary text-xs">English Boss Graduate</p>
                   </div>
                 </div>
               </div>
@@ -1004,12 +1003,12 @@ function ResultsSection() {
                 <div className="flex items-center gap-3 sm:gap-4">
                   <div className="min-w-[4rem] text-center">
                     <p className="text-secondary text-xs uppercase tracking-wider mb-1">Before</p>
-                    <p className="text-4xl text-secondary font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>40</p>
+                    <p className="text-xl text-secondary font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Zero</p>
                   </div>
                   <ArrowRight className="w-8 h-8" style={{ color: 'var(--accent-primary)' }} />
                   <div className="min-w-[4rem] text-center">
                     <p style={{ color: 'var(--accent-primary)' }} className="text-xs uppercase tracking-wider mb-1">After</p>
-                    <p className="text-4xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>165</p>
+                    <p className="text-xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Fluent</p>
                   </div>
                 </div>
               </div>
@@ -1023,10 +1022,10 @@ function ResultsSection() {
 
 function MethodSection() {
   const steps = [
-    { num: "01", title: "Concept First", desc: "Every topic broken down into intuitive Tamil explanations. No textbook jargon." },
-    { num: "02", title: "Pattern Recognition", desc: "We decode NEET's repeating patterns. 30+ predicted MCQs every single year." },
-    { num: "03", title: "Mock Pressure", desc: "Timed tests under exam conditions. Build speed, accuracy, and unshakeable confidence." },
-    { num: "04", title: "1-on-1 Mentoring", desc: "Personal doubt sessions. Dr. S tracks your progress personally until you hit your target.", highlight: true },
+    { num: "01", title: "Picture Description", desc: "Describe real-world images and situations to build natural fluency. No memorization needed." },
+    { num: "02", title: "Verb Mastery", desc: "Master one powerful verb every day. Build vocabulary and grammatical accuracy simultaneously." },
+    { num: "03", title: "Situational Speaking", desc: "Practice daily scenarios like interviews, travel, and office meetings with zero fear." },
+    { num: "04", title: "Personal Feedback", desc: "Charles personally reviews your speaking and corrects your grammar. Track progress until you speak with confidence.", highlight: true },
   ]
 
   return (
@@ -1044,10 +1043,10 @@ function MethodSection() {
               className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
-              How we turn <em className="not-italic text-academic">fear into 150+</em>
+              How we turn <em className="not-italic text-academic">fear into fluency</em>
             </h2>
             <p className="text-secondary mt-6 text-lg leading-relaxed">
-              No rote memorization. No English-only explanations. Just pure conceptual clarity in Tamil, delivered by a doctor who cracked NEET himself.
+              No rote memorization. No grammar-only lessons. Just practical English speaking delivered through picture description, daily verb challenges, and real-life conversations.
             </p>
           </motion.div>
 
@@ -1086,10 +1085,10 @@ function MethodSection() {
 
 function ComparisonSection() {
   const features = [
-    { name: "Tamil Explanation", nst: true, others: false },
-    { name: "Personal Mentorship", nst: true, others: false },
-    { name: "Prediction Accuracy", nst: true, others: "partial" },
-    { name: "Doctor Faculty", nst: true, others: false },
+    { name: "Picture Description Method", nst: true, others: false },
+    { name: "Personal Feedback Sessions", nst: true, others: false },
+    { name: "Real-Life Conversations", nst: true, others: "partial" },
+    { name: "Expert English Trainer", nst: true, others: false },
     { name: "Affordable Pricing", nst: true, others: false },
   ]
 
@@ -1108,7 +1107,7 @@ function ComparisonSection() {
             className="text-4xl sm:text-5xl text-foreground mt-4"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
-            Why Students Choose <em className="not-italic text-academic">NST</em>
+            Why Students Choose <em className="not-italic text-academic">English Boss</em>
           </h2>
         </motion.div>
 
@@ -1121,7 +1120,7 @@ function ComparisonSection() {
          >
            <div className="grid grid-cols-[minmax(0,1.35fr)_minmax(72px,0.75fr)_minmax(72px,0.75fr)] border-b text-[11px] font-medium uppercase tracking-[0.08em] sm:grid-cols-[minmax(0,1.5fr)_minmax(88px,0.75fr)_minmax(88px,0.75fr)] sm:text-xs" style={{ borderColor: 'var(--border-subtle)' }}>
             <div className="px-4 py-4 text-secondary sm:px-6">Feature</div>
-            <div className="bg-surface px-4 py-4 text-center font-medium text-foreground sm:px-6" style={{ background: 'var(--bg-surface)' }}>NST</div>
+            <div className="bg-surface px-4 py-4 text-center font-medium text-foreground sm:px-6" style={{ background: 'var(--bg-surface)' }}>English Boss</div>
             <div className="px-4 py-4 text-center text-secondary sm:px-6">Others</div>
           </div>
           {features.map((feature, i) => (
@@ -1165,28 +1164,28 @@ function ComparisonSection() {
 function TestimonialsSection() {
   const testimonials = [
     {
-      quote: "Vetri's score jumped from 5 to 176. That was impossible before NST. The Tamil explanations changed everything.",
-      name: "Vetrivel",
-      detail: "Score: 176/180 Physics",
-      initial: "V"
+      quote: "Not just English, but valuable life lessons. Sir guided me like a child and I can clearly see my improvement every single day.",
+      name: "Elamathi S.",
+      detail: "English Boss Graduate",
+      initial: "E"
     },
     {
-      quote: "Ashwini chose NST over Allen and secured 690 total. The prediction tests alone are worth ten times the price.",
-      name: "Ashwini",
-      detail: "Score: 690 Total NEET",
+      quote: "The picture description exercises helped me see different perspectives. Now I can speak on any topic confidently without preparation.",
+      name: "Uthesh Ragavan",
+      detail: "English Boss Graduate",
+      initial: "U"
+    },
+    {
+      quote: "Real-time, practical approach. His methodology is very effective. I am now communicating with a distinguished international professor.",
+      name: "Arun Kumar S.",
+      detail: "English Boss Graduate",
       initial: "A"
     },
     {
-      quote: "Santhosh scored full marks 180/180 in Tamil medium. NST made it happen. The confidence Dr. S gives is unreal.",
-      name: "Santhosh",
-      detail: "Score: 180/180 Physics",
-      initial: "S"
-    },
-    {
-      quote: "Mehaa's Physics crossed 150+ after the prediction tests. Every rupee spent on NST returned a hundredfold in score.",
-      name: "Mehaa",
-      detail: "Score: 150+ Physics",
-      initial: "M"
+      quote: "I picked up confidence within three weeks. The daily verb challenges and situational practice changed the way I think in English.",
+      name: "Priya M.",
+      detail: "English Boss Graduate",
+      initial: "P"
     },
   ]
 
@@ -1238,7 +1237,7 @@ function TestimonialsSection() {
                 </div>
                 <div>
                   <p className="text-foreground font-medium text-sm">{t.name}</p>
-                  <p className="text-secondary text-xs">NST student result</p>
+                  <p className="text-secondary text-xs">English Boss student result</p>
                 </div>
               </div>
             </motion.div>
@@ -1273,7 +1272,7 @@ function AboutSection() {
                 <div className="w-36 h-36 mx-auto card rounded-full flex items-center justify-center mb-4 relative">
                   <div className="absolute inset-[2px] rounded-full bg-gradient-to-tr from-emerald-200/60 via-transparent to-blue-200/60 animate-[spin_8s_linear_infinite]" />
                   <div className="w-28 h-28 rounded-full flex items-center justify-center relative z-10" style={{ background: '#2F4F6F' }}>
-                    <span className="text-3xl text-white font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>DR. S</span>
+                    <span className="text-2xl text-white font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>CW</span>
                   </div>
                   <motion.div 
                     className="absolute -top-1 -right-1 z-20"
@@ -1286,14 +1285,14 @@ function AboutSection() {
                     </div>
                   </motion.div>
                 </div>
-                <p className="text-2xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Dr. Sudharshan R.</p>
-                <p className="text-sm mt-1" style={{ color: 'var(--accent-primary)' }}>MBBS, Govt. Erode Medical College</p>
+                <p className="text-2xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Mr. Charles William</p>
+                <p className="text-sm mt-1" style={{ color: 'var(--accent-primary)' }}>Spoken English Trainer & Founder</p>
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   <span
                     className="rounded-full border px-3 py-1 text-xs"
                     style={{ color: 'var(--accent-primary)', borderColor: 'var(--border-subtle)', background: 'var(--bg-surface)' }}
                   >
-                    NEET 2019 Cracker
+                    10+ Years Experience
                   </span>
                   <span
                     className="rounded-full border px-3 py-1 text-xs"
@@ -1305,7 +1304,7 @@ function AboutSection() {
                     className="rounded-full border px-3 py-1 text-xs sm:hidden"
                     style={{ color: 'var(--accent-primary)', borderColor: 'var(--border-subtle)', background: 'var(--bg-surface)' }}
                   >
-                    2019 NEET Cracker
+                    10+ Years Experience
                   </span>
                 </div>
               </div>
@@ -1316,8 +1315,8 @@ function AboutSection() {
               whileHover={{ y: -3 }}
               transition={{ duration: 0.25 }}
             >
-              <p className="text-3xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>2019</p>
-              <p className="text-secondary text-xs uppercase tracking-wider">NEET Cracker</p>
+              <p className="text-3xl text-foreground font-light" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>10+</p>
+              <p className="text-secondary text-xs uppercase tracking-wider">Years Experience</p>
             </motion.div>
 
             <div className="absolute left-0 top-0 z-20 rounded-lg px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-background shadow-lg sm:-left-4 sm:-top-4" style={{ background: 'var(--accent-primary)' }}>
@@ -1338,37 +1337,37 @@ function AboutSection() {
               className="text-3xl sm:text-4xl text-foreground leading-tight"
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
-              Cracked NEET 2019 with State Rank 1207, now mentors 1000+ students
+              10+ years of transforming hesitant speakers into confident English communicators.
             </h2>
             <p className="text-foreground font-medium mt-4 text-lg">
-              Teaching NEET Physics in Tamil, like a brother, with real exam strategies.
+              Teaching practical spoken English through picture description and daily verb challenges, like a friend.
             </p>
 
             <div className="flex flex-col gap-3 mt-6">
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
                 <p className="text-secondary text-sm">
-                  <strong className="text-foreground">Self-study success:</strong> No coaching, just strategy, proved it's possible
+                  <strong className="text-foreground">1000+ students:</strong> From beginners to fluent speakers through English Boss
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
                 <p className="text-secondary text-sm">
-                  <strong className="text-foreground">1000+ students:</strong> Mentored to score 120+ in Physics through NST
+                  <strong className="text-foreground">10+ Years Experience:</strong> Teaching English across India, Switzerland, Malaysia, and more.
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: 'var(--accent-primary)' }} />
                 <p className="text-secondary text-sm">
-                  <strong className="text-foreground">30+ MCQs yearly:</strong> Predicted questions that appear in NEET Physics & Chemistry
+                  <strong className="text-foreground">Students across India & Abroad:</strong> Trusted by learners from Switzerland, Malaysia, and all over India.
                 </p>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-2 mt-6">
               {[
-                'MBBS | Govt. Erode Medical College', 
-                'Self-Study | No Coaching'
+                'English Boss | Trainer', 
+                'English Boss | Trainer'
               ].map((tag) => (
                 <span 
                   key={tag} 
@@ -1401,7 +1400,7 @@ function AboutSection() {
                     className="overflow-hidden origin-top"
                   >
                     <p className="text-secondary mt-4 text-base leading-relaxed p-5 card rounded-xl" style={{ borderColor: 'var(--border-subtle)' }}>
-                      Dr. Sudharshan R (MBBS, Govt. Erode Medical College) cracked NEET 2019 with State Rank 1207 through self-study as a fresher. Since then, through NST (NEET Strategies Tamil), he has guided 1000+ students to score 120+ in Physics. His content is widely followed for predicting NEET MCQs, with 30+ questions appearing in Physics and Chemistry every year over the past 6 years.
+                      Mr. Charles William is the founder of English Boss — a spoken English mastery platform trusted by thousands across India and abroad, including learners from Switzerland and Malaysia. Known for his unique "Picture Description" method and daily verb challenges, Charles transforms hesitant speakers into confident communicators. His teaching philosophy: English is all about creativity, not memorization.
                     </p>
                   </motion.div>
                 )}
@@ -1410,10 +1409,10 @@ function AboutSection() {
 
             <div className="mt-8 rounded-xl px-4 py-4" style={{ background: 'oklch(72% 0.18 162 / 0.08)' }}>
               <p className="text-foreground font-medium">
-                "Physics will no longer be your weak subject. That's a promise."
+                "English will no longer be your barrier. That's a promise."
               </p>
               <p className="text-secondary text-sm mt-1">
-                Join NST Family and start your NEET preparation with clarity and confidence.
+                Join English Boss Family and start your English journey with clarity and confidence.
               </p>
             </div>
           </motion.div>
@@ -1423,14 +1422,15 @@ function AboutSection() {
   )
 }
 
-function ClassDropdown() {
+function ProficiencyDropdown() {
   const [isOpen, setIsOpen] = useState(false)
-  const [selected, setSelected] = useState({ label: 'Select Class', value: '' })
+  const [selected, setSelected] = useState({ label: 'Select Proficiency', value: '' })
 
   const options = [
-    { value: '11', label: 'Class 11', description: 'Starting NEET preparation' },
-    { value: '12', label: 'Class 12', description: 'Crucial year for NEET' },
-    { value: 'dropper', label: 'Dropper', description: 'One year dedicated prep' },
+    { value: 'beginner', label: 'Beginner', description: 'Starting English journey' },
+    { value: 'essential', label: 'Essential', description: 'Building strong foundation' },
+    { value: 'intermediate', label: 'Intermediate', description: 'Improving fluency' },
+    { value: 'advanced', label: 'Advanced', description: 'Mastering communication' },
   ]
 
   const handleSelect = (option: typeof options[0]) => {
@@ -1440,15 +1440,15 @@ function ClassDropdown() {
 
   return (
     <div className="relative">
-      <label htmlFor="class-selection" className="block text-sm text-secondary mb-1.5">Class</label>
-      <input type="hidden" name="studentClass" value={selected.value} />
+      <label htmlFor="proficiency-selection" className="block text-sm text-secondary mb-1.5">Proficiency Level</label>
+      <input type="hidden" name="proficiencyLevel" value={selected.value} />
       <motion.button
-        id="class-selection"
+        id="proficiency-selection"
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
-        aria-controls="class-options"
+        aria-controls="proficiency-options"
         className="w-full px-4 py-3 border rounded-lg text-foreground focus:outline-none transition-all flex items-center justify-between text-left"
         style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-subtle)' }}
         whileTap={{ scale: 0.99 }}
@@ -1467,7 +1467,7 @@ function ClassDropdown() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            id="class-options"
+            id="proficiency-options"
             role="listbox"
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -1541,7 +1541,7 @@ function CTASection() {
               Application Received!
             </h3>
             <p className="text-secondary mb-6">
-              Dr. Sudharshan's team will contact you within 24 hours.
+              Mr. Charles William's team will contact you within 24 hours.
             </p>
             <a 
               href="https://wa.me/918610690010" 
@@ -1561,12 +1561,12 @@ function CTASection() {
     <section id="contact" className="relative py-24">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <span className="section-label">Start Today</span>
-        <h2 className="heading-xl mt-4" style={{ fontFamily: "'Arima Madurai', sans-serif", letterSpacing: 0 }}>
-          உங்கள் Doctor பயணம்<br />
-          <em className="not-italic text-academic">இன்றே தொடங்கட்டும்</em>
+        <h2 className="heading-xl mt-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: 0 }}>
+          Start Speaking Confidently Today<br />
+          <em className="not-italic text-academic">Your fluent English journey begins now.</em>
         </h2>
         <p className="body-text mt-6 max-w-xl mx-auto">
-          One decision. One year. One white coat. Call now and book your free demo class.
+          One decision. One course. One confident speaker. Call now and book your free demo class.
         </p>
 
         <div className="mt-10 grid gap-4 sm:flex sm:flex-wrap sm:justify-center">
@@ -1638,16 +1638,16 @@ function CTASection() {
                 placeholder="10-digit number"
               />
             </div>
-            <ClassDropdown />
+            <ProficiencyDropdown />
           </div>
           <div>
-            <label className="block text-sm text-secondary mb-1.5">Target NEET Score</label>
+            <label className="block text-sm text-secondary mb-1.5">Your English Goal</label>
             <input 
               type="text" 
-              name="targetScore"
+              name="englishGoal"
               className="w-full px-4 py-3 border rounded-lg text-foreground placeholder-muted-foreground/50 focus:outline-none transition-colors input-glow"
               style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-subtle)' }}
-              placeholder="e.g., 650+"
+              placeholder="e.g., Interview Prep / Fluency"
             />
           </div>
           <div>
@@ -1667,10 +1667,10 @@ function CTASection() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            {formState === 'submitting' ? 'Submitting...' : 'Book Free Demo Call'}
+            {formState === 'submitting' ? 'Submitting...' : 'Book My Free Demo'}
           </motion.button>
           <p className="text-center text-secondary text-xs">
-            Dr. Sudharshan's team will reach out within 24 hours
+            Mr. Charles William's team will reach out within 24 hours
           </p>
         </form>
       </div>
@@ -1685,11 +1685,11 @@ function Footer() {
         <div className="flex flex-col gap-8 rounded-[20px] border px-5 py-6 sm:px-7 sm:py-8 md:flex-row md:items-center md:justify-between" style={{ borderColor: 'var(--border-subtle)', background: 'var(--bg-elevated)' }}>
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-md card text-sm font-bold text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-            N
+            E
             </div>
             <div>
-              <p className="font-medium text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>NST</p>
-              <p className="text-sm text-secondary">Tamil-first NEET Physics mentoring</p>
+              <p className="font-medium text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>English Boss</p>
+              <p className="text-sm text-secondary">Practical Spoken English</p>
             </div>
           </div>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-secondary md:gap-6">
@@ -1700,7 +1700,7 @@ function Footer() {
           </div>
           <div className="flex items-center justify-center gap-3">
             <motion.a
-              href="https://www.youtube.com/@NeetstrategiesinTamil"
+              href="https://www.youtube.com/@EnglishbossRD"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-10 w-10 items-center justify-center rounded-full card text-secondary transition-colors hover:text-red-500"
@@ -1733,7 +1733,7 @@ function Footer() {
           </div>
         </div>
         <div className="mt-6 text-center text-xs text-secondary">
-          2026 NEET Strategies Tamil. All rights reserved.
+          2026 English Boss. All rights reserved.
         </div>
       </div>
     </footer>
@@ -1755,7 +1755,7 @@ function StickyMobileCTA() {
         href="#contact" 
         className="flex-1 rounded-full bg-foreground py-3 text-center text-sm font-medium text-background"
       >
-        Join Now
+        Start Free Demo
       </a>
     </div>
   )
@@ -1765,7 +1765,7 @@ export default function LandingPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden" style={{ background: '#f6f6f4' }}>
       <div className="fixed inset-0 pointer-events-none" style={{ opacity: 0.03, zIndex: 0 }}>
-        <PhysicsLayer />
+        <EnglishLayer />
       </div>
       <div className="relative z-10">
         <Navigation />
