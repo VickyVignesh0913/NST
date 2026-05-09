@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    --bg-base: #f6f6f4;
-    --bg-surface: #FEFDFB;
-    --bg-elevated: #FAFAF7;
+    --bg-base: oklch(97% 0.005 145);
+    --bg-surface: oklch(99% 0.003 145);
+    --bg-elevated: oklch(98% 0.004 145);
     --accent-primary: oklch(40% 0.10 145);
     --accent-hover: oklch(34% 0.09 145);
     --accent-warm: oklch(62% 0.13 50);
@@ -15,7 +15,7 @@
     --text-secondary: oklch(40% 0.012 95);
     --text-emphasis: oklch(22% 0.012 95);
     --text-dim: oklch(55% 0.008 95);
-    --border-subtle: #ddd8d0;
+    --border-subtle: oklch(90% 0.005 145);
     --border-accent: oklch(40% 0.10 145);
 
     --background: 0 0% 97%;
@@ -37,15 +37,18 @@
   body {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    line-height: 1.6;
+    font-family: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
   }
 
   h1, h2, h3, h4 {
     color: var(--text-primary);
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 
   a:focus-visible,
@@ -130,26 +133,27 @@
   }
 
   .section-label {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--text-dim);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'General Sans', sans-serif;
   }
 
   .heading-xl {
-    font-size: clamp(32px, 5vw, 56px);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(32px, 6vw, 64px);
+    font-family: 'Clash Display', sans-serif;
     color: var(--text-primary);
-    line-height: 1.05;
+    line-height: 1;
+    letter-spacing: -0.03em;
   }
 
   .body-text {
     font-size: 16px;
     color: var(--text-secondary);
     line-height: 1.6;
-    max-width: 60ch;
+    max-width: 65ch;
   }
 
   .meta-text {
@@ -237,8 +241,8 @@
   }
 
   .font-english {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    letter-spacing: 0.02em;
+    font-family: 'General Sans', sans-serif;
+    letter-spacing: -0.01em;
   }
 
   .font-tamil {
@@ -274,4 +278,261 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+/* PHASE 1: RESPONSIVE REFINEMENT & STABILITY */
+
+:root {
+  /* Fluid Typography Scaling */
+  --font-size-hero: clamp(3rem, 10vw, 8rem);
+  --font-size-h1: clamp(2.5rem, 8vw, 5rem);
+  --font-size-h2: clamp(2rem, 6vw, 3.5rem);
+  --font-size-body: clamp(1rem, 1.2vw, 1.125rem);
+  
+  /* Fluid Spacing System */
+  --space-unit: clamp(1rem, 2vw, 2rem);
+  --section-padding: clamp(5rem, 15vh, 12rem);
+}
+
+/* Stability Fixes for Safari & iOS */
+@supports (-webkit-backdrop-filter: none) {
+  .backdrop-blur-md {
+    -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* HW Acceleration for smooth transforms */
+.will-change-transform {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Refined Typography Classes */
+.heading-xl {
+  font-family: 'Clash Display', sans-serif;
+  font-size: var(--font-size-hero);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.section-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-weight: 800;
+  color: var(--accent-primary);
+  opacity: 0.8;
+  display: block;
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 4rem;
+  }
+  
+  .heading-xl {
+    line-height: 1;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* RE-HUMANIZATION PASS: ANALOG TEXTURE & EMOTIONAL CONTRAST */
+
+:root {
+  --bg-grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--bg-grain);
+  opacity: 0.015;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Restrained Emotional Contrast */
+.emotional-contrast {
+  background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Liveness Pulse */
+.liveness-pulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.liveness-pulse::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+/* Tension Spacing overrides */
+.section-padding-human {
+  padding-top: clamp(6rem, 18vh, 14rem);
+  padding-bottom: clamp(6rem, 18vh, 14rem);
+}
+
+/* AUTHENTIC CONTENT INTEGRATION: DOCUMENTARY TREATMENT */
+
+.documentary-image {
+  filter: grayscale(1) contrast(1.1) brightness(0.9);
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.documentary-image:hover {
+  filter: grayscale(0.5) contrast(1.05) brightness(1);
+  opacity: 0.9;
+}
+
+.analog-diffusion {
+  position: relative;
+}
+
+.analog-diffusion::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.1) 100%);
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+}
+
+.human-moment-tag {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-weight: 800;
+  color: var(--accent-primary);
+  background: rgba(var(--accent-primary-rgb), 0.1);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* Specific Grain for portraits */
+.portrait-grain {
+  position: relative;
+}
+
+.portrait-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg-grain);
+  opacity: 0.04;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* BRAND MEMORY SYSTEM: RESONANCE MOTIF & ASYMMETRY */
+
+.resonance-field {
+  position: relative;
+  overflow: hidden;
+}
+
+.resonance-field::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(var(--accent-primary-rgb), 0.03) 0%, transparent 60%);
+  transform: translate(-50%, -50%) scale(0.5);
+  animation: resonance-pulse 8s infinite cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes resonance-pulse {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+/* Interaction Language: Signature Reveal */
+.signature-reveal {
+  mask-image: linear-gradient(to right, black 50%, transparent 100%);
+  mask-size: 200% 100%;
+  mask-position: 100% 0;
+  transition: mask-position 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.signature-reveal:hover {
+  mask-position: 0 0;
+}
+
+/* Editorial Asymmetry & Tension Spacing */
+.asymmetric-layout {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+}
+
+.tension-col-left {
+  grid-column: 2 / span 5;
+}
+
+.tension-col-right {
+  grid-column: 8 / span 4;
+  align-self: flex-end;
+  margin-top: 4rem;
+}
+
+/* Memory Anchor: The Silence Threshold */
+.silence-threshold {
+  background: var(--bg-base);
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resonance-ripple {
+  position: absolute;
+  border: 1px solid rgba(var(--accent-primary-rgb), 0.1);
+  border-radius: 50%;
+  animation: ripple 4s infinite cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes ripple {
+  from { width: 0; height: 0; opacity: 0.8; }
+  to { width: 500px; height: 500px; opacity: 0; }
 }
