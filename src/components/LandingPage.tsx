@@ -251,9 +251,9 @@ function FloatingTypography() {
           className="absolute font-english text-[8vw] font-bold tracking-tighter select-none"
           style={{
             color: 'var(--text-primary)',
-            opacity: 0.03,
-            left: `${10 + i * 20}%`,
-            top: `${20 + (i % 2) * 40}%`,
+            opacity: 0.04,
+            left: `${8 + i * 22}%`,
+            top: `${15 + (i % 2) * 45}%`,
           }}
           initial={{ y: 0, rotate: 0 }}
           animate={{ 
@@ -315,7 +315,7 @@ function HeroSection() {
 
       {/* Content Container */}
       <div
-        className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-7xl items-center px-8 sm:px-12 py-24 md:py-0"
+        className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-7xl items-center px-8 sm:px-12 py-20 lg:py-0"
         style={{
           transform: `translateY(${scrollY * 0.1}px)`,
           transition: 'transform 0.2s linear',
@@ -342,7 +342,7 @@ function HeroSection() {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="heading-xl leading-[0.95] tracking-tight resonance-field"
           >
-            <span className="inline text-3xl sm:text-4xl lg:text-[48px] font-[500]">
+            <span className="inline">
               Speak English with Confidence
             </span>
           </motion.h1>
@@ -354,10 +354,10 @@ function HeroSection() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
             className="mt-8 space-y-2"
           >
-            <p className="text-xl sm:text-2xl lg:text-[28px] leading-[1.25]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: 0, color: 'var(--text-secondary)' }}>
+            <p className="text-xl leading-[1.25]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: 0, color: 'var(--text-secondary)' }}>
               Fluent English. Real Confidence. Real Results.
             </p>
-            <p className="text-xl sm:text-2xl lg:text-[28px] leading-[1.2] mt-0.5 font-bold" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: 0, color: 'var(--text-emphasis)' }}>
+            <p className="text-xl leading-[1.2] mt-0.5 font-bold" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: 0, color: 'var(--text-emphasis)' }}>
               Your journey to fluent English starts today.
             </p>
           </motion.div>
@@ -435,10 +435,10 @@ function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 1 }}
-            className="mt-16 pt-8 border-t border-subtle/50 flex flex-wrap gap-x-12 gap-y-6"
+            className="mt-16 pt-8 border-t border-subtle/50 flex flex-wrap gap-x-12 gap-y-6 items-center"
           >
-<span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
-            Limited seats available. Batch closing soon.
+            <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse mr-2" style={{ background: 'var(--accent-warm)' }} />
+            <span className="text-sm" style={{ color: 'var(--text-dim)' }}>Limited seats available. Batch closing soon.</span>
           </motion.div>
         </div>
       </div>
@@ -454,7 +454,7 @@ function InsideClassSection() {
   ]
 
   return (
-    <section id="inside" className="relative py-24">
+    <section id="inside" className="relative py-12 lg:py-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -465,7 +465,7 @@ function InsideClassSection() {
           >
             <span className="text-xs uppercase tracking-widest text-secondary">Experience</span>
             <h2
-              className="text-4xl sm:text-5xl text-foreground mt-4 leading-tight"
+              className="heading-xl mt-4 leading-tight"
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
               Inside a Real <em className="not-italic text-academic">English Boss Class</em>
@@ -576,7 +576,7 @@ function TransformationJourneySection() {
   ]
 
   return (
-    <section className="relative py-32 overflow-hidden bg-base">
+    <section className="relative py-12 lg:py-20 overflow-hidden bg-base">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-accent-primary/5 to-transparent opacity-50" />
       </div>
@@ -597,7 +597,7 @@ function TransformationJourneySection() {
           </motion.div>
         </div>
 
-        <div className="space-y-48 sm:space-y-64">
+        <div className="space-y-24 lg:space-y-40">
           {stages.map((stage: { title: string; moment: string; desc: string }, i: number) => (
             <motion.div
               key={stage.title}
@@ -607,7 +607,7 @@ function TransformationJourneySection() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
               className={`relative flex flex-col ${i % 2 === 0 ? 'lg:items-start' : 'lg:items-end'} text-center lg:text-left`}
             >
-              <div className={`absolute -top-12 ${i % 2 === 0 ? '-left-8' : '-right-8'} opacity-[0.03] select-none pointer-events-none`} style={{ zIndex: -1 }}>
+              <div               className={`absolute -top-12 ${i % 2 === 0 ? '-left-8' : '-right-8'} opacity-[0.04] select-none pointer-events-none overflow-hidden`} style={{ zIndex: -1, maxWidth: '100%' }}>
                 <span className="text-[12vw] font-bold tracking-tighter font-english" style={{ fontFamily: "'Clash Display', sans-serif" }}>
                   {stage.title}
                 </span>
@@ -635,7 +635,7 @@ function TransformationJourneySection() {
               className="space-y-2"
             >
               <div className="text-sm font-bold text-primary tracking-tighter">TRANSFORMATIONS</div>
-              <div className="text-2xl font-light text-secondary tracking-tight italic">Thousands documented.</div>
+              <div className="heading-md font-light text-secondary tracking-tight italic">Thousands documented.</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -645,7 +645,7 @@ function TransformationJourneySection() {
               className="space-y-2"
             >
               <div className="text-sm font-bold text-primary tracking-tighter">CONFIDENCE GAIN</div>
-              <div className="text-2xl font-light text-secondary tracking-tight italic">Measured by presence.</div>
+              <div className="heading-md font-light text-secondary tracking-tight italic">Measured by presence.</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -655,7 +655,7 @@ function TransformationJourneySection() {
               className="space-y-2"
             >
               <div className="text-sm font-bold text-primary tracking-tighter">INTERVIEW SUCCESS</div>
-              <div className="text-2xl font-light text-secondary tracking-tight italic">Narrative authority.</div>
+              <div className="heading-md font-light text-secondary tracking-tight italic">Narrative authority.</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -665,7 +665,7 @@ function TransformationJourneySection() {
               className="space-y-2"
             >
               <div className="text-sm font-bold text-primary tracking-tighter">GLOBAL REACH</div>
-              <div className="text-2xl font-light text-secondary tracking-tight italic">Global excellence.</div>
+              <div className="heading-md font-light text-secondary tracking-tight italic">Global excellence.</div>
             </motion.div>
           </div>
         </div>
@@ -704,13 +704,13 @@ function LearningPathwaysSection() {
   ];
 
   return (
-    <section className="relative py-32 overflow-hidden border-t border-subtle/10" style={{ background: 'var(--bg-base)' }}>
+    <section className="relative py-12 lg:py-20 overflow-hidden border-t border-subtle/10" style={{ background: 'var(--bg-base)' }}>
       <div className="absolute inset-0 z-0">
         <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-t from-accent-primary/5 via-transparent to-transparent opacity-40" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
-        <div className="mb-24 text-center lg:text-left">
+        <div className="mb-12 text-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -737,7 +737,7 @@ function LearningPathwaysSection() {
               <div className="w-12 h-12 rounded-xl bg-accent-primary/10 flex items-center justify-center mb-6">
                 <span className="text-xl font-bold text-accent-primary">{i + 1}</span>
               </div>
-              <h3 className="text-xl font-semibold text-primary mb-3">{pathway.title}</h3>
+              <h3 className="text-lg font-semibold text-primary mb-3">{pathway.title}</h3>
               <p className="text-secondary text-sm mb-4 italic">{pathway.philosophy}</p>
               <span className="text-xs text-dim font-medium">{pathway.focus}</span>
             </motion.div>
@@ -772,13 +772,13 @@ function KnowledgeAuthoritySection() {
   ];
 
   return (
-    <section className="relative py-32 overflow-hidden bg-base border-t border-subtle/10">
+    <section className="relative py-12 lg:py-20 overflow-hidden bg-base border-t border-subtle/10">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-primary/5 blur-[160px] rounded-full opacity-30" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
-        <div className="mb-16 text-center">
+        <div className="mb-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -902,7 +902,7 @@ function PedagogySection() {
   ];
 
   return (
-    <section className="relative py-32 overflow-hidden border-t border-subtle/10" style={{ background: 'var(--bg-base)' }}>
+    <section className="relative py-12 lg:py-20 overflow-hidden border-t border-subtle/10" style={{ background: 'var(--bg-base)' }}>
       {/* Background Philosophical Atmosphere */}
       <div className="absolute inset-0 z-0">
          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-primary/5 blur-[160px] rounded-full opacity-30" />
@@ -910,7 +910,7 @@ function PedagogySection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
         {/* Section Philosophy Statement */}
-        <div className="mb-32 text-center">
+        <div className="mb-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -958,7 +958,7 @@ function PedagogySection() {
                    <span className="text-[10px] uppercase tracking-[0.4em] text-accent-primary font-bold">{pillar.title}</span>
                    <div className="h-[1px] w-12 bg-border-subtle" />
                 </div>
-                <h3 className="text-3xl lg:text-4xl font-bold tracking-tighter text-primary leading-tight font-english">
+                <h3 className="heading-lg font-bold tracking-tighter text-primary leading-tight font-english">
                   {pillar.statement}
                 </h3>
                 <p className="mt-8 text-lg text-secondary leading-relaxed max-w-md italic">
@@ -999,7 +999,7 @@ function PedagogySection() {
 
 function FinalAspirationSection() {
   return (
-    <section className="relative py-48 overflow-hidden bg-base border-t border-subtle/10">
+    <section className="relative py-12 lg:py-20 overflow-hidden bg-base border-t border-subtle/10">
       <div className="absolute inset-0 z-0">
          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent-primary/10 blur-[180px] rounded-full opacity-30" />
       </div>
@@ -1052,16 +1052,16 @@ function FinalAspirationSection() {
 
 function RefinedFooter() {
   return (
-    <footer className="relative py-24 bg-base border-t border-subtle/10 overflow-hidden">
+    <footer className="relative py-12 lg:py-20 bg-base border-t border-subtle/10 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
           <div className="space-y-8">
              <div className="flex items-center gap-3">
-               <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-background font-bold text-lg">F</div>
-               <span className="text-xl font-bold tracking-tighter text-primary">Fluency</span>
+                <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-background font-bold text-lg">E</div>
+                <span className="text-xl font-bold tracking-tighter text-primary">English Boss</span>
              </div>
             <p className="text-sm text-dim leading-relaxed font-english italic max-w-xs">
-              A high-end communication environment designed for the serious scholar. Redefining how determined students master English.
+              A high-end spoken English environment designed for determined learners. Building real confidence through practical coaching.
             </p>
           </div>
           
@@ -1106,7 +1106,7 @@ function TrustNarrativeSection() {
   ]
 
   return (
-    <section className="relative py-24 overflow-hidden bg-base border-t border-subtle/10">
+    <section className="relative py-12 lg:py-20 overflow-hidden bg-base border-t border-subtle/10">
       <div className="max-w-7xl mx-auto px-8 sm:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -1131,7 +1131,7 @@ function TrustNarrativeSection() {
               transition={{ duration: 0.8, delay: i * 0.1 }}
               className="text-center p-8 rounded-2xl border border-subtle/20 bg-elevated"
             >
-              <div className="text-4xl lg:text-5xl font-bold text-primary tracking-tighter">{point.stat}</div>
+              <div className="heading-lg font-bold text-primary tracking-tighter">{point.stat}</div>
               <div className="text-sm text-secondary mt-2 uppercase tracking-wider">{point.label}</div>
             </motion.div>
           ))}
@@ -1163,13 +1163,13 @@ function EcosystemShowcaseSection() {
   ]
 
   return (
-    <section id="courses" className="relative py-32 overflow-hidden bg-base border-t border-subtle/10">
+    <section id="courses" className="relative py-12 lg:py-20 overflow-hidden bg-base border-t border-subtle/10">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-accent-primary/5 to-transparent opacity-40" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -1220,14 +1220,14 @@ function ResultsArchiveSection() {
   ]
 
   return (
-    <section id="results" className="relative py-32 overflow-hidden border-t border-subtle/10" style={{ background: 'var(--bg-surface)' }}>
+    <section id="results" className="relative py-12 lg:py-20 overflow-hidden border-t border-subtle/10" style={{ background: 'var(--bg-surface)' }}>
       <div className="max-w-7xl mx-auto px-8 sm:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-20"
+          className="text-center mb-8"
         >
           <span className="section-label">Results Archive</span>
           <h2 className="heading-xl mt-6 max-w-2xl mx-auto leading-tight">
@@ -1261,7 +1261,7 @@ function ResultsArchiveSection() {
 
 function EnrollmentSection() {
   return (
-    <section className="relative py-32 overflow-hidden bg-primary">
+    <section className="relative py-12 lg:py-20 overflow-hidden bg-primary">
       <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary to-accent-primary/50" />
       
       <div className="relative z-10 max-w-4xl mx-auto px-8 sm:px-12 text-center">
@@ -1305,13 +1305,13 @@ function EnrollmentSection() {
 
 function FounderVisionSection() {
   return (
-    <section className="relative py-32 overflow-hidden bg-base border-t border-subtle/10">
+    <section className="relative py-12 lg:py-20 overflow-hidden bg-base border-t border-subtle/10">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-primary/5 blur-[200px] rounded-full opacity-30" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -1332,7 +1332,7 @@ function FounderVisionSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-bg-base via-transparent to-transparent opacity-50" />
               <div className="absolute bottom-8 left-8">
                 <span className="section-label mb-2 block">Quiet Authority</span>
-                <h3 className="text-3xl font-bold tracking-tighter text-primary">Mr. Charles William</h3>
+                <h3 className="heading-md font-bold tracking-tighter text-primary">Mr. Charles William</h3>
                 <p className="text-dim text-xs uppercase tracking-[0.2em] font-bold mt-1">Founder</p>
               </div>
             </div>
