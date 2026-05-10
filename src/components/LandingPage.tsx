@@ -635,7 +635,7 @@ function TransformationJourneySection() {
               className="space-y-2"
             >
               <div className="text-sm font-bold text-primary tracking-tighter">TRANSFORMATIONS</div>
-              <div className="heading-md font-light text-secondary tracking-tight italic">Thousands documented.</div>
+              <div className="heading-sm font-light text-secondary tracking-tight italic">Thousands documented.</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -645,7 +645,7 @@ function TransformationJourneySection() {
               className="space-y-2"
             >
               <div className="text-sm font-bold text-primary tracking-tighter">CONFIDENCE GAIN</div>
-              <div className="heading-md font-light text-secondary tracking-tight italic">Measured by presence.</div>
+              <div className="heading-sm font-light text-secondary tracking-tight italic">Measured by presence.</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -655,7 +655,7 @@ function TransformationJourneySection() {
               className="space-y-2"
             >
               <div className="text-sm font-bold text-primary tracking-tighter">INTERVIEW SUCCESS</div>
-              <div className="heading-md font-light text-secondary tracking-tight italic">Narrative authority.</div>
+              <div className="heading-sm font-light text-secondary tracking-tight italic">Narrative authority.</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -665,7 +665,7 @@ function TransformationJourneySection() {
               className="space-y-2"
             >
               <div className="text-sm font-bold text-primary tracking-tighter">GLOBAL REACH</div>
-              <div className="heading-md font-light text-secondary tracking-tight italic">Global excellence.</div>
+              <div className="heading-sm font-light text-secondary tracking-tight italic">Global excellence.</div>
             </motion.div>
           </div>
         </div>
@@ -815,7 +815,7 @@ function KnowledgeAuthoritySection() {
             <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
               <div>
                 <span className="text-[10px] uppercase tracking-widest text-dim font-bold">{broadcasts[0].category}</span>
-                <h3 className="text-2xl font-semibold text-white mt-2">{broadcasts[0].title}</h3>
+                <h3 className="text-xl font-semibold text-white mt-2">{broadcasts[0].title}</h3>
               </div>
               <span className="text-sm text-white/80 font-medium">{broadcasts[0].duration}</span>
             </div>
