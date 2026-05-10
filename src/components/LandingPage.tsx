@@ -806,7 +806,7 @@ function KnowledgeAuthoritySection() {
               alt={broadcasts[0].title}
               className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg-base/90 via-bg-base/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-base/60 via-bg-base/30 to-transparent" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Play className="w-8 h-8 text-white ml-1 fill-current" />
@@ -839,7 +839,7 @@ function KnowledgeAuthoritySection() {
                   alt="Broadcast Thumbnail" 
                   className="w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg-base/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg-base/60 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
                   <span className="text-[9px] uppercase tracking-widest text-dim font-bold">{broadcast.category}</span>
                   <span className="text-[10px] text-primary/80 font-medium">{broadcast.duration}</span>
@@ -1329,7 +1329,7 @@ function FounderVisionSection() {
               <div className="hidden absolute inset-0 bg-accent-primary/20 flex items-center justify-center">
                 <span className="text-6xl font-bold text-primary/40">CW</span>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-bg-base via-transparent to-transparent opacity-50" />
+              <div className="absolute inset-0 bg-gradient-to-t from-bg-base via-transparent to-transparent opacity-30" />
               <div className="absolute bottom-8 left-8">
                 <span className="section-label mb-2 block">Quiet Authority</span>
                 <h3 className="heading-md font-bold tracking-tighter text-primary">Mr. Charles William</h3>

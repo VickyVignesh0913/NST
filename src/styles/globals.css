@@ -4,30 +4,30 @@
 
 @layer base {
   :root {
-    --bg-base: oklch(97% 0.005 145);
-    --bg-surface: oklch(99% 0.003 145);
-    --bg-elevated: oklch(98% 0.004 145);
-    --accent-primary: oklch(40% 0.10 145);
-    --accent-hover: oklch(34% 0.09 145);
-    --accent-warm: oklch(62% 0.13 50);
-    --accent-muted: oklch(55% 0.05 240);
-    --text-primary: oklch(14% 0.015 95);
-    --text-secondary: oklch(40% 0.012 95);
-    --text-emphasis: oklch(22% 0.012 95);
-    --text-dim: oklch(55% 0.008 95);
-    --border-subtle: oklch(90% 0.005 145);
-    --border-accent: oklch(40% 0.10 145);
+    --bg-base: oklch(6% 0.005 240);
+    --bg-surface: oklch(9% 0.005 240);
+    --bg-elevated: oklch(12% 0.005 240);
+    --accent-primary: oklch(55% 0.2 250);
+    --accent-hover: oklch(65% 0.2 250);
+    --accent-warm: oklch(70% 0.15 30);
+    --accent-muted: oklch(55% 0.1 260);
+    --text-primary: oklch(98% 0 0);
+    --text-secondary: oklch(70% 0 0);
+    --text-emphasis: oklch(85% 0 0);
+    --text-dim: oklch(50% 0 0);
+    --border-subtle: oklch(20% 0.005 240);
+    --border-accent: oklch(55% 0.2 250);
 
-    --background: 0 0% 97%;
-    --foreground: 0 0% 14%;
-    --muted-foreground: 0 0% 44%;
-    --primary: 0 0% 14%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 44%;
-    --muted: 0 0% 90%;
-    --accent: 0 0% 90%;
-    --border: 0 0% 82%;
-    --input: 0 0% 82%;
+    --background: 0 0% 6%;
+    --foreground: 0 0% 98%;
+    --muted-foreground: 0 0% 60%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 6%;
+    --secondary: 0 0% 60%;
+    --muted: 0 0% 12%;
+    --accent: 0 0% 12%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
   }
 
   * {
@@ -65,71 +65,70 @@
     background: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
     }
   }
 
   .hero-btn-primary {
-    background: var(--accent-primary);
+    background: var(--text-primary);
     color: var(--bg-base);
-    border-radius: 10px;
-    font-weight: 500;
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background 0.2s ease-out;
-    box-shadow: 0 4px 12px oklch(40% 0.10 145 / 0.15);
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
   }
 
   .hero-btn-primary:hover {
-    background: var(--accent-hover);
-    box-shadow: 0 8px 24px oklch(40% 0.10 145 / 0.3), 0 0 40px oklch(40% 0.10 145 / 0.12);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
   }
 
   .hero-btn-secondary {
-    background: transparent;
+    background: var(--bg-surface);
     color: var(--text-primary);
-    border: 1.5px solid var(--border-subtle);
-    border-radius: 10px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 9999px;
     font-weight: 500;
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out, color 0.2s ease-out;
+    transition: all 0.2s ease-out;
   }
 
   .hero-btn-secondary:hover {
-    border-color: var(--accent-primary);
-    color: var(--accent-primary);
-    box-shadow: 0 4px 12px oklch(40% 0.10 145 / 0.1);
+    border-color: var(--text-primary);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
   }
 
   .btn-primary {
-    background: var(--accent-primary);
+    background: var(--text-primary);
     color: var(--bg-base);
-    border-radius: 8px;
-    font-weight: 500;
+    border-radius: 9999px;
+    font-weight: 600;
     transition: all 0.18s ease-out;
   }
 
   .btn-primary:hover {
-    filter: brightness(1.1);
-    transform: scale(1.02);
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
   }
 
   .btn-secondary {
-    background: transparent;
+    background: var(--bg-surface);
     color: var(--text-primary);
     border: 1px solid var(--border-subtle);
-    border-radius: 8px;
+    border-radius: 9999px;
     font-weight: 500;
     transition: all 0.18s ease-out;
   }
 
   .btn-secondary:hover {
-    border-color: var(--accent-primary);
-    color: var(--accent-primary);
+    border-color: var(--text-primary);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
   }
 
   .section-label {
