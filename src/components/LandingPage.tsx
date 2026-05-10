@@ -528,6 +528,189 @@ function InsideClassSection() {
 }
 
 
+function TrustNarrativeSection() {
+  const trustPoints = [
+    { stat: "5,000+", label: "Students Trained" },
+    { stat: "98%", label: "Confidence Improvement" },
+    { stat: "50+", label: "Master Sessions" },
+  ]
+
+  return (
+    <section className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#ffffff' }}>
+      <div className="max-w-7xl mx-auto px-8 sm:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-16"
+        >
+          <span className="section-label">Proven Results</span>
+          <h2 className="heading-lg mt-6 max-w-3xl mx-auto" style={{ color: '#292827' }}>
+            Trusted by those who demand excellence
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {trustPoints.map((point, i) => (
+            <motion.div
+              key={point.label}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: i * 0.1 }}
+              className="text-center p-8 rounded-xl border border-[#e8e4dd]"
+              style={{ background: '#fafaf8' }}
+            >
+              <div className="text-3xl font-bold mb-2" style={{ color: '#292827' }}>{point.stat}</div>
+              <div className="text-sm uppercase tracking-wider" style={{ color: '#73706d' }}>{point.label}</div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+
+function EcosystemShowcaseSection() {
+  return (
+    <section className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#fafaf8' }}>
+      <div className="max-w-7xl mx-auto px-8 sm:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-12"
+        >
+          <span className="section-label">The Ecosystem</span>
+          <h2 className="heading-lg mt-6 max-w-2xl mx-auto" style={{ color: '#292827' }}>
+            A complete environment for fluency development
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div className="p-6 rounded-xl border border-[#e8e4dd]" style={{ background: '#ffffff' }}>
+            <div className="text-2xl mb-4">📚</div>
+            <h3 className="font-medium mb-2" style={{ color: '#292827' }}>Structured Curriculum</h3>
+            <p className="text-sm" style={{ color: '#73706d' }}>Progressive learning paths designed for measurable growth.</p>
+          </motion.div>
+          <motion.div className="p-6 rounded-xl border border-[#e8e4dd]" style={{ background: '#ffffff' }}>
+            <div className="text-2xl mb-4">🎯</div>
+            <h3 className="font-medium mb-2" style={{ color: '#292827' }}>Live Sessions</h3>
+            <p className="text-sm" style={{ color: '#73706d' }}>Real-time practice with instant feedback and correction.</p>
+          </motion.div>
+          <motion.div className="p-6 rounded-xl border border-[#e8e4dd]" style={{ background: '#ffffff' }}>
+            <div className="text-2xl mb-4">💬</div>
+            <h3 className="font-medium mb-2" style={{ color: '#292827' }}>Community Access</h3>
+            <p className="text-sm" style={{ color: '#73706d' }}>Connect with serious learners on the same journey.</p>
+          </motion.div>
+          <motion.div className="p-6 rounded-xl border border-[#e8e4dd]" style={{ background: '#ffffff' }}>
+            <div className="text-2xl mb-4">📝</div>
+            <h3 className="font-medium mb-2" style={{ color: '#292827' }}>Resource Library</h3>
+            <p className="text-sm" style={{ color: '#73706d' }}>Every session comes with downloadable notes & practice exercises.</p>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+
+function ResultsArchiveSection() {
+  const results = [
+    { icon: "🎓", title: "Interview Success", desc: "Students cracking interviews at top MNCs with newfound confidence." },
+    { icon: "💼", title: "Career Growth", desc: "Professionals commanding respect in meetings and presentations." },
+    { icon: "🌍", title: "Global Communication", desc: "Learners speaking fluently with international clients." },
+  ]
+
+  return (
+    <section className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#ffffff' }}>
+      <div className="max-w-7xl mx-auto px-8 sm:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-12"
+        >
+          <span className="section-label">Results Archive</span>
+          <h2 className="heading-lg mt-6 max-w-2xl mx-auto" style={{ color: '#292827' }}>
+            Real transformations, documented outcomes
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {results.map((result, i) => (
+            <motion.div
+              key={result.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: i * 0.1 }}
+              className="p-8 rounded-xl border border-[#e8e4dd] text-center"
+              style={{ background: '#fafaf8' }}
+            >
+              <div className="text-4xl mb-4">{result.icon}</div>
+              <h3 className="font-medium mb-2" style={{ color: '#292827' }}>{result.title}</h3>
+              <p className="text-sm" style={{ color: '#73706d' }}>{result.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+
+function FounderVisionSection() {
+  return (
+    <section className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#fafaf8' }}>
+      <div className="max-w-7xl mx-auto px-8 sm:px-12">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="aspect-[4/5] rounded-3xl overflow-hidden border border-[#e8e4dd] relative" style={{ background: '#e8e4dd' }}>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-6xl font-bold" style={{ color: '#9a9794' }}>CW</span>
+              </div>
+              <div className="absolute bottom-8 left-8">
+                <span className="section-label mb-2 block">A Vision for Confidence</span>
+                <h3 className="heading-md font-medium" style={{ color: '#292827' }}>Mr. Charles William</h3>
+                <p className="text-xs uppercase tracking-[0.2em] font-bold mt-1" style={{ color: '#9a9794' }}>Founder</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          >
+            <span className="section-label">The Founder's Conviction</span>
+            <h2 className="heading-lg mt-4" style={{ color: '#292827' }}>
+              Communication is the bridge between who you are and who you want to be.
+            </h2>
+            <p className="mt-8 text-lg leading-relaxed" style={{ color: '#73706d' }}>
+              "I've spent years observing a painful pattern: brilliant people staying silent in rooms where they should be leading. It wasn't a lack of knowledge—it was a lack of psychological safety in their own expression."
+            </p>
+            <p className="mt-6 text-lg leading-relaxed" style={{ color: '#73706d' }}>
+              "I built this environment to be more than a school. It is a space where you can fail safely until you speak brilliantly."
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+
 function LearningPathwaysSection() {
   const pathways = [
     {
