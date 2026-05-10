@@ -271,11 +271,12 @@ function HeroSection() {
   const imgParallax = -Math.min(scrollY * 0.15, 60)
 
   return (
-    <section id="home" className="relative min-h-[100svh] overflow-hidden bg-base">
-      <CursorGlow />
-      <FloatingTypography />
+    <section id="home" className="relative min-h-[100svh] overflow-hidden" style={{ background: '#1b1938' }}>
+      {/* Violet atmospheric backdrop */}
+      <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-[#c9b4fa]/10 blur-[120px] rounded-full pointer-events-none" style={{ zIndex: 1 }} />
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#c9b4fa]/5 blur-[100px] rounded-full pointer-events-none" style={{ zIndex: 1 }} />
 
-      {/* Full-width Image Background with Parallax */}
+      {/* Full-width Image Background with Parallax - right aligned */}
       <div
         className="absolute inset-0"
         style={{
@@ -287,13 +288,13 @@ function HeroSection() {
         <img
           src="/images/charles-william.jpg"
           alt="Mr. Charles William - English Boss Founder"
-          className="w-full h-[120%] -mt-[10%] object-cover"
+          className="w-1/2 h-[120%] -mt-[10%] object-cover ml-auto"
           style={{ filter: 'contrast(1.05) saturate(1.02)' }}
           loading="eager"
         />
-        <div className="absolute inset-0 portrait-grain opacity-[0.03] pointer-events-none" />
+        {/* Dark overlay on image */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1b1938] via-[#1b1938]/70 to-transparent" />
       </div>
-
 
       {/* Content Container */}
       <div
@@ -311,35 +312,33 @@ function HeroSection() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
             className="mb-8 flex items-center gap-4"
           >
-            <span className="text-xs tracking-wider" style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <span className="text-xs tracking-wider text-[#bcbac9]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               Mr. Charles William | English Boss
             </span>
-            <span className="human-moment-tag">The Moment of Articulation</span>
           </motion.div>
 
           {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, filter: 'blur(20px)', y: 20 }}
-            animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="heading-xl leading-[0.95] tracking-tight resonance-field"
+            className="heading-xl leading-[0.96] tracking-[-1.32px]"
+            style={{ fontWeight: 460, color: '#ffffff', fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
           >
-            <span className="inline">
-              Speak English with Confidence
-            </span>
+            Speak English with Confidence
           </motion.h1>
 
           {/* English Emotional Secondary Line */}
           <motion.div
-            initial={{ opacity: 0, filter: 'blur(8px)' }}
-            animate={{ opacity: 1, filter: 'blur(0px)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
             className="mt-8 space-y-2"
           >
-            <p className="text-xl leading-[1.25]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: 0, color: 'var(--text-secondary)' }}>
+            <p className="text-xl leading-[1.5]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: 0, color: '#bcbac9' }}>
               Fluent English. Real Confidence. Real Results.
             </p>
-            <p className="text-xl leading-[1.2] mt-0.5 font-bold" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: 0, color: 'var(--text-emphasis)' }}>
+            <p className="text-xl leading-[1.5] mt-0.5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: 0, color: '#ffffff', fontWeight: 540 }}>
               Your journey to fluent English starts today.
             </p>
           </motion.div>
@@ -349,7 +348,8 @@ function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-            className="mt-8 max-w-[500px] text-lg leading-relaxed text-secondary font-english italic"
+            className="mt-8 max-w-[500px] text-lg leading-relaxed"
+            style={{ color: '#bcbac9', fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
             Practical spoken English coaching for learners who want real confidence in real conversations.
           </motion.p>
@@ -360,15 +360,13 @@ function HeroSection() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
             className="mt-4 flex items-center gap-2 text-sm"
-            style={{ color: 'var(--text-dim)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}
+            style={{ color: '#bcbac9', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}
           >
-            <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ background: 'var(--accent-primary)' }} />
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#c9b4fa]" />
             Trusted by thousands of learners across India
           </motion.p>
 
           {/* CTA Row */}
-
-          {/* CTA Group */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -377,35 +375,19 @@ function HeroSection() {
           >
             <motion.a
               href="#courses"
-              className="hero-btn-primary px-10 py-4 text-base flex items-center justify-center gap-3 group"
+              className="px-10 py-4 text-base flex items-center justify-center gap-3 text-[#1b1938] font-bold rounded-lg"
+              style={{ background: '#ffffff' }}
               whileTap={{ scale: 0.98 }}
-              onMouseMove={(e) => {
-                const rect = e.currentTarget.getBoundingClientRect();
-                const x = (e.clientX - rect.left - rect.width / 2) * 0.15;
-                const y = (e.clientY - rect.top - rect.height / 2) * 0.15;
-                e.currentTarget.style.transform = `translate(${x}px, ${y}px) scale(1.02)`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translate(0px, 0px) scale(1)';
-              }}
             >
-            Start Free Demo
+              Start Free Demo
               <ArrowRight className="w-4 h-4" />
             </motion.a>
             
             <motion.a
               href="#inside"
-              className="hero-btn-secondary px-10 py-4 text-base flex items-center justify-center gap-3"
+              className="px-10 py-4 text-base flex items-center justify-center gap-3 text-white rounded-lg"
+              style={{ border: '1px solid rgba(255,255,255,0.3)' }}
               whileTap={{ scale: 0.98 }}
-              onMouseMove={(e) => {
-                const rect = e.currentTarget.getBoundingClientRect();
-                const x = (e.clientX - rect.left - rect.width / 2) * 0.15;
-                const y = (e.clientY - rect.top - rect.height / 2) * 0.15;
-                e.currentTarget.style.transform = `translate(${x}px, ${y}px) scale(1.01)`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translate(0px, 0px) scale(1)';
-              }}
             >
               <Play className="w-4 h-4" />
               Watch Experience
@@ -417,10 +399,10 @@ function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 1 }}
-            className="mt-16 pt-8 border-t border-subtle/50 flex flex-wrap gap-x-12 gap-y-6 items-center"
+            className="mt-16 pt-8 border-t border-white/20 flex flex-wrap gap-x-12 gap-y-6 items-center"
           >
-            <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse mr-2" style={{ background: 'var(--accent-warm)' }} />
-            <span className="text-sm" style={{ color: 'var(--text-dim)' }}>Limited seats available. Batch closing soon.</span>
+            <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse mr-2 bg-[#c9b4fa]" />
+            <span className="text-sm text-[#bcbac9]">Limited seats available. Batch closing soon.</span>
           </motion.div>
         </div>
       </div>
@@ -436,7 +418,7 @@ function InsideClassSection() {
   ]
 
   return (
-    <section id="inside" className="relative py-12 lg:py-20">
+    <section id="inside" className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#ffffff' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -445,18 +427,15 @@ function InsideClassSection() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-xs uppercase tracking-widest text-secondary">Experience</span>
-            <h2
-              className="heading-xl mt-4 leading-tight"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-            >
-              Inside a Real <em className="not-italic text-academic">English Boss Class</em>
+            <span className="section-label">Experience</span>
+            <h2 className="heading-lg mt-4" style={{ color: '#292827' }}>
+              Inside a Real English Boss Class
             </h2>
-            <p className="text-secondary mt-6 text-lg leading-relaxed">
+            <p className="mt-6 text-lg leading-relaxed" style={{ color: '#73706d' }}>
               Not just grammar. A complete speaking environment designed for real-world English confidence.
             </p>
 
-            <div className="mt-8 space-y-4">
+<div className="mt-8 space-y-4">
               {features.map((feature, i) => (
                 <motion.div
                   key={i}
@@ -464,14 +443,14 @@ function InsideClassSection() {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
-                 >
-                   <div className="w-10 h-10 card rounded-lg flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
+                >
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: '#fafaf8', border: '1px solid #e8e4dd' }}>
+                    <feature.icon className="w-5 h-5" style={{ color: '#1b1938' }} />
                   </div>
                   <div>
-                    <h4 className="text-foreground font-medium">{feature.title}</h4>
-                    <p className="text-secondary text-sm">{feature.desc}</p>
+                    <h4 className="font-medium" style={{ color: '#292827' }}>{feature.title}</h4>
+                    <p className="text-sm" style={{ color: '#73706d' }}>{feature.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -578,7 +557,7 @@ function LearningPathwaysSection() {
   ];
 
   return (
-    <section className="relative py-12 lg:py-20 overflow-hidden border-t border-subtle/10" style={{ background: 'var(--bg-base)' }}>
+    <section className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#fafaf8' }}>
       <div className="absolute inset-0 z-0">
         <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-t from-accent-primary/5 via-transparent to-transparent opacity-40" />
       </div>
@@ -592,8 +571,8 @@ function LearningPathwaysSection() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="section-label">Learning Pathways</span>
-            <h2 className="heading-xl mt-6 max-w-2xl leading-tight">
-              Choose your path to <span className="text-secondary italic">communication mastery</span>
+            <h2 className="heading-lg mt-6 max-w-2xl" style={{ color: '#292827' }}>
+              Choose your path to communication mastery
             </h2>
           </motion.div>
         </div>
@@ -606,14 +585,14 @@ function LearningPathwaysSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: i * 0.1 }}
-              className="card p-8 rounded-2xl group hover:border-accent-primary/30 transition-all duration-300"
+              className="card p-6 rounded-xl group hover:border-[#1b1938] transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-xl bg-accent-primary/10 flex items-center justify-center mb-6">
-                <span className="text-xl font-bold text-accent-primary">{i + 1}</span>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style={{ background: '#fafaf8', border: '1px solid #e8e4dd' }}>
+                <span className="text-xl font-bold" style={{ color: '#1b1938' }}>{i + 1}</span>
               </div>
-              <h3 className="text-lg font-semibold text-primary mb-3">{pathway.title}</h3>
-              <p className="text-secondary text-sm mb-4 italic">{pathway.philosophy}</p>
-              <span className="text-xs text-dim font-medium">{pathway.focus}</span>
+              <h3 className="text-lg font-medium mb-3" style={{ color: '#292827' }}>{pathway.title}</h3>
+              <p className="text-sm mb-4 italic" style={{ color: '#73706d' }}>{pathway.philosophy}</p>
+              <span className="text-xs font-medium" style={{ color: '#9a9794' }}>{pathway.focus}</span>
             </motion.div>
           ))}
         </div>
@@ -646,7 +625,7 @@ function KnowledgeAuthoritySection() {
   ];
 
   return (
-    <section className="relative py-12 lg:py-20 overflow-hidden bg-base border-t border-subtle/10">
+    <section className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#ffffff' }}>
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-primary/5 blur-[160px] rounded-full opacity-30" />
       </div>
@@ -680,7 +659,7 @@ function KnowledgeAuthoritySection() {
               alt={broadcasts[0].title}
               className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg-base/60 via-bg-base/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#292827]/60 via-[#292827]/30 to-transparent" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Play className="w-8 h-8 text-white ml-1 fill-current" />
@@ -688,7 +667,7 @@ function KnowledgeAuthoritySection() {
             </div>
             <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
               <div>
-                <span className="text-[10px] uppercase tracking-widest text-dim font-bold">{broadcasts[0].category}</span>
+                <span className="text-[10px] uppercase tracking-widest font-bold" style={{ color: '#9a9794' }}>{broadcasts[0].category}</span>
                 <h3 className="text-xl font-semibold text-white mt-2">{broadcasts[0].title}</h3>
               </div>
               <span className="text-sm text-white/80 font-medium">{broadcasts[0].duration}</span>
@@ -707,19 +686,19 @@ function KnowledgeAuthoritySection() {
               transition={{ duration: 1, delay: i * 0.15 }}
               className="group cursor-pointer"
             >
-              <div className="relative aspect-video rounded-2xl overflow-hidden border border-subtle/20 bg-elevated group-hover:border-accent-primary/30 transition-all duration-500">
+              <div className="relative aspect-video rounded-xl overflow-hidden border border-[#e8e4dd] group-hover:border-[#1b1938] transition-all duration-300" style={{ background: '#fafaf8' }}>
                 <img 
                   src={`https://img.youtube.com/vi/${broadcast.id}/mqdefault.jpg`} 
                   alt="Broadcast Thumbnail" 
                   className="w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg-base/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#292827]/60 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
-                  <span className="text-[9px] uppercase tracking-widest text-dim font-bold">{broadcast.category}</span>
-                  <span className="text-[10px] text-primary/80 font-medium">{broadcast.duration}</span>
+                  <span className="text-[9px] uppercase tracking-widest font-bold" style={{ color: '#9a9794' }}>{broadcast.category}</span>
+                  <span className="text-[10px] font-medium" style={{ color: '#ffffff' }}>{broadcast.duration}</span>
                 </div>
               </div>
-              <h4 className="mt-6 text-lg font-semibold text-primary leading-tight group-hover:text-accent-primary transition-colors duration-300">
+              <h4 className="mt-6 text-lg font-semibold leading-tight group-hover:text-[#1b1938] transition-colors duration-300" style={{ color: '#292827' }}>
                 {broadcast.title}
               </h4>
             </motion.div>
@@ -730,14 +709,15 @@ function KnowledgeAuthoritySection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, delay: 0.5 }}
-            className="flex flex-col justify-center p-8 rounded-2xl border border-dashed border-subtle/40"
+            className="flex flex-col justify-center p-8 rounded-xl border border-dashed border-[#e8e4dd]"
+            style={{ background: '#fafaf8' }}
           >
-            <p className="text-sm text-dim font-english italic leading-relaxed">
+            <p className="text-sm leading-relaxed italic" style={{ color: '#9a9794' }}>
               "A curated archive designed for those who aim for a higher standard of communication. Thousands learn through these public conversations."
             </p>
             <div className="mt-8 flex items-center gap-4">
-              <div className="h-[1px] w-8 bg-border-subtle" />
-              <span className="text-[9px] uppercase tracking-[0.3em] text-accent-primary font-bold">Explore Archive</span>
+              <div className="h-[1px] w-8" style={{ background: '#e8e4dd' }} />
+              <span className="text-[9px] uppercase tracking-[0.3em] font-bold" style={{ color: '#1b1938' }}>Explore Archive</span>
             </div>
           </motion.div>
         </div>
@@ -776,7 +756,7 @@ function PedagogySection() {
   ];
 
   return (
-    <section className="relative py-12 lg:py-20 overflow-hidden border-t border-subtle/10" style={{ background: 'var(--bg-base)' }}>
+    <section className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#fafaf8' }}>
       {/* Background Philosophical Atmosphere */}
       <div className="absolute inset-0 z-0">
          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-primary/5 blur-[160px] rounded-full opacity-30" />
@@ -792,11 +772,10 @@ function PedagogySection() {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="section-label">The Pedagogy of Presence</span>
-            <h2 className="heading-xl mt-8 leading-[1] tracking-tighter mx-auto max-w-4xl">
-              Fluency is developed through <br />
-              <span className="text-secondary italic">environment and intention.</span>
+            <h2 className="heading-lg mt-8 leading-[1] tracking-tighter mx-auto max-w-4xl" style={{ color: '#292827' }}>
+              Fluency is developed through environment and intention.
             </h2>
-            <p className="mt-10 text-xl text-dim max-w-2xl mx-auto font-english italic">
+            <p className="mt-10 text-xl max-w-2xl mx-auto italic" style={{ color: '#9a9794' }}>
               "We don't teach spoken English. We build the psychological and linguistic framework for authority."
             </p>
           </motion.div>
@@ -818,51 +797,74 @@ function PedagogySection() {
                  <motion.div 
                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                   className="w-full h-full rounded-full border-2 border-accent-primary"
+                   className="w-full h-full rounded-full border-2 border-[#1b1938]"
                  />
                  <motion.div 
                    animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                   className="absolute inset-4 rounded-full border border-accent-warm"
+                   className="absolute inset-4 rounded-full border border-[#c9b4fa]"
                  />
               </div>
 
               <div className="relative z-10 pl-12 lg:pl-0">
                 <div className="flex items-center gap-4 mb-6">
-                   <span className="text-[10px] uppercase tracking-[0.4em] text-accent-primary font-bold">{pillar.title}</span>
-                   <div className="h-[1px] w-12 bg-border-subtle" />
+                   <span className="text-[10px] uppercase tracking-[0.4em] font-bold" style={{ color: '#1b1938' }}>{pillar.title}</span>
+                   <div className="h-[1px] w-12" style={{ background: '#e8e4dd' }} />
                 </div>
-                <h3 className="heading-lg font-bold tracking-tighter text-primary leading-tight font-english">
+                <h3 className="heading-lg font-medium tracking-tighter leading-tight" style={{ color: '#292827' }}>
                   {pillar.statement}
                 </h3>
-                <p className="mt-8 text-lg text-secondary leading-relaxed max-w-md italic">
+                <p className="mt-8 text-lg leading-relaxed max-w-md italic" style={{ color: '#73706d' }}>
                   {pillar.philosophy}
                 </p>
                 <div className="mt-10 flex items-center gap-2">
-                   <div className="w-1.5 h-1.5 rounded-full bg-accent-primary animate-pulse" />
-                   <span className="text-[9px] uppercase tracking-widest text-dim font-bold">Linguistic Resonance</span>
+                   <div className="w-1.5 h-1.5 rounded-full bg-[#1b1938] animate-pulse" />
+                   <span className="text-[9px] uppercase tracking-widest font-bold" style={{ color: '#9a9794' }}>Linguistic Resonance</span>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Final Philosophical Anchoring */}
+        {/* Enrollment CTA Band - Teal */}
         <motion.div
-           initial={{ opacity: 0, scale: 0.98 }}
-           whileInView={{ opacity: 1, scale: 1 }}
-           viewport={{ once: true }}
-           transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-           className="mt-48 text-center pt-24 border-t border-subtle/20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-24 text-center py-16 px-8"
+          style={{ background: '#0e3030' }}
         >
-          <h2 className="heading-xl tracking-tighter text-secondary opacity-80 italic">
-            "Transformation is a reflection <br />
-            of consistent exposure."
+          <span className="text-sm uppercase tracking-widest font-bold" style={{ color: 'rgba(255,255,255,0.7)' }}>Limited Entry</span>
+          <h2 className="heading-lg mt-6 mx-auto max-w-2xl" style={{ color: '#ffffff' }}>
+            Your transformation begins with a single decision.
           </h2>
-<div className="mt-12 flex justify-center items-center gap-6">
-              <div className="h-[1px] w-24 bg-gradient-to-r from-transparent to-border-subtle" />
-              <span className="text-[10px] uppercase tracking-[0.3em] text-dim font-bold">The Editorial Standard</span>
-              <div className="h-[1px] w-24 bg-gradient-to-l from-transparent to-border-subtle" />
+          <p className="mt-8 text-lg mx-auto max-w-2xl" style={{ color: 'rgba(255,255,255,0.7)' }}>
+            Join thousands of learners already speaking confidently.
+          </p>
+          
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <motion.a
+              href="tel:+918610690010"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-4 rounded-lg font-bold shadow-xl"
+              style={{ background: '#ffffff', color: '#0e3030' }}
+            >
+              Enroll Now
+            </motion.a>
+            <motion.a
+              href="https://wa.me/918610690010"
+              whileHover={{ scale: 1.05 }}
+              className="px-10 py-4 rounded-lg font-bold"
+              style={{ border: '1px solid rgba(255,255,255,0.4)', color: '#ffffff' }}
+            >
+              WhatsApp
+            </motion.a>
+          </div>
+           
+          <div className="mt-8 text-sm tracking-widest uppercase font-bold opacity-60" style={{ color: '#ffffff' }}>
+             Limited Seats · Batch Open Now
           </div>
         </motion.div>
       </div>
@@ -871,19 +873,69 @@ function PedagogySection() {
 }
 
 
+function RefinedFooter() {
+  return (
+    <footer className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#fafaf8' }}>
+      <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+          <div className="space-y-8">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-lg" style={{ background: '#1b1938' }}>E</div>
+              <span className="text-xl font-bold tracking-tighter" style={{ color: '#292827' }}>English Boss</span>
+            </div>
+            <p className="text-sm leading-relaxed italic max-w-xs" style={{ color: '#9a9794' }}>
+              A high-end spoken English environment designed for determined learners. Building real confidence through practical coaching.
+            </p>
+          </div>
+          
+          <div className="space-y-8">
+            <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold" style={{ color: '#1b1938' }}>Programs</h4>
+            <ul className="space-y-4 text-sm font-medium" style={{ color: '#73706d' }}>
+              <li><a href="#" className="hover:text-[#292827] transition-colors">Presence Cohort</a></li>
+              <li><a href="#" className="hover:text-[#292827] transition-colors">Leadership Track</a></li>
+              <li><a href="#" className="hover:text-[#292827] transition-colors">Articulation Lab</a></li>
+            </ul>
+          </div>
+
+          <div className="space-y-8">
+            <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold" style={{ color: '#1b1938' }}>Foundation</h4>
+            <ul className="space-y-4 text-sm font-medium" style={{ color: '#73706d' }}>
+              <li><a href="#" className="hover:text-[#292827] transition-colors">Philosophy</a></li>
+              <li><a href="#" className="hover:text-[#292827] transition-colors">Methodology</a></li>
+              <li><a href="#" className="hover:text-[#292827] transition-colors">Visionary</a></li>
+            </ul>
+          </div>
+
+          <div className="space-y-8">
+            <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold" style={{ color: '#1b1938' }}>Connect</h4>
+            <div className="flex gap-4">
+              <a href="#" className="w-10 h-10 rounded-full border flex items-center justify-center transition-colors" style={{ color: '#73706d', borderColor: '#e8e4dd' }}>YT</a>
+              <a href="#" className="w-10 h-10 rounded-full border flex items-center justify-center transition-colors" style={{ color: '#73706d', borderColor: '#e8e4dd' }}>IG</a>
+              <a href="#" className="w-10 h-10 rounded-full border flex items-center justify-center transition-colors" style={{ color: '#73706d', borderColor: '#e8e4dd' }}>WA</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
+
+
 function RefinedMobileCTA() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 flex items-center gap-3 px-4 py-4 backdrop-blur-xl bg-base/80 border-t border-subtle/30 md:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-50 flex items-center gap-3 px-4 py-4 backdrop-blur-xl border-t md:hidden" style={{ background: '#ffffff', borderColor: '#e8e4dd' }}>
       <motion.a 
         href="tel:+918610690010" 
-        className="flex-1 rounded-2xl bg-primary py-4 text-center text-sm font-bold text-background shadow-xl"
+        className="flex-1 rounded-xl py-4 text-center text-sm font-bold shadow-xl"
+        style={{ background: '#1b1938', color: '#ffffff' }}
         whileTap={{ scale: 0.95 }}
       >
         Call Now
       </motion.a>
       <motion.a 
         href="https://wa.me/918610690010" 
-        className="rounded-2xl bg-accent-primary py-4 px-6 text-sm font-bold text-background shadow-xl"
+        className="rounded-xl py-4 px-6 text-sm font-bold shadow-xl"
+        style={{ background: '#1b1938', color: '#ffffff' }}
         whileTap={{ scale: 0.95 }}
       >
         WhatsApp
@@ -894,7 +946,7 @@ function RefinedMobileCTA() {
 
 export default function LandingPage() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden" style={{ background: 'var(--bg-base)' }}>
+    <main className="relative overflow-x-hidden" style={{ background: '#ffffff' }}>
       <div className="relative z-10">
         <Navigation />
         <HeroSection />
@@ -905,7 +957,6 @@ export default function LandingPage() {
         <ResultsArchiveSection />
         <KnowledgeAuthoritySection />
         <FounderVisionSection />
-        <EnrollmentSection />
         <RefinedFooter />
         <RefinedMobileCTA />
         
