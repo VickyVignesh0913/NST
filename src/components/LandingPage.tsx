@@ -102,7 +102,7 @@ function Navigation() {
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.2 }}
           >
-            Join 2027 Batch
+            Start Free Demo
           </motion.a>
         </div>
       </div>
@@ -752,20 +752,20 @@ function LearningPathwaysSection() {
 function KnowledgeAuthoritySection() {
   const broadcasts = [
     {
-      id: "Aq_P9_BZQZg",
-      title: "The Psychology of Public Hesitation",
+      id: "xI5_C6DeHxk",
+      title: "Never Forget English Again",
       category: "Broadcast 01",
       duration: "18:42"
     },
     {
-      id: "H8anJmFwjQQ",
-      title: "Articulation & Phonetic Precision",
+      id: "jNwi7oji8go",
+      title: "Do not use Dictionary",
       category: "Broadcast 02",
       duration: "32:15"
     },
     {
-      id: "TBmdKepSgX8",
-      title: "Presence in High-Stakes Environments",
+      id: "0x6sgMnPZkw",
+      title: "தமிழ் vs English Idioms",
       category: "Broadcast 03",
       duration: "15:28"
     }
@@ -1013,7 +1013,7 @@ function FinalAspirationSection() {
         >
           <span className="section-label">The Final Threshold</span>
           <h2 className="heading-xl mt-8 leading-[0.9] tracking-tighter">
-            Every white coat begins with <br />
+            Every fluent speaker begins with <br />
             <span className="text-secondary italic">a single decision.</span>
           </h2>
           <p className="mt-12 text-2xl text-secondary leading-relaxed font-english italic">
@@ -1041,7 +1041,7 @@ function FinalAspirationSection() {
           </div>
           
           <div className="mt-16 text-dim text-sm tracking-widest uppercase font-bold opacity-60">
-             Limited Batch Entry · Q3 2027
+             Limited Seats · Batch Open Now
           </div>
         </motion.div>
       </div>
@@ -1320,15 +1320,19 @@ function FounderVisionSection() {
           >
             <div className="aspect-[4/5] rounded-3xl overflow-hidden border border-subtle/20 bg-elevated relative">
               <img 
-                src="/founder.png" 
-                alt="The Founder" 
+                src="/images/charles-william.png" 
+                alt="Mr. Charles William - English Boss Founder"
                 className="w-full h-full object-cover"
                 style={{ filter: 'grayscale(1) contrast(1.1)' }}
+                onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }}
               />
+              <div className="hidden absolute inset-0 bg-accent-primary/20 flex items-center justify-center">
+                <span className="text-6xl font-bold text-primary/40">CW</span>
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-bg-base via-transparent to-transparent opacity-50" />
               <div className="absolute bottom-8 left-8">
                 <span className="section-label mb-2 block">Quiet Authority</span>
-                <h3 className="text-3xl font-bold tracking-tighter text-primary">Vicky Vignesh</h3>
+                <h3 className="text-3xl font-bold tracking-tighter text-primary">Mr. Charles William</h3>
                 <p className="text-dim text-xs uppercase tracking-[0.2em] font-bold mt-1">Founder</p>
               </div>
             </div>
