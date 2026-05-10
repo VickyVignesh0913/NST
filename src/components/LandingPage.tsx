@@ -662,7 +662,7 @@ function InsideClassSection() {
               className="space-y-2"
             >
               <div className="text-sm font-bold text-primary tracking-tighter">GLOBAL REACH</div>
-              <div className="text-2xl font-light text-secondary tracking-tight italic">Tamil excellence.</div>
+                <div className="text-2xl font-light text-secondary tracking-tight italic">Global excellence.</div>
             </motion.div>
           </div>
         </div>
@@ -963,9 +963,9 @@ function PedagogySection() {
               <p>
                 "I've spent years observing a painful pattern: brilliant students and ambitious professionals staying silent in rooms where they should be leading. It wasn't a lack of knowledge—it was a lack of psychological safety in their own expression."
               </p>
-              <p className="opacity-80">
-                "I built this environment to be more than a school. It is a space where you can fail safely until you speak brilliantly. Where your Tamil roots aren't a barrier, but the ground you stand on while you master a global tongue."
-              </p>
+            <p className="opacity-80">
+              "I built this environment to be more than a school. It is a space where you can fail safely until you speak brilliantly. Where your background isn't a barrier, but the foundation you build upon while you master a global tongue."
+            </p>
               <p className="opacity-60">
                 "This transformation changes your career, but more importantly, it changes your social identity. It's time to be heard."
               </p>
@@ -1046,9 +1046,9 @@ function RefinedFooter() {
                <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-background font-bold text-lg">F</div>
                <span className="text-xl font-bold tracking-tighter text-primary">Fluency</span>
              </div>
-             <p className="text-sm text-dim leading-relaxed font-english italic max-w-xs">
-               A high-end communication environment designed for the serious scholar. Redefining how Tamil medium students master English.
-             </p>
+            <p className="text-sm text-dim leading-relaxed font-english italic max-w-xs">
+              A high-end communication environment designed for the serious scholar. Redefining how determined students master English.
+            </p>
           </div>
           
           <div className="space-y-8">
