@@ -1,21 +1,15 @@
 import React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { cn } from '../lib/utils'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { 
   Play, 
-  Check,
-  X, 
-  Minus, 
   ArrowRight,
-  Quote,
-  Phone,
-  MessageCircle,
   Award,
   BookOpen,
   Clock,
   FileText,
-  ChevronDown
+  Check
 } from 'lucide-react'
 
 // Commercial Analytics Abstraction
@@ -27,21 +21,6 @@ const trackEvent = (eventName: string, params: Record<string, any> = {}) => {
   console.log(`[Analytics] ${eventName}`, params);
 };
 
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-100px" },
-  transition: { duration: 1, ease: [0.16, 1, 0.3, 1] }
-};
-
-const staggerContainer = {
-  initial: {},
-  whileInView: { transition: { staggerChildren: 0.1 } },
-  viewport: { once: true }
-};
-
-const revealTransition = { duration: 1.5, ease: [0.16, 1, 0.3, 1] }; // Cinematic Pacing
 
 // Memory Anchor: Communication Silence
 function CommunicationSilence() {
@@ -193,7 +172,9 @@ function EnglishLayer() {
         <path d="M800 650 L850 600 L850 700 Z" stroke="currentColor" strokeWidth="1" fill="none" />
         <text x="860" y="660" fontSize="16" fontFamily="serif" fill="currentColor">Every day, speak better</text>
       </g>
-    </svg>
+</svg>
+  )
+}
 
 
 // Cursor Glow
@@ -259,14 +240,43 @@ function CursorGlow() {
 }
 
 
+function FloatingTypography() {
+  const words = ['Speak', 'Lead', 'Grow', 'Thrive']
+  
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {words.map((word, i) => (
+        <motion.div
+          key={word}
+          className="absolute font-english text-[8vw] font-bold tracking-tighter select-none"
+          style={{
+            color: 'var(--text-primary)',
+            opacity: 0.03,
+            left: `${10 + i * 20}%`,
+            top: `${20 + (i % 2) * 40}%`,
+          }}
+          initial={{ y: 0, rotate: 0 }}
+          animate={{ 
+            y: [0, -15, 0],
+            rotate: [0, (i % 2 === 0 ? 1 : -1) * 2, 0]
+          }}
+          transition={{ 
+            duration: 8 + i * 2, 
+            repeat: Infinity, 
+            ease: "easeInOut",
+            delay: i * 1.5
+          }}
+        >
+          {word}
+        </motion.div>
+      ))}
+    </div>
+  )
+}
+
+
 function HeroSection() {
   const [scrollY, setScrollY] = useState(0)
-  const [overlayOpacity, setOverlayOpacity] = useState(0)
-
-  useEffect(() => {
-    const timer = setTimeout(() => setOverlayOpacity(1), 100)
-    return () => clearTimeout(timer)
-  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -277,7 +287,6 @@ function HeroSection() {
   }, [])
 
   const imgParallax = -Math.min(scrollY * 0.15, 60)
-  const contentFade = Math.min(scrollY / 400, 1)
 
   return (
     <section id="home" className="relative min-h-[100svh] overflow-hidden bg-base">
@@ -428,21 +437,14 @@ function HeroSection() {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 1 }}
             className="mt-16 pt-8 border-t border-subtle/50 flex flex-wrap gap-x-12 gap-y-6"
           >
-            <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
+<span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--accent-warm)' }} />
             Limited seats available. Batch closing soon.
-          </motion.p>
+          </motion.div>
         </div>
       </div>
     </section>
   )
-)
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-xl font-semibold text-primary">150+</span>
-              <span className="text-[10px] uppercase tracking-widest text-dim font-semibold">Digital Workshops</span>
-            </div>
-            <h3 className="line-clamp-2 text-base font-medium text-foreground">{activeVideo.title}</h3>
-            <p className="mt-1 text-sm text-secondary">{activeVideo.views} views | {activeVideo.time}</p>
+}
 
 function InsideClassSection() {
   const features = [
@@ -565,16 +567,21 @@ function InsideClassSection() {
 }
 
 
+function TransformationJourneySection() {
+  const stages = [
+    { title: 'Silence', moment: 'The Recognition', desc: 'Understanding the gap between where you are and where you want to be.' },
+    { title: 'Intent', moment: 'The Decision', desc: 'Committing to change. Setting aside ego for growth.' },
+    { title: 'Practice', moment: 'The Work', desc: 'Showing up daily. Repeating until repetition becomes natural.' },
+    { title: 'Speak', moment: 'The Expression', desc: 'Stepping into rooms and owning your voice.' },
+  ]
 
   return (
     <section className="relative py-32 overflow-hidden bg-base">
-      {/* Background Evolution Atmosphere */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-accent-primary/5 to-transparent opacity-50" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-8 sm:px-12">
-        {/* Section Header */}
         <div className="mb-24 text-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -590,9 +597,8 @@ function InsideClassSection() {
           </motion.div>
         </div>
 
-        {/* Progressive Storytelling */}
         <div className="space-y-48 sm:space-y-64">
-          {stages.map((stage, i) => (
+          {stages.map((stage: { title: string; moment: string; desc: string }, i: number) => (
             <motion.div
               key={stage.title}
               initial={{ opacity: 0, y: 40 }}
@@ -601,7 +607,6 @@ function InsideClassSection() {
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
               className={`relative flex flex-col ${i % 2 === 0 ? 'lg:items-start' : 'lg:items-end'} text-center lg:text-left`}
             >
-              {/* Background Word (Floating) */}
               <div className={`absolute -top-12 ${i % 2 === 0 ? '-left-8' : '-right-8'} opacity-[0.03] select-none pointer-events-none`} style={{ zIndex: -1 }}>
                 <span className="text-[12vw] font-bold tracking-tighter font-english" style={{ fontFamily: "'Clash Display', sans-serif" }}>
                   {stage.title}
@@ -609,19 +614,17 @@ function InsideClassSection() {
               </div>
 
               <div className={`max-w-xl ${i % 2 === 0 ? '' : 'lg:text-right'}`}>
-                <div className="flex items-center gap-4 mb-6 ${i % 2 === 0 ? 'justify-center lg:justify-start' : 'justify-center lg:justify-end'}">
+                <div className={`flex items-center gap-4 mb-6 ${i % 2 === 0 ? 'justify-center lg:justify-start' : 'justify-center lg:justify-end'}`}>
                   <span className="text-xs font-bold tracking-[0.3em] text-dim">0{i + 1}</span>
                   <div className="h-[1px] w-8 bg-border-subtle" />
                   <span className="human-moment-tag">{stage.moment}</span>
                 </div>
-
-                </div>
+                <p className="text-secondary text-lg leading-relaxed">{stage.desc}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Archival Outcome Metrics */}
         <div className="mt-32 pt-24 border-t border-subtle/20">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
             <motion.div
@@ -662,11 +665,10 @@ function InsideClassSection() {
               className="space-y-2"
             >
               <div className="text-sm font-bold text-primary tracking-tighter">GLOBAL REACH</div>
-                <div className="text-2xl font-light text-secondary tracking-tight italic">Global excellence.</div>
+              <div className="text-2xl font-light text-secondary tracking-tight italic">Global excellence.</div>
             </motion.div>
           </div>
         </div>
-
       </div>
     </section>
   )
@@ -703,13 +705,11 @@ function LearningPathwaysSection() {
 
   return (
     <section className="relative py-32 overflow-hidden border-t border-subtle/10" style={{ background: 'var(--bg-base)' }}>
-      {/* Background Atmosphere */}
       <div className="absolute inset-0 z-0">
         <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-t from-accent-primary/5 via-transparent to-transparent opacity-40" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
-        {/* Section Narrative */}
         <div className="mb-24 text-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -717,11 +717,32 @@ function LearningPathwaysSection() {
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
-
+            <span className="section-label">Learning Pathways</span>
+            <h2 className="heading-xl mt-6 max-w-2xl leading-tight">
+              Choose your path to <span className="text-secondary italic">communication mastery</span>
+            </h2>
           </motion.div>
         </div>
 
-
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {pathways.map((pathway, i) => (
+            <motion.div
+              key={pathway.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: i * 0.1 }}
+              className="card p-8 rounded-2xl group hover:border-accent-primary/30 transition-all duration-300"
+            >
+              <div className="w-12 h-12 rounded-xl bg-accent-primary/10 flex items-center justify-center mb-6">
+                <span className="text-xl font-bold text-accent-primary">{i + 1}</span>
+              </div>
+              <h3 className="text-xl font-semibold text-primary mb-3">{pathway.title}</h3>
+              <p className="text-secondary text-sm mb-4 italic">{pathway.philosophy}</p>
+              <span className="text-xs text-dim font-medium">{pathway.focus}</span>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -751,14 +772,59 @@ function KnowledgeAuthoritySection() {
   ];
 
   return (
+    <section className="relative py-32 overflow-hidden bg-base border-t border-subtle/10">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-primary/5 blur-[160px] rounded-full opacity-30" />
+      </div>
 
+      <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
+        <div className="mb-16 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className="section-label">Knowledge Archive</span>
+            <h2 className="heading-xl mt-6 max-w-2xl mx-auto leading-tight">
+              Public broadcasts on <span className="text-secondary italic">communication psychology</span>
+            </h2>
+          </motion.div>
+        </div>
+
+        {/* Featured Broadcast */}
+        <motion.div
+          className="mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
+          <div className="relative aspect-video rounded-3xl overflow-hidden border border-subtle/30 bg-elevated group cursor-pointer">
+            <img 
+              src={`https://img.youtube.com/vi/${broadcasts[0].id}/hqdefault.jpg`} 
+              alt={broadcasts[0].title}
+              className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-base/90 via-bg-base/40 to-transparent" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Play className="w-8 h-8 text-white ml-1 fill-current" />
+              </div>
+            </div>
+            <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+              <div>
+                <span className="text-[10px] uppercase tracking-widest text-dim font-bold">{broadcasts[0].category}</span>
+                <h3 className="text-2xl font-semibold text-white mt-2">{broadcasts[0].title}</h3>
+              </div>
+              <span className="text-sm text-white/80 font-medium">{broadcasts[0].duration}</span>
             </div>
           </div>
         </motion.div>
 
-        {/* Media Archive Archive Layer */}
+        {/* Media Archive Layer */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {broadcasts.slice(1).map((broadcast, i) => (
+          {broadcasts.slice(1).map((broadcast: { id: string; title: string; category: string; duration: string }, i: number) => (
             <motion.div
               key={broadcast.id}
               initial={{ opacity: 0, y: 20 }}
@@ -785,24 +851,22 @@ function KnowledgeAuthoritySection() {
             </motion.div>
           ))}
 
-          {/* Curated Archive Narrative */}
           <motion.div
-             initial={{ opacity: 0 }}
-             whileInView={{ opacity: 1 }}
-             viewport={{ once: true }}
-             transition={{ duration: 1.5, delay: 0.5 }}
-             className="flex flex-col justify-center p-8 rounded-2xl border border-dashed border-subtle/40"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, delay: 0.5 }}
+            className="flex flex-col justify-center p-8 rounded-2xl border border-dashed border-subtle/40"
           >
-             <p className="text-sm text-dim font-english italic leading-relaxed">
-               "A curated archive designed for those who aim for a higher standard of communication. Thousands learn through these public conversations."
-             </p>
-             <div className="mt-8 flex items-center gap-4">
-                <div className="h-[1px] w-8 bg-border-subtle" />
-                <span className="text-[9px] uppercase tracking-[0.3em] text-accent-primary font-bold">Explore Archive</span>
-             </div>
+            <p className="text-sm text-dim font-english italic leading-relaxed">
+              "A curated archive designed for those who aim for a higher standard of communication. Thousands learn through these public conversations."
+            </p>
+            <div className="mt-8 flex items-center gap-4">
+              <div className="h-[1px] w-8 bg-border-subtle" />
+              <span className="text-[9px] uppercase tracking-[0.3em] text-accent-primary font-bold">Explore Archive</span>
+            </div>
           </motion.div>
         </div>
-
       </div>
     </section>
   )
@@ -921,62 +985,12 @@ function PedagogySection() {
             "Transformation is a reflection <br />
             of consistent exposure."
           </h2>
-          <div className="mt-12 flex justify-center items-center gap-6">
-             <div className="h-[1px] w-24 bg-gradient-to-r from-transparent to-border-subtle" />
-             <span className="text-[10px] uppercase tracking-[0.3em] text-dim font-bold">The Editorial Standard</span>
-             <div className="h-[1px] w-24 bg-gradient-to-l from-transparent to-border-subtle" />
+<div className="mt-12 flex justify-center items-center gap-6">
+              <div className="h-[1px] w-24 bg-gradient-to-r from-transparent to-border-subtle" />
+              <span className="text-[10px] uppercase tracking-[0.3em] text-dim font-bold">The Editorial Standard</span>
+              <div className="h-[1px] w-24 bg-gradient-to-l from-transparent to-border-subtle" />
           </div>
-
-            >
-              <img 
-                src="/founder.png" 
-                alt="The Founder" 
-                className="w-full h-full object-cover documentary-image"
-                style={{ filter: 'grayscale(1) contrast(1.2) brightness(0.7)' }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg-base via-transparent to-transparent opacity-40" />
-              
-              <div className="absolute bottom-12 left-12">
-                 <span className="section-label mb-2 block">Quiet Authority</span>
-                 <h3 className="text-4xl font-bold tracking-tighter text-white">Vicky Vignesh</h3>
-                 <p className="text-dim text-xs uppercase tracking-[0.3em] font-bold mt-2">Linguistic Observer</p>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* RIGHT: Narrative Layer */}
-        <div className="tension-col-right">
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          >
-            <span className="section-label resonance-field">A Vision for Confidence</span>
-            <h2 className="heading-xl mt-8 leading-[0.9] tracking-tighter signature-reveal">
-              Communication is the bridge <br />
-              <span className="text-secondary italic">to who you can become.</span>
-            </h2>
-            
-            <div className="mt-12 space-y-8 text-xl text-secondary leading-relaxed font-english italic">
-              <p>
-                "I've spent years observing a painful pattern: brilliant students and ambitious professionals staying silent in rooms where they should be leading. It wasn't a lack of knowledge—it was a lack of psychological safety in their own expression."
-              </p>
-            <p className="opacity-80">
-              "I built this environment to be more than a school. It is a space where you can fail safely until you speak brilliantly. Where your background isn't a barrier, but the foundation you build upon while you master a global tongue."
-            </p>
-              <p className="opacity-60">
-                "This transformation changes your career, but more importantly, it changes your social identity. It's time to be heard."
-              </p>
-            </div>
-
-            <div className="mt-16 flex items-center gap-6">
-               <div className="h-[1px] w-16 bg-border-subtle" />
-               <span className="text-[10px] uppercase tracking-[0.3em] text-accent-primary font-bold">The Founder's Conviction</span>
-            </div>
-          </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
@@ -1078,10 +1092,277 @@ function RefinedFooter() {
              </div>
           </div>
         </div>
-
-        </div>
       </div>
     </footer>
+  )
+}
+
+
+function TrustNarrativeSection() {
+  const trustPoints = [
+    { stat: "5,000+", label: "Students Trained" },
+    { stat: "98%", label: "Confidence Improvement" },
+    { stat: "50+", label: "Master Sessions" },
+  ]
+
+  return (
+    <section className="relative py-24 overflow-hidden bg-base border-t border-subtle/10">
+      <div className="max-w-7xl mx-auto px-8 sm:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-16"
+        >
+          <span className="section-label">Proven Results</span>
+          <h2 className="heading-xl mt-6 max-w-3xl mx-auto leading-tight">
+            Trusted by those who <span className="text-secondary italic">demand excellence</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {trustPoints.map((point, i) => (
+            <motion.div
+              key={point.label}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: i * 0.1 }}
+              className="text-center p-8 rounded-2xl border border-subtle/20 bg-elevated"
+            >
+              <div className="text-4xl lg:text-5xl font-bold text-primary tracking-tighter">{point.stat}</div>
+              <div className="text-sm text-secondary mt-2 uppercase tracking-wider">{point.label}</div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5, delay: 0.3 }}
+          className="text-center"
+        >
+          <blockquote className="text-xl lg:text-2xl text-secondary leading-relaxed font-english italic max-w-3xl mx-auto">
+            "The environment here doesn't just teach English—it transforms how you carry yourself."
+          </blockquote>
+          <p className="mt-6 text-sm text-dim">— Featured in education media across India</p>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+
+function EcosystemShowcaseSection() {
+  const features = [
+    { icon: BookOpen, title: "Daily Practice Sessions", desc: "Structured daily conversations on real scenarios" },
+    { icon: Award, title: "Achievement Tracking", desc: "Monitor your progress with measurable milestones" },
+    { icon: Clock, title: "Flexible Schedule", desc: "Learn at your pace with 24/7 recorded sessions" },
+  ]
+
+  return (
+    <section id="courses" className="relative py-32 overflow-hidden bg-base border-t border-subtle/10">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-accent-primary/5 to-transparent opacity-40" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className="section-label">The Ecosystem</span>
+            <h2 className="heading-xl mt-6 max-w-xl leading-tight">
+              A complete environment for <span className="text-secondary italic">fluency development</span>
+            </h2>
+            <p className="mt-6 text-lg text-secondary leading-relaxed">
+              Everything you need to transform from hesitant speaker to confident communicator.
+            </p>
+          </motion.div>
+
+          <div className="space-y-6">
+            {features.map((feature, i) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.15 }}
+                className="flex items-start gap-6 p-6 rounded-2xl border border-subtle/20 bg-elevated"
+              >
+                <div className="w-12 h-12 rounded-xl bg-accent-primary/10 flex items-center justify-center flex-shrink-0">
+                  <feature.icon className="w-6 h-6 text-accent-primary" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-primary">{feature.title}</h4>
+                  <p className="text-secondary text-sm mt-1">{feature.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+
+function ResultsArchiveSection() {
+  const results = [
+    { title: "Interview Success", desc: "Students cracking top MNC interviews with confidence" },
+    { title: "Public Speaking", desc: "From silent observers to commanding speakers" },
+    { title: "Career Growth", desc: "Promotions driven by communication excellence" },
+  ]
+
+  return (
+    <section id="results" className="relative py-32 overflow-hidden border-t border-subtle/10" style={{ background: 'var(--bg-surface)' }}>
+      <div className="max-w-7xl mx-auto px-8 sm:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-20"
+        >
+          <span className="section-label">Results Archive</span>
+          <h2 className="heading-xl mt-6 max-w-2xl mx-auto leading-tight">
+            Real transformations, <span className="text-secondary italic">documented outcomes</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {results.map((result, i) => (
+            <motion.div
+              key={result.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: i * 0.15 }}
+              className="p-8 rounded-2xl border border-subtle/20 bg-base text-center"
+            >
+              <div className="w-16 h-16 rounded-full bg-accent-primary/10 mx-auto mb-6 flex items-center justify-center">
+                <Check className="w-8 h-8 text-accent-primary" />
+              </div>
+              <h3 className="text-xl font-semibold text-primary mb-3">{result.title}</h3>
+              <p className="text-secondary text-sm">{result.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+
+function EnrollmentSection() {
+  return (
+    <section className="relative py-32 overflow-hidden bg-primary">
+      <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary to-accent-primary/50" />
+      
+      <div className="relative z-10 max-w-4xl mx-auto px-8 sm:px-12 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <span className="text-sm uppercase tracking-widest text-background/70 font-bold">Limited Entry</span>
+          <h2 className="heading-xl mt-6 text-background leading-tight">
+            Your transformation begins with <span className="text-background/80 italic">a single step</span>
+          </h2>
+          <p className="mt-8 text-lg text-background/80 max-w-2xl mx-auto">
+            Join the 2027 batch and experience a complete shift in how you communicate.
+          </p>
+          
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <motion.a
+              href="tel:+918610690010"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-4 rounded-xl bg-background text-primary font-bold shadow-xl"
+            >
+              Enroll Now
+            </motion.a>
+            <motion.a
+              href="https://wa.me/918610690010"
+              whileHover={{ scale: 1.05 }}
+              className="px-10 py-4 rounded-xl border-2 border-background/50 text-background font-bold"
+            >
+              WhatsApp Us
+            </motion.a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+
+function FounderVisionSection() {
+  return (
+    <section className="relative py-32 overflow-hidden bg-base border-t border-subtle/10">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-primary/5 blur-[200px] rounded-full opacity-30" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="aspect-[4/5] rounded-3xl overflow-hidden border border-subtle/20 bg-elevated relative">
+              <img 
+                src="/founder.png" 
+                alt="The Founder" 
+                className="w-full h-full object-cover"
+                style={{ filter: 'grayscale(1) contrast(1.1)' }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-bg-base via-transparent to-transparent opacity-50" />
+              <div className="absolute bottom-8 left-8">
+                <span className="section-label mb-2 block">Quiet Authority</span>
+                <h3 className="text-3xl font-bold tracking-tighter text-primary">Vicky Vignesh</h3>
+                <p className="text-dim text-xs uppercase tracking-[0.2em] font-bold mt-1">Founder</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          >
+            <span className="section-label resonance-field">A Vision for Confidence</span>
+            <h2 className="heading-xl mt-6 leading-[0.95] tracking-tight">
+              Communication is the bridge <br />
+              <span className="text-secondary italic">to who you can become.</span>
+            </h2>
+            
+            <div className="mt-10 space-y-6 text-lg text-secondary leading-relaxed">
+              <p>
+                "I've spent years observing a painful pattern: brilliant people staying silent in rooms where they should be leading. It wasn't a lack of knowledge—it was a lack of psychological safety in their own expression."
+              </p>
+              <p className="opacity-80">
+                "I built this environment to be more than a school. It is a space where you can fail safely until you speak brilliantly."
+              </p>
+            </div>
+
+            <div className="mt-10 flex items-center gap-4">
+              <div className="h-[1px] w-12 bg-border-subtle" />
+              <span className="text-[10px] uppercase tracking-[0.3em] text-accent-primary font-bold">The Founder's Conviction</span>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
   )
 }
 
@@ -1094,7 +1375,15 @@ function RefinedMobileCTA() {
         className="flex-1 rounded-2xl bg-primary py-4 text-center text-sm font-bold text-background shadow-xl"
         whileTap={{ scale: 0.95 }}
       >
-
+        Call Now
+      </motion.a>
+      <motion.a 
+        href="https://wa.me/918610690010" 
+        className="rounded-2xl bg-accent-primary py-4 px-6 text-sm font-bold text-background shadow-xl"
+        whileTap={{ scale: 0.95 }}
+      >
+        WhatsApp
+      </motion.a>
     </div>
   )
 }
@@ -1102,9 +1391,6 @@ function RefinedMobileCTA() {
 export default function LandingPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden" style={{ background: 'var(--bg-base)' }}>
-      <div className="fixed inset-0 pointer-events-none" style={{ opacity: 0.03, zIndex: 0 }}>
-            Practical spoken English coaching for learners who want real confidence in real conversations.
-      </div>
       <div className="relative z-10">
         <Navigation />
         <HeroSection />
