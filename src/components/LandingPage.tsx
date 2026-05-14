@@ -264,15 +264,18 @@ function HeroSection() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(202,178,143,0.28),transparent_34%),radial-gradient(circle_at_78%_18%,rgba(245,197,146,0.16),transparent_22%),linear-gradient(140deg,#1a1622_8%,#241b2e_44%,#17131d_100%)]" />
       <div className="absolute left-[-8%] top-[12%] h-[26rem] w-[26rem] rounded-full bg-[#d8aa74]/14 blur-[120px]" />
       <div className="absolute bottom-[-8%] right-[-2%] h-[28rem] w-[28rem] rounded-full bg-[#7d5b89]/18 blur-[140px]" />
+      <div className="absolute inset-x-0 top-0 hidden h-full opacity-[0.07] lg:block">
+        <EnglishLayer />
+      </div>
 
       <div
-        className="relative z-10 mx-auto grid min-h-[100dvh] w-full max-w-7xl gap-12 px-6 pb-16 pt-28 sm:px-10 lg:grid-cols-[minmax(0,1fr)_minmax(360px,0.84fr)] lg:items-center lg:px-12 lg:pb-20 lg:pt-32"
+        className="relative z-10 mx-auto grid min-h-[100dvh] w-full max-w-7xl gap-10 px-6 pb-16 pt-28 sm:px-10 lg:grid-cols-12 lg:grid-rows-[auto_auto] lg:gap-x-8 lg:gap-y-8 lg:px-12 lg:pb-20 lg:pt-32"
         style={{
           transform: `translateY(${scrollY * 0.06}px)`,
           transition: 'transform 0.18s linear',
         }}
       >
-        <div className="max-w-3xl">
+        <div className="max-w-3xl lg:col-span-7 lg:max-w-none lg:pr-6">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -353,34 +356,13 @@ function HeroSection() {
             </motion.a>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-            className="mt-14 grid gap-4 sm:grid-cols-3"
-          >
-            {[
-              { value: '13+ years', label: 'corporate experience' },
-              { value: 'TESOL + IELTS', label: 'training background' },
-              { value: 'Thousands', label: 'of learners guided' }
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="rounded-[1.35rem] border p-4"
-                style={{ borderColor: 'rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.04)' }}
-              >
-                <p className="text-sm uppercase tracking-[0.18em]" style={{ color: '#f0ddc1' }}>{item.value}</p>
-                <p className="mt-2 text-sm leading-6" style={{ color: '#cbbfae' }}>{item.label}</p>
-              </div>
-            ))}
-          </motion.div>
         </div>
 
         <motion.div
           initial={{ opacity: 0, x: 18, y: 10 }}
           animate={{ opacity: 1, x: 0, y: 0 }}
           transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1], delay: 0.22 }}
-          className="relative lg:justify-self-end"
+          className="relative lg:col-span-5 lg:row-span-2 lg:self-center lg:justify-self-end"
           style={{
             transform: `translateY(${imgParallax * 0.5}px)`,
             transition: 'transform 0.14s linear',
@@ -391,7 +373,7 @@ function HeroSection() {
               <img
                 src="/charles-william.png"
                 alt="Mr. Charles William speaking into a microphone"
-                className="h-full w-full object-cover"
+                className="h-full min-h-[32rem] w-full object-cover lg:min-h-[42rem]"
                 loading="eager"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(32,24,39,0.02)_0%,rgba(32,24,39,0.1)_44%,rgba(32,24,39,0.58)_100%)]" />
@@ -420,6 +402,49 @@ function HeroSection() {
             <p className="mt-3 text-xs uppercase tracking-[0.18em]" style={{ color: '#6e6459' }}>Leemarose</p>
           </motion.div>
         </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.58 }}
+          className="grid gap-4 sm:grid-cols-2 lg:col-span-7 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]"
+        >
+          <div
+            className="rounded-[1.55rem] border p-5 sm:p-6"
+            style={{ borderColor: 'rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.04)' }}
+          >
+            <p className="text-[11px] uppercase tracking-[0.22em]" style={{ color: '#f0ddc1' }}>What happens inside</p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-3">
+              {[
+                { value: 'Observe', label: 'from real picture prompts' },
+                { value: 'Organise', label: 'your own thoughts clearly' },
+                { value: 'Speak', label: 'with practice and correction' }
+              ].map((item) => (
+                <div key={item.value} className="rounded-[1.15rem] border border-white/8 bg-white/[0.04] px-4 py-4">
+                  <p className="text-sm uppercase tracking-[0.18em]" style={{ color: '#f3e4cb' }}>{item.value}</p>
+                  <p className="mt-2 text-sm leading-6" style={{ color: '#cbbfae' }}>{item.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            {[
+              { value: '13+ years', label: 'corporate experience' },
+              { value: 'TESOL + IELTS', label: 'training background' },
+              { value: 'Thousands', label: 'of learners guided' }
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="rounded-[1.35rem] border p-4"
+                style={{ borderColor: 'rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.04)' }}
+              >
+                <p className="text-sm uppercase tracking-[0.18em]" style={{ color: '#f0ddc1' }}>{item.value}</p>
+                <p className="mt-2 text-sm leading-6" style={{ color: '#cbbfae' }}>{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )
@@ -433,28 +458,29 @@ function InsideClassSection() {
   ]
 
   return (
-    <section id="inside" className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#ffffff' }}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="inside" className="relative overflow-hidden py-14 lg:py-24 border-t border-[#e8e4dd]" style={{ background: '#ffffff' }}>
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5"
           >
             <span className="section-label">Experience</span>
-            <h2 className="heading-lg mt-4" style={{ color: '#292827' }}>
+            <h2 className="heading-lg mt-4 max-w-xl" style={{ color: '#292827' }}>
               Inside a Real English Boss Class
             </h2>
-            <p className="mt-6 text-lg leading-relaxed" style={{ color: '#73706d' }}>
+            <p className="mt-6 max-w-lg text-lg leading-relaxed" style={{ color: '#73706d' }}>
               Not just grammar. A complete speaking environment designed for real-world English confidence.
             </p>
 
-<div className="mt-8 space-y-4">
+            <div className="mt-8 space-y-4">
               {features.map((feature, i) => (
                 <motion.div
                   key={i}
-                  className="flex items-start gap-4"
+                  className="flex items-start gap-4 rounded-[1.35rem] border border-[#ece2d6] bg-[#fcf8f2] p-4"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
@@ -480,13 +506,14 @@ function InsideClassSection() {
           </motion.div>
 
           <motion.div
-            className="relative"
+            className="relative lg:col-span-7"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           >
-            <div className="card overflow-hidden rounded-2xl">
+            <div className="grid gap-4 lg:grid-cols-[minmax(0,1.15fr)_minmax(230px,0.55fr)]">
+              <div className="card overflow-hidden rounded-2xl">
               <div className="aspect-video bg-gradient-to-br from-slate-100 to-slate-200 relative flex items-center justify-center">
                 <div className="relative z-10 text-center">
                   <button
@@ -518,23 +545,33 @@ function InsideClassSection() {
                   ))}
                 </div>
               </div>
-            </div>
-
-            <motion.div
-              className="absolute -bottom-6 -right-6 card p-4 rounded-xl max-w-[200px] hidden sm:block"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-             >
-               <div className="flex items-center gap-2 mb-2">
-                 <FileText className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
-                 <span className="text-foreground font-medium text-sm">Class Notes</span>
               </div>
-              <p className="text-secondary text-xs">
-                Every session comes with downloadable notes & practice exercises.
-              </p>
-            </motion.div>
+
+              <div className="grid gap-4">
+                <div className="rounded-[1.6rem] border border-[#eadfce] bg-[#1d1823] p-5">
+                  <p className="text-[11px] uppercase tracking-[0.22em]" style={{ color: '#f0ddc1' }}>Class rhythm</p>
+                  <p className="mt-4 text-base leading-7" style={{ color: '#ddd3c6' }}>
+                    Watch, respond, get corrected, repeat. The class experience is built to reduce fear by making participation feel normal.
+                  </p>
+                </div>
+
+                <motion.div
+                  className="rounded-[1.6rem] border border-[#eadfce] bg-[#fffaf4] p-5"
+                  initial={{ opacity: 0, scale: 0.94 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+                 >
+                   <div className="flex items-center gap-2 mb-2">
+                     <FileText className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
+                     <span className="text-foreground font-medium text-sm">Class Notes</span>
+                  </div>
+                  <p className="text-secondary text-xs leading-6">
+                    Every session is supported by notes, practice prompts, and real follow-up so the lesson does not disappear after class ends.
+                  </p>
+                </motion.div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -1104,7 +1141,7 @@ function KnowledgeAuthoritySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-12 grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)] lg:items-end"
+          className="mb-12 grid gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(320px,0.7fr)] lg:items-end"
         >
           <div className="max-w-3xl">
             <span className="section-label">Knowledge Archive</span>
@@ -1116,7 +1153,7 @@ function KnowledgeAuthoritySection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 sm:max-w-md lg:ml-auto">
+          <div className="grid grid-cols-2 gap-4 sm:max-w-lg lg:ml-auto">
             {[
               { value: '03', label: 'Selected Broadcasts' },
               { value: 'Long-form', label: 'Public Learning Format' }
@@ -1143,8 +1180,8 @@ function KnowledgeAuthoritySection() {
               boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.08)'
             }}
           >
-            <div className="grid gap-6 lg:grid-cols-[minmax(0,1.3fr)_360px]">
-              <div className="space-y-5">
+            <div className="grid gap-6 lg:grid-cols-12">
+              <div className="space-y-5 lg:col-span-8">
                 <a
                   href={activeBroadcastHref}
                   target="_blank"
@@ -1194,7 +1231,7 @@ function KnowledgeAuthoritySection() {
                   </div>
                 </a>
 
-                <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_220px]">
+                <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_240px]">
                   <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 text-white/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:p-6">
                     <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-white/52">
                       <span className="inline-block h-8 w-8 rounded-full border border-white/10 bg-white/5" />
@@ -1228,8 +1265,8 @@ function KnowledgeAuthoritySection() {
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:p-5">
+              <div className="space-y-4 lg:col-span-4 lg:flex lg:flex-col">
+                <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:p-5 lg:flex-1">
                   <div className="mb-4 flex items-center justify-between">
                     <div>
                       <p className="text-[11px] uppercase tracking-[0.24em] text-white/48">Selected archive</p>
@@ -1311,6 +1348,21 @@ function KnowledgeAuthoritySection() {
                       )
                     })}
                   </div>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                  {[
+                    { value: 'Shorts + long form', label: 'Public teaching voice' },
+                    { value: 'Tamil to English', label: 'Grounded learner bridge' }
+                  ].map((item) => (
+                    <div
+                      key={item.label}
+                      className="rounded-[1.4rem] border border-white/10 bg-white/[0.04] p-4"
+                    >
+                      <p className="text-[11px] uppercase tracking-[0.22em] text-white/50">{item.value}</p>
+                      <p className="mt-3 text-sm leading-6 text-white/74">{item.label}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
