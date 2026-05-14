@@ -260,140 +260,166 @@ function HeroSection() {
   const imgParallax = -Math.min(scrollY * 0.15, 60)
 
   return (
-    <section id="home" className="relative min-h-[100svh] overflow-hidden" style={{ background: '#1b1938' }}>
-      {/* Violet atmospheric backdrop */}
-      <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-[#c9b4fa]/10 blur-[120px] rounded-full pointer-events-none" style={{ zIndex: 1 }} />
-      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#c9b4fa]/5 blur-[100px] rounded-full pointer-events-none" style={{ zIndex: 1 }} />
+    <section id="home" className="relative min-h-[100dvh] overflow-hidden" style={{ background: '#1a1622' }}>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(202,178,143,0.28),transparent_34%),radial-gradient(circle_at_78%_18%,rgba(245,197,146,0.16),transparent_22%),linear-gradient(140deg,#1a1622_8%,#241b2e_44%,#17131d_100%)]" />
+      <div className="absolute left-[-8%] top-[12%] h-[26rem] w-[26rem] rounded-full bg-[#d8aa74]/14 blur-[120px]" />
+      <div className="absolute bottom-[-8%] right-[-2%] h-[28rem] w-[28rem] rounded-full bg-[#7d5b89]/18 blur-[140px]" />
 
-      {/* Full-width Image Background with Parallax - right aligned */}
       <div
-        className="absolute inset-0"
+        className="relative z-10 mx-auto grid min-h-[100dvh] w-full max-w-7xl gap-12 px-6 pb-16 pt-28 sm:px-10 lg:grid-cols-[minmax(0,1fr)_minmax(360px,0.84fr)] lg:items-center lg:px-12 lg:pb-20 lg:pt-32"
         style={{
-          transform: `translateY(${imgParallax}px) scale(1.05)`,
-          transition: 'transform 0.1s linear',
-          willChange: 'transform',
+          transform: `translateY(${scrollY * 0.06}px)`,
+          transition: 'transform 0.18s linear',
         }}
       >
-        <img
-          src="/images/charles-william.jpg"
-          alt="Mr. Charles William - English Boss Founder"
-          className="w-1/2 h-[120%] -mt-[10%] object-cover ml-auto"
-          style={{ filter: 'contrast(1.05) saturate(1.02)' }}
-          loading="eager"
-        />
-        {/* Dark overlay on image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1b1938] via-[#1b1938]/70 to-transparent" />
-      </div>
-
-      {/* Content Container */}
-      <div
-        className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-7xl items-center px-8 sm:px-12 py-20 lg:py-0"
-        style={{
-          transform: `translateY(${scrollY * 0.1}px)`,
-          transition: 'transform 0.2s linear',
-        }}
-      >
-        <div className="w-full max-w-[640px]">
-          {/* Eyebrow */}
+        <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            className="mb-8 flex items-center gap-4"
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
+            className="mb-8 flex flex-wrap items-center gap-3"
           >
-            <span className="text-xs tracking-wider text-[#bcbac9]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              Mr. Charles William | English Boss
+            <span className="rounded-full border border-white/12 bg-white/6 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-[#f0ddc1] backdrop-blur-sm">
+              Founder-led spoken English world
+            </span>
+            <span className="text-xs tracking-[0.18em] text-[#d8c8b2]/72">
+              Charles William | English Boss
             </span>
           </motion.div>
 
-          {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="heading-xl leading-[0.96] tracking-[-1.32px]"
-            style={{ fontWeight: 460, color: '#ffffff', fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
+            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.16 }}
+            className="max-w-4xl text-[clamp(2.9rem,6vw,5.7rem)] leading-[0.94] tracking-[-0.04em]"
+            style={{ fontFamily: "'General Sans', sans-serif", fontWeight: 500, color: '#f7f1e7' }}
           >
-            Speak English with Confidence
+            Learn to think clearly, then speak English with confidence.
           </motion.h1>
 
-          {/* English Emotional Secondary Line */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-            className="mt-8 space-y-2"
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.28 }}
+            className="mt-8 max-w-2xl text-lg leading-8 sm:text-[1.1rem]"
+            style={{ color: '#d5cab9', fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
-            <p className="text-xl leading-[1.5]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: 0, color: '#bcbac9' }}>
-              Fluent English. Real Confidence. Real Results.
-            </p>
-            <p className="text-xl leading-[1.5] mt-0.5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: 0, color: '#ffffff', fontWeight: 540 }}>
-              Your journey to fluent English starts today.
-            </p>
+            English Boss is built for adult learners who want more than fluency drills. It is a practical learning environment where observation, idea generation, daily speaking practice, and individual feedback come together.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.36 }}
+            className="mt-8 flex flex-wrap gap-3"
+          >
+            {['Picture description', 'Daily verb challenge', 'Situational speaking'].map((item) => (
+              <span
+                key={item}
+                className="rounded-full border px-4 py-2 text-sm"
+                style={{ borderColor: 'rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.04)', color: '#efe5d5' }}
+              >
+                {item}
+              </span>
+            ))}
           </motion.div>
 
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-            className="mt-8 max-w-[500px] text-lg leading-relaxed"
-            style={{ color: '#bcbac9', fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-          >
-            Practical spoken English coaching for learners who want real confidence in real conversations.
-          </motion.p>
-
-          {/* Inline Credibility */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
-            className="mt-4 flex items-center gap-2 text-sm"
-            style={{ color: '#bcbac9', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.01em' }}
-          >
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#c9b4fa]" />
-            Trusted by thousands of learners across India
-          </motion.p>
-
-          {/* CTA Row */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.48 }}
             className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center"
           >
             <motion.a
               href="#courses"
-              className="px-10 py-4 text-base flex items-center justify-center gap-3 text-[#1b1938] font-bold rounded-lg"
-              style={{ background: '#ffffff' }}
+              className="inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 text-base font-medium text-[#1a1622]"
+              style={{ background: '#f3e9db', boxShadow: '0 22px 40px -28px rgba(243, 233, 219, 0.72)' }}
               whileTap={{ scale: 0.98 }}
             >
-              Start Free Demo
-              <ArrowRight className="w-4 h-4" />
+              Explore the learning path
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1a1622] text-white">
+                <ArrowRight className="h-4 w-4" />
+              </span>
             </motion.a>
-            
+
             <motion.a
               href="#inside"
-              className="px-10 py-4 text-base flex items-center justify-center gap-3 text-white rounded-lg"
-              style={{ border: '1px solid rgba(255,255,255,0.3)' }}
+              className="inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 text-base font-medium text-white"
+              style={{ border: '1px solid rgba(255,255,255,0.18)', background: 'rgba(255,255,255,0.04)' }}
               whileTap={{ scale: 0.98 }}
             >
-              <Play className="w-4 h-4" />
-              Watch Experience
+              <Play className="h-4 w-4" />
+              Watch class experience
             </motion.a>
           </motion.div>
 
-          {/* Trust Metrics */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 1 }}
-            className="mt-16 pt-8 border-t border-white/20 flex flex-wrap gap-x-12 gap-y-6 items-center"
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+            className="mt-14 grid gap-4 sm:grid-cols-3"
           >
-            <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse mr-2 bg-[#c9b4fa]" />
-            <span className="text-sm text-[#bcbac9]">Limited seats available. Batch closing soon.</span>
+            {[
+              { value: '13+ years', label: 'corporate experience' },
+              { value: 'TESOL + IELTS', label: 'training background' },
+              { value: 'Thousands', label: 'of learners guided' }
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="rounded-[1.35rem] border p-4"
+                style={{ borderColor: 'rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.04)' }}
+              >
+                <p className="text-sm uppercase tracking-[0.18em]" style={{ color: '#f0ddc1' }}>{item.value}</p>
+                <p className="mt-2 text-sm leading-6" style={{ color: '#cbbfae' }}>{item.label}</p>
+              </div>
+            ))}
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 18, y: 10 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1], delay: 0.22 }}
+          className="relative lg:justify-self-end"
+          style={{
+            transform: `translateY(${imgParallax * 0.5}px)`,
+            transition: 'transform 0.14s linear',
+          }}
+        >
+          <div className="rounded-[2rem] border border-white/10 bg-white/6 p-2 shadow-[0_30px_80px_-42px_rgba(0,0,0,0.55)] backdrop-blur-[8px]">
+            <div className="relative overflow-hidden rounded-[calc(2rem-0.5rem)] bg-[#2a212f]">
+              <img
+                src="/charles-william.png"
+                alt="Mr. Charles William speaking into a microphone"
+                className="h-full w-full object-cover"
+                loading="eager"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(32,24,39,0.02)_0%,rgba(32,24,39,0.1)_44%,rgba(32,24,39,0.58)_100%)]" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+                <div className="rounded-[1.35rem] border border-white/12 bg-black/18 p-4 backdrop-blur-md">
+                  <p className="text-[11px] uppercase tracking-[0.22em] text-[#f0ddc1]">English Boss voice</p>
+                  <p className="mt-3 text-base leading-7 text-[#f4ede2]">
+                    Learn to observe, organise your thoughts, and speak with clarity, even if you have struggled for years.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
+            className="absolute -bottom-6 -left-2 hidden w-[250px] rounded-[1.4rem] border p-4 sm:block"
+            style={{ borderColor: 'rgba(255,255,255,0.12)', background: 'rgba(244, 236, 225, 0.96)', boxShadow: '0 22px 50px -34px rgba(0,0,0,0.45)' }}
+          >
+            <p className="text-[11px] uppercase tracking-[0.22em]" style={{ color: '#8f7c63' }}>Student voice</p>
+            <p className="mt-3 text-sm leading-6" style={{ color: '#3d352e' }}>
+              “I learned to think before I speak and to approach situations with clarity rather than emotion.”
+            </p>
+            <p className="mt-3 text-xs uppercase tracking-[0.18em]" style={{ color: '#6e6459' }}>Leemarose</p>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )
@@ -608,44 +634,106 @@ function EcosystemShowcaseSection() {
 
 
 function ResultsArchiveSection() {
-  const results = [
-    { stat: "01", title: "Interview Success", desc: "Students cracking interviews at top MNCs with newfound confidence." },
-    { stat: "02", title: "Career Growth", desc: "Professionals commanding respect in meetings and presentations." },
-    { stat: "03", title: "Global Communication", desc: "Learners speaking fluently with international clients." },
+  const voices = [
+    {
+      name: "Leemarose",
+      context: "Perspective and confidence",
+      quote: "I learned to think before I speak and to approach situations with clarity rather than emotion. The picture description exercises helped me understand that one situation can carry many perspectives.",
+      note: "Student reflection"
+    },
+    {
+      name: "Jhansi R",
+      context: "Method and daily transition",
+      quote: "The innovative methods, especially picture description and daily verb challenge, helped me observe more, recollect past events, and correct my speaking and writing errors. I could feel the transition.",
+      note: "Essential batch learner"
+    },
+    {
+      name: "Arun Kumar S",
+      context: "Structure in speaking",
+      quote: "If you attend regularly and complete the daily challenges, you begin to speak confidently using your own content with a clear introduction, description, and conclusion.",
+      note: "Intermediate class"
+    },
+    {
+      name: "Elamathi Rajalingam",
+      context: "Interview and career growth",
+      quote: "He gave me the support, patience, and techniques that helped me crack the interview and get selected in a reputed company.",
+      note: "Career outcome"
+    }
   ]
 
   return (
-    <section id="results" className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#ffffff' }}>
-      <div className="max-w-7xl mx-auto px-8 sm:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-12"
-        >
-          <span className="section-label">Results Archive</span>
-          <h2 className="heading-lg mt-6 max-w-2xl mx-auto" style={{ color: '#292827' }}>
-            Real transformations, documented outcomes
-          </h2>
-        </motion.div>
+    <section id="results" className="relative overflow-hidden border-t border-[#e8e4dd] py-14 lg:py-24" style={{ background: '#f7f2ea' }}>
+      <div className="absolute right-0 top-0 h-[18rem] w-[18rem] rounded-full bg-[#d7bf9d]/18 blur-[120px]" />
+      <div className="mx-auto max-w-7xl px-8 sm:px-12">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:sticky lg:top-28"
+          >
+            <span className="section-label">Student voices</span>
+            <h2 className="mt-6 max-w-xl text-4xl leading-[1.04] tracking-tight md:text-5xl" style={{ color: '#231d1b', fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}>
+              People do not describe a course first. They describe what changed in them.
+            </h2>
+            <p className="mt-6 max-w-lg text-base leading-7 md:text-lg" style={{ color: '#6f6760' }}>
+              The strongest proof of English Boss is not polished marketing language. It is the way learners talk about confidence, structure, observation, interviews, and daily life after learning here.
+            </p>
+          </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {results.map((result, i) => (
-            <motion.div
-              key={result.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.1 }}
-              className="p-8 rounded-xl border border-[#e8e4dd] text-center"
-              style={{ background: '#fafaf8' }}
-            >
-              <div className="mb-5 inline-flex h-12 min-w-12 items-center justify-center rounded-full px-4 text-sm font-bold tracking-[0.2em]" style={{ color: '#1b1938', background: '#f3f0eb' }}>{result.stat}</div>
-              <h3 className="font-medium mb-2" style={{ color: '#292827' }}>{result.title}</h3>
-              <p className="text-sm" style={{ color: '#73706d' }}>{result.desc}</p>
-            </motion.div>
-          ))}
+          <div className="grid gap-5 md:grid-cols-2">
+            {voices.map((voice, i) => (
+              <motion.article
+                key={voice.name}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.85, delay: i * 0.08 }}
+                className={cn(
+                  "rounded-[1.6rem] border p-6 md:p-7",
+                  i === 0 ? "md:col-span-2" : ""
+                )}
+                style={{
+                  background: i === 0 ? '#1d1823' : '#fffdf9',
+                  borderColor: i === 0 ? 'rgba(255,255,255,0.08)' : '#e6d8c9',
+                  boxShadow: i === 0 ? '0 26px 60px -40px rgba(0,0,0,0.45)' : '0 18px 45px -36px rgba(35,29,27,0.22)'
+                }}
+              >
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <p
+                      className="text-[11px] uppercase tracking-[0.22em]"
+                      style={{ color: i === 0 ? '#f0ddc1' : '#8f7c63' }}
+                    >
+                      {voice.context}
+                    </p>
+                    <h3
+                      className="mt-3 text-xl"
+                      style={{ color: i === 0 ? '#f7f1e7' : '#231d1b', fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}
+                    >
+                      {voice.name}
+                    </h3>
+                  </div>
+                  <span
+                    className="rounded-full px-3 py-2 text-[11px] uppercase tracking-[0.2em]"
+                    style={{
+                      background: i === 0 ? 'rgba(255,255,255,0.08)' : '#f3e8d9',
+                      color: i === 0 ? '#d8c8b2' : '#6d655d'
+                    }}
+                  >
+                    {voice.note}
+                  </span>
+                </div>
+                <p
+                  className="mt-6 text-base leading-8 md:text-[1.05rem]"
+                  style={{ color: i === 0 ? '#ddd3c6' : '#4f4740' }}
+                >
+                  “{voice.quote}”
+                </p>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
