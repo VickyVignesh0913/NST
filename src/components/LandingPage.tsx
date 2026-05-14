@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { cn } from '../lib/utils'
 import { motion } from 'framer-motion'
@@ -8,18 +7,8 @@ import {
   Award,
   BookOpen,
   Clock,
-  FileText,
-  Check
+  FileText
 } from 'lucide-react'
-
-// Commercial Analytics Abstraction
-const trackEvent = (eventName: string, params: Record<string, any> = {}) => {
-  // Implementation for GA4, Meta Pixel, etc.
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', eventName, params);
-  }
-  console.log(`[Analytics] ${eventName}`, params);
-};
 
 
 function Navigation() {
@@ -33,9 +22,9 @@ function Navigation() {
 
   const navLinks = [
     { label: 'Home', href: '#home' },
-    { label: 'Courses', href: '#courses' },
-    { label: 'Testimonials', href: '#results' },
-    { label: 'About', href: '#about' },
+    { label: 'Programs', href: '#courses' },
+    { label: 'Results', href: '#results' },
+    { label: 'Founder', href: '#about' },
     { label: 'Contact', href: '#contact' },
   ]
 
@@ -93,7 +82,7 @@ function Navigation() {
 }
 
 // English Learning SVG Layer
-function EnglishLayer() {
+export function EnglishLayer() {
   return (
     <svg
       className="absolute inset-0 w-full h-full pointer-events-none"
@@ -161,7 +150,7 @@ function EnglishLayer() {
 
 // Cursor Glow
 
-function CursorGlow() {
+export function CursorGlow() {
   const [pos, setPos] = useState({ x: 0, y: 0 })
   const [ripples, setRipples] = useState<{ id: number, x: number, y: number }[]>([])
   const rafRef = useRef<number>()
@@ -222,7 +211,7 @@ function CursorGlow() {
 }
 
 
-function FloatingTypography() {
+export function FloatingTypography() {
   const words = ['Speak', 'Lead', 'Grow', 'Thrive']
   
   return (
@@ -592,24 +581,24 @@ function EcosystemShowcaseSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <motion.div className="p-6 rounded-xl border border-[#e8e4dd]" style={{ background: '#ffffff' }}>
-            <div className="text-2xl mb-4">📚</div>
+            <div className="mb-4 inline-flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-[11px] font-bold tracking-[0.18em]" style={{ color: '#1b1938', background: '#f3f0eb' }}>01</div>
             <h3 className="font-medium mb-2" style={{ color: '#292827' }}>Structured Curriculum</h3>
-            <p className="text-sm" style={{ color: '#73706d' }}>Progressive learning paths designed for measurable growth.</p>
+            <p className="text-sm leading-6" style={{ color: '#73706d' }}>Progressive learning paths designed for measurable growth.</p>
           </motion.div>
           <motion.div className="p-6 rounded-xl border border-[#e8e4dd]" style={{ background: '#ffffff' }}>
-            <div className="text-2xl mb-4">🎯</div>
+            <div className="mb-4 inline-flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-[11px] font-bold tracking-[0.18em]" style={{ color: '#1b1938', background: '#f3f0eb' }}>02</div>
             <h3 className="font-medium mb-2" style={{ color: '#292827' }}>Live Sessions</h3>
-            <p className="text-sm" style={{ color: '#73706d' }}>Real-time practice with instant feedback and correction.</p>
+            <p className="text-sm leading-6" style={{ color: '#73706d' }}>Real-time practice with instant feedback and correction.</p>
           </motion.div>
           <motion.div className="p-6 rounded-xl border border-[#e8e4dd]" style={{ background: '#ffffff' }}>
-            <div className="text-2xl mb-4">💬</div>
+            <div className="mb-4 inline-flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-[11px] font-bold tracking-[0.18em]" style={{ color: '#1b1938', background: '#f3f0eb' }}>03</div>
             <h3 className="font-medium mb-2" style={{ color: '#292827' }}>Community Access</h3>
-            <p className="text-sm" style={{ color: '#73706d' }}>Connect with serious learners on the same journey.</p>
+            <p className="text-sm leading-6" style={{ color: '#73706d' }}>Connect with serious learners on the same journey.</p>
           </motion.div>
           <motion.div className="p-6 rounded-xl border border-[#e8e4dd]" style={{ background: '#ffffff' }}>
-            <div className="text-2xl mb-4">📝</div>
+            <div className="mb-4 inline-flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-[11px] font-bold tracking-[0.18em]" style={{ color: '#1b1938', background: '#f3f0eb' }}>04</div>
             <h3 className="font-medium mb-2" style={{ color: '#292827' }}>Resource Library</h3>
-            <p className="text-sm" style={{ color: '#73706d' }}>Every session comes with downloadable notes & practice exercises.</p>
+            <p className="text-sm leading-6" style={{ color: '#73706d' }}>Every session comes with downloadable notes and practice exercises.</p>
           </motion.div>
         </div>
       </div>
@@ -620,13 +609,13 @@ function EcosystemShowcaseSection() {
 
 function ResultsArchiveSection() {
   const results = [
-    { icon: "🎓", title: "Interview Success", desc: "Students cracking interviews at top MNCs with newfound confidence." },
-    { icon: "💼", title: "Career Growth", desc: "Professionals commanding respect in meetings and presentations." },
-    { icon: "🌍", title: "Global Communication", desc: "Learners speaking fluently with international clients." },
+    { stat: "01", title: "Interview Success", desc: "Students cracking interviews at top MNCs with newfound confidence." },
+    { stat: "02", title: "Career Growth", desc: "Professionals commanding respect in meetings and presentations." },
+    { stat: "03", title: "Global Communication", desc: "Learners speaking fluently with international clients." },
   ]
 
   return (
-    <section className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#ffffff' }}>
+    <section id="results" className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#ffffff' }}>
       <div className="max-w-7xl mx-auto px-8 sm:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -652,7 +641,7 @@ function ResultsArchiveSection() {
               className="p-8 rounded-xl border border-[#e8e4dd] text-center"
               style={{ background: '#fafaf8' }}
             >
-              <div className="text-4xl mb-4">{result.icon}</div>
+              <div className="mb-5 inline-flex h-12 min-w-12 items-center justify-center rounded-full px-4 text-sm font-bold tracking-[0.2em]" style={{ color: '#1b1938', background: '#f3f0eb' }}>{result.stat}</div>
               <h3 className="font-medium mb-2" style={{ color: '#292827' }}>{result.title}</h3>
               <p className="text-sm" style={{ color: '#73706d' }}>{result.desc}</p>
             </motion.div>
@@ -666,7 +655,7 @@ function ResultsArchiveSection() {
 
 function FounderVisionSection() {
   return (
-    <section className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#fafaf8' }}>
+    <section id="about" className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#fafaf8' }}>
       <div className="max-w-7xl mx-auto px-8 sm:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -740,7 +729,7 @@ function LearningPathwaysSection() {
   ];
 
   return (
-    <section className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#fafaf8' }}>
+    <section id="courses" className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#fafaf8' }}>
       <div className="absolute inset-0 z-0">
         <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-t from-accent-primary/5 via-transparent to-transparent opacity-40" />
       </div>
@@ -808,7 +797,7 @@ function KnowledgeAuthoritySection() {
   ];
 
   return (
-    <section className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#ffffff' }}>
+    <section id="knowledge" className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#ffffff' }}>
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-primary/5 blur-[160px] rounded-full opacity-30" />
       </div>
@@ -966,7 +955,7 @@ function PedagogySection() {
 
         {/* Conceptual Pillar Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 gap-y-32">
-          {pillars.map((pillar, i) => (
+          {pillars.map((pillar) => (
             <motion.div
               key={pillar.title}
               initial={{ opacity: 0, y: 40 }}
@@ -1058,7 +1047,7 @@ function PedagogySection() {
 
 function RefinedFooter() {
   return (
-    <footer className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#fafaf8' }}>
+    <footer id="contact" className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#fafaf8' }}>
       <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
           <div className="space-y-8">
@@ -1074,27 +1063,27 @@ function RefinedFooter() {
           <div className="space-y-8">
             <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold" style={{ color: '#1b1938' }}>Programs</h4>
             <ul className="space-y-4 text-sm font-medium" style={{ color: '#73706d' }}>
-              <li><a href="#" className="hover:text-[#292827] transition-colors">Presence Cohort</a></li>
-              <li><a href="#" className="hover:text-[#292827] transition-colors">Leadership Track</a></li>
-              <li><a href="#" className="hover:text-[#292827] transition-colors">Articulation Lab</a></li>
+              <li><a href="#courses" className="hover:text-[#292827] transition-colors">Presence Cohort</a></li>
+              <li><a href="#courses" className="hover:text-[#292827] transition-colors">Leadership Track</a></li>
+              <li><a href="#courses" className="hover:text-[#292827] transition-colors">Articulation Lab</a></li>
             </ul>
           </div>
 
           <div className="space-y-8">
             <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold" style={{ color: '#1b1938' }}>Foundation</h4>
             <ul className="space-y-4 text-sm font-medium" style={{ color: '#73706d' }}>
-              <li><a href="#" className="hover:text-[#292827] transition-colors">Philosophy</a></li>
-              <li><a href="#" className="hover:text-[#292827] transition-colors">Methodology</a></li>
-              <li><a href="#" className="hover:text-[#292827] transition-colors">Visionary</a></li>
+              <li><a href="#inside" className="hover:text-[#292827] transition-colors">Philosophy</a></li>
+              <li><a href="#results" className="hover:text-[#292827] transition-colors">Methodology</a></li>
+              <li><a href="#about" className="hover:text-[#292827] transition-colors">Visionary</a></li>
             </ul>
           </div>
 
           <div className="space-y-8">
             <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold" style={{ color: '#1b1938' }}>Connect</h4>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full border flex items-center justify-center transition-colors" style={{ color: '#73706d', borderColor: '#e8e4dd' }}>YT</a>
-              <a href="#" className="w-10 h-10 rounded-full border flex items-center justify-center transition-colors" style={{ color: '#73706d', borderColor: '#e8e4dd' }}>IG</a>
-              <a href="#" className="w-10 h-10 rounded-full border flex items-center justify-center transition-colors" style={{ color: '#73706d', borderColor: '#e8e4dd' }}>WA</a>
+              <a href="#knowledge" className="w-10 h-10 rounded-full border flex items-center justify-center transition-colors" style={{ color: '#73706d', borderColor: '#e8e4dd' }}>YT</a>
+              <a href="#about" className="w-10 h-10 rounded-full border flex items-center justify-center transition-colors" style={{ color: '#73706d', borderColor: '#e8e4dd' }}>IG</a>
+              <a href="https://wa.me/918610690010" className="w-10 h-10 rounded-full border flex items-center justify-center transition-colors" style={{ color: '#73706d', borderColor: '#e8e4dd' }}>WA</a>
             </div>
           </div>
         </div>
@@ -1133,6 +1122,7 @@ export default function LandingPage() {
       <div className="relative z-10">
         <Navigation />
         <HeroSection />
+        <InsideClassSection />
         <TrustNarrativeSection />
         <EcosystemShowcaseSection />
         <LearningPathwaysSection />
@@ -1148,3 +1138,4 @@ export default function LandingPage() {
     </main>
   )
 }
+
