@@ -545,41 +545,58 @@ function InsideClassSection() {
 
 function TrustNarrativeSection() {
   const trustPoints = [
-    { stat: "5,000+", label: "Students Trained" },
-    { stat: "98%", label: "Confidence Improvement" },
-    { stat: "50+", label: "Master Sessions" },
+    { stat: "5,000+", label: "learners trained", detail: "Across live classes, archived sessions, and guided practice communities." },
+    { stat: "13+ years", label: "corporate grounding", detail: "The teaching voice is shaped by real workplace communication, not classroom theory alone." },
+    { stat: "Weekly", label: "assessment rhythm", detail: "Progress reports, feedback loops, and follow-up support keep the learning practical." },
   ]
 
   return (
-    <section className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#ffffff' }}>
-      <div className="max-w-7xl mx-auto px-8 sm:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-16"
-        >
-          <span className="section-label">Proven Results</span>
-          <h2 className="heading-lg mt-6 max-w-3xl mx-auto" style={{ color: '#292827' }}>
-            Trusted by those who demand excellence
-          </h2>
-        </motion.div>
+    <section className="relative border-t border-[#e8e4dd] py-14 lg:py-24" style={{ background: '#fffdf9' }}>
+      <div className="mx-auto max-w-7xl px-8 sm:px-12">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className="section-label">Why people stay</span>
+            <h2 className="mt-6 max-w-xl text-4xl leading-[1.05] tracking-tight md:text-5xl" style={{ color: '#241e1a', fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}>
+              The trust here comes from method, consistency, and the feeling that someone is truly paying attention.
+            </h2>
+          </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.06 }}
+            className="max-w-2xl text-base leading-7 md:justify-self-end md:text-lg"
+            style={{ color: '#6f6860' }}
+          >
+            English Boss feels more personal than a typical coaching offer because the system keeps returning to practice, observation, homework, and correction. Learners do not just consume classes, they keep getting nudged into clearer thinking.
+          </motion.p>
+        </div>
+
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
           {trustPoints.map((point, i) => (
-            <motion.div
+            <motion.article
               key={point.label}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 26 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.1 }}
-              className="text-center p-8 rounded-xl border border-[#e8e4dd]"
-              style={{ background: '#fafaf8' }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, delay: i * 0.08 }}
+              className="rounded-[1.55rem] border p-6"
+              style={{ background: i === 1 ? '#1d1823' : '#faf4eb', borderColor: i === 1 ? 'rgba(255,255,255,0.08)' : '#eadfce' }}
             >
-              <div className="text-3xl font-bold mb-2" style={{ color: '#292827' }}>{point.stat}</div>
-              <div className="text-sm uppercase tracking-wider" style={{ color: '#73706d' }}>{point.label}</div>
-            </motion.div>
+              <p className="text-sm uppercase tracking-[0.2em]" style={{ color: i === 1 ? '#f0ddc1' : '#8f7c63' }}>{point.stat}</p>
+              <h3 className="mt-4 text-xl" style={{ color: i === 1 ? '#f7f1e7' : '#241e1a', fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}>
+                {point.label}
+              </h3>
+              <p className="mt-4 text-sm leading-7" style={{ color: i === 1 ? '#d7cec1' : '#665f58' }}>
+                {point.detail}
+              </p>
+            </motion.article>
           ))}
         </div>
       </div>
@@ -589,43 +606,105 @@ function TrustNarrativeSection() {
 
 
 function EcosystemShowcaseSection() {
-  return (
-    <section className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#fafaf8' }}>
-      <div className="max-w-7xl mx-auto px-8 sm:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-12"
-        >
-          <span className="section-label">The Ecosystem</span>
-          <h2 className="heading-lg mt-6 max-w-2xl mx-auto" style={{ color: '#292827' }}>
-            A complete environment for fluency development
-          </h2>
-        </motion.div>
+  const methodMoments = [
+    {
+      step: '01',
+      title: 'Observe before speaking',
+      body: 'Picture description and situational analysis train learners to notice detail, sequence, and perspective before they try to produce English.',
+      note: 'Picture prompts slow the learner down in the right way.'
+    },
+    {
+      step: '02',
+      title: 'Generate your own content',
+      body: 'Daily verb challenges and structured prompts help students stop depending on memorised lines and start speaking from their own thinking.',
+      note: 'Daily verb work helps learners speak from memory instead of panic.'
+    },
+    {
+      step: '03',
+      title: 'Get corrected with care',
+      body: 'Homework review, assessments, and follow-up support create the kind of repetition that changes confidence over time.',
+      note: 'Reports, notes, and follow-up classes keep the shift from fading after class ends.'
+    }
+  ]
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <motion.div className="p-6 rounded-xl border border-[#e8e4dd]" style={{ background: '#ffffff' }}>
-            <div className="mb-4 inline-flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-[11px] font-bold tracking-[0.18em]" style={{ color: '#1b1938', background: '#f3f0eb' }}>01</div>
-            <h3 className="font-medium mb-2" style={{ color: '#292827' }}>Structured Curriculum</h3>
-            <p className="text-sm leading-6" style={{ color: '#73706d' }}>Progressive learning paths designed for measurable growth.</p>
+  return (
+    <section className="relative overflow-hidden border-t border-[#e8e4dd] py-16 lg:py-28" style={{ background: '#efe6da' }}>
+      <div className="absolute left-0 top-0 h-[20rem] w-[20rem] rounded-full bg-[#d5b48a]/20 blur-[120px]" />
+      <div className="mx-auto max-w-7xl px-8 sm:px-12">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:sticky lg:top-28"
+          >
+            <span className="section-label">The method</span>
+            <h2 className="mt-6 max-w-xl text-4xl leading-[1.03] tracking-tight md:text-5xl" style={{ color: '#241e1a', fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}>
+              English Boss works because it changes the way learners think before it changes the way they sound.
+            </h2>
+            <p className="mt-6 max-w-lg text-base leading-7 md:text-lg" style={{ color: '#6f6760' }}>
+              The method is not built on random fluency tricks. It is built on observation, memory, structure, repetition, and individual feedback, so learners can eventually speak from their own understanding.
+            </p>
+
+            <div className="mt-8 rounded-[1.6rem] border border-[#d8cab8] bg-[#fffaf4] p-5">
+              <p className="text-[11px] uppercase tracking-[0.22em]" style={{ color: '#8f7c63' }}>What students notice</p>
+              <p className="mt-3 text-sm leading-7" style={{ color: '#4f4740' }}>
+                They begin to observe more carefully, remember more clearly, and build their own introduction, description, and conclusion instead of searching for borrowed English.
+              </p>
+            </div>
           </motion.div>
-          <motion.div className="p-6 rounded-xl border border-[#e8e4dd]" style={{ background: '#ffffff' }}>
-            <div className="mb-4 inline-flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-[11px] font-bold tracking-[0.18em]" style={{ color: '#1b1938', background: '#f3f0eb' }}>02</div>
-            <h3 className="font-medium mb-2" style={{ color: '#292827' }}>Live Sessions</h3>
-            <p className="text-sm leading-6" style={{ color: '#73706d' }}>Real-time practice with instant feedback and correction.</p>
-          </motion.div>
-          <motion.div className="p-6 rounded-xl border border-[#e8e4dd]" style={{ background: '#ffffff' }}>
-            <div className="mb-4 inline-flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-[11px] font-bold tracking-[0.18em]" style={{ color: '#1b1938', background: '#f3f0eb' }}>03</div>
-            <h3 className="font-medium mb-2" style={{ color: '#292827' }}>Community Access</h3>
-            <p className="text-sm leading-6" style={{ color: '#73706d' }}>Connect with serious learners on the same journey.</p>
-          </motion.div>
-          <motion.div className="p-6 rounded-xl border border-[#e8e4dd]" style={{ background: '#ffffff' }}>
-            <div className="mb-4 inline-flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-[11px] font-bold tracking-[0.18em]" style={{ color: '#1b1938', background: '#f3f0eb' }}>04</div>
-            <h3 className="font-medium mb-2" style={{ color: '#292827' }}>Resource Library</h3>
-            <p className="text-sm leading-6" style={{ color: '#73706d' }}>Every session comes with downloadable notes and practice exercises.</p>
-          </motion.div>
+
+          <div className="space-y-5">
+            {methodMoments.map((item, i) => (
+              <motion.article
+                key={item.step}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.82, delay: i * 0.08 }}
+                className="rounded-[1.8rem] border p-6 md:p-8"
+                style={{
+                  background: i === 1 ? '#1d1823' : '#fffaf4',
+                  borderColor: i === 1 ? 'rgba(255,255,255,0.08)' : '#e5d7c6',
+                  boxShadow: i === 1 ? '0 28px 60px -40px rgba(0,0,0,0.42)' : '0 20px 45px -38px rgba(36,30,26,0.18)'
+                }}
+              >
+                <div className="flex flex-wrap items-start justify-between gap-5">
+                  <div className="max-w-2xl">
+                    <span
+                      className="inline-flex rounded-full px-3 py-2 text-[11px] uppercase tracking-[0.22em]"
+                      style={{
+                        background: i === 1 ? 'rgba(255,255,255,0.08)' : '#f3e6d6',
+                        color: i === 1 ? '#f0ddc1' : '#8f7c63'
+                      }}
+                    >
+                      Step {item.step}
+                    </span>
+                    <h3
+                      className="mt-5 text-2xl leading-tight"
+                      style={{ color: i === 1 ? '#f7f1e7' : '#241e1a', fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}
+                    >
+                      {item.title}
+                    </h3>
+                    <p className="mt-4 text-base leading-8" style={{ color: i === 1 ? '#ddd3c6' : '#5f574f' }}>
+                      {item.body}
+                    </p>
+                  </div>
+                  <div
+                    className="rounded-[1.35rem] border px-4 py-5 text-sm leading-7 md:max-w-[220px]"
+                    style={{
+                      borderColor: i === 1 ? 'rgba(255,255,255,0.08)' : '#eadfce',
+                      background: i === 1 ? 'rgba(255,255,255,0.04)' : '#fffdf9',
+                      color: i === 1 ? '#d9cfbf' : '#6a625a'
+                    }}
+                  >
+                    {item.note}
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -729,7 +808,7 @@ function ResultsArchiveSection() {
                   className="mt-6 text-base leading-8 md:text-[1.05rem]"
                   style={{ color: i === 0 ? '#ddd3c6' : '#4f4740' }}
                 >
-                  “{voice.quote}”
+                  "{voice.quote}"
                 </p>
               </motion.article>
             ))}
@@ -740,26 +819,34 @@ function ResultsArchiveSection() {
   )
 }
 
-
 function FounderVisionSection() {
   return (
-    <section id="about" className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#fafaf8' }}>
-      <div className="max-w-7xl mx-auto px-8 sm:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="about" className="relative overflow-hidden border-t border-[#e8e4dd] py-16 lg:py-28" style={{ background: '#fffaf4' }}>
+      <div className="absolute bottom-0 left-0 h-[18rem] w-[18rem] rounded-full bg-[#d5b48a]/16 blur-[120px]" />
+      <div className="mx-auto max-w-7xl px-8 sm:px-12">
+        <div className="grid gap-12 lg:grid-cols-[minmax(360px,0.9fr)_minmax(0,1.1fr)] lg:items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="aspect-[4/5] rounded-3xl overflow-hidden border border-[#e8e4dd] relative" style={{ background: '#e8e4dd' }}>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-6xl font-bold" style={{ color: '#9a9794' }}>CW</span>
-              </div>
-              <div className="absolute bottom-8 left-8">
-                <span className="section-label mb-2 block">A Vision for Confidence</span>
-                <h3 className="heading-md font-medium" style={{ color: '#292827' }}>Mr. Charles William</h3>
-                <p className="text-xs uppercase tracking-[0.2em] font-bold mt-1" style={{ color: '#9a9794' }}>Founder</p>
+            <div className="rounded-[2rem] border border-[#eadfce] bg-[#f3e8d8] p-2 shadow-[0_28px_70px_-46px_rgba(36,30,26,0.35)]">
+              <div className="relative overflow-hidden rounded-[calc(2rem-0.5rem)] bg-[#c9b9a5]">
+                <img
+                  src="/charles-william.png"
+                  alt="Charles William, founder of English Boss"
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,18,28,0.03)_0%,rgba(24,18,28,0.18)_46%,rgba(24,18,28,0.64)_100%)]" />
+                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+                  <div className="rounded-[1.4rem] border border-white/10 bg-black/20 p-4 backdrop-blur-sm">
+                    <p className="text-[11px] uppercase tracking-[0.22em]" style={{ color: '#f0ddc1' }}>Founder perspective</p>
+                    <p className="mt-3 text-sm leading-7 text-[#efe5d7]">
+                      13+ years in the corporate world, years of English training practice, and a method shaped around real hesitation, real progress, and real adult learners.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -767,18 +854,38 @@ function FounderVisionSection() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           >
-            <span className="section-label">The Founder's Conviction</span>
-            <h2 className="heading-lg mt-4" style={{ color: '#292827' }}>
-              Communication is the bridge between who you are and who you want to be.
+            <span className="section-label">The founder's conviction</span>
+            <h2 className="mt-6 max-w-3xl text-4xl leading-[1.03] tracking-tight md:text-5xl" style={{ color: '#241e1a', fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}>
+              Charles William teaches spoken English as a change in thought, not a performance of polished lines.
             </h2>
-            <p className="mt-8 text-lg leading-relaxed" style={{ color: '#73706d' }}>
-              "I've spent years observing a painful pattern: brilliant people staying silent in rooms where they should be leading. It wasn't a lack of knowledge—it was a lack of psychological safety in their own expression."
-            </p>
-            <p className="mt-6 text-lg leading-relaxed" style={{ color: '#73706d' }}>
-              "I built this environment to be more than a school. It is a space where you can fail safely until you speak brilliantly."
+
+            <div className="mt-8 space-y-6">
+              <p className="text-lg leading-8" style={{ color: '#5e5650' }}>
+                "I have spent years observing a painful pattern. Brilliant people stay silent in rooms where they should be leading. Most of the time, it is not a lack of knowledge. It is a lack of psychological safety in their own expression."
+              </p>
+              <p className="text-lg leading-8" style={{ color: '#5e5650' }}>
+                "That is why English Boss is built as more than a school. It is a place where people can observe carefully, fail safely, organise their thoughts, and finally speak with authority."
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+              {[
+                { label: 'Corporate', value: '13+ years' },
+                { label: 'Training', value: 'TESOL and IELTS' },
+                { label: 'Approach', value: 'Practical and thought-led' }
+              ].map((item) => (
+                <div key={item.label} className="rounded-[1.35rem] border border-[#eadfce] bg-[#fffdf9] p-4">
+                  <p className="text-sm uppercase tracking-[0.18em]" style={{ color: '#8f7c63' }}>{item.label}</p>
+                  <p className="mt-3 text-lg" style={{ color: '#241e1a', fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}>{item.value}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-8 max-w-2xl text-base leading-7" style={{ color: '#6f6760' }}>
+              The result should feel different from most coaching brands. Less noise, more clarity. Less performance, more personal growth. Less borrowed English, more original expression.
             </p>
           </motion.div>
         </div>
@@ -786,74 +893,164 @@ function FounderVisionSection() {
     </section>
   )
 }
-
-
 function LearningPathwaysSection() {
   const pathways = [
     {
-      title: "Presence Mastery",
-      philosophy: "Speak with calm authority.",
-      focus: "Executive Presence",
-      size: "large"
+      title: "Essential",
+      level: "Pre A1 Live",
+      duration: "30-day live format",
+      body: "A grounded starting point for learners who need structure, confidence, and a daily speaking rhythm before fluency can grow.",
+      anchors: ["Picture description", "Daily verb challenge", "Guided corrections"],
+      tone: "dark"
     },
     {
-      title: "Narrative Control",
-      philosophy: "Master high-stakes conversations.",
-      focus: "Strategic Communication",
-      size: "medium"
+      title: "Evolution",
+      level: "B1 to B2 Live",
+      duration: "Intermediate progression",
+      body: "For learners who can speak a little, but want stronger organisation, better expression, and more control in longer conversations.",
+      anchors: ["Situational analysis", "Structured speaking", "Weekly assessments"],
+      tone: "light"
     },
     {
-      title: "Articulation Intelligence",
-      philosophy: "Train articulation and clarity.",
-      focus: "Phonetic Mastery",
-      size: "medium"
+      title: "Practical Spoken English",
+      level: "Daily life and work",
+      duration: "Applied communication",
+      body: "Built for people who want English that works in offices, interviews, public interaction, and everyday decision-making.",
+      anchors: ["Conversation flow", "Confidence building", "Real-use scenarios"],
+      tone: "light"
     },
     {
-      title: "Leadership Voice",
-      philosophy: "Develop communication presence.",
-      focus: "Influence & Impact",
-      size: "small"
+      title: "Phrasal Verbs",
+      level: "Expression upgrade",
+      duration: "Precision and naturalness",
+      body: "A sharper layer for learners ready to sound more natural, flexible, and expressive in real spoken English.",
+      anchors: ["Natural phrasing", "Recall through use", "Everyday expression"],
+      tone: "warm"
     }
-  ];
+  ]
 
   return (
-    <section id="courses" className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#fafaf8' }}>
+    <section id="courses" className="relative overflow-hidden border-t border-[#e8e4dd] py-16 lg:py-28" style={{ background: '#fcf7f0' }}>
       <div className="absolute inset-0 z-0">
-        <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-t from-accent-primary/5 via-transparent to-transparent opacity-40" />
+        <div className="absolute right-0 top-0 h-[22rem] w-[22rem] rounded-full bg-[#d8c09f]/18 blur-[140px]" />
+        <div className="absolute bottom-0 left-0 h-[18rem] w-[18rem] rounded-full bg-[#1b1938]/5 blur-[120px]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
-        <div className="mb-12 text-center lg:text-left">
+      <div className="relative z-10 mx-auto max-w-7xl px-8 sm:px-12">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.72fr)] lg:items-end">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="section-label">Learning Pathways</span>
-            <h2 className="heading-lg mt-6 max-w-2xl" style={{ color: '#292827' }}>
-              Choose your path to communication mastery
+            <h2 className="mt-6 max-w-3xl text-4xl leading-[1.03] tracking-tight md:text-5xl" style={{ color: '#241e1a', fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}>
+              The programs feel different because they follow the learner's real stage, not a generic fluency promise.
             </h2>
           </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.06 }}
+            className="max-w-md text-base leading-7 md:justify-self-end md:text-lg"
+            style={{ color: '#6b645d' }}
+          >
+            English Boss does not force every learner into the same story. Each pathway is shaped around readiness, hesitation, and the kind of speaking life the learner is trying to enter.
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {pathways.map((pathway, i) => (
-            <motion.div
-              key={pathway.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.1 }}
-              className="card p-6 rounded-xl group hover:border-[#1b1938] transition-all duration-300"
-            >
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style={{ background: '#fafaf8', border: '1px solid #e8e4dd' }}>
-                <span className="text-xl font-bold" style={{ color: '#1b1938' }}>{i + 1}</span>
+        <div className="mt-12 grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+          <motion.article
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.9 }}
+            className="rounded-[2rem] border p-7 md:p-8"
+            style={{ background: '#1d1823', borderColor: 'rgba(255,255,255,0.06)', boxShadow: '0 30px 70px -46px rgba(10,8,12,0.5)' }}
+          >
+            <div className="flex flex-wrap items-start justify-between gap-5">
+              <div className="max-w-2xl">
+                <p className="text-[11px] uppercase tracking-[0.22em]" style={{ color: '#f0ddc1' }}>
+                  {pathways[0].level}
+                </p>
+                <h3 className="mt-4 text-3xl leading-tight sm:text-[2.2rem]" style={{ color: '#f7f1e7', fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}>
+                  {pathways[0].title}
+                </h3>
+                <p className="mt-4 text-base leading-8 sm:text-lg" style={{ color: '#ddd3c6' }}>
+                  {pathways[0].body}
+                </p>
               </div>
-              <h3 className="text-lg font-medium mb-3" style={{ color: '#292827' }}>{pathway.title}</h3>
-              <p className="text-sm mb-4 italic" style={{ color: '#73706d' }}>{pathway.philosophy}</p>
-              <span className="text-xs font-medium" style={{ color: '#9a9794' }}>{pathway.focus}</span>
-            </motion.div>
+              <span className="rounded-full border border-white/10 bg-white/6 px-4 py-3 text-[11px] uppercase tracking-[0.22em]" style={{ color: '#d8c8b2' }}>
+                {pathways[0].duration}
+              </span>
+            </div>
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              {pathways[0].anchors.map((item) => (
+                <div key={item} className="rounded-[1.2rem] border border-white/8 bg-white/[0.05] px-4 py-4 text-sm leading-6" style={{ color: '#e2d8cb' }}>
+                  {item}
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-8 max-w-2xl text-sm leading-7 uppercase tracking-[0.16em]" style={{ color: '#a99d8e' }}>
+              For learners who need a first real change in thought, memory, and confidence.
+            </p>
+          </motion.article>
+        </div>
+
+        <div className="mt-5 grid gap-5 md:grid-cols-3">
+          {pathways.slice(1).map((pathway, i) => (
+            <motion.article
+              key={pathway.title}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.82, delay: i * 0.08 }}
+              className="rounded-[1.7rem] border p-6 md:p-7"
+              style={{
+                background: pathway.tone === 'warm' ? '#f4eadc' : '#fffdf9',
+                borderColor: pathway.tone === 'warm' ? '#ead7be' : '#eadfce',
+                boxShadow: '0 18px 44px -34px rgba(35,29,27,0.18)'
+              }}
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.22em]" style={{ color: '#8f7c63' }}>
+                    {pathway.level}
+                  </p>
+                  <h3 className="mt-4 text-2xl leading-tight" style={{ color: '#241e1a', fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}>
+                    {pathway.title}
+                  </h3>
+                </div>
+                <span className="rounded-full bg-[#efe3d3] px-3 py-2 text-[11px] uppercase tracking-[0.18em]" style={{ color: '#6d665e' }}>
+                  0{i + 2}
+                </span>
+              </div>
+
+              <p className="mt-5 text-sm leading-7" style={{ color: '#5c554d' }}>
+                {pathway.body}
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                {pathway.anchors.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border px-3 py-2 text-[11px] uppercase tracking-[0.16em]"
+                    style={{ borderColor: '#e2d4c4', color: '#7d7062', background: '#fffaf4' }}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+
+              <p className="mt-6 text-sm" style={{ color: '#91867a' }}>
+                {pathway.duration}
+              </p>
+            </motion.article>
           ))}
         </div>
       </div>
@@ -1126,141 +1323,165 @@ function KnowledgeAuthoritySection() {
 function PedagogySection() {
   const pillars = [
     {
-      title: "Immersion",
-      statement: "Fluency develops through consistent exposure.",
-      philosophy: "We create an environment where the language is not studied, but inhabited.",
+      title: "Observation",
+      statement: "Learners first learn to notice what is happening in front of them.",
+      philosophy: "Picture description, sequencing, and perspective work stop the mind from freezing and give speech something real to hold onto.",
       delay: 0.1
     },
     {
-      title: "Repetition",
-      statement: "Confidence emerges through repetition.",
-      philosophy: "Neuro-linguistic patterns are forged through intentional, rhythmic practice.",
+      title: "Generation",
+      statement: "Speech becomes easier when the learner builds original content.",
+      philosophy: "Daily verb challenges and prompt work help learners produce their own language instead of borrowing lines under pressure.",
       delay: 0.2
     },
     {
-      title: "Reflection",
-      statement: "Expression improves through reflection.",
-      philosophy: "Analyzing your own presence allows for the refinement of articulation and tone.",
+      title: "Correction",
+      statement: "Confidence deepens when errors are handled clearly and repeatedly.",
+      philosophy: "Feedback, notes, follow-up classes, and weekly assessments create the repetition that turns awareness into habit.",
       delay: 0.3
     },
     {
       title: "Presence",
-      statement: "Presence is trained through conversation.",
-      philosophy: "The ability to stay calm and articulate under pressure is a psychological skill.",
+      statement: "The final shift is psychological as much as linguistic.",
+      philosophy: "Once thought becomes organised, learners begin to sound calmer, clearer, and more credible in interviews, work, and daily life.",
       delay: 0.4
     }
-  ];
+  ]
 
   return (
-    <section className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#fafaf8' }}>
-      {/* Background Philosophical Atmosphere */}
+    <section className="relative overflow-hidden border-t border-[#e8e4dd] py-16 lg:py-28" style={{ background: '#f6f0e7' }}>
       <div className="absolute inset-0 z-0">
-         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-primary/5 blur-[160px] rounded-full opacity-30" />
+         <div className="absolute left-[-4rem] top-12 h-[22rem] w-[22rem] rounded-full bg-[#cfb08d]/18 blur-[130px]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
-        {/* Section Philosophy Statement */}
-        <div className="mb-8 text-center">
+      <div className="relative z-10 mx-auto max-w-7xl px-8 sm:px-12">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-end">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="section-label">The Pedagogy of Presence</span>
-            <h2 className="heading-lg mt-8 leading-[1] tracking-tighter mx-auto max-w-4xl" style={{ color: '#292827' }}>
-              Fluency is developed through environment and intention.
+            <span className="section-label">How the room changes people</span>
+            <h2 className="mt-6 max-w-3xl text-4xl leading-[1.03] tracking-tight md:text-5xl" style={{ color: '#241e1a', fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}>
+              The method is not mysterious. It is disciplined, repeated, and deeply human.
             </h2>
-            <p className="mt-10 text-xl max-w-2xl mx-auto italic" style={{ color: '#9a9794' }}>
-              "We don't teach spoken English. We build the psychological and linguistic framework for authority."
-            </p>
           </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.06 }}
+            className="max-w-xl text-base leading-7 md:justify-self-end md:text-lg"
+            style={{ color: '#6b645d' }}
+          >
+            English Boss works like a teaching environment with memory. Learners are seen, corrected, challenged, and brought back into practice until confidence starts to feel natural instead of forced.
+          </motion.p>
         </div>
 
-        {/* Conceptual Pillar Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 gap-y-32">
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
           {pillars.map((pillar) => (
             <motion.div
               key={pillar.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: pillar.delay }}
-              className="relative group"
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.82, ease: [0.16, 1, 0.3, 1], delay: pillar.delay }}
+              className="rounded-[1.8rem] border p-6 md:p-8"
+              style={{
+                background: pillar.title === 'Correction' ? '#1d1823' : '#fffaf4',
+                borderColor: pillar.title === 'Correction' ? 'rgba(255,255,255,0.08)' : '#e8dbc9',
+                boxShadow: pillar.title === 'Correction' ? '0 28px 60px -40px rgba(0,0,0,0.46)' : '0 20px 45px -36px rgba(36,30,26,0.18)'
+              }}
             >
-              {/* Abstract Conceptual Visual (Ripple/Wave) */}
-              <div className="absolute -left-12 top-0 w-24 h-24 opacity-[0.1] z-0">
-                 <motion.div 
-                   animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
-                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                   className="w-full h-full rounded-full border-2 border-[#1b1938]"
-                 />
-                 <motion.div 
-                   animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
-                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                   className="absolute inset-4 rounded-full border border-[#c9b4fa]"
-                 />
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <span
+                    className="text-[10px] uppercase tracking-[0.32em] font-bold"
+                    style={{ color: pillar.title === 'Correction' ? '#f0ddc1' : '#8f7c63' }}
+                  >
+                    {pillar.title}
+                  </span>
+                  <h3
+                    className="mt-5 text-2xl leading-tight md:text-[2rem]"
+                    style={{ color: pillar.title === 'Correction' ? '#f7f1e7' : '#241e1a', fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}
+                  >
+                    {pillar.statement}
+                  </h3>
+                </div>
+                <span
+                  className="rounded-full px-3 py-2 text-[11px] uppercase tracking-[0.2em]"
+                  style={{
+                    background: pillar.title === 'Correction' ? 'rgba(255,255,255,0.08)' : '#f2e6d7',
+                    color: pillar.title === 'Correction' ? '#d8c8b2' : '#6d665e'
+                  }}
+                >
+                  Practice loop
+                </span>
               </div>
 
-              <div className="relative z-10 pl-12 lg:pl-0">
-                <div className="flex items-center gap-4 mb-6">
-                   <span className="text-[10px] uppercase tracking-[0.4em] font-bold" style={{ color: '#1b1938' }}>{pillar.title}</span>
-                   <div className="h-[1px] w-12" style={{ background: '#e8e4dd' }} />
-                </div>
-                <h3 className="heading-lg font-medium tracking-tighter leading-tight" style={{ color: '#292827' }}>
-                  {pillar.statement}
-                </h3>
-                <p className="mt-8 text-lg leading-relaxed max-w-md italic" style={{ color: '#73706d' }}>
-                  {pillar.philosophy}
-                </p>
-                <div className="mt-10 flex items-center gap-2">
-                   <div className="w-1.5 h-1.5 rounded-full bg-[#1b1938] animate-pulse" />
-                   <span className="text-[9px] uppercase tracking-widest font-bold" style={{ color: '#9a9794' }}>Linguistic Resonance</span>
-                </div>
-              </div>
+              <p
+                className="mt-6 max-w-2xl text-base leading-8 md:text-lg"
+                style={{ color: pillar.title === 'Correction' ? '#ddd3c6' : '#5f574f' }}
+              >
+                {pillar.philosophy}
+              </p>
+
+              <div className="mt-8 h-px w-full" style={{ background: pillar.title === 'Correction' ? 'rgba(255,255,255,0.08)' : '#eadfce' }} />
+              <p
+                className="mt-5 text-sm uppercase tracking-[0.18em]"
+                style={{ color: pillar.title === 'Correction' ? '#a99d8e' : '#8c7f72' }}
+              >
+                This is where fluency begins to feel earned.
+              </p>
             </motion.div>
           ))}
         </div>
 
-        {/* Enrollment CTA Band - Teal */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-24 text-center py-16 px-8"
-          style={{ background: '#0e3030' }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-14 rounded-[2rem] border p-8 sm:p-10"
+          style={{ background: '#143338', borderColor: 'rgba(255,255,255,0.06)' }}
         >
-          <span className="text-sm uppercase tracking-widest font-bold" style={{ color: 'rgba(255,255,255,0.7)' }}>Limited Entry</span>
-          <h2 className="heading-lg mt-6 mx-auto max-w-2xl" style={{ color: '#ffffff' }}>
-            Your transformation begins with a single decision.
-          </h2>
-          <p className="mt-8 text-lg mx-auto max-w-2xl" style={{ color: 'rgba(255,255,255,0.7)' }}>
-            Join thousands of learners already speaking confidently.
-          </p>
-          
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
-            <motion.a
-              href="tel:+918610690010"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-10 py-4 rounded-lg font-bold shadow-xl"
-              style={{ background: '#ffffff', color: '#0e3030' }}
-            >
-              Enroll Now
-            </motion.a>
-            <motion.a
-              href="https://wa.me/918610690010"
-              whileHover={{ scale: 1.05 }}
-              className="px-10 py-4 rounded-lg font-bold"
-              style={{ border: '1px solid rgba(255,255,255,0.4)', color: '#ffffff' }}
-            >
-              WhatsApp
-            </motion.a>
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+            <div>
+              <span className="text-sm uppercase tracking-[0.22em] font-bold" style={{ color: 'rgba(255,255,255,0.68)' }}>Limited entry</span>
+              <h2 className="mt-5 max-w-2xl text-4xl leading-[1.04] tracking-tight" style={{ color: '#ffffff', fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}>
+                A real shift begins when the learner chooses to stay with the process.
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-7 sm:text-lg" style={{ color: 'rgba(255,255,255,0.72)' }}>
+                English Boss is not designed for passive watching. It is designed for learners who are ready to practise, reflect, and keep returning until their voice feels steady.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-4 sm:flex-row lg:flex-col">
+              <motion.a
+                href="tel:+918610690010"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="rounded-full px-8 py-4 text-center text-sm font-bold shadow-xl"
+                style={{ background: '#ffffff', color: '#143338' }}
+              >
+                Call to Enquire
+              </motion.a>
+              <motion.a
+                href="https://wa.me/918610690010"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="rounded-full px-8 py-4 text-center text-sm font-bold"
+                style={{ border: '1px solid rgba(255,255,255,0.24)', color: '#ffffff' }}
+              >
+                Message on WhatsApp
+              </motion.a>
+            </div>
           </div>
-           
-          <div className="mt-8 text-sm tracking-widest uppercase font-bold opacity-60" style={{ color: '#ffffff' }}>
-             Limited Seats · Batch Open Now
+
+          <div className="mt-8 text-sm uppercase tracking-[0.2em] font-bold opacity-70" style={{ color: '#ffffff' }}>
+             Limited Seats {'\u2022'} Batch Open Now
           </div>
         </motion.div>
       </div>
@@ -1271,45 +1492,61 @@ function PedagogySection() {
 
 function RefinedFooter() {
   return (
-    <footer id="contact" className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#fafaf8' }}>
-      <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
-          <div className="space-y-8">
+    <footer id="contact" className="relative overflow-hidden border-t border-[#e8e4dd] py-14 lg:py-24" style={{ background: '#fbf7f0' }}>
+      <div className="absolute right-0 top-0 h-[16rem] w-[16rem] rounded-full bg-[#d7bf9d]/16 blur-[110px]" />
+      <div className="relative z-10 mx-auto max-w-7xl px-8 sm:px-12">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+          <div>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-lg" style={{ background: '#1b1938' }}>E</div>
-              <span className="text-xl font-bold tracking-tighter" style={{ color: '#292827' }}>English Boss</span>
+              <div className="w-11 h-11 rounded-2xl flex items-center justify-center text-white font-bold text-lg" style={{ background: '#1b1938' }}>E</div>
+              <span className="text-xl font-bold tracking-tight" style={{ color: '#292827' }}>English Boss</span>
             </div>
-            <p className="text-sm leading-relaxed italic max-w-xs" style={{ color: '#9a9794' }}>
-              A high-end spoken English environment designed for determined learners. Building real confidence through practical coaching.
+            <h3 className="mt-8 max-w-2xl text-3xl leading-tight sm:text-4xl" style={{ color: '#241e1a', fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}>
+              A founder-led place for learners who want their English to sound clearer, steadier, and more like their own.
+            </h3>
+            <p className="mt-5 max-w-2xl text-base leading-7" style={{ color: '#6a635b' }}>
+              Built around practice, observation, correction, and emotional confidence, English Boss is less about performance and more about helping adults speak with self-respect.
             </p>
-          </div>
-          
-          <div className="space-y-8">
-            <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold" style={{ color: '#1b1938' }}>Programs</h4>
-            <ul className="space-y-4 text-sm font-medium" style={{ color: '#73706d' }}>
-              <li><a href="#courses" className="hover:text-[#292827] transition-colors">Presence Cohort</a></li>
-              <li><a href="#courses" className="hover:text-[#292827] transition-colors">Leadership Track</a></li>
-              <li><a href="#courses" className="hover:text-[#292827] transition-colors">Articulation Lab</a></li>
-            </ul>
-          </div>
 
-          <div className="space-y-8">
-            <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold" style={{ color: '#1b1938' }}>Foundation</h4>
-            <ul className="space-y-4 text-sm font-medium" style={{ color: '#73706d' }}>
-              <li><a href="#inside" className="hover:text-[#292827] transition-colors">Philosophy</a></li>
-              <li><a href="#results" className="hover:text-[#292827] transition-colors">Methodology</a></li>
-              <li><a href="#about" className="hover:text-[#292827] transition-colors">Visionary</a></li>
-            </ul>
-          </div>
-
-          <div className="space-y-8">
-            <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold" style={{ color: '#1b1938' }}>Connect</h4>
-            <div className="flex gap-4">
-              <a href="#knowledge" className="w-10 h-10 rounded-full border flex items-center justify-center transition-colors" style={{ color: '#73706d', borderColor: '#e8e4dd' }}>YT</a>
-              <a href="#about" className="w-10 h-10 rounded-full border flex items-center justify-center transition-colors" style={{ color: '#73706d', borderColor: '#e8e4dd' }}>IG</a>
-              <a href="https://wa.me/918610690010" className="w-10 h-10 rounded-full border flex items-center justify-center transition-colors" style={{ color: '#73706d', borderColor: '#e8e4dd' }}>WA</a>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="tel:+918610690010" className="rounded-full border px-5 py-3 text-sm font-medium transition-colors" style={{ borderColor: '#dfd2c1', color: '#241e1a', background: '#fffdf9' }}>
+                +91 86106 90010
+              </a>
+              <a href="https://wa.me/918610690010" className="rounded-full border px-5 py-3 text-sm font-medium transition-colors" style={{ borderColor: '#dfd2c1', color: '#241e1a', background: '#fffdf9' }}>
+                WhatsApp
+              </a>
+              <a href="#knowledge" className="rounded-full border px-5 py-3 text-sm font-medium transition-colors" style={{ borderColor: '#dfd2c1', color: '#241e1a', background: '#fffdf9' }}>
+                Archive
+              </a>
             </div>
           </div>
+
+          <div className="grid gap-10 sm:grid-cols-2">
+            <div className="space-y-6">
+              <h4 className="text-[10px] uppercase tracking-[0.36em] font-bold" style={{ color: '#8f7c63' }}>Explore</h4>
+              <ul className="space-y-4 text-sm font-medium" style={{ color: '#645d56' }}>
+                <li><a href="#courses" className="hover:text-[#292827] transition-colors">Learning Pathways</a></li>
+                <li><a href="#knowledge" className="hover:text-[#292827] transition-colors">Knowledge Archive</a></li>
+                <li><a href="#results" className="hover:text-[#292827] transition-colors">Student Voices</a></li>
+                <li><a href="#about" className="hover:text-[#292827] transition-colors">Founder Vision</a></li>
+              </ul>
+            </div>
+
+            <div className="space-y-6">
+              <h4 className="text-[10px] uppercase tracking-[0.36em] font-bold" style={{ color: '#8f7c63' }}>Method Signals</h4>
+              <ul className="space-y-4 text-sm leading-6" style={{ color: '#645d56' }}>
+                <li>Picture description</li>
+                <li>Daily verb challenge</li>
+                <li>Weekly assessments</li>
+                <li>Follow-up support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 flex flex-col gap-4 border-t border-[#e7ddd0] pt-6 text-sm sm:flex-row sm:items-center sm:justify-between" style={{ color: '#8b8175' }}>
+          <p>English Boss, practical spoken English with structure, warmth, and authority.</p>
+          <p>Founder-led learning world for adult learners.</p>
         </div>
       </div>
     </footer>
