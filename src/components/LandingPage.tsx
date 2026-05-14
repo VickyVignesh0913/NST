@@ -780,125 +780,261 @@ function KnowledgeAuthoritySection() {
       id: "xI5_C6DeHxk",
       title: "Never Forget English Again",
       category: "Broadcast 01",
-      duration: "18:42"
+      duration: "18:42",
+      summary: "A reset on how memory, emotion, and repetition shape spoken English.",
+      focus: "Retention and Fluency"
     },
     {
       id: "jNwi7oji8go",
       title: "Do not use Dictionary",
       category: "Broadcast 02",
-      duration: "32:15"
+      duration: "32:15",
+      summary: "Why over-reliance on translation slows the instinct needed for real conversation.",
+      focus: "Thinking in English"
     },
     {
       id: "0x6sgMnPZkw",
-      title: "தமிழ் vs English Idioms",
+      title: "\u0BA4\u0BAE\u0BBF\u0BB4\u0BCD vs English Idioms",
       category: "Broadcast 03",
-      duration: "15:28"
+      duration: "15:28",
+      summary: "A practical comparison that helps learners move from direct translation to expression.",
+      focus: "Idioms and Natural Expression"
     }
-  ];
+  ]
+
+  const [activeBroadcastId, setActiveBroadcastId] = useState(broadcasts[0].id)
+  const activeBroadcast = broadcasts.find((broadcast) => broadcast.id === activeBroadcastId) ?? broadcasts[0]
+  const activeBroadcastHref = `https://www.youtube.com/watch?v=${activeBroadcast.id}`
 
   return (
-    <section id="knowledge" className="relative py-12 lg:py-20 border-t border-[#e8e4dd]" style={{ background: '#ffffff' }}>
+    <section id="knowledge" className="relative overflow-hidden border-t border-[#e8e4dd] py-16 lg:py-28" style={{ background: '#f6f1ea' }}>
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-primary/5 blur-[160px] rounded-full opacity-30" />
+        <div className="absolute left-1/2 top-24 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[#1b1938]/8 blur-[120px]" />
+        <div className="absolute bottom-0 right-0 h-[320px] w-[320px] rounded-full bg-[#cbb28f]/20 blur-[120px]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12">
-        <div className="mb-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="section-label">Knowledge Archive</span>
-            <h2 className="heading-xl mt-6 max-w-2xl mx-auto leading-tight">
-              Public broadcasts on <span className="text-secondary italic">communication psychology</span>
-            </h2>
-          </motion.div>
-        </div>
-
-        {/* Featured Broadcast */}
+      <div className="relative z-10 mx-auto max-w-7xl px-8 sm:px-12">
         <motion.div
-          className="mb-12"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.2 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-12 grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)] lg:items-end"
         >
-          <div className="relative aspect-video rounded-3xl overflow-hidden border border-subtle/30 bg-elevated group cursor-pointer">
-            <img 
-              src={`https://img.youtube.com/vi/${broadcasts[0].id}/hqdefault.jpg`} 
-              alt={broadcasts[0].title}
-              className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#292827]/60 via-[#292827]/30 to-transparent" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Play className="w-8 h-8 text-white ml-1 fill-current" />
+          <div className="max-w-3xl">
+            <span className="section-label">Knowledge Archive</span>
+            <h2 className="mt-6 max-w-4xl text-4xl leading-[1.02] tracking-tight md:text-5xl" style={{ color: '#1d1b20', fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}>
+              A curated media archive for learners building fluency with taste, memory, and presence.
+            </h2>
+            <p className="mt-6 max-w-2xl text-base leading-7 md:text-lg" style={{ color: '#6f6860' }}>
+              This is where English Boss stops sounding like a course and starts feeling like a point of view. Each broadcast is built to change how learners think, notice, and speak.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 sm:max-w-md lg:ml-auto">
+            {[
+              { value: '03', label: 'Selected Broadcasts' },
+              { value: 'Long-form', label: 'Public Learning Format' }
+            ].map((item) => (
+              <div key={item.label} className="rounded-[1.5rem] border border-[#ddd2c4] bg-white/70 p-5" style={{ boxShadow: '0 12px 40px -28px rgba(23, 19, 35, 0.35)' }}>
+                <div className="text-sm font-medium uppercase tracking-[0.22em]" style={{ color: '#8f7c63' }}>{item.value}</div>
+                <div className="mt-2 text-sm leading-6" style={{ color: '#4c463f' }}>{item.label}</div>
               </div>
-            </div>
-            <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
-              <div>
-                <span className="text-[10px] uppercase tracking-widest font-bold" style={{ color: '#9a9794' }}>{broadcasts[0].category}</span>
-                <h3 className="text-xl font-semibold text-white mt-2">{broadcasts[0].title}</h3>
-              </div>
-              <span className="text-sm text-white/80 font-medium">{broadcasts[0].duration}</span>
-            </div>
+            ))}
           </div>
         </motion.div>
 
-        {/* Media Archive Layer */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {broadcasts.slice(1).map((broadcast: { id: string; title: string; category: string; duration: string }, i: number) => (
-            <motion.div
-              key={broadcast.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: i * 0.15 }}
-              className="group cursor-pointer"
-            >
-              <div className="relative aspect-video rounded-xl overflow-hidden border border-[#e8e4dd] group-hover:border-[#1b1938] transition-all duration-300" style={{ background: '#fafaf8' }}>
-                <img 
-                  src={`https://img.youtube.com/vi/${broadcast.id}/mqdefault.jpg`} 
-                  alt="Broadcast Thumbnail" 
-                  className="w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 transition-all duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#292827]/60 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
-                  <span className="text-[9px] uppercase tracking-widest font-bold" style={{ color: '#9a9794' }}>{broadcast.category}</span>
-                  <span className="text-[10px] font-medium" style={{ color: '#ffffff' }}>{broadcast.duration}</span>
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
+          className="rounded-[2rem] border border-black/5 bg-black/5 p-2 shadow-[0_30px_90px_-40px_rgba(20,15,25,0.45)]"
+        >
+          <div
+            className="rounded-[calc(2rem-0.5rem)] border border-white/10 px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8"
+            style={{
+              background: 'linear-gradient(145deg, #111117 0%, #161421 54%, #1b1938 100%)',
+              boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.08)'
+            }}
+          >
+            <div className="grid gap-6 lg:grid-cols-[minmax(0,1.3fr)_360px]">
+              <div className="space-y-5">
+                <a
+                  href={activeBroadcastHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group block"
+                >
+                  <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                    <div className="relative aspect-video overflow-hidden rounded-[calc(1.75rem-0.5rem)] bg-black">
+                      <img
+                        src={`https://img.youtube.com/vi/${activeBroadcast.id}/maxresdefault.jpg`}
+                        alt={activeBroadcast.title}
+                        className="h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-[1.02] group-hover:opacity-95"
+                      />
+                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,12,0.12)_0%,rgba(8,8,12,0.2)_36%,rgba(8,8,12,0.82)_100%)]" />
+                      <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/72 backdrop-blur-sm">
+                        <span className="inline-block h-2 w-2 rounded-full bg-white/70" />
+                        Featured Broadcast
+                      </div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/12 shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] backdrop-blur-md transition duration-500 group-hover:scale-105">
+                          <Play className="ml-1 h-8 w-8 fill-current text-white" />
+                        </div>
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+                        <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-white/68">
+                          <span>{activeBroadcast.category}</span>
+                          <span className="h-1 w-1 rounded-full bg-white/40" />
+                          <span>{activeBroadcast.duration}</span>
+                          <span className="h-1 w-1 rounded-full bg-white/40" />
+                          <span>{activeBroadcast.focus}</span>
+                        </div>
+                        <div className="mt-4 flex items-end justify-between gap-4">
+                          <div className="max-w-2xl">
+                            <h3 className="text-2xl leading-tight text-white sm:text-[2rem]" style={{ fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}>
+                              {activeBroadcast.title}
+                            </h3>
+                            <p className="mt-3 max-w-xl text-sm leading-6 text-white/72 sm:text-base">
+                              {activeBroadcast.summary}
+                            </p>
+                          </div>
+                          <span className="hidden rounded-full border border-white/12 bg-white/10 p-2 text-white/84 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] sm:inline-flex">
+                            <ArrowRight className="h-4 w-4" />
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+                <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_220px]">
+                  <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 text-white/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:p-6">
+                    <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-white/52">
+                      <span className="inline-block h-8 w-8 rounded-full border border-white/10 bg-white/5" />
+                      Archive Note
+                    </div>
+                    <p className="mt-4 max-w-xl text-sm leading-7 sm:text-base">
+                      Public content should still feel curated. This archive is shaped to make learners slow down, think clearly, and absorb English as behaviour rather than just information.
+                    </p>
+                  </div>
+
+                  <a
+                    href={activeBroadcastHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group rounded-[1.5rem] border border-white/10 bg-[#f3efe8] p-5 text-[#161421] transition-transform duration-500 hover:-translate-y-[2px] sm:p-6"
+                    style={{ boxShadow: '0 22px 50px -32px rgba(243, 239, 232, 0.9)' }}
+                  >
+                    <div className="text-[11px] uppercase tracking-[0.24em]" style={{ color: '#8f7c63' }}>
+                      Open on YouTube
+                    </div>
+                    <div className="mt-4 text-xl leading-tight" style={{ fontFamily: "'General Sans', sans-serif", fontWeight: 500 }}>
+                      Watch the full session
+                    </div>
+                    <div className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#161421] px-4 py-3 text-sm font-medium text-white">
+                      View Broadcast
+                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10">
+                        <ArrowRight className="h-4 w-4" />
+                      </span>
+                    </div>
+                  </a>
                 </div>
               </div>
-              <h4 className="mt-6 text-lg font-semibold leading-tight group-hover:text-[#1b1938] transition-colors duration-300" style={{ color: '#292827' }}>
-                {broadcast.title}
-              </h4>
-            </motion.div>
-          ))}
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, delay: 0.5 }}
-            className="flex flex-col justify-center p-8 rounded-xl border border-dashed border-[#e8e4dd]"
-            style={{ background: '#fafaf8' }}
-          >
-            <p className="text-sm leading-relaxed italic" style={{ color: '#9a9794' }}>
-              "A curated archive designed for those who aim for a higher standard of communication. Thousands learn through these public conversations."
-            </p>
-            <div className="mt-8 flex items-center gap-4">
-              <div className="h-[1px] w-8" style={{ background: '#e8e4dd' }} />
-              <span className="text-[9px] uppercase tracking-[0.3em] font-bold" style={{ color: '#1b1938' }}>Explore Archive</span>
+              <div className="space-y-4">
+                <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:p-5">
+                  <div className="mb-4 flex items-center justify-between">
+                    <div>
+                      <p className="text-[11px] uppercase tracking-[0.24em] text-white/48">Selected archive</p>
+                      <p className="mt-1 text-sm text-white/70">Choose a session to feature</p>
+                    </div>
+                    <span className="rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-white/52">
+                      {broadcasts.length} entries
+                    </span>
+                  </div>
+
+                  <div className="space-y-3">
+                    {broadcasts.map((broadcast, index) => {
+                      const isActive = broadcast.id === activeBroadcastId
+
+                      return (
+                        <button
+                          key={broadcast.id}
+                          type="button"
+                          onClick={() => setActiveBroadcastId(broadcast.id)}
+                          aria-pressed={isActive}
+                          className="w-full text-left"
+                        >
+                          <motion.div
+                            layout
+                            whileHover={{ y: -2 }}
+                            whileTap={{ scale: 0.99 }}
+                            className="rounded-[1.25rem] border p-3 transition-all duration-500 sm:p-4"
+                            style={{
+                              background: isActive ? 'rgba(243, 239, 232, 0.96)' : 'rgba(255,255,255,0.02)',
+                              borderColor: isActive ? 'rgba(243, 239, 232, 0.96)' : 'rgba(255,255,255,0.08)',
+                              boxShadow: isActive ? '0 20px 45px -34px rgba(243, 239, 232, 0.95)' : 'inset 0 1px 0 rgba(255,255,255,0.04)'
+                            }}
+                          >
+                            <div className="flex items-start gap-3">
+                              <div
+                                className="mt-1 inline-flex h-9 min-w-9 items-center justify-center rounded-full text-[11px] font-bold tracking-[0.18em]"
+                                style={{
+                                  background: isActive ? '#161421' : 'rgba(255,255,255,0.06)',
+                                  color: isActive ? '#f3efe8' : 'rgba(255,255,255,0.72)'
+                                }}
+                              >
+                                {String(index + 1).padStart(2, '0')}
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <div className="flex items-center justify-between gap-3">
+                                  <span
+                                    className="text-[11px] uppercase tracking-[0.22em]"
+                                    style={{ color: isActive ? '#8f7c63' : 'rgba(255,255,255,0.48)' }}
+                                  >
+                                    {broadcast.category}
+                                  </span>
+                                  <span
+                                    className="text-[11px]"
+                                    style={{ color: isActive ? '#6d665e' : 'rgba(255,255,255,0.58)' }}
+                                  >
+                                    {broadcast.duration}
+                                  </span>
+                                </div>
+                                <h4
+                                  className="mt-2 text-base leading-snug"
+                                  style={{
+                                    color: isActive ? '#161421' : '#ffffff',
+                                    fontFamily: "'General Sans', sans-serif",
+                                    fontWeight: 500
+                                  }}
+                                >
+                                  {broadcast.title}
+                                </h4>
+                                <p
+                                  className="mt-2 text-sm leading-6"
+                                  style={{ color: isActive ? '#5b544c' : 'rgba(255,255,255,0.62)' }}
+                                >
+                                  {broadcast.summary}
+                                </p>
+                              </div>
+                            </div>
+                          </motion.div>
+                        </button>
+                      )
+                    })}
+                  </div>
+                </div>
+              </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
 }
-
-
 function PedagogySection() {
   const pillars = [
     {
@@ -1138,4 +1274,6 @@ export default function LandingPage() {
     </main>
   )
 }
+
+
 
