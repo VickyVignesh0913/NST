@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { cn } from '../lib/utils'
 import { motion } from 'framer-motion'
-import { 
+import {
   Play, 
   ArrowRight,
   Award,
@@ -9,6 +9,10 @@ import {
   Clock,
   FileText
 } from 'lucide-react'
+
+const siteFrame = 'mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12'
+const sectionBand = 'relative overflow-hidden border-t border-[#e8e4dd] py-16 sm:py-20 lg:py-28'
+const sectionSplit = 'grid gap-8 lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] lg:items-end'
 
 
 function Navigation() {
@@ -39,7 +43,7 @@ function Navigation() {
         borderColor: scrolled ? 'var(--border-subtle)' : 'transparent'
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 sm:py-5">
+      <div className={`${siteFrame} py-4 sm:py-5`}>
         <div className="flex items-center justify-between">
           <a href="#home" className="flex items-baseline">
             <span
@@ -108,7 +112,7 @@ export function EnglishLayer() {
       </style>
       <g className="drift-1">
         <text x="60" y="120" fontSize="28" fontFamily="serif" fill="currentColor">Think. Speak. Lead.</text>
-        <text x="60" y="160" fontSize="22" fontFamily="serif" fill="currentColor">Fluency = Practice × Confidence</text>
+        <text x="60" y="160" fontSize="22" fontFamily="serif" fill="currentColor">Fluency = Practice x Confidence</text>
       </g>
       <g className="drift-2">
         <path d="M700 100 Q720 130 740 100 Q760 70 780 100 Q800 130 820 100" stroke="currentColor" strokeWidth="1.5" fill="none" />
@@ -269,7 +273,7 @@ function HeroSection() {
       </div>
 
       <div
-        className="relative z-10 mx-auto grid min-h-[100dvh] w-full max-w-7xl gap-10 px-6 pb-16 pt-28 sm:px-10 lg:grid-cols-12 lg:grid-rows-[auto_auto] lg:gap-x-8 lg:gap-y-8 lg:px-12 lg:pb-20 lg:pt-32"
+        className={`${siteFrame} relative z-10 grid min-h-[100dvh] gap-10 pb-16 pt-28 sm:pb-20 lg:grid-cols-12 lg:grid-rows-[auto_auto] lg:gap-x-10 lg:gap-y-10 lg:pt-32`}
         style={{
           transform: `translateY(${scrollY * 0.06}px)`,
           transition: 'transform 0.18s linear',
@@ -362,7 +366,7 @@ function HeroSection() {
           initial={{ opacity: 0, x: 18, y: 10 }}
           animate={{ opacity: 1, x: 0, y: 0 }}
           transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1], delay: 0.22 }}
-          className="relative lg:col-span-5 lg:row-span-2 lg:self-center lg:justify-self-end"
+          className="relative lg:col-span-5 lg:self-start lg:justify-self-end"
           style={{
             transform: `translateY(${imgParallax * 0.5}px)`,
             transition: 'transform 0.14s linear',
@@ -392,12 +396,12 @@ function HeroSection() {
             initial={{ opacity: 0, y: 14, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
-            className="absolute -bottom-6 -left-2 hidden w-[250px] rounded-[1.4rem] border p-4 sm:block"
+            className="absolute left-4 top-4 hidden w-[250px] rounded-[1.4rem] border p-4 xl:left-[-2.75rem] xl:top-8 xl:block"
             style={{ borderColor: 'rgba(255,255,255,0.12)', background: 'rgba(244, 236, 225, 0.96)', boxShadow: '0 22px 50px -34px rgba(0,0,0,0.45)' }}
           >
             <p className="text-[11px] uppercase tracking-[0.22em]" style={{ color: '#8f7c63' }}>Student voice</p>
             <p className="mt-3 text-sm leading-6" style={{ color: '#3d352e' }}>
-              “I learned to think before I speak and to approach situations with clarity rather than emotion.”
+              "I learned to think before I speak and to approach situations with clarity rather than emotion."
             </p>
             <p className="mt-3 text-xs uppercase tracking-[0.18em]" style={{ color: '#6e6459' }}>Leemarose</p>
           </motion.div>
@@ -407,7 +411,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.58 }}
-          className="grid gap-4 sm:grid-cols-2 lg:col-span-7 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]"
+          className="grid gap-4 sm:grid-cols-2 lg:col-span-12 lg:grid-cols-[minmax(0,1.18fr)_minmax(260px,0.82fr)]"
         >
           <div
             className="rounded-[1.55rem] border p-5 sm:p-6"
@@ -458,8 +462,8 @@ function InsideClassSection() {
   ]
 
   return (
-    <section id="inside" className="relative overflow-hidden py-14 lg:py-24 border-t border-[#e8e4dd]" style={{ background: '#ffffff' }}>
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+    <section id="inside" className={sectionBand} style={{ background: '#ffffff' }}>
+      <div className={siteFrame}>
         <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -512,8 +516,7 @@ function InsideClassSection() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           >
-            <div className="grid gap-4 lg:grid-cols-[minmax(0,1.15fr)_minmax(230px,0.55fr)]">
-              <div className="card overflow-hidden rounded-2xl">
+            <div className="card overflow-hidden rounded-2xl">
               <div className="aspect-video bg-gradient-to-br from-slate-100 to-slate-200 relative flex items-center justify-center">
                 <div className="relative z-10 text-center">
                   <button
@@ -521,15 +524,15 @@ function InsideClassSection() {
                     aria-label="Play English Boss class preview"
                     className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-lg transition-transform hover:scale-110"
                   >
-                    <Play className="w-7 h-7 text-blue-500 ml-1 fill-current" />
+                    <Play className="w-7 h-7 fill-current text-blue-500 ml-1" />
                   </button>
-                  <p className="text-foreground font-medium text-sm">English Boss Live Session</p>
-                  <p className="text-secondary text-xs mt-1">Situational Speaking - English</p>
+                  <p className="text-foreground text-sm font-medium">English Boss Live Session</p>
+                  <p className="mt-1 text-xs text-secondary">Situational Speaking - English</p>
                 </div>
               </div>
               <div className="p-5">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/10 flex items-center justify-center" style={{ color: 'var(--accent-primary)', fontWeight: 'bold', fontSize: '12px' }}>
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/10" style={{ color: 'var(--accent-primary)', fontWeight: 'bold', fontSize: '12px' }}>
                     CW
                   </div>
                   <div>
@@ -537,41 +540,32 @@ function InsideClassSection() {
                     <p className="text-secondary text-xs">Live now | 247 watching</p>
                   </div>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                   {['HD Video', 'PDF Notes', 'Q&A Live'].map((tag) => (
-                    <span key={tag} className="px-3 py-1 rounded-md text-xs text-secondary border border-subtle" style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-subtle)' }}>
+                    <span key={tag} className="rounded-md border border-subtle px-3 py-1 text-xs text-secondary" style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-subtle)' }}>
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
-              </div>
-
-              <div className="grid gap-4">
-                <div className="rounded-[1.6rem] border border-[#eadfce] bg-[#1d1823] p-5">
-                  <p className="text-[11px] uppercase tracking-[0.22em]" style={{ color: '#f0ddc1' }}>Class rhythm</p>
-                  <p className="mt-4 text-base leading-7" style={{ color: '#ddd3c6' }}>
-                    Watch, respond, get corrected, repeat. The class experience is built to reduce fear by making participation feel normal.
-                  </p>
-                </div>
-
-                <motion.div
-                  className="rounded-[1.6rem] border border-[#eadfce] bg-[#fffaf4] p-5"
-                  initial={{ opacity: 0, scale: 0.94 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-                 >
-                   <div className="flex items-center gap-2 mb-2">
-                     <FileText className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
-                     <span className="text-foreground font-medium text-sm">Class Notes</span>
-                  </div>
-                  <p className="text-secondary text-xs leading-6">
-                    Every session is supported by notes, practice prompts, and real follow-up so the lesson does not disappear after class ends.
-                  </p>
-                </motion.div>
-              </div>
             </div>
+
+            <motion.div
+              className="absolute -bottom-6 -right-6 hidden max-w-[220px] rounded-xl border bg-[#fffaf4] p-4 shadow-[0_18px_40px_-28px_rgba(23,19,35,0.22)] sm:block"
+              style={{ borderColor: '#eadfce' }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+            >
+              <div className="mb-2 flex items-center gap-2">
+                <FileText className="h-4 w-4" style={{ color: 'var(--accent-primary)' }} />
+                <span className="text-foreground text-sm font-medium">Class Notes</span>
+              </div>
+              <p className="text-secondary text-xs leading-6">
+                Every session is supported by notes, practice prompts, and real follow-up so the lesson does not disappear after class ends.
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </div>
@@ -588,9 +582,9 @@ function TrustNarrativeSection() {
   ]
 
   return (
-    <section className="relative border-t border-[#e8e4dd] py-14 lg:py-24" style={{ background: '#fffdf9' }}>
-      <div className="mx-auto max-w-7xl px-8 sm:px-12">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
+    <section className={sectionBand} style={{ background: '#fffdf9' }}>
+      <div className={siteFrame}>
+        <div className={sectionSplit}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -665,10 +659,10 @@ function EcosystemShowcaseSection() {
   ]
 
   return (
-    <section className="relative overflow-hidden border-t border-[#e8e4dd] py-16 lg:py-28" style={{ background: '#efe6da' }}>
+    <section className={sectionBand} style={{ background: '#efe6da' }}>
       <div className="absolute left-0 top-0 h-[20rem] w-[20rem] rounded-full bg-[#d5b48a]/20 blur-[120px]" />
-      <div className="mx-auto max-w-7xl px-8 sm:px-12">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start">
+      <div className={siteFrame}>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] lg:items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -769,19 +763,13 @@ function ResultsArchiveSection() {
       quote: "If you attend regularly and complete the daily challenges, you begin to speak confidently using your own content with a clear introduction, description, and conclusion.",
       note: "Intermediate class"
     },
-    {
-      name: "Elamathi Rajalingam",
-      context: "Interview and career growth",
-      quote: "He gave me the support, patience, and techniques that helped me crack the interview and get selected in a reputed company.",
-      note: "Career outcome"
-    }
   ]
 
   return (
-    <section id="results" className="relative overflow-hidden border-t border-[#e8e4dd] py-14 lg:py-24" style={{ background: '#f7f2ea' }}>
+    <section id="results" className={sectionBand} style={{ background: '#f7f2ea' }}>
       <div className="absolute right-0 top-0 h-[18rem] w-[18rem] rounded-full bg-[#d7bf9d]/18 blur-[120px]" />
-      <div className="mx-auto max-w-7xl px-8 sm:px-12">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
+      <div className={siteFrame}>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] lg:items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -858,9 +846,9 @@ function ResultsArchiveSection() {
 
 function FounderVisionSection() {
   return (
-    <section id="about" className="relative overflow-hidden border-t border-[#e8e4dd] py-16 lg:py-28" style={{ background: '#fffaf4' }}>
+    <section id="about" className={sectionBand} style={{ background: '#fffaf4' }}>
       <div className="absolute bottom-0 left-0 h-[18rem] w-[18rem] rounded-full bg-[#d5b48a]/16 blur-[120px]" />
-      <div className="mx-auto max-w-7xl px-8 sm:px-12">
+      <div className={siteFrame}>
         <div className="grid gap-12 lg:grid-cols-[minmax(360px,0.9fr)_minmax(0,1.1fr)] lg:items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -967,14 +955,14 @@ function LearningPathwaysSection() {
   ]
 
   return (
-    <section id="courses" className="relative overflow-hidden border-t border-[#e8e4dd] py-16 lg:py-28" style={{ background: '#fcf7f0' }}>
+    <section id="courses" className={sectionBand} style={{ background: '#fcf7f0' }}>
       <div className="absolute inset-0 z-0">
         <div className="absolute right-0 top-0 h-[22rem] w-[22rem] rounded-full bg-[#d8c09f]/18 blur-[140px]" />
         <div className="absolute bottom-0 left-0 h-[18rem] w-[18rem] rounded-full bg-[#1b1938]/5 blur-[120px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-8 sm:px-12">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.72fr)] lg:items-end">
+      <div className={`relative z-10 ${siteFrame}`}>
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.94fr)_minmax(280px,1.06fr)] lg:items-end">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -999,7 +987,7 @@ function LearningPathwaysSection() {
           </motion.p>
         </div>
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+        <div className="mt-12">
           <motion.article
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1129,13 +1117,13 @@ function KnowledgeAuthoritySection() {
   const activeBroadcastHref = `https://www.youtube.com/watch?v=${activeBroadcast.id}`
 
   return (
-    <section id="knowledge" className="relative overflow-hidden border-t border-[#e8e4dd] py-16 lg:py-28" style={{ background: '#f6f1ea' }}>
+    <section id="knowledge" className={sectionBand} style={{ background: '#f6f1ea' }}>
       <div className="absolute inset-0 z-0">
         <div className="absolute left-1/2 top-24 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[#1b1938]/8 blur-[120px]" />
         <div className="absolute bottom-0 right-0 h-[320px] w-[320px] rounded-full bg-[#cbb28f]/20 blur-[120px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-8 sm:px-12">
+      <div className={`relative z-10 ${siteFrame}`}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1350,20 +1338,6 @@ function KnowledgeAuthoritySection() {
                   </div>
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-                  {[
-                    { value: 'Shorts + long form', label: 'Public teaching voice' },
-                    { value: 'Tamil to English', label: 'Grounded learner bridge' }
-                  ].map((item) => (
-                    <div
-                      key={item.label}
-                      className="rounded-[1.4rem] border border-white/10 bg-white/[0.04] p-4"
-                    >
-                      <p className="text-[11px] uppercase tracking-[0.22em] text-white/50">{item.value}</p>
-                      <p className="mt-3 text-sm leading-6 text-white/74">{item.label}</p>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -1401,13 +1375,13 @@ function PedagogySection() {
   ]
 
   return (
-    <section className="relative overflow-hidden border-t border-[#e8e4dd] py-16 lg:py-28" style={{ background: '#f6f0e7' }}>
+    <section className={sectionBand} style={{ background: '#f6f0e7' }}>
       <div className="absolute inset-0 z-0">
          <div className="absolute left-[-4rem] top-12 h-[22rem] w-[22rem] rounded-full bg-[#cfb08d]/18 blur-[130px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-8 sm:px-12">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-end">
+      <div className={`relative z-10 ${siteFrame}`}>
+        <div className={sectionSplit}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1533,7 +1507,7 @@ function PedagogySection() {
           </div>
 
           <div className="mt-8 text-sm uppercase tracking-[0.2em] font-bold opacity-70" style={{ color: '#ffffff' }}>
-             Limited Seats {'\u2022'} Batch Open Now
+             Limited Seats | Batch Open Now
           </div>
         </motion.div>
       </div>
@@ -1544,9 +1518,9 @@ function PedagogySection() {
 
 function RefinedFooter() {
   return (
-    <footer id="contact" className="relative overflow-hidden border-t border-[#e8e4dd] py-14 lg:py-24" style={{ background: '#fbf7f0' }}>
+    <footer id="contact" className={sectionBand} style={{ background: '#fbf7f0' }}>
       <div className="absolute right-0 top-0 h-[16rem] w-[16rem] rounded-full bg-[#d7bf9d]/16 blur-[110px]" />
-      <div className="relative z-10 mx-auto max-w-7xl px-8 sm:px-12">
+      <div className={`relative z-10 ${siteFrame}`}>
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <div>
             <div className="flex items-center gap-3">
