@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import LandingPage from './components/LandingPage';
-import AuthModal from './components/AuthModal';
 import CoursePurchaseModal from './components/CoursePurchaseModal';
 import ContactModal from './components/ContactModal';
+import Navbar from './components/Navbar';
 import PaidCoursesPage from './pages/PaidCoursesPage';
 import FreeCoursesPage from './pages/FreeCoursesPage';
 import RecordedCoursesPage from './pages/RecordedCoursesPage';
@@ -13,7 +13,6 @@ import StudyMaterialPage from './pages/StudyMaterialPage';
 import { coursesData } from './data/courses';
 
 function App() {
-  const [authModalOpen, setAuthModalOpen] = useState(false);
   const [purchaseModalOpen, setPurchaseModalOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(coursesData.paidCourses[0]);
@@ -25,13 +24,14 @@ function App() {
 
   return (
     <Router>
-      <main className="relative min-h-screen overflow-hidden">
+      <Navbar />
+      <main className="relative min-h-screen overflow-hidden pt-16">
         <Routes>
           <Route
             path="/"
             element={
               <LandingPage
-                onLogin={() => setAuthModalOpen(true)}
+                onLogin={() => {}}
                 onBuyCourse={handleBuyCourse}
                 onContact={() => setContactModalOpen(true)}
               />
@@ -73,7 +73,7 @@ function App() {
             path="/study-material"
             element={<StudyMaterialPage />}
           />
-          {/* Placeholder routes for other pages */}
+          {/* Placeholder routes */}
           <Route path="/quick-links" element={<div className="pt-20 p-8 text-center">Quick Links - Coming Soon</div>} />
           <Route path="/timetable" element={<div className="pt-20 p-8 text-center">Live / Timetable - Coming Soon</div>} />
           <Route path="/test-series" element={<div className="pt-20 p-8 text-center">Test Series - Coming Soon</div>} />
@@ -81,12 +81,6 @@ function App() {
           <Route path="/privacy-policy" element={<div className="pt-20 p-8 text-center">Privacy Policy - Coming Soon</div>} />
           <Route path="/refund-policy" element={<div className="pt-20 p-8 text-center">Refund Policy - Coming Soon</div>} />
         </Routes>
-
-        {/* Auth Modal - Available globally */}
-        <AuthModal
-          isOpen={authModalOpen}
-          onClose={() => setAuthModalOpen(false)}
-        />
 
         {/* Course Purchase Modal */}
         <CoursePurchaseModal

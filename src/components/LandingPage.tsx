@@ -973,7 +973,7 @@ interface LandingPageProps {
 export default function LandingPage({ onLogin, onBuyCourse, onContact, onSubmitTestimonial }: LandingPageProps) {
   return (
     <main className="relative overflow-x-hidden" style={{ background: colors.canvas }}>
-      <Navigation onLogin={onLogin} onContact={onContact} />
+      {/* Navigation removed - using global Navbar from App.tsx */}
       <HeroSection />
       <InsideClassSection />
       <TrustSection />
