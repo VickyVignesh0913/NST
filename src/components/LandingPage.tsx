@@ -11,20 +11,21 @@ import {
   MessageCircle
 } from 'lucide-react'
 
-// LINEAR DESIGN COLORS
+// BRUTALIST EDITORIAL — English Boss
 const colors = {
-  canvas: '#010102',
-  surface1: '#0f1011',
-  surface2: '#141516',
-  surface3: '#18191a',
-  hairline: '#23252a',
-  hairlineStrong: '#34343a',
-  accent: '#5e6ad2',
-  accentHover: '#828fff',
-  textPrimary: '#f7f8f8',
-  textSecondary: '#d0d6e0',
-  textMuted: '#8a8f98',
-  textDim: '#62666d',
+  canvas: '#0a0a0a',
+  surface1: '#0f0f0f',
+  surface2: '#141414',
+  surface3: '#1a1a1a',
+  border: '#2a2a2a',
+  borderStrong: '#444444',
+  // Accent — amber, used sparingly
+  accent: '#e8a445',
+  accentHover: '#f0b65a',
+  textPrimary: '#fafafa',
+  textSecondary: '#c8c8c8',
+  textMuted: '#787878',
+  textDim: '#555555',
 }
 
 // Layout constants
@@ -79,26 +80,26 @@ function Navigation() {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled ? "border-b" : "border-transparent"
+        scrolled ? "border-b-2" : "border-transparent"
       )}
       style={{
         background: scrolled ? colors.surface1 : 'transparent',
-        borderColor: scrolled ? colors.hairline : 'transparent',
+        borderColor: scrolled ? colors.border : 'transparent',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
       }}
     >
       <div className={`${siteFrame} py-4`}>
         <div className="flex items-center justify-between">
-          <a href="#home" className="flex items-center gap-2">
+          <a href="#home" className="flex items-center gap-3">
             <div
-              className="w-8 h-8 rounded-md flex items-center justify-center text-sm font-semibold"
-              style={{ background: colors.accent, color: '#fff' }}
+              className="w-12 h-12 flex items-center justify-center text-xl font-bold"
+              style={{ background: colors.accent, color: '#0a0a0a', border: `2px solid ${colors.accent}` }}
             >
               E
             </div>
             <span
-              className="text-lg font-semibold tracking-tight"
-              style={{ fontFamily: "'Inter', sans-serif", color: colors.textPrimary }}
+              className="text-xl font-bold tracking-tight"
+              style={{ fontFamily: "'Iowan Old Style', serif", color: colors.textPrimary }}
             >
               English Boss
             </span>
@@ -131,8 +132,8 @@ function Navigation() {
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 rounded-lg border"
-              style={{ borderColor: colors.hairline, background: colors.surface1 }}
+              className="md:hidden p-2 border"
+              style={{ borderColor: colors.border, background: colors.surface1 }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -152,8 +153,8 @@ function Navigation() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden py-4 border-t"
-              style={{ borderColor: colors.hairline }}
+              className="md:hidden py-4 border-t-2"
+              style={{ borderColor: colors.border }}
             >
               {navLinks.map((link, i) => (
                 <motion.a
@@ -192,7 +193,7 @@ function HeroSection() {
     <section id="home" className="relative min-h-[100dvh] overflow-hidden" style={{ background: colors.canvas }}>
       <div className={`${siteFrame} relative z-10 min-h-[100dvh] flex flex-col justify-center pb-16 pt-24 sm:pt-28`}>
         <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-          {/* Left content */}
+          {/* Left content - 70% */}
           <div className="lg:col-span-7">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -200,11 +201,7 @@ function HeroSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="mb-6"
             >
-              <span
-                className="badge badge-muted"
-              >
-                Founder-led spoken English
-              </span>
+              <span className="badge badge-accent">Founder-led spoken English</span>
             </motion.div>
 
             <motion.h1
@@ -244,7 +241,7 @@ function HeroSection() {
               <motion.a
                 href="#inside"
                 className="btn-secondary"
-                whileHover={{ scale: 1.02, borderColor: colors.hairlineStrong }}
+                whileHover={{ scale: 1.02, borderColor: colors.borderStrong }}
                 whileTap={{ scale: 0.98 }}
               >
                 <Play className="w-4 h-4" />
@@ -252,31 +249,36 @@ function HeroSection() {
               </motion.a>
             </motion.div>
 
-            {/* Stats row */}
+            {/* Stats row - brutalist horizontal cards */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-10 grid grid-cols-3 gap-4"
+              className="mt-12 flex gap-0"
             >
               {[
                 { value: '13+', label: 'Years corporate' },
                 { value: 'TESOL', label: 'Certified' },
                 { value: '5,000+', label: 'Learners' }
-              ].map((item) => (
+              ].map((item, i) => (
                 <div
                   key={item.label}
-                  className="stat-card transition-all duration-300 hover:border-opacity-100"
-                  style={{ borderColor: colors.hairline }}
+                  className="stat-card"
+                  style={{
+                    borderRight: i < 2 ? `2px solid ${colors.border}` : 'none',
+                    borderTop: '2px solid',
+                    borderBottom: '2px solid',
+                    borderLeft: i === 0 ? '2px solid' : 'none'
+                  }}
                 >
-                  <p className="text-xl font-semibold" style={{ color: colors.textPrimary }}>{item.value}</p>
-                  <p className="text-xs mt-1" style={{ color: colors.textMuted }}>{item.label}</p>
+                  <p className="text-xl font-bold" style={{ color: colors.textPrimary }}>{item.value}</p>
+                  <p className="text-xs mt-1 uppercase tracking-wider" style={{ color: colors.textMuted }}>{item.label}</p>
                 </div>
               ))}
             </motion.div>
           </div>
 
-          {/* Right content - Image */}
+          {/* Right content - Image - 30% */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -284,19 +286,19 @@ function HeroSection() {
             className="lg:col-span-5"
           >
             <div
-              className="surface-card overflow-hidden transition-transform duration-300 hover:scale-[1.01]"
-              style={{ padding: 0 }}
+              className="surface-card overflow-hidden"
+              style={{ padding: 0, border: `2px solid ${colors.border}` }}
             >
               <img
                 src="/charles-william.png"
                 alt="Mr. Charles William - Founder and Trainer at English Boss"
-                className="h-full w-full object-cover"
-                style={{ minHeight: '320px' }}
+                className="h-full w-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                style={{ minHeight: '380px' }}
                 loading="eager"
               />
-              <div className="p-5" style={{ borderTop: `1px solid ${colors.hairline}` }}>
-                <p className="text-xs uppercase tracking-wider mb-2" style={{ color: colors.textMuted }}>English Boss</p>
-                <p className="text-base leading-relaxed" style={{ color: colors.textSecondary }}>
+              <div className="p-4" style={{ borderTop: `2px solid ${colors.border}`, background: colors.surface2 }}>
+                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: colors.accent }}>Founder</p>
+                <p className="text-sm leading-relaxed font-medium" style={{ color: colors.textPrimary }}>
                   Learn to observe, organise your thoughts, and speak with clarity.
                 </p>
               </div>
@@ -319,7 +321,7 @@ function InsideClassSection() {
     <section id="inside" className={sectionPadding} style={{ background: colors.canvas }}>
       <div className={siteFrame}>
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          {/* Left - Content */}
+          {/* Left - Content - 70% */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -334,25 +336,30 @@ function InsideClassSection() {
               Not just grammar. A complete speaking environment designed for real-world English confidence.
             </p>
 
-            <div className="mt-8 space-y-3">
+            <div className="mt-10 space-y-0">
               {features.map((feature, i) => (
                 <motion.div
                   key={i}
-                  className="feature-item transition-all duration-300 hover:bg-opacity-80"
+                  className="feature-item"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  style={{ cursor: 'default' }}
+                  style={{
+                    borderTop: i === 0 ? `2px solid ${colors.border}` : `none`,
+                    borderLeft: `2px solid ${colors.border}`,
+                    borderRight: `2px solid ${colors.border}`,
+                    borderBottom: i < features.length - 1 ? `none` : `2px solid ${colors.border}`,
+                  }}
                 >
                   <div
-                    className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: colors.surface2, border: `1px solid ${colors.hairline}` }}
+                    className="w-12 h-12 flex items-center justify-center flex-shrink-0"
+                    style={{ background: colors.surface2, border: `2px solid ${colors.border}` }}
                   >
                     <feature.icon className="w-5 h-5" style={{ color: colors.accent }} />
                   </div>
                   <div>
-                    <h4 className="font-medium" style={{ color: colors.textPrimary }}>{feature.title}</h4>
+                    <h4 className="font-bold" style={{ color: colors.textPrimary }}>{feature.title}</h4>
                     <p className="text-sm mt-1" style={{ color: colors.textMuted }}>{feature.desc}</p>
                   </div>
                 </motion.div>
@@ -360,43 +367,43 @@ function InsideClassSection() {
             </div>
           </motion.div>
 
-          {/* Right - Preview */}
+          {/* Right - Preview - 30% */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="surface-card-elevated overflow-hidden transition-transform duration-300 hover:scale-[1.01]" style={{ padding: 0 }}>
+            <div className="surface-card-elevated overflow-hidden" style={{ padding: 0, border: `2px solid ${colors.border}` }}>
               <div
                 className="aspect-video flex items-center justify-center relative overflow-hidden"
-                style={{ background: `linear-gradient(135deg, ${colors.surface2} 0%, ${colors.surface3} 100%)` }}
+                style={{ background: colors.surface2 }}
               >
                 <div className="text-center relative z-10">
                   <motion.button
                     type="button"
                     aria-label="Play class preview"
-                    className="w-16 h-16 rounded-full flex items-center justify-center"
-                    style={{ background: colors.accent }}
+                    className="w-20 h-20 flex items-center justify-center"
+                    style={{ background: colors.accent, border: `2px solid ${colors.accent}` }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Play className="w-7 h-7 fill-current text-white ml-1" />
+                    <Play className="w-8 h-8 fill-current text-black ml-1" />
                   </motion.button>
-                  <p className="mt-4 text-sm font-medium" style={{ color: colors.textPrimary }}>Class Preview</p>
+                  <p className="mt-4 text-sm font-bold uppercase tracking-wider" style={{ color: colors.textPrimary }}>Class Preview</p>
                   <p className="text-xs mt-1" style={{ color: colors.textMuted }}>Recorded session</p>
                 </div>
               </div>
-              <div className="p-5" style={{ borderTop: `1px solid ${colors.hairline}` }}>
+              <div className="p-4" style={{ borderTop: `2px solid ${colors.border}`, background: colors.surface2 }}>
                 <div className="flex items-center gap-3">
                   <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium"
-                    style={{ background: colors.accent, color: '#fff' }}
+                    className="w-12 h-12 flex items-center justify-center text-sm font-bold"
+                    style={{ background: colors.accent, color: '#0a0a0a' }}
                   >
                     CW
                   </div>
                   <div>
-                    <p className="text-sm font-medium" style={{ color: colors.textPrimary }}>Mr. Charles William</p>
+                    <p className="text-sm font-bold" style={{ color: colors.textPrimary }}>Mr. Charles William</p>
                     <p className="text-xs" style={{ color: colors.textMuted }}>Founder & Trainer</p>
                   </div>
                 </div>
@@ -420,12 +427,13 @@ function TrustSection() {
   return (
     <section className={sectionPadding} style={{ background: colors.surface1 }}>
       <div className={siteFrame}>
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="lg:col-span-7"
           >
             <span className="section-label">Why people stay</span>
             <h2 className="heading-2 mt-4" style={{ color: colors.textPrimary }}>
@@ -438,13 +446,13 @@ function TrustSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="body-md lg:justify-self-end"
+            className="body-md lg:col-span-5"
           >
             English Boss feels personal because the system keeps returning to practice, observation, and correction. Learners keep getting nudged into clearer thinking.
           </motion.p>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+        <div className="mt-12 grid gap-0 sm:grid-cols-3" style={{ border: `2px solid ${colors.border}` }}>
           {trustPoints.map((point, i) => (
             <motion.article
               key={point.label}
@@ -452,10 +460,16 @@ function TrustSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="stat-card transition-all duration-300 hover:border-opacity-100"
+              className="stat-card"
+              style={{
+                borderTop: 'none',
+                borderBottom: 'none',
+                borderLeft: i === 0 ? `2px solid ${colors.border}` : 'none',
+                borderRight: `2px solid ${colors.border}`,
+              }}
             >
-              <p className="text-lg font-medium" style={{ color: colors.accent }}>{point.stat}</p>
-              <h3 className="mt-2 text-base font-medium" style={{ color: colors.textPrimary }}>{point.label}</h3>
+              <p className="text-2xl font-bold" style={{ color: colors.accent }}>{point.stat}</p>
+              <h3 className="mt-2 text-base font-bold uppercase tracking-wider" style={{ color: colors.textPrimary }}>{point.label}</h3>
               <p className="mt-2 text-sm" style={{ color: colors.textMuted }}>{point.detail}</p>
             </motion.article>
           ))}
@@ -492,7 +506,7 @@ function MethodSection() {
     <section className={sectionPadding} style={{ background: colors.canvas }}>
       <div className={siteFrame}>
         <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
-          {/* Sticky left */}
+          {/* Sticky left - 30% */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -509,8 +523,8 @@ function MethodSection() {
             </p>
           </motion.div>
 
-          {/* Right - Steps */}
-          <div className="lg:col-span-8 space-y-4">
+          {/* Right - Steps - 70% */}
+          <div className="lg:col-span-8 space-y-0">
             {steps.map((item, i) => (
               <motion.article
                 key={item.step}
@@ -518,19 +532,25 @@ function MethodSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="surface-card transition-all duration-300 hover:border-opacity-100"
+                className="surface-card"
+                style={{
+                  borderTop: i === 0 ? `2px solid ${colors.border}` : 'none',
+                  borderLeft: `2px solid ${colors.border}`,
+                  borderRight: `2px solid ${colors.border}`,
+                  borderBottom: i < steps.length - 1 ? 'none' : `2px solid ${colors.border}`,
+                }}
               >
                 <div className="flex flex-col sm:flex-row sm:items-start gap-4">
                   <div className="flex-1">
                     <span className="badge badge-accent">Step {item.step}</span>
-                    <h3 className="heading-4 mt-4">{item.title}</h3>
+                    <h3 className="heading-4 mt-4" style={{ fontFamily: "'Iowan Old Style', serif" }}>{item.title}</h3>
                     <p className="body-md mt-3">{item.body}</p>
                   </div>
                   <div
-                    className="sm:max-w-[200px] p-4 rounded-lg"
-                    style={{ background: colors.surface2, border: `1px solid ${colors.hairline}` }}
+                    className="sm:max-w-[200px] p-4"
+                    style={{ background: colors.surface2, border: `2px solid ${colors.border}` }}
                   >
-                    <p className="text-sm" style={{ color: colors.textMuted }}>{item.note}</p>
+                    <p className="text-sm font-bold uppercase tracking-wider" style={{ color: colors.textMuted }}>{item.note}</p>
                   </div>
                 </div>
               </motion.article>
@@ -569,7 +589,7 @@ function ResultsSection() {
     <section id="results" className={sectionPadding} style={{ background: colors.surface1 }}>
       <div className={siteFrame}>
         <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
-          {/* Sticky left */}
+          {/* Sticky left - 30% */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -583,8 +603,8 @@ function ResultsSection() {
             </h2>
           </motion.div>
 
-          {/* Right - Testimonials */}
-          <div className="lg:col-span-8 grid gap-4 sm:grid-cols-2">
+          {/* Right - Testimonials - 70% */}
+          <div className="lg:col-span-8 grid gap-0 sm:grid-cols-2">
             {voices.map((voice, i) => (
               <motion.article
                 key={voice.name}
@@ -592,18 +612,24 @@ function ResultsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={cn("testimonial-card transition-all duration-300 hover:border-opacity-100", i === 0 ? "sm:col-span-2" : "")}
+                className={cn("testimonial-card", i === 0 ? "sm:col-span-2" : "")}
+                style={{
+                  border: `2px solid ${colors.border}`,
+                  borderTop: i < 2 ? `2px solid ${colors.border}` : 'none',
+                  borderBottom: i >= 1 ? `2px solid ${colors.border}` : 'none',
+                  borderLeft: i % 2 === 0 ? `2px solid ${colors.border}` : 'none',
+                }}
               >
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <p className="text-xs uppercase tracking-wider" style={{ color: colors.textMuted }}>
+                    <p className="text-xs uppercase tracking-widest font-bold" style={{ color: colors.accent }}>
                       {voice.context}
                     </p>
-                    <h3 className="mt-2 text-base font-medium" style={{ color: colors.textPrimary }}>{voice.name}</h3>
+                    <h3 className="mt-2 text-base font-bold" style={{ color: colors.textPrimary }}>{voice.name}</h3>
                   </div>
                   <span className="badge badge-muted">{voice.note}</span>
                 </div>
-                <p className="text-base leading-relaxed" style={{ color: colors.textSecondary }}>
+                <p className="text-base leading-relaxed font-medium" style={{ color: colors.textSecondary }}>
                   "{voice.quote}"
                 </p>
               </motion.article>
@@ -659,7 +685,7 @@ function ProgramsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-10"
+          className="mb-12"
         >
           <span className="section-label">Learning Pathways</span>
           <h2 className="heading-2 mt-4" style={{ color: colors.textPrimary }}>
@@ -667,7 +693,7 @@ function ProgramsSection() {
           </h2>
         </motion.div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-0 sm:grid-cols-2">
           {programs.map((program, i) => (
             <motion.article
               key={program.title}
@@ -675,17 +701,23 @@ function ProgramsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={cn("program-card transition-all duration-300 hover:border-opacity-100", program.featured && "program-card-featured")}
+              className={cn("program-card", program.featured && "program-card-featured")}
+              style={{
+                borderTop: i < 2 ? `2px solid ${colors.border}` : 'none',
+                borderLeft: i % 2 === 0 ? `2px solid ${colors.border}` : 'none',
+                borderRight: `2px solid ${colors.border}`,
+                borderBottom: i >= 2 ? `2px solid ${colors.border}` : 'none',
+              }}
             >
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <p className="text-xs uppercase tracking-wider" style={{ color: colors.textMuted }}>{program.level}</p>
-                  <h3 className="heading-4 mt-2">{program.title}</h3>
+                  <p className="text-xs uppercase tracking-widest font-bold" style={{ color: colors.textMuted }}>{program.level}</p>
+                  <h3 className="heading-4 mt-2" style={{ fontFamily: "'Iowan Old Style', serif" }}>{program.title}</h3>
                 </div>
-                <span className="badge badge-muted">{program.duration}</span>
+                <span className={cn("badge", program.featured ? "badge-accent" : "badge-muted")}>{program.duration}</span>
               </div>
 
-              <p className="text-sm leading-relaxed mb-4" style={{ color: colors.textSecondary }}>
+              <p className="text-sm leading-relaxed mb-4 font-medium" style={{ color: colors.textSecondary }}>
                 {program.body}
               </p>
 
@@ -709,63 +741,72 @@ function FounderSection() {
   return (
     <section id="about" className={sectionPadding} style={{ background: colors.surface1 }}>
       <div className={siteFrame}>
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          {/* Image */}
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+          {/* Image - 40% */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="lg:col-span-5"
           >
-            <div className="surface-card overflow-hidden transition-transform duration-300 hover:scale-[1.01]" style={{ padding: 0 }}>
+            <div className="surface-card overflow-hidden" style={{ padding: 0, border: `2px solid ${colors.border}` }}>
               <img
                 src="/charles-william.png"
                 alt="Charles William - Founder and Trainer at English Boss"
-                className="h-full w-full object-cover"
-                style={{ minHeight: '400px' }}
+                className="h-full w-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                style={{ minHeight: '450px' }}
                 loading="lazy"
               />
-              <div className="p-5" style={{ borderTop: `1px solid ${colors.hairline}` }}>
-                <p className="text-sm font-medium" style={{ color: colors.textPrimary }}>Charles William</p>
-                <p className="text-xs mt-1" style={{ color: colors.textMuted }}>Founder & Trainer</p>
+              <div className="p-4" style={{ borderTop: `2px solid ${colors.border}`, background: colors.surface2 }}>
+                <p className="text-sm font-bold" style={{ color: colors.textPrimary }}>Charles William</p>
+                <p className="text-xs mt-1 uppercase tracking-widest" style={{ color: colors.textMuted }}>Founder & Trainer</p>
               </div>
             </div>
           </motion.div>
 
-          {/* Content */}
+          {/* Content - 60% */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-7"
           >
             <span className="section-label">The founder</span>
             <h2 className="heading-2 mt-4" style={{ color: colors.textPrimary }}>
               Teaching spoken English as a change in thought, not performance.
             </h2>
 
-            <div className="mt-6 space-y-4">
-              <p className="body-md">
-                "Brilliant people stay silent in rooms where they should be leading. It's not lack of knowledge, it's lack of psychological safety in expression."
-              </p>
-              <p className="body-md">
-                "English Boss is a place where people can observe carefully, fail safely, organise thoughts, and speak with authority."
-              </p>
+            <div className="mt-8 space-y-0">
+              <div className="surface-card" style={{ borderLeft: `4px solid ${colors.accent}` }}>
+                <p className="body-md font-medium italic">
+                  "Brilliant people stay silent in rooms where they should be leading. It's not lack of knowledge, it's lack of psychological safety in expression."
+                </p>
+              </div>
+              <div className="surface-card mt-4" style={{ borderLeft: `4px solid ${colors.borderStrong}` }}>
+                <p className="body-md font-medium italic">
+                  "English Boss is a place where people can observe carefully, fail safely, organise thoughts, and speak with authority."
+                </p>
+              </div>
             </div>
 
-            <div className="mt-8 grid grid-cols-3 gap-3">
+            <div className="mt-10 flex gap-0" style={{ border: `2px solid ${colors.border}` }}>
               {[
                 { label: 'Corporate', value: '13+ years' },
                 { label: 'Training', value: 'TESOL/IELTS' },
                 { label: 'Approach', value: 'Thought-led' }
-              ].map((item) => (
+              ].map((item, i) => (
                 <div
                   key={item.label}
-                  className="p-3 rounded-lg transition-all duration-300 hover:bg-opacity-80"
-                  style={{ background: colors.surface2, border: `1px solid ${colors.hairline}` }}
+                  className="p-4 flex-1"
+                  style={{
+                    borderRight: i < 2 ? `2px solid ${colors.border}` : 'none',
+                    background: colors.surface2
+                  }}
                 >
-                  <p className="text-xs uppercase tracking-wider" style={{ color: colors.textMuted }}>{item.label}</p>
-                  <p className="text-base font-medium mt-1" style={{ color: colors.textPrimary }}>{item.value}</p>
+                  <p className="text-xs uppercase tracking-widest font-bold" style={{ color: colors.textMuted }}>{item.label}</p>
+                  <p className="text-lg font-bold mt-1" style={{ color: colors.textPrimary }}>{item.value}</p>
                 </div>
               ))}
             </div>
@@ -787,10 +828,10 @@ function ContactSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="surface-card-elevated"
-          style={{ padding: '3rem' }}
+          style={{ padding: '3rem', border: `2px solid ${colors.border}` }}
         >
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div>
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-7">
               <span className="section-label">Get in touch</span>
               <h2 className="heading-2 mt-4" style={{ color: colors.textPrimary }}>
                 Ready to start your English journey?
@@ -800,7 +841,7 @@ function ContactSection() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+            <div className="lg:col-span-5 flex flex-col gap-3">
               <motion.a
                 href="tel:+918610690010"
                 className="btn-primary text-center"
@@ -813,7 +854,7 @@ function ContactSection() {
               <motion.a
                 href="https://wa.me/918610690010"
                 className="btn-secondary text-center"
-                whileHover={{ scale: 1.02, borderColor: colors.hairlineStrong }}
+                whileHover={{ scale: 1.02, borderColor: colors.borderStrong }}
                 whileTap={{ scale: 0.98 }}
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
@@ -829,37 +870,37 @@ function ContactSection() {
 
 function Footer() {
   return (
-    <footer style={{ background: colors.surface1, borderTop: `1px solid ${colors.hairline}` }}>
-      <div className={`${siteFrame} py-10`}>
-        <div className="grid gap-8 lg:grid-cols-2">
+    <footer style={{ background: colors.surface1, borderTop: `2px solid ${colors.border}` }}>
+      <div className={`${siteFrame} py-12`}>
+        <div className="grid gap-10 lg:grid-cols-2">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <div
-                className="w-10 h-10 rounded-lg flex items-center justify-center text-sm font-medium"
-                style={{ background: colors.accent, color: '#fff' }}
+                className="w-12 h-12 flex items-center justify-center text-lg font-bold"
+                style={{ background: colors.accent, color: '#0a0a0a', border: `2px solid ${colors.accent}` }}
               >
                 E
               </div>
-              <span className="text-lg font-semibold" style={{ color: colors.textPrimary }}>English Boss</span>
+              <span className="text-xl font-bold" style={{ fontFamily: "'Iowan Old Style', serif", color: colors.textPrimary }}>English Boss</span>
             </div>
-            <p className="mt-4 max-w-md text-sm leading-relaxed" style={{ color: colors.textMuted }}>
+            <p className="mt-5 max-w-md text-sm leading-relaxed font-medium" style={{ color: colors.textMuted }}>
               Founder-led spoken English with structure, warmth, and authority.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-0">
               <motion.a
                 href="tel:+918610690010"
-                className="text-sm px-4 py-2 rounded-lg border transition-all duration-200"
-                style={{ borderColor: colors.hairline, color: colors.textSecondary }}
-                whileHover={{ borderColor: colors.hairlineStrong, background: colors.surface2 }}
+                className="text-sm px-5 py-3 border transition-all duration-200"
+                style={{ borderColor: colors.border, borderRight: 'none', color: colors.textSecondary, background: colors.surface2 }}
+                whileHover={{ background: colors.surface1 }}
               >
                 +91 86106 90010
               </motion.a>
               <motion.a
                 href="https://wa.me/918610690010"
-                className="text-sm px-4 py-2 rounded-lg border transition-all duration-200"
-                style={{ borderColor: colors.hairline, color: colors.textSecondary }}
-                whileHover={{ borderColor: colors.hairlineStrong, background: colors.surface2 }}
+                className="text-sm px-5 py-3 border transition-all duration-200"
+                style={{ borderColor: colors.border, color: colors.textSecondary, background: colors.surface2 }}
+                whileHover={{ background: colors.surface1 }}
               >
                 WhatsApp
               </motion.a>
@@ -869,18 +910,18 @@ function Footer() {
           {/* Links */}
           <div className="grid gap-6 sm:grid-cols-2">
             <div>
-              <h4 className="text-xs uppercase tracking-wider font-semibold mb-4" style={{ color: colors.textMuted }}>Explore</h4>
-              <ul className="space-y-3 text-sm" style={{ color: colors.textSecondary }}>
-                <li><a href="#courses" className="transition-colors hover:text-white">Programs</a></li>
-                <li><a href="#results" className="transition-colors hover:text-white">Student Voices</a></li>
-                <li><a href="#about" className="transition-colors hover:text-white">Founder</a></li>
-                <li><a href="#contact" className="transition-colors hover:text-white">Contact</a></li>
+              <h4 className="text-xs uppercase tracking-widest font-bold mb-5" style={{ color: colors.accent }}>Explore</h4>
+              <ul className="space-y-3 text-sm font-medium" style={{ color: colors.textSecondary }}>
+                <li><a href="#courses" className="hover:text-white transition-colors">Programs</a></li>
+                <li><a href="#results" className="hover:text-white transition-colors">Student Voices</a></li>
+                <li><a href="#about" className="hover:text-white transition-colors">Founder</a></li>
+                <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="text-xs uppercase tracking-wider font-semibold mb-4" style={{ color: colors.textMuted }}>Method</h4>
-              <ul className="space-y-3 text-sm" style={{ color: colors.textSecondary }}>
+              <h4 className="text-xs uppercase tracking-widest font-bold mb-5" style={{ color: colors.accent }}>Method</h4>
+              <ul className="space-y-3 text-sm font-medium" style={{ color: colors.textSecondary }}>
                 <li>Picture description</li>
                 <li>Daily verb challenge</li>
                 <li>Weekly assessments</li>
@@ -891,8 +932,8 @@ function Footer() {
         </div>
 
         <div
-          className="mt-10 pt-6 flex flex-col gap-2 text-sm sm:flex-row sm:items-center sm:justify-between"
-          style={{ borderTop: `1px solid ${colors.hairline}`, color: colors.textDim }}
+          className="mt-12 pt-6 flex flex-col gap-2 text-sm sm:flex-row sm:items-center sm:justify-between font-bold uppercase tracking-wider"
+          style={{ borderTop: `2px solid ${colors.border}`, color: colors.textDim }}
         >
           <p>English Boss — Practical spoken English</p>
           <p>Founder-led for adult learners</p>
