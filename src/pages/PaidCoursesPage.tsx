@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import coursesData from '../data/courses.json';
+import { coursesData } from '../data/courses';
 import CourseCard from '../components/CourseCard';
 import Footer from '../components/Footer';
 import type { Course } from '../types';

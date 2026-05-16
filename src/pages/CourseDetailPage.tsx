@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Play, Clock, BarChart, CheckCircle } from 'lucide-react';
-import coursesData from '../data/courses.json';
+import { coursesData } from '../data/courses';
 import Footer from '../components/Footer';
 import type { Course } from '../types';
 

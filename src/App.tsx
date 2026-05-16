@@ -10,15 +10,15 @@ import RecordedCoursesPage from './pages/RecordedCoursesPage';
 import CourseDetailPage from './pages/CourseDetailPage';
 import PurchasesPage from './pages/PurchasesPage';
 import StudyMaterialPage from './pages/StudyMaterialPage';
-import { courses as allCourses } from './data/courses.json';
+import { coursesData } from './data/courses';
 
 function App() {
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [purchaseModalOpen, setPurchaseModalOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
-  const [selectedCourse, setSelectedCourse] = useState(allCourses.paidCourses[0]);
+  const [selectedCourse, setSelectedCourse] = useState(coursesData.paidCourses[0]);
 
-  const handleBuyCourse = (course: typeof allCourses.paidCourses[0]) => {
+  const handleBuyCourse = (course: typeof coursesData.paidCourses[0]) => {
     setSelectedCourse(course);
     setPurchaseModalOpen(true);
   };
