@@ -8,37 +8,28 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ['"Plus Jakarta Sans"', 'sans-serif'],
-        body: ['"Plus Jakarta Sans"', 'sans-serif'],
+        display: ['"Inter"', 'sans-serif'],
+        body: ['"Inter"', 'sans-serif'],
       },
       colors: {
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        'muted-foreground': 'hsl(var(--muted-foreground))',
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-        },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-        },
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
+        canvas: '#010102',
+        surface1: '#0f1011',
+        surface2: '#141516',
+        surface3: '#18191a',
+        hairline: '#23252a',
+        accent: '#5e6ad2',
+        'accent-hover': '#828fff',
+        'text-primary': '#f7f8f8',
+        'text-secondary': '#d0d6e0',
+        'text-muted': '#8a8f98',
+        'text-dim': '#62666d',
       },
       animation: {
-        'fade-rise': 'fade-rise 0.8s ease-out forwards',
-        'fade-rise-delay': 'fade-rise 0.8s ease-out 0.2s forwards',
-        'fade-rise-delay-2': 'fade-rise 0.8s ease-out 0.4s forwards',
+        'fade-rise': 'fade-rise 0.6s ease-out forwards',
       },
       keyframes: {
         'fade-rise': {
-          from: { opacity: '0', transform: 'translateY(24px)' },
+          from: { opacity: '0', transform: 'translateY(20px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
         },
       },
