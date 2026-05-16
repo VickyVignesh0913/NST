@@ -1,29 +1,22 @@
 import { useState } from 'react';
-import { X, Check } from 'lucide-react';
+import { Check, CreditCard, Smartphone, Building, Shield, Sparkles } from 'lucide-react';
 import ModalWrapper from './ModalWrapper';
+import { Course } from '../types';
 
-interface Course {
-  id: string;
-  title: string;
-  price: number;
-  description: string;
-  features: string[];
-  image?: string;
-}
-
-interface CoursePurchaseModalProps {
-  course: Course;
+interface Props {
+  course: Course | null;
   isOpen: boolean;
   onClose: () => void;
+  onContactClick?: () => void;
 }
 
 type PaymentMethod = 'razorpay' | 'paypal' | 'stripe' | 'bank';
 
 const PAYMENT_METHODS = [
-  { id: 'razorpay', label: 'Razorpay', icon: '₹' },
-  { id: 'paypal', label: 'PayPal', icon: 'PP' },
-  { id: 'stripe', label: 'Stripe', icon: 'S' },
-  { id: 'bank', label: 'Bank Transfer', icon: '🏦' },
+  { id: 'razorpay', label: 'Razorpay', icon: CreditCard, desc: 'Instant checkout' },
+  { id: 'paypal', label: 'PayPal', icon: Smartphone, desc: 'Pay with PayPal' },
+  { id: 'stripe', label: 'Stripe', icon: Shield, desc: 'Secure payment' },
+  { id: 'bank', label: 'Bank Transfer', icon: Building, desc: 'Direct transfer' },
 ];
 
 const BANK_DETAILS = {
@@ -33,7 +26,7 @@ const BANK_DETAILS = {
   ifscCode: 'HDFC0001234',
 };
 
-export default function CoursePurchaseModal({ course, isOpen, onClose }: CoursePurchaseModalProps) {
+export default function CoursePurchaseModal({ course, isOpen, onClose, onContactClick }: Props) {
   const [selectedPayment, setSelectedPayment] = useState<PaymentMethod | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -47,116 +40,210 @@ export default function CoursePurchaseModal({ course, isOpen, onClose }: CourseP
 
   const handlePurchase = async () => {
     if (!selectedPayment) return;
-
     setIsProcessing(true);
-
     setTimeout(() => {
       setIsProcessing(false);
       setShowSuccess(true);
     }, 1500);
   };
 
-  return (
-    <ModalWrapper isOpen={isOpen} onClose={handleClose} maxWidth="md">
-      <div className="p-6">
-        {showSuccess ? (
-          /* Success State - consistent with other modals */
-          <div className="text-center py-8">
-            <div className="w-16 h-16 mx-auto mb-4 border-2 border-[#e8a445] flex items-center justify-center">
-              <Check className="text-[#e8a445]" size={32} />
+  if (!course) return null;
+
+  if (showSuccess) {
+    return (
+      <ModalWrapper isOpen={isOpen} onClose={handleClose}>
+        <div className="text-center py-6">
+          <div className="relative w-24 h-24 mx-auto mb-6">
+            <div className="absolute inset-0 bg-[#e8a445]/20 rounded-full animate-ping"></div>
+            <div className="relative w-20 h-20 mx-auto bg-[#e8a845]/20 rounded-full flex items-center justify-center border-2 border-[#e8a845]">
+              <Check className="w-10 h-10 text-[#e8a845]" />
             </div>
-            <h3 className="font-serif text-3xl text-white mb-2">Payment Initiated!</h3>
-            <p className="text-[#888] font-mono text-sm mb-6">
-              Redirecting to {selectedPayment}...
-            </p>
-            <button
-              type="button"
-              onClick={handleClose}
-              className="px-6 py-3 border-2 border-[#e8a445] text-[#e8a445] font-mono text-sm uppercase tracking-wider hover:bg-[#e8a445]/10 transition-colors"
-            >
-              Close
-            </button>
           </div>
-        ) : (
-          <>
-            {/* Course Summary */}
-            <div className="mb-6 pb-6 border-b-2 border-[#333]">
-              <h3 className="font-serif text-3xl text-white mb-2">{course.title}</h3>
-              <p className="text-[#888] font-mono text-sm mb-4">{course.description}</p>
-              <div className="text-4xl font-mono text-[#e8a445]">
-                ₹{course.price.toLocaleString()}
-              </div>
+          <h3 className="font-serif text-3xl text-white mb-2">Payment Initiated!</h3>
+          <p className="text-[#888] font-mono text-sm mb-6">
+            Redirecting to {selectedPayment} gateway...
+          </p>
+          <div className="bg-[#1a1a1a] border border-[#333] rounded-lg p-4 mb-6 text-left">
+            <div className="flex justify-between items-center py-2 border-b border-[#333]">
+              <span className="text-[#666] font-mono text-xs">Course</span>
+              <span className="text-white font-mono text-sm">{course.title}</span>
+            </div>
+            <div className="flex justify-between items-center py-2 border-b border-[#333]">
+              <span className="text-[#666] font-mono text-xs">Amount</span>
+              <span className="text-[#e8a845] font-mono font-bold text-lg">₹{course.price.toLocaleString()}</span>
+            </div>
+            <div className="flex justify-between items-center py-2">
+              <span className="text-[#666] font-mono text-xs">Via</span>
+              <span className="text-[#aaa] font-mono text-xs uppercase">{selectedPayment}</span>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={handleClose}
+            className="px-8 py-3 bg-[#e8a845] text-black font-mono font-bold rounded-lg hover:bg-[#d4993d] transition-all hover:shadow-[0_0_20px_rgba(232,164,69,0.3)]"
+          >
+            Done
+          </button>
+        </div>
+      </ModalWrapper>
+    );
+  }
+
+  const originalPrice = Math.floor(course.price * 1.5);
+  const discount = Math.round(((originalPrice - course.price) / originalPrice) * 100);
+
+  return (
+    <ModalWrapper isOpen={isOpen} onClose={handleClose}>
+      <div className="p-2">
+        {/* Course Card - Premium Look */}
+        <div className="relative mb-6 p-5 rounded-xl bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] border border-[#333] overflow-hidden">
+          {/* Decorative corner accent */}
+          <div className="absolute top-0 right-0 w-16 h-16 bg-[#e8a845]/5 rounded-bl-full"></div>
+
+          <div className="flex items-start gap-4">
+            {/* Course initial badge */}
+            <div className="w-14 h-14 rounded-xl bg-[#e8a845]/20 border border-[#e8a845]/30 flex items-center justify-center flex-shrink-0">
+              <span className="font-serif text-2xl text-[#e8a845]">{course.title.charAt(0)}</span>
             </div>
 
-            {/* Features */}
-            <div className="mb-6">
-              <h4 className="text-white uppercase tracking-wider text-xs font-mono mb-3">What's Included</h4>
-              <ul className="space-y-2">
-                {(course.features || []).map((feature, index) => (
-                  <li key={index} className="flex items-center gap-2 text-[#888] font-mono text-sm">
-                    <Check size={16} className="text-[#e8a445]" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+            <div className="flex-1 min-w-0">
+              <h3 className="font-serif text-2xl text-white mb-1">{course.title}</h3>
+              <p className="text-[#666] font-mono text-xs line-clamp-2">{course.description}</p>
             </div>
+          </div>
 
-            {/* Payment Methods */}
-            <div className="mb-6">
-              <h4 className="text-white uppercase tracking-wider text-xs font-mono mb-3">Select Payment Method</h4>
-              <div className="grid grid-cols-2 gap-3">
-                {PAYMENT_METHODS.map((method) => (
-                  <button
-                    type="button"
-                    key={method.id}
-                    onClick={() => setSelectedPayment(method.id as PaymentMethod)}
-                    className={`p-4 border-2 font-mono text-sm transition-all ${
-                      selectedPayment === method.id
-                        ? 'border-[#e8a445] bg-[#e8a445]/10 text-white'
-                        : 'border-[#333] text-[#888] hover:border-[#555]'
-                    }`}
-                  >
-                    <span className="block text-lg mb-1">{method.icon}</span>
-                    {method.label}
-                  </button>
-                ))}
-              </div>
+          {/* Price tag */}
+          <div className="mt-4 flex items-center justify-between">
+            <div className="flex items-baseline gap-2">
+              <span className="text-[#e8a845] font-mono text-3xl font-bold">₹{course.price.toLocaleString()}</span>
+              <span className="text-[#555] font-mono text-sm line-through">₹{originalPrice.toLocaleString()}</span>
             </div>
+            <span className="px-2 py-1 bg-[#e8a845]/20 text-[#e8a845] font-mono text-xs font-bold rounded">
+              {discount}% OFF
+            </span>
+          </div>
+        </div>
 
-            {/* Bank Transfer Details */}
-            {selectedPayment === 'bank' && (
-              <div className="mb-6 p-4 border-2 border-[#333] bg-[#0a0a0a]">
-                <h4 className="text-white uppercase tracking-wider text-xs font-mono mb-3">Bank Details</h4>
-                <div className="space-y-2 font-mono text-sm text-[#888]">
-                  <p><span className="text-[#666]">Account Name:</span> {BANK_DETAILS.accountName}</p>
-                  <p><span className="text-[#666]">Account Number:</span> {BANK_DETAILS.accountNumber}</p>
-                  <p><span className="text-[#666]">Bank:</span> {BANK_DETAILS.bankName}</p>
-                  <p><span className="text-[#666]">IFSC:</span> {BANK_DETAILS.ifscCode}</p>
+        {/* Features - Pill badges */}
+        <div className="mb-6">
+          <div className="flex flex-wrap gap-2">
+            {(course.features || []).slice(0, 4).map((feature, index) => (
+              <span
+                key={index}
+                className="px-3 py-1.5 bg-[#1a1a1a] border border-[#333] rounded-full font-mono text-xs text-[#aaa] flex items-center gap-1"
+              >
+                <Sparkles className="w-3 h-3 text-[#e8a845]" />
+                {feature}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Payment Methods - Visual cards */}
+        <div className="mb-5">
+          <h4 className="text-[#888] uppercase tracking-wider text-xs font-mono mb-3">Choose Payment</h4>
+          <div className="grid grid-cols-2 gap-3">
+            {PAYMENT_METHODS.map((method) => (
+              <button
+                key={method.id}
+                type="button"
+                onClick={() => setSelectedPayment(method.id as PaymentMethod)}
+                className={`relative p-4 border rounded-lg transition-all duration-200 text-left group ${
+                  selectedPayment === method.id
+                    ? 'border-[#e8a845] bg-[#e8a845]/10'
+                    : 'border-[#333] bg-[#1a1a1a] hover:border-[#555]'
+                }`}
+              >
+                <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-2 transition-colors ${
+                  selectedPayment === method.id ? 'bg-[#e8a845]' : 'bg-[#252525] group-hover:bg-[#2a2a2a]'
+                }`}>
+                  <method.icon className={`w-5 h-5 transition-colors ${
+                    selectedPayment === method.id ? 'text-black' : 'text-[#888]'
+                  }`} />
                 </div>
-              </div>
-            )}
+                <div className={`font-mono font-bold text-sm ${
+                  selectedPayment === method.id ? 'text-[#e8a845]' : 'text-white'
+                }`}>
+                  {method.label}
+                </div>
+                <div className="font-mono text-xs text-[#555]">{method.desc}</div>
 
-            {/* Buy Button */}
-            <button
-              type="button"
-              onClick={handlePurchase}
-              disabled={!selectedPayment || isProcessing}
-              className={`w-full py-4 uppercase tracking-widest font-mono text-sm transition-all ${
-                selectedPayment
-                  ? 'bg-[#e8a445] text-black hover:bg-[#f0b456] hover:shadow-[0_0_20px_rgba(232,164,69,0.4)]'
-                  : 'bg-[#333] text-[#666] cursor-not-allowed'
-              }`}
-            >
-              {isProcessing ? 'Processing...' : 'Buy Now'}
-            </button>
+                {/* Selection indicator */}
+                <div className={`absolute top-3 right-3 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${
+                  selectedPayment === method.id ? 'border-[#e8a845] bg-[#e8a845] scale-100' : 'border-[#444] scale-90 opacity-0'
+                }`}>
+                  {selectedPayment === method.id && (
+                    <Check className="w-3 h-3 text-black" />
+                  )}
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
 
-            {/* Contact Link - Fixed: added type="button" */}
-            <p className="text-center mt-4 text-[#666] font-mono text-sm">
-              Have questions?{' '}
-              <button type="button" className="text-[#e8a445] hover:underline">Contact us</button>
-            </p>
-          </>
+        {/* Bank Transfer Details */}
+        {selectedPayment === 'bank' && (
+          <div className="mb-5 p-4 border border-[#333] bg-[#0a0a0a] rounded-lg">
+            <h4 className="text-[#888] uppercase tracking-wider text-xs font-mono mb-3">Bank Details</h4>
+            <div className="space-y-2 font-mono text-sm">
+              <p><span className="text-[#555]">Account:</span> <span className="text-[#aaa]">{BANK_DETAILS.accountName}</span></p>
+              <p><span className="text-[#555]">Number:</span> <span className="text-[#aaa]">{BANK_DETAILS.accountNumber}</span></p>
+              <p><span className="text-[#555]">Bank:</span> <span className="text-[#aaa]">{BANK_DETAILS.bankName}</span></p>
+              <p><span className="text-[#555]">IFSC:</span> <span className="text-[#aaa]">{BANK_DETAILS.ifscCode}</span></p>
+            </div>
+          </div>
         )}
+
+        {/* Security badge */}
+        <div className="flex items-center justify-center gap-2 mb-5 py-3 bg-[#1a1a1a] rounded-lg border border-[#333]">
+          <Shield className="w-4 h-4 text-green-500" />
+          <span className="font-mono text-xs text-[#666]">256-bit SSL Secured</span>
+        </div>
+
+        {/* Action buttons */}
+        <div className="flex gap-3">
+          <button
+            type="button"
+            onClick={handleClose}
+            className="flex-1 py-3 border border-[#333] text-[#888] font-mono font-bold rounded-lg hover:border-[#555] hover:text-white transition-colors"
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            onClick={handlePurchase}
+            disabled={!selectedPayment || isProcessing}
+            className={`flex-1 py-3 font-mono font-bold rounded-lg transition-all duration-200 ${
+              selectedPayment && !isProcessing
+                ? 'bg-[#e8a845] text-black hover:bg-[#d4993d] hover:shadow-[0_0_20px_rgba(232,164,69,0.3)]'
+                : 'bg-[#333] text-[#666] cursor-not-allowed'
+            }`}
+          >
+            {isProcessing ? (
+              <span className="flex items-center justify-center gap-2">
+                <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
+                Processing...
+              </span>
+            ) : (
+              `Pay ₹${course.price.toLocaleString()}`
+            )}
+          </button>
+        </div>
+
+        {/* Contact link */}
+        <p className="text-center mt-4 text-[#666] font-mono text-xs">
+          Questions?{' '}
+          <button
+            type="button"
+            onClick={() => {
+              handleClose();
+              onContactClick?.();
+            }}
+            className="text-[#e8a845] hover:underline"
+          >
+            Contact us
+          </button>
+        </p>
       </div>
     </ModalWrapper>
   );
