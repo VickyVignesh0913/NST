@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import { cn } from '../lib/utils'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import {
   Play,
   ArrowRight,
   Award,
   BookOpen,
   Clock,
-  CheckCircle
+  Phone,
+  MessageCircle
 } from 'lucide-react'
 
 // LINEAR DESIGN COLORS
@@ -26,24 +27,39 @@ const colors = {
   textDim: '#62666d',
 }
 
-// Spacing tokens for consistency
-const sp = {
-  tight: '0.5rem',
-  sm: '0.75rem',
-  md: '1rem',
-  lg: '1.5rem',
-  xl: '2rem',
-  '2xl': '3rem',
-  section: '4rem',
-}
-
 // Layout constants
 const siteFrame = 'mx-auto w-full max-w-7xl px-6 sm:px-8'
 const sectionPadding = 'py-16 sm:py-20 lg:py-24'
 
+// Animation configurations
+const easeOut = [0.25, 1, 0.5, 1] as const // cubic-bezier for refined, natural motion
+const staggerDelay = 0.1 // 100ms between staggered items
+
+// Reusable animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+}
+
+const fadeInLeft = {
+  hidden: { opacity: 0, x: -30 },
+  visible: { opacity: 1, x: 0 }
+}
+
+const fadeInRight = {
+  hidden: { opacity: 0, x: 30 },
+  visible: { opacity: 1, x: 0 }
+}
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1 }
+}
+
 
 function Navigation() {
   const [scrolled, setScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -67,12 +83,19 @@ function Navigation() {
       )}
       style={{
         background: scrolled ? colors.surface1 : 'transparent',
-        borderColor: scrolled ? colors.hairline : 'transparent'
+        borderColor: scrolled ? colors.hairline : 'transparent',
+        backdropFilter: scrolled ? 'blur(12px)' : 'none',
       }}
     >
       <div className={`${siteFrame} py-4`}>
         <div className="flex items-center justify-between">
-          <a href="#home">
+          <a href="#home" className="flex items-center gap-2">
+            <div
+              className="w-8 h-8 rounded-md flex items-center justify-center text-sm font-semibold"
+              style={{ background: colors.accent, color: '#fff' }}
+            >
+              E
+            </div>
             <span
               className="text-lg font-semibold tracking-tight"
               style={{ fontFamily: "'Inter', sans-serif", color: colors.textPrimary }}
@@ -81,30 +104,83 @@ function Navigation() {
             </span>
           </a>
 
+          {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm transition-colors duration-200"
-                style={{ color: scrolled ? colors.textMuted : colors.textSecondary }}
-                onMouseEnter={(e) => e.currentTarget.style.color = colors.accent}
-                onMouseLeave={(e) => e.currentTarget.style.color = scrolled ? colors.textMuted : colors.textSecondary}
+                className="text-sm transition-all duration-200 hover:opacity-100"
+                style={{ color: scrolled ? colors.textMuted : colors.textSecondary, opacity: 0.8 }}
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          <motion.a
-            href="#contact"
-            className="btn-primary text-sm"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Start Free Demo
-          </motion.a>
+          {/* CTA + Mobile menu toggle */}
+          <div className="flex items-center gap-3">
+            <motion.a
+              href="#contact"
+              className="btn-primary text-sm hidden sm:inline-flex"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Start Free Demo
+            </motion.a>
+
+            {/* Mobile menu button */}
+            <button
+              className="md:hidden p-2 rounded-lg border"
+              style={{ borderColor: colors.hairline, background: colors.surface1 }}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <div className="w-5 h-5 flex flex-col justify-center gap-1.5">
+                <span className="block h-0.5 rounded-full" style={{ background: colors.textSecondary }} />
+                <span className="block h-0.5 rounded-full" style={{ background: colors.textSecondary }} />
+                <span className="block h-0.5 rounded-full" style={{ background: colors.textSecondary }} />
+              </div>
+            </button>
+          </div>
         </div>
+
+        {/* Mobile menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden py-4 border-t"
+              style={{ borderColor: colors.hairline }}
+            >
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  className="block py-2 text-sm"
+                  style={{ color: colors.textSecondary }}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+              <motion.a
+                href="#contact"
+                className="btn-primary text-sm mt-4 w-full text-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: navLinks.length * 0.05 }}
+              >
+                Start Free Demo
+              </motion.a>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   )
@@ -126,7 +202,6 @@ function HeroSection() {
             >
               <span
                 className="badge badge-muted"
-                style={{ borderColor: colors.hairline }}
               >
                 Founder-led spoken English
               </span>
@@ -159,6 +234,7 @@ function HeroSection() {
               <motion.a
                 href="#courses"
                 className="btn-primary"
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 Explore programs
@@ -168,6 +244,7 @@ function HeroSection() {
               <motion.a
                 href="#inside"
                 className="btn-secondary"
+                whileHover={{ scale: 1.02, borderColor: colors.hairlineStrong }}
                 whileTap={{ scale: 0.98 }}
               >
                 <Play className="w-4 h-4" />
@@ -189,7 +266,8 @@ function HeroSection() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="stat-card"
+                  className="stat-card transition-all duration-300 hover:border-opacity-100"
+                  style={{ borderColor: colors.hairline }}
                 >
                   <p className="text-xl font-semibold" style={{ color: colors.textPrimary }}>{item.value}</p>
                   <p className="text-xs mt-1" style={{ color: colors.textMuted }}>{item.label}</p>
@@ -206,14 +284,15 @@ function HeroSection() {
             className="lg:col-span-5"
           >
             <div
-              className="surface-card overflow-hidden"
+              className="surface-card overflow-hidden transition-transform duration-300 hover:scale-[1.01]"
               style={{ padding: 0 }}
             >
               <img
                 src="/charles-william.png"
-                alt="Mr. Charles William"
+                alt="Mr. Charles William - Founder and Trainer at English Boss"
                 className="h-full w-full object-cover"
                 style={{ minHeight: '320px' }}
+                loading="eager"
               />
               <div className="p-5" style={{ borderTop: `1px solid ${colors.hairline}` }}>
                 <p className="text-xs uppercase tracking-wider mb-2" style={{ color: colors.textMuted }}>English Boss</p>
@@ -259,11 +338,12 @@ function InsideClassSection() {
               {features.map((feature, i) => (
                 <motion.div
                   key={i}
-                  className="feature-item"
+                  className="feature-item transition-all duration-300 hover:bg-opacity-80"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
+                  style={{ cursor: 'default' }}
                 >
                   <div
                     className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
@@ -287,20 +367,22 @@ function InsideClassSection() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="surface-card-elevated overflow-hidden" style={{ padding: 0 }}>
+            <div className="surface-card-elevated overflow-hidden transition-transform duration-300 hover:scale-[1.01]" style={{ padding: 0 }}>
               <div
-                className="aspect-video flex items-center justify-center"
+                className="aspect-video flex items-center justify-center relative overflow-hidden"
                 style={{ background: `linear-gradient(135deg, ${colors.surface2} 0%, ${colors.surface3} 100%)` }}
               >
-                <div className="text-center">
-                  <button
+                <div className="text-center relative z-10">
+                  <motion.button
                     type="button"
                     aria-label="Play class preview"
-                    className="w-16 h-16 rounded-full flex items-center justify-center transition-transform hover:scale-105"
+                    className="w-16 h-16 rounded-full flex items-center justify-center"
                     style={{ background: colors.accent }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     <Play className="w-7 h-7 fill-current text-white ml-1" />
-                  </button>
+                  </motion.button>
                   <p className="mt-4 text-sm font-medium" style={{ color: colors.textPrimary }}>Class Preview</p>
                   <p className="text-xs mt-1" style={{ color: colors.textMuted }}>Recorded session</p>
                 </div>
@@ -370,7 +452,7 @@ function TrustSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="stat-card"
+              className="stat-card transition-all duration-300 hover:border-opacity-100"
             >
               <p className="text-lg font-medium" style={{ color: colors.accent }}>{point.stat}</p>
               <h3 className="mt-2 text-base font-medium" style={{ color: colors.textPrimary }}>{point.label}</h3>
@@ -436,7 +518,7 @@ function MethodSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="surface-card"
+                className="surface-card transition-all duration-300 hover:border-opacity-100"
               >
                 <div className="flex flex-col sm:flex-row sm:items-start gap-4">
                   <div className="flex-1">
@@ -510,7 +592,7 @@ function ResultsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={cn("testimonial-card", i === 0 ? "sm:col-span-2" : "")}
+                className={cn("testimonial-card transition-all duration-300 hover:border-opacity-100", i === 0 ? "sm:col-span-2" : "")}
               >
                 <div className="flex items-center justify-between mb-4">
                   <div>
@@ -593,7 +675,7 @@ function ProgramsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={cn("program-card", program.featured && "program-card-featured")}
+              className={cn("program-card transition-all duration-300 hover:border-opacity-100", program.featured && "program-card-featured")}
             >
               <div className="flex items-start justify-between mb-4">
                 <div>
@@ -635,12 +717,13 @@ function FounderSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="surface-card overflow-hidden" style={{ padding: 0 }}>
+            <div className="surface-card overflow-hidden transition-transform duration-300 hover:scale-[1.01]" style={{ padding: 0 }}>
               <img
                 src="/charles-william.png"
-                alt="Charles William"
+                alt="Charles William - Founder and Trainer at English Boss"
                 className="h-full w-full object-cover"
                 style={{ minHeight: '400px' }}
+                loading="lazy"
               />
               <div className="p-5" style={{ borderTop: `1px solid ${colors.hairline}` }}>
                 <p className="text-sm font-medium" style={{ color: colors.textPrimary }}>Charles William</p>
@@ -663,7 +746,7 @@ function FounderSection() {
 
             <div className="mt-6 space-y-4">
               <p className="body-md">
-                "Brilliant people stay silent in rooms where they should be leading. It's not lack of knowledge — it's lack of psychological safety in expression."
+                "Brilliant people stay silent in rooms where they should be leading. It's not lack of knowledge, it's lack of psychological safety in expression."
               </p>
               <p className="body-md">
                 "English Boss is a place where people can observe carefully, fail safely, organise thoughts, and speak with authority."
@@ -678,7 +761,7 @@ function FounderSection() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="p-3 rounded-lg"
+                  className="p-3 rounded-lg transition-all duration-300 hover:bg-opacity-80"
                   style={{ background: colors.surface2, border: `1px solid ${colors.hairline}` }}
                 >
                   <p className="text-xs uppercase tracking-wider" style={{ color: colors.textMuted }}>{item.label}</p>
@@ -718,18 +801,24 @@ function ContactSection() {
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <a
+              <motion.a
                 href="tel:+918610690010"
                 className="btn-primary text-center"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
+                <Phone className="w-4 h-4 mr-2" />
                 Call Now
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="https://wa.me/918610690010"
                 className="btn-secondary text-center"
+                whileHover={{ scale: 1.02, borderColor: colors.hairlineStrong }}
+                whileTap={{ scale: 0.98 }}
               >
+                <MessageCircle className="w-4 h-4 mr-2" />
                 WhatsApp
-              </a>
+              </motion.a>
             </div>
           </div>
         </motion.div>
@@ -758,20 +847,22 @@ function Footer() {
               Founder-led spoken English with structure, warmth, and authority.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a
+              <motion.a
                 href="tel:+918610690010"
-                className="text-sm px-4 py-2 rounded-lg border transition-colors"
+                className="text-sm px-4 py-2 rounded-lg border transition-all duration-200"
                 style={{ borderColor: colors.hairline, color: colors.textSecondary }}
+                whileHover={{ borderColor: colors.hairlineStrong, background: colors.surface2 }}
               >
                 +91 86106 90010
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="https://wa.me/918610690010"
-                className="text-sm px-4 py-2 rounded-lg border transition-colors"
+                className="text-sm px-4 py-2 rounded-lg border transition-all duration-200"
                 style={{ borderColor: colors.hairline, color: colors.textSecondary }}
+                whileHover={{ borderColor: colors.hairlineStrong, background: colors.surface2 }}
               >
                 WhatsApp
-              </a>
+              </motion.a>
             </div>
           </div>
 
@@ -780,10 +871,10 @@ function Footer() {
             <div>
               <h4 className="text-xs uppercase tracking-wider font-semibold mb-4" style={{ color: colors.textMuted }}>Explore</h4>
               <ul className="space-y-3 text-sm" style={{ color: colors.textSecondary }}>
-                <li><a href="#courses" className="hover:text-white transition-colors">Programs</a></li>
-                <li><a href="#results" className="hover:text-white transition-colors">Student Voices</a></li>
-                <li><a href="#about" className="hover:text-white transition-colors">Founder</a></li>
-                <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+                <li><a href="#courses" className="transition-colors hover:text-white">Programs</a></li>
+                <li><a href="#results" className="transition-colors hover:text-white">Student Voices</a></li>
+                <li><a href="#about" className="transition-colors hover:text-white">Founder</a></li>
+                <li><a href="#contact" className="transition-colors hover:text-white">Contact</a></li>
               </ul>
             </div>
 
