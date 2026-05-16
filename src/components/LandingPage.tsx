@@ -58,7 +58,7 @@ const scaleIn = {
 }
 
 
-function Navigation() {
+function Navigation({ onLogin, onContact }: { onLogin?: () => void; onContact?: () => void }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -121,14 +121,34 @@ function Navigation() {
 
           {/* CTA + Mobile menu toggle */}
           <div className="flex items-center gap-3">
-            <motion.a
-              href="#contact"
-              className="btn-primary text-sm hidden sm:inline-flex"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Start Free Demo
-            </motion.a>
+            {onLogin && (
+              <button
+                onClick={onLogin}
+                className="hidden sm:inline-flex px-4 py-2 text-sm font-mono uppercase tracking-wider border-2 transition-all"
+                style={{ borderColor: colors.border, color: colors.textSecondary }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = colors.accent; e.currentTarget.style.color = colors.textPrimary }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = colors.border; e.currentTarget.style.color = colors.textSecondary }}
+              >
+                Login
+              </button>
+            )}
+            {onContact ? (
+              <button
+                onClick={onContact}
+                className="btn-primary text-sm hidden sm:inline-flex"
+              >
+                Start Free Demo
+              </button>
+            ) : (
+              <motion.a
+                href="#contact"
+                className="btn-primary text-sm hidden sm:inline-flex"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Start Free Demo
+              </motion.a>
+            )}
 
             {/* Mobile menu button */}
             <button
@@ -943,10 +963,17 @@ function Footer() {
   )
 }
 
-export default function LandingPage() {
+interface LandingPageProps {
+  onLogin?: () => void;
+  onBuyCourse?: (course: any) => void;
+  onContact?: () => void;
+  onSubmitTestimonial?: () => void;
+}
+
+export default function LandingPage({ onLogin, onBuyCourse, onContact, onSubmitTestimonial }: LandingPageProps) {
   return (
     <main className="relative overflow-x-hidden" style={{ background: colors.canvas }}>
-      <Navigation />
+      <Navigation onLogin={onLogin} onContact={onContact} />
       <HeroSection />
       <InsideClassSection />
       <TrustSection />
