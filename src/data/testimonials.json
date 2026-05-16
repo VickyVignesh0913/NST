@@ -1,0 +1,242 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Mohamed Azharudeen",
+      "context": "Evolution Batch",
+      "quote": "I had the privilege of attending the EnglishBoss Evolution batch over the past 40 days and it has truly been a highly valuable journey in my life. Within the first 10 days, I realized...",
+      "note": "Student"
+    },
+    {
+      "id": 2,
+      "name": "Elamathi Rajalingam",
+      "context": "Intermediate Level",
+      "quote": "Mr. Charles is a great teacher. I am grateful to be a student of him. I have joined in an intermediate level. Now I am confident to tell that I have improved my fluency a lot. He h...",
+      "note": "Student"
+    },
+    {
+      "id": 3,
+      "name": "UTHESH RAGAVAN",
+      "context": "Course Completion",
+      "quote": "Dear Sir, thank you so much for everything. You always started the class on time and never missed a single day. Every class was highly organized and well-planned. Even after class...",
+      "note": "Student"
+    },
+    {
+      "id": 4,
+      "name": "Arun Kumar S",
+      "context": "Batch 5 Oct-Dec 2025",
+      "quote": "I am from Intermediate English Class, Batch 5 (Oct–Dec 2025). I strongly recommend this course to anyone who wants to improve their speaking skills. If you attend the classes regul...",
+      "note": "Student"
+    },
+    {
+      "id": 5,
+      "name": "Santhiya Bharathi",
+      "context": "Method Excellence",
+      "quote": "Thank you for your excellent methods for practicing English. Your sessions were truly thought provoking, and you taught us much more than just speaking in English — you emphasized ...",
+      "note": "Student"
+    },
+    {
+      "id": 6,
+      "name": "Amrin Begam",
+      "context": "Transformation",
+      "quote": "It was a very beautiful journey, and I'm glad I made this decision. I learned a lot from Charlie. He taught us that English is all about creativity and creating your own ideas and ...",
+      "note": "Student"
+    },
+    {
+      "id": 7,
+      "name": "Shanmugam",
+      "context": "Value Addition",
+      "quote": "Thanks for the class. Very valuable by all means. The methodology is very effective and am very thankful for the discussions.",
+      "note": "Student"
+    },
+    {
+      "id": 8,
+      "name": "Gautham",
+      "context": "Course Feedback",
+      "quote": "This English course was excellent. Teacher Charles — also known as the 'English Boss' — explained everything really well, and the lessons were very well-structured. I feel much mor...",
+      "note": "Student"
+    },
+    {
+      "id": 9,
+      "name": "Leemarose",
+      "context": "Perspective and confidence",
+      "quote": "I have learned to think before I speak and to approach situations with clarity rather than emotion. The picture description exercises helped me see that real-life situations can ha...",
+      "note": "Student"
+    },
+    {
+      "id": 10,
+      "name": "Dhivya",
+      "context": "Language Skills",
+      "quote": "I highly recommend Mr. Charles William's class. His unique and effective teaching strategies significantly boosted my English language skills while simultaneously imparting valuabl...",
+      "note": "Student"
+    },
+    {
+      "id": 11,
+      "name": "DEVI G",
+      "context": "Speaking Confidence",
+      "quote": "My heartfelt thanks for your wonderful teaching. I can see a big improvement in my speaking. Now I feel confident using English in my daily life. I highly recommend them to anyone ...",
+      "note": "Student"
+    },
+    {
+      "id": 12,
+      "name": "Jhansi R",
+      "context": "Essential Batch",
+      "quote": "I enrolled myself in the essential batch. I never had a hope of learning spoken English in thirty days before joining the course. Your innovative teaching methods like picture desc...",
+      "note": "Learner"
+    },
+    {
+      "id": 13,
+      "name": "M.S. Hemalatha",
+      "context": "October 2025 Batch",
+      "quote": "I found Mr. Charles Williams in YouTube. I liked his way of teaching English and joined the October 2025 batch in the 'Essential course'. Trust me, I picked up confidence within th...",
+      "note": "Student"
+    },
+    {
+      "id": 14,
+      "name": "Mohamed Minas",
+      "context": "Best Course",
+      "quote": "To be honest, this is the best course I have ever enrolled in. The way Mr. Charles William teaches is simply amazing. His techniques to improve English communication and grammar ar...",
+      "note": "Student"
+    },
+    {
+      "id": 15,
+      "name": "Rathika",
+      "context": "Feedback",
+      "quote": "Good.",
+      "note": "Student"
+    },
+    {
+      "id": 16,
+      "name": "Vinothan Kumarasamy",
+      "context": "International Student",
+      "quote": "I joined the classes from Switzerland. I found the course extremely valuable. It not only helped me improve my grammar but also gave me a deeper understanding of the philosophy beh...",
+      "note": "Student"
+    },
+    {
+      "id": 17,
+      "name": "Bala Vijay",
+      "context": "Real-time Approach",
+      "quote": "It was truly a great experience. Unlike ordinary spoken English classes, here we get a real-time, practical approach to everything. Your continued support even after the course was...",
+      "note": "Student"
+    },
+    {
+      "id": 18,
+      "name": "Vijila Jasmine",
+      "context": "Teaching Excellence",
+      "quote": "I sincerely thank Charles Sir for being an extraordinary teacher. His way of teaching and guiding us in practice makes English learning simple and effective, and speaking fluently ...",
+      "note": "Student"
+    },
+    {
+      "id": 19,
+      "name": "Malathi P",
+      "context": "Skills Improvement",
+      "quote": "Charles William is an incredible teacher! His sessions were super helpful, and I improved my English speaking skills significantly. He's got a great teaching style, and I had a bla...",
+      "note": "Student"
+    },
+    {
+      "id": 20,
+      "name": "Bargunan Ponnusamy",
+      "context": "Transformation",
+      "quote": "I am deeply grateful to Mr. Charles for his practical and life-changing teaching. His techniques like picture description, idea generation, and topic-related speaking have transfor...",
+      "note": "Student"
+    },
+    {
+      "id": 21,
+      "name": "FAIZA TABASSUM N",
+      "context": "Webinar Experience",
+      "quote": "Charles William sir is supercalifragilisticexpialidocious! His teaching method motivates every student. My children are also fans of his. We watch your YouTube channel again and aga...",
+      "note": "Student"
+    },
+    {
+      "id": 22,
+      "name": "PRIYADARSHINI",
+      "context": "Recorded Courses",
+      "quote": "I took both the basic and intermediate recorded courses, and every time I had a question or needed clarification, it was promptly attended. Mr. Charles's teaching style is clear an...",
+      "note": "Student"
+    },
+    {
+      "id": 23,
+      "name": "girithar prasath",
+      "context": "Teaching Quality",
+      "quote": "I really like his teaching — he gives many examples, when ever I ask a question he answers me, he has included more practice method in this course. Finally I got an English teacher...",
+      "note": "Student"
+    },
+    {
+      "id": 24,
+      "name": "Pearcin Precilla",
+      "context": "Training Recommendation",
+      "quote": "I highly recommend the English Boss's training. I could recognize the improvement in my communication. His training was mainly focused on improving the ideas and thought process. I...",
+      "note": "Student"
+    },
+    {
+      "id": 25,
+      "name": "Tulasiamal Marayah",
+      "context": "Malaysia",
+      "quote": "I've always had issues understanding native speakers, so I decided to join Charles webinar. It was, hands down, one of the most rewarding webinars I've ever experienced: worth ever...",
+      "note": "Student"
+    },
+    {
+      "id": 26,
+      "name": "priyanka stephen",
+      "context": "Webinar",
+      "quote": "I attended the webinar on confusing words and metaphor through examples. I learned many same-kind words with different uses. I would recommend this webinar to anyone interested in ...",
+      "note": "Student"
+    },
+    {
+      "id": 27,
+      "name": "Sangeetha Sampath Kumar",
+      "context": "Interactive Learning",
+      "quote": "I had an incredible experience in my Intermediate English class with Charles Sir. He is a brilliant tutor who made learning interactive, engaging, and enjoyable. I now feel much mo...",
+      "note": "Student"
+    },
+    {
+      "id": 28,
+      "name": "Thaslima",
+      "context": "Improvement",
+      "quote": "I sincerely appreciate your time and effort in guiding me. I never expected to improve this much. Not only enhancing English skills, I have gained invaluable insights into teach...",
+      "note": "Student"
+    },
+    {
+      "id": 29,
+      "name": "S.M. Sabana afrin fathima",
+      "context": "Course Utility",
+      "quote": "This course was very useful to me. I learned a lot of things when I had joined this course. This course teaches in a different and meticulous way. They upload all records and give ...",
+      "note": "Student"
+    },
+    {
+      "id": 30,
+      "name": "Anitha E",
+      "context": "Methodology",
+      "quote": "I found it easier, and the teaching methodology is exclusively stupendous. The session carries an optimistic outlook on English. Thank you and keep supporting us, sir.",
+      "note": "Student"
+    },
+    {
+      "id": 31,
+      "name": "Surabhi",
+      "context": "Comprehensive",
+      "quote": "Extraordinary teacher, perfect layout of the course, practical methods to implement and practice, consistent support of Charles and his team, better community of students, forever ...",
+      "note": "Student"
+    },
+    {
+      "id": 32,
+      "name": "Anish",
+      "context": "Beginner",
+      "quote": "I want to thank you for your great teaching. I was a beginner and felt unsure, but you helped me improve my English skills and feel more confident. I'm lucky to have had the chance...",
+      "note": "Student"
+    },
+    {
+      "id": 33,
+      "name": "LAKSHMI PRIYA RAMACHANDRAN",
+      "context": "Beginner Course",
+      "quote": "I had enrolled in a beginner level course and it really helped me. Mr. Charles helped me to learn basic skills. I have improved my speaking skills a lot. Thank you.",
+      "note": "Student"
+    },
+    {
+      "id": 34,
+      "name": "Janani Arumugam",
+      "context": "Exceptional Teacher",
+      "quote": "I had the privilege of learning under an exceptional English teacher whose support and encouragement were truly admirable. His expertise and learning strategies are thoughtfully de...",
+      "note": "Student"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "paidCourses": [
+    {
+      "id": "1-practical-spoken-english",
+      "title": "Practical Spoken English for You",
+      "type": "Recorded",
+      "price": 6200,
+      "originalPrice": 7500,
+      "discount": "18% off",
+      "shortDesc": "This course is suitable for beginners and intermediate levels. The course aims to equip learners with practical spoken English skills.",
+      "fullDesc": "This comprehensive course is designed for beginners and intermediate learners who want to develop practical spoken English skills. Through video lessons, interactive exercises, and real-world practice scenarios, you'll build confidence in everyday conversations, professional communication, and social interactions.",
+      "tags": ["Recorded", "English Courses", "Beginners", "Intermediate Learners"],
+      "imageUrl": "https://appx-content-v2.classx.co.in/paid_course3/2025-01-25-0.5771293304268392.jpg",
+      "level": "Beginner to Intermediate",
+      "duration": "Self-paced"
+    },
+    {
+      "id": "2-master-phrasal-verbs",
+      "title": "Master English Phrasal Verbs – All Levels",
+      "type": "Recorded",
+      "price": 5000,
+      "originalPrice": 6000,
+      "discount": "17% off",
+      "shortDesc": "Unlock the key to fluent English with our comprehensive course focused entirely on phrasal verbs. From Beginner to Pro — 21 Practical Topics, 400+ Powerful Verbs.",
+      "fullDesc": "Master the art of phrasal verbs with this comprehensive course covering 21 practical topics and over 400 powerful verbs. Perfect for all levels, from beginners to advanced learners. Learn how native speakers use phrasal verbs naturally in everyday conversation.",
+      "tags": ["Phrasal Verbs", "All Levels"],
+      "imageUrl": "https://appx-content-v2.classx.co.in/paid_course3/2026-01-24-0_34135360388604585.jpg",
+      "level": "All Levels",
+      "duration": "Self-paced"
+    },
+    {
+      "id": "3-essential-live-batch",
+      "title": "Essential (A1–A2 Level) – Live Batch 2, 2026",
+      "type": "Live",
+      "price": 5500,
+      "originalPrice": 7000,
+      "discount": "22% off",
+      "shortDesc": "Eligibility: Students must be above 16 years old. Younger students may find it challenging. A1 for Beginners. Time: 4:30 to 5:30 PM. Start your journey with English Boss.",
+      "fullDesc": "Join our live batch designed specifically for beginners at A1-A2 level. Classes run from 4:30 PM to 5:30 PM. This comprehensive 40-day program will take you from zero to confident speaker. Interactive sessions with real-time feedback from Charles William.",
+      "tags": ["Live Batch", "A1-A2", "Beginners"],
+      "imageUrl": "https://appx-content-v2.classx.co.in/paid_course3/2026-05-07-0_9524360423146936.jpg",
+      "level": "A1-A2 (Beginner)",
+      "duration": "40 days",
+      "batchTime": "4:30 PM - 5:30 PM"
+    },
+    {
+      "id": "4-evolution-live-batch",
+      "title": "Evolution (B1–B2 Level) – Live Batch 2, 2026",
+      "type": "Live",
+      "price": 8500,
+      "originalPrice": 11500,
+      "discount": "27% off",
+      "shortDesc": "ONLINE LIVE CLASS. Eligibility: Students must be above 16 years old. B1-B2 Intermediate Level. Time: 6:30 to 7:30 PM. Take your English to the next level in less than 40 days.",
+      "fullDesc": "Take your English to the next level with our B1-B2 intermediate live batch. Perfect for those who have basic knowledge but want to speak with more fluency and confidence. Classes from 6:30 PM to 7:30 PM with intensive practice and personalized feedback.",
+      "tags": ["Live Batch", "B1-B2", "Intermediate"],
+      "imageUrl": "https://appx-content-v2.classx.co.in/paid_course3/2026-05-07-0_5304482890273008.jpg",
+      "level": "B1-B2 (Intermediate)",
+      "duration": "40 days",
+      "batchTime": "6:30 PM - 7:30 PM"
+    }
+  ],
+  "freeCourses": [
+    {
+      "id": "3-easy-english",
+      "title": "Easy English",
+      "price": 0,
+      "originalPrice": 0,
+      "discount": null,
+      "shortDesc": "A beginner-friendly free course to kickstart your English journey.",
+      "fullDesc": "Start your English learning journey with this beginner-friendly free course. Learn basic vocabulary, simple sentences, and everyday phrases to build a foundation for your English fluency.",
+      "tags": ["Free", "Beginner"],
+      "imageUrl": "https://d502jbuhuh9wk.cloudfront.net/courses/66c31b367becb72011d8568b/66c31b367becb72011d8568b_scaled_cover.jpg?v=1",
+      "level": "Beginner",
+      "duration": "Self-paced"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "mainNav": [
+    { "label": "Home", "href": "/" },
+    { "label": "Paid Courses", "href": "/paid-courses" },
+    { "label": "Free Courses", "href": "/free-courses" },
+    { "label": "Recorded Courses", "href": "/recorded-courses" },
+    { "label": "YouTube Classes", "href": "https://youtube.com/@EnglishbossRD", "external": true }
+  ],
+  "moreMenu": [
+    { "label": "Study Material", "href": "/study-material" },
+    { "label": "Quick Links", "href": "/quick-links" },
+    { "label": "Live / Timetable", "href": "/timetable" },
+    { "label": "Test Series", "href": "/test-series" }
+  ],
+  "browseGrid": [
+    {
+      "id": "paid-courses",
+      "label": "Paid Courses",
+      "icon": "BookOpen",
+      "href": "/paid-courses",
+      "description": "Premium courses"
+    },
+    {
+      "id": "free-courses",
+      "label": "Free Courses",
+      "icon": "Gift",
+      "href": "/free-courses",
+      "description": "Learn for free"
+    },
+    {
+      "id": "recorded-courses",
+      "label": "Recorded Courses",
+      "icon": "Video",
+      "href": "/recorded-courses",
+      "description": "Self-paced learning"
+    },
+    {
+      "id": "youtube-classes",
+      "label": "YouTube Classes",
+      "icon": "Youtube",
+      "href": "https://youtube.com/@EnglishbossRD",
+      "external": true,
+      "description": "Free video lessons"
+    },
+    {
+      "id": "study-material",
+      "label": "Study Material",
+      "icon": "FileText",
+      "href": "/study-material",
+      "description": "Resources & notes"
+    },
+    {
+      "id": "quick-links",
+      "label": "Quick Links",
+      "icon": "Link",
+      "href": "/quick-links",
+      "description": "Useful links"
+    },
+    {
+      "id": "live-timetable",
+      "label": "Live / Timetable",
+      "icon": "Calendar",
+      "href": "/timetable",
+      "description": "Class schedule"
+    },
+    {
+      "id": "test-series",
+      "label": "Test Series",
+      "icon": "ClipboardList",
+      "href": "/test-series",
+      "description": "Practice tests"
+    }
+  ],
+  "footerLinks": {
+    "legal": [
+      { "label": "Terms & Conditions", "href": "/terms" },
+      { "label": "Privacy Policy", "href": "/privacy-policy" },
+      { "label": "Refunds & Cancellation", "href": "/refund-policy" }
+    ],
+    "download": {
+      "googlePlay": "https://play.google.com/store/apps/details?id=com.jklwsr.snszcd",
+      "appStore": "https://apps.apple.com/in/app/my-coaching-by-appx/id1662307591",
+      "windows": "https://appx-content-v2.classx.co.in/windows/English_Boss_Setup_0.0.1.exe"
+    }
+  },
+  "contact": {
+    "email": "englishbossrd@gmail.com",
+    "youtube": "http://www.youtube.com/@EnglishbossRD"
+  }
+}
