@@ -1,0 +1,32 @@
+{
+  "name": "taste-skills",
+  "owner": {
+    "name": "Keith Lazuka"
+  },
+  "metadata": {
+    "description": "Collection of taste-focused design skills",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "taste-design-skills",
+      "description": "Skills for various design aesthetics and approaches including brutalist, minimalist, soft, and taste-based design",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/brandkit",
+        "./skills/brutalist-skill",
+        "./skills/gpt-tasteskill",
+        "./skills/image-to-code-skill",
+        "./skills/imagegen-frontend-mobile",
+        "./skills/imagegen-frontend-web",
+        "./skills/minimalist-skill",
+        "./skills/output-skill",
+        "./skills/redesign-skill",
+        "./skills/soft-skill",
+        "./skills/stitch-skill",
+        "./skills/taste-skill"
+      ]
+    }
+  ]
+}

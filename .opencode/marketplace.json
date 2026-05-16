@@ -1,0 +1,40 @@
+{
+  "name": "opencode-skills",
+  "owner": {
+    "name": "Keith Lazuka"
+  },
+  "metadata": {
+    "description": "Collection of OpenCode design and development skills",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "opencode-design-skills",
+      "description": "Design and development skills including impeccable, design systems, UI styling, and brand guidelines",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/banner-design",
+        "./skills/brand",
+        "./skills/design-system",
+        "./skills/design",
+        "./skills/impeccable",
+        "./skills/slides",
+        "./skills/ui-styling",
+        "./skills/ui-ux-pro-max",
+        "./skills/brandkit",
+        "./skills/brutalist-skill",
+        "./skills/gpt-tasteskill",
+        "./skills/image-to-code-skill",
+        "./skills/imagegen-frontend-mobile",
+        "./skills/imagegen-frontend-web",
+        "./skills/minimalist-skill",
+        "./skills/output-skill",
+        "./skills/redesign-skill",
+        "./skills/soft-skill",
+        "./skills/stitch-skill",
+        "./skills/taste-skill"
+      ]
+    }
+  ]
+}

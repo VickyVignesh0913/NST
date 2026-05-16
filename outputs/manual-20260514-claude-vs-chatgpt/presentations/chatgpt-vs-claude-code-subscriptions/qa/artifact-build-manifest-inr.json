@@ -1,0 +1,78 @@
+{
+  "output": "C:\\Users\\VJKING\\Downloads\\chatgpt-vs-claude-code-subscriptions-inr.pptx",
+  "outputBytes": 37342,
+  "slideCount": 6,
+  "slideSize": {
+    "width": 1280,
+    "height": 720
+  },
+  "previewDir": "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\preview",
+  "previewPaths": [
+    "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\preview\\slide-01.png",
+    "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\preview\\slide-02.png",
+    "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\preview\\slide-03.png",
+    "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\preview\\slide-04.png",
+    "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\preview\\slide-05.png",
+    "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\preview\\slide-06.png"
+  ],
+  "layoutDir": "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\layout",
+  "layoutResults": [
+    {
+      "layoutPath": "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\layout\\slide-01.layout.json"
+    },
+    {
+      "layoutPath": "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\layout\\slide-02.layout.json"
+    },
+    {
+      "layoutPath": "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\layout\\slide-03.layout.json"
+    },
+    {
+      "layoutPath": "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\layout\\slide-04.layout.json"
+    },
+    {
+      "layoutPath": "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\layout\\slide-05.layout.json"
+    },
+    {
+      "layoutPath": "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\layout\\slide-06.layout.json"
+    }
+  ],
+  "contactSheet": "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\qa\\contact-sheet-inr.png",
+  "slides": [
+    {
+      "index": 1,
+      "requestedSlideNumber": 1,
+      "modulePath": "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\slides\\slide-01.mjs",
+      "exportName": "addSlide"
+    },
+    {
+      "index": 2,
+      "requestedSlideNumber": 2,
+      "modulePath": "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\slides\\slide-02.mjs",
+      "exportName": "addSlide"
+    },
+    {
+      "index": 3,
+      "requestedSlideNumber": 3,
+      "modulePath": "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\slides\\slide-03.mjs",
+      "exportName": "addSlide"
+    },
+    {
+      "index": 4,
+      "requestedSlideNumber": 4,
+      "modulePath": "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\slides\\slide-04.mjs",
+      "exportName": "addSlide"
+    },
+    {
+      "index": 5,
+      "requestedSlideNumber": 5,
+      "modulePath": "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\slides\\slide-05.mjs",
+      "exportName": "addSlide"
+    },
+    {
+      "index": 6,
+      "requestedSlideNumber": 6,
+      "modulePath": "C:\\Users\\VJKING\\Documents\\NST\\outputs\\manual-20260514-claude-vs-chatgpt\\presentations\\chatgpt-vs-claude-code-subscriptions\\slides\\slide-06.mjs",
+      "exportName": "addSlide"
+    }
+  ]
+}

@@ -25,16 +25,29 @@
     --text-muted: #8a8f98;
     --text-dim: #62666d;
 
-    /* Semantic */
-    --success: #27a644;
-    --error: #e03131;
+    /* Spacing Scale - Consistent rhythm */
+    --space-1: 0.25rem;   /* 4px - tight */
+    --space-2: 0.5rem;    /* 8px - small */
+    --space-3: 0.75rem;   /* 12px - medium-small */
+    --space-4: 1rem;      /* 16px - medium */
+    --space-5: 1.5rem;    /* 24px - medium-large */
+    --space-6: 2rem;      /* 32px - large */
+    --space-8: 3rem;      /* 48px - x-large */
+    --space-10: 4rem;     /* 64px - section */
+    --space-12: 5rem;    /* 80px - section-large */
+    --space-16: 6rem;    /* 96px - section-xlarge */
 
-    /* Legacy fallbacks */
-    --bg-base: var(--canvas);
-    --bg-surface: var(--surface-1);
-    --bg-elevated: var(--surface-2);
-    --border-subtle: var(--hairline);
-    --border-accent: var(--accent-primary);
+    /* Typography Scale */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
   }
 
   * {
@@ -45,16 +58,17 @@
     background-color: var(--canvas);
     color: var(--text-primary);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.5;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: -0.01em;
   }
 
-  h1, h2, h3, h4 {
+  h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 600;
+    line-height: 1.2;
     letter-spacing: -0.02em;
   }
 
@@ -73,18 +87,23 @@
     background: var(--surface-1);
     border: 1px solid var(--hairline);
     border-radius: 12px;
-    padding: 24px;
+    padding: var(--space-6);
     transition: border-color 200ms ease;
   }
 
+  /* Consistent button styles */
   .btn-primary {
     background: var(--accent-primary);
     color: #ffffff;
     border-radius: 8px;
     font-weight: 500;
     font-size: 14px;
-    padding: 8px 14px;
+    padding: var(--space-3) var(--space-5);
     transition: all 200ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
   }
 
   .btn-primary:hover {
@@ -98,122 +117,235 @@
     border-radius: 8px;
     font-weight: 500;
     font-size: 14px;
-    padding: 8px 14px;
+    padding: var(--space-3) var(--space-5);
     transition: all 200ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
   }
 
   .btn-secondary:hover {
     border-color: var(--hairline-strong);
+    background: var(--surface-2);
   }
 
   /* LINEAR STYLE - Section Label */
   .section-label {
-    font-size: 13px;
+    font-size: var(--text-xs);
     font-weight: 500;
     letter-spacing: 0.4px;
     text-transform: uppercase;
     color: var(--text-muted);
     font-family: 'Inter', sans-serif;
+    display: block;
   }
 
-  /* LINEAR STYLE - Headlines with negative tracking */
-  .heading-xl {
+  /* Headings with proper hierarchy */
+  .heading-1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 600;
-    line-height: 1.05;
-    letter-spacing: -1.5px;
-    max-width: 100%;
-    overflow-wrap: break-word;
-    word-break: break-word;
-  }
-
-  .heading-lg {
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 600;
     line-height: 1.1;
-    letter-spacing: -0.8px;
-    max-width: 100%;
-    overflow-wrap: break-word;
-    word-break: break-word;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
   }
 
-  .heading-md {
-    font-size: clamp(1.4rem, 2.5vw, 2rem);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  .heading-2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .heading-3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.4px;
-    max-width: 100%;
-    overflow-wrap: break-word;
-    word-break: break-word;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
   }
 
-  .body-text {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.6;
-    max-width: 65ch;
+  .heading-4 {
+    font-size: var(--text-xl);
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--text-primary);
+  }
+
+  /* Body text */
+  .body-lg {
+    font-size: var(--text-lg);
+    line-height: 1.7;
     color: var(--text-secondary);
+    max-width: 65ch;
   }
 
-  .link-underline {
-    position: relative;
-    display: inline-block;
+  .body-md {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 65ch;
   }
 
-  .link-underline::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--accent-primary);
-    transition: width 0.3s ease-out;
+  .body-sm {
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    color: var(--text-muted);
   }
 
-  .link-underline:hover::after {
-    width: 100%;
-  }
-
-  /* LINEAR STYLE - Surface Lift Cards */
-  .gradient-border {
-    position: relative;
+  /* Surface containers */
+  .surface-card {
     background: var(--surface-1);
-    border-radius: 12px;
     border: 1px solid var(--hairline);
+    border-radius: 12px;
+    padding: var(--space-6);
+  }
+
+  .surface-card-elevated {
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    padding: var(--space-6);
+  }
+
+  /* Badge styles */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-3);
+    border-radius: 9999px;
+    font-size: var(--text-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-muted {
+    background: var(--surface-2);
+    color: var(--text-muted);
+    border: 1px solid var(--hairline);
+  }
+
+  .badge-accent {
+    background: var(--surface-2);
+    color: var(--accent-primary);
+  }
+
+  /* Feature list item */
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background: var(--surface-1);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+  }
+
+  /* Stat display */
+  .stat-card {
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    padding: var(--space-5);
+  }
+
+  /* Testimonial card */
+  .testimonial-card {
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    padding: var(--space-5);
+  }
+
+  /* Program card */
+  .program-card {
+    background: var(--surface-1);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    padding: var(--space-5);
+    transition: all 200ms ease;
+  }
+
+  .program-card-featured {
+    background: var(--surface-2);
+    border: 1px solid var(--hairline-strong);
+  }
+
+  /* Link styles */
+  .link {
+    color: var(--accent-primary);
+    transition: color 200ms ease;
+  }
+
+  .link:hover {
+    color: var(--accent-hover);
+  }
+
+  /* Input styles */
+  .input {
+    background: var(--surface-1);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: var(--space-3) var(--space-4);
+    color: var(--text-primary);
+    font-size: var(--text-sm);
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+  }
+
+  .input:focus {
+    border-color: var(--accent-focus);
+    box-shadow: 0 0 0 2px rgba(94, 106, 210, 0.2);
+    outline: none;
   }
 }
 
 @layer utilities {
-  .text-accent {
-    color: var(--accent-primary);
-  }
+  /* Spacing utilities with consistent scale */
+  .space-tight { gap: var(--space-2); }
+  .space-sm { gap: var(--space-3); }
+  .space-md { gap: var(--space-4); }
+  .space-lg { gap: var(--space-5); }
+  .space-xl { gap: var(--space-6); }
+  .space-2xl { gap: var(--space-8); }
+  .space-section { gap: var(--space-12); }
 
-  .animate-fade-rise {
-    animation: fade-rise 0.8s ease-out forwards;
-  }
+  /* Margin utilities */
+  .mt-tight { margin-top: var(--space-2); }
+  .mt-sm { margin-top: var(--space-3); }
+  .mt-md { margin-top: var(--space-4); }
+  .mt-lg { margin-top: var(--space-5); }
+  .mt-xl { margin-top: var(--space-6); }
+  .mt-2xl { margin-top: var(--space-8); }
+  .mt-section { margin-top: var(--space-12); }
 
-  .accent-left {
-    border-left: 2px solid var(--accent-primary);
-  }
+  .mb-tight { margin-bottom: var(--space-2); }
+  .mb-sm { margin-bottom: var(--space-3); }
+  .mb-md { margin-bottom: var(--space-4); }
+  .mb-lg { margin-bottom: var(--space-5); }
+  .mb-xl { margin-bottom: var(--space-6); }
+  .mb-2xl { margin-bottom: var(--space-8); }
 
-  .top-accent {
-    border-top: 3px solid var(--accent-primary);
-  }
+  /* Padding utilities */
+  .pt-section { padding-top: var(--space-12); }
+  .pb-section { padding-bottom: var(--space-12); }
+  .py-section { padding-top: var(--space-12); padding-bottom: var(--space-12); }
 
-  .font-english {
-    font-family: 'Inter', sans-serif;
-    letter-spacing: -0.01em;
+  /* Text utilities */
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  /* Animation */
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out forwards;
   }
 }
 
-@keyframes fade-rise {
+@keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -221,18 +353,15 @@
   }
 }
 
-/* Responsive */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   :root {
-    --section-padding: 4rem;
-  }
-
-  .heading-xl {
-    line-height: 1.1;
+    --space-12: 3.5rem;
+    --space-16: 4rem;
   }
 }
 
-/* Accessibility: Reduced Motion */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

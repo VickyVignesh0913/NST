@@ -1,0 +1,2210 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/q9guoh",
+    "id": "q9guoh",
+    "slide": 2,
+    "layoutId": "18c8e572-3f73-4704-b8a5-801ed1e7a0d7",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "31d2bd98-64be-4c85-a7e2-de6d408058fe",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos",
+      "Aptos Display",
+      "Aptos Mono"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "18c8e572-3f73-4704-b8a5-801ed1e7a0d7",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "31d2bd98-64be-4c85-a7e2-de6d408058fe",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "31d2bd98-64be-4c85-a7e2-de6d408058fe",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9cvixcze",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#0C0D14",
+      "lineColor": "#0C0D14",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ylc7u54z",
+      "id": "2",
+      "bbox": [
+        76,
+        54,
+        320,
+        26
+      ],
+      "geometry": "rect",
+      "text": "PRICE LADDER",
+      "textPreview": "PRICE LADDER",
+      "resolvedFontSize": 12,
+      "resolvedTextStyle": {
+        "fontSize": 12,
+        "typeface": "Aptos Mono",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "PRICE LADDER"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PRICE LADDER",
+          "runs": [
+            {
+              "index": 1,
+              "text": "PRICE LADDER",
+              "fontSize": 12,
+              "typeface": "Aptos Mono",
+              "color": "#A4ADC2",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/r65wjudg",
+      "id": "3",
+      "bbox": [
+        76,
+        88,
+        1080,
+        84
+      ],
+      "geometry": "rect",
+      "text": "The price bands mostly match until you hit workspaces and enterprise",
+      "textPreview": "The price bands mostly match until you hit workspaces and enterprise",
+      "resolvedFontSize": 31,
+      "resolvedTextStyle": {
+        "fontSize": 31,
+        "typeface": "Aptos Display",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "The price bands mostly match until you hit workspaces and enterprise"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "The price bands mostly match until you hit workspaces and enterprise",
+          "runs": [
+            {
+              "index": 1,
+              "text": "The price bands mostly match until you hit workspaces and enterprise",
+              "fontSize": 31,
+              "typeface": "Aptos Display",
+              "color": "#F4F6FB",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/g3ex0nux",
+      "id": "4",
+      "bbox": [
+        76,
+        160,
+        980,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Claude Code’s individual ladder mirrors ChatGPT on the ₹1.9k and ₹19.1k anchors, but the product logic is different: ChatGPT sells an AI suite; Claude sells Claude plus a terminal-native coding layer.",
+      "textPreview": "Claude Code’s individual ladder mirrors ChatGPT on the ₹1.9k and ₹19.1k anchors, but the product logic is different: ChatGPT sells an AI ...",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Claude Code’s individual ladder mirrors ChatGPT on the ₹1.9k and ₹19.1k anchors, but the product logic is different: ChatGPT sells an AI suite; Claude"
+          },
+          {
+            "index": 2,
+            "text": "sells Claude plus a terminal-native coding layer."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Claude Code’s individual ladder mirrors ChatGPT on the ₹1.9k and ₹19.1k anchors, but the product logic is different: ChatGPT sells an AI suite; Claude sells Claude plus a terminal-native coding layer.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Claude Code’s individual ladder mirrors ChatGPT on the ₹1.9k and ₹19.1k anchors, but the product logic is different: ChatGPT sells an AI suite; Claude sells Claude plus a terminal-native coding layer.",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#A4ADC2"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5o7qpg3e",
+      "id": "5",
+      "bbox": [
+        76,
+        220,
+        1128,
+        394
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#151826",
+      "lineColor": "#2A3146",
+      "lineWidth": 1
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/yxobm58z",
+      "id": "6",
+      "bbox": [
+        94,
+        244,
+        120,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Buyer",
+      "textPreview": "Buyer",
+      "resolvedFontSize": 12,
+      "resolvedTextStyle": {
+        "fontSize": 12,
+        "typeface": "Aptos Mono",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Buyer"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Buyer",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Buyer",
+              "fontSize": 12,
+              "typeface": "Aptos Mono",
+              "color": "#A4ADC2",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nih4byhg",
+      "id": "7",
+      "bbox": [
+        232,
+        244,
+        98,
+        24
+      ],
+      "geometry": "rect",
+      "text": "ChatGPT",
+      "textPreview": "ChatGPT",
+      "resolvedFontSize": 12,
+      "resolvedTextStyle": {
+        "fontSize": 12,
+        "typeface": "Aptos Mono",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "ChatGPT"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ChatGPT",
+          "runs": [
+            {
+              "index": 1,
+              "text": "ChatGPT",
+              "fontSize": 12,
+              "typeface": "Aptos Mono",
+              "color": "#A4ADC2",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/g7adsji5",
+      "id": "8",
+      "bbox": [
+        348,
+        244,
+        152,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Price",
+      "textPreview": "Price",
+      "resolvedFontSize": 12,
+      "resolvedTextStyle": {
+        "fontSize": 12,
+        "typeface": "Aptos Mono",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Price"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Price",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Price",
+              "fontSize": 12,
+              "typeface": "Aptos Mono",
+              "color": "#A4ADC2",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9s36hcrm",
+      "id": "9",
+      "bbox": [
+        518,
+        244,
+        210,
+        24
+      ],
+      "geometry": "rect",
+      "text": "What you get",
+      "textPreview": "What you get",
+      "resolvedFontSize": 12,
+      "resolvedTextStyle": {
+        "fontSize": 12,
+        "typeface": "Aptos Mono",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "What you get"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "What you get",
+          "runs": [
+            {
+              "index": 1,
+              "text": "What you get",
+              "fontSize": 12,
+              "typeface": "Aptos Mono",
+              "color": "#A4ADC2",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d8v6psfi",
+      "id": "10",
+      "bbox": [
+        746,
+        244,
+        98,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Claude",
+      "textPreview": "Claude",
+      "resolvedFontSize": 12,
+      "resolvedTextStyle": {
+        "fontSize": 12,
+        "typeface": "Aptos Mono",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Claude"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Claude",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Claude",
+              "fontSize": 12,
+              "typeface": "Aptos Mono",
+              "color": "#A4ADC2",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/onyd0z61",
+      "id": "11",
+      "bbox": [
+        862,
+        244,
+        106,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Price",
+      "textPreview": "Price",
+      "resolvedFontSize": 12,
+      "resolvedTextStyle": {
+        "fontSize": 12,
+        "typeface": "Aptos Mono",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Price"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Price",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Price",
+              "fontSize": 12,
+              "typeface": "Aptos Mono",
+              "color": "#A4ADC2",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/z25kb6xk",
+      "id": "12",
+      "bbox": [
+        986,
+        244,
+        218,
+        24
+      ],
+      "geometry": "rect",
+      "text": "What you get",
+      "textPreview": "What you get",
+      "resolvedFontSize": 12,
+      "resolvedTextStyle": {
+        "fontSize": 12,
+        "typeface": "Aptos Mono",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "What you get"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "What you get",
+          "runs": [
+            {
+              "index": 1,
+              "text": "What you get",
+              "fontSize": 12,
+              "typeface": "Aptos Mono",
+              "color": "#A4ADC2",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6hcrmhk3",
+      "id": "13",
+      "bbox": [
+        92,
+        278,
+        1096,
+        68
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#1B2031",
+      "lineColor": "#2A3146",
+      "lineWidth": 1
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dg7adsji",
+      "id": "14",
+      "bbox": [
+        94,
+        290,
+        120,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Entry paid plan",
+      "textPreview": "Entry paid plan",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Entry paid plan"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Entry paid plan",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Entry paid plan",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#F4F6FB",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ovahoza1",
+      "id": "15",
+      "bbox": [
+        232,
+        290,
+        98,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Plus",
+      "textPreview": "Plus",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Plus"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Plus",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Plus",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#10A37F",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vahoza1g",
+      "id": "16",
+      "bbox": [
+        348,
+        290,
+        152,
+        46
+      ],
+      "geometry": "rect",
+      "text": "~₹1,915/mo",
+      "textPreview": "~₹1,915/mo",
+      "resolvedFontSize": 13.51,
+      "resolvedTextStyle": {
+        "fontSize": 13.51,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "~₹1,915/mo"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "~₹1,915/mo",
+          "runs": [
+            {
+              "index": 1,
+              "text": "~₹1,915/mo",
+              "fontSize": 13.51,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6tovahoz",
+      "id": "17",
+      "bbox": [
+        518,
+        290,
+        210,
+        46
+      ],
+      "geometry": "rect",
+      "text": "General AI, research, images, voice, Codex access",
+      "textPreview": "General AI, research, images, voice, Codex access",
+      "resolvedFontSize": 13.51,
+      "resolvedTextStyle": {
+        "fontSize": 13.51,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "General AI, research, images, voice,"
+          },
+          {
+            "index": 2,
+            "text": "Codex access"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "General AI, research, images, voice, Codex access",
+          "runs": [
+            {
+              "index": 1,
+              "text": "General AI, research, images, voice, Codex access",
+              "fontSize": 13.51,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dsji5sne",
+      "id": "18",
+      "bbox": [
+        746,
+        290,
+        98,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Pro",
+      "textPreview": "Pro",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Pro"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Pro",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Pro",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#D97757",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/o7qpg3ex",
+      "id": "19",
+      "bbox": [
+        862,
+        290,
+        106,
+        46
+      ],
+      "geometry": "rect",
+      "text": "~₹1,915/mo",
+      "textPreview": "~₹1,915/mo",
+      "resolvedFontSize": 13.51,
+      "resolvedTextStyle": {
+        "fontSize": 13.51,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "~₹1,915/mo"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "~₹1,915/mo",
+          "runs": [
+            {
+              "index": 1,
+              "text": "~₹1,915/mo",
+              "fontSize": 13.51,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kjm1cfa9",
+      "id": "20",
+      "bbox": [
+        986,
+        290,
+        218,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Claude + Claude Code in one subscription",
+      "textPreview": "Claude + Claude Code in one subscription",
+      "resolvedFontSize": 13.51,
+      "resolvedTextStyle": {
+        "fontSize": 13.51,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Claude + Claude Code in one"
+          },
+          {
+            "index": 2,
+            "text": "subscription"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Claude + Claude Code in one subscription",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Claude + Claude Code in one subscription",
+              "fontSize": 13.51,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/94fu18jq",
+      "id": "21",
+      "bbox": [
+        92,
+        360,
+        1096,
+        68
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#151826",
+      "lineColor": "#2A3146",
+      "lineWidth": 1
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2hwfyxob",
+      "id": "22",
+      "bbox": [
+        94,
+        372,
+        120,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Power user",
+      "textPreview": "Power user",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Power user"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Power user",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Power user",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#F4F6FB",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/r2p8nqxs",
+      "id": "23",
+      "bbox": [
+        232,
+        372,
+        98,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Pro",
+      "textPreview": "Pro",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Pro"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Pro",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Pro",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#10A37F",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gvy90je9",
+      "id": "24",
+      "bbox": [
+        348,
+        372,
+        152,
+        46
+      ],
+      "geometry": "rect",
+      "text": "~₹19,140/mo",
+      "textPreview": "~₹19,140/mo",
+      "resolvedFontSize": 13.51,
+      "resolvedTextStyle": {
+        "fontSize": 13.51,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "~₹19,140/mo"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "~₹19,140/mo",
+          "runs": [
+            {
+              "index": 1,
+              "text": "~₹19,140/mo",
+              "fontSize": 13.51,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9gr2p8nq",
+      "id": "25",
+      "bbox": [
+        518,
+        372,
+        210,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Highest chat access, GPT-5.5 Pro, max Codex tasks",
+      "textPreview": "Highest chat access, GPT-5.5 Pro, max Codex tasks",
+      "resolvedFontSize": 13.51,
+      "resolvedTextStyle": {
+        "fontSize": 13.51,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Highest chat access, GPT-5.5 Pro, max"
+          },
+          {
+            "index": 2,
+            "text": "Codex tasks"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Highest chat access, GPT-5.5 Pro, max Codex tasks",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Highest chat access, GPT-5.5 Pro, max Codex tasks",
+              "fontSize": 13.51,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2p8nqxs7",
+      "id": "26",
+      "bbox": [
+        746,
+        372,
+        98,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Max 5x / 20x",
+      "textPreview": "Max 5x / 20x",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Max 5x / 20x"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Max 5x / 20x",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Max 5x / 20x",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#D97757",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ra5gbq1o",
+      "id": "27",
+      "bbox": [
+        862,
+        372,
+        106,
+        46
+      ],
+      "geometry": "rect",
+      "text": "~₹9,570 / ₹19,140",
+      "textPreview": "~₹9,570 / ₹19,140",
+      "resolvedFontSize": 13.51,
+      "resolvedTextStyle": {
+        "fontSize": 13.51,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "~₹9,570 / ₹19,140"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "~₹9,570 / ₹19,140",
+          "runs": [
+            {
+              "index": 1,
+              "text": "~₹9,570 / ₹19,140",
+              "fontSize": 13.51,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kzupwb2h",
+      "id": "28",
+      "bbox": [
+        986,
+        372,
+        218,
+        46
+      ],
+      "geometry": "rect",
+      "text": "5x or 20x Pro usage with Claude Code",
+      "textPreview": "5x or 20x Pro usage with Claude Code",
+      "resolvedFontSize": 13.51,
+      "resolvedTextStyle": {
+        "fontSize": 13.51,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "5x or 20x Pro usage with Claude Code"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "5x or 20x Pro usage with Claude Code",
+          "runs": [
+            {
+              "index": 1,
+              "text": "5x or 20x Pro usage with Claude Code",
+              "fontSize": 13.51,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9knih4by",
+      "id": "29",
+      "bbox": [
+        92,
+        442,
+        1096,
+        68
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#1B2031",
+      "lineColor": "#2A3146",
+      "lineWidth": 1
+    },
+    {
+      "order": 30,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fa9w3m94",
+      "id": "30",
+      "bbox": [
+        94,
+        454,
+        120,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Team",
+      "textPreview": "Team",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Team"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Team",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Team",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#F4F6FB",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 31,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qpg3ex0n",
+      "id": "31",
+      "bbox": [
+        232,
+        454,
+        98,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Business",
+      "textPreview": "Business",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Business"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Business",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Business",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#10A37F",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 32,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xczed8v6",
+      "id": "32",
+      "bbox": [
+        348,
+        454,
+        152,
+        46
+      ],
+      "geometry": "rect",
+      "text": "~₹2,390/user/mo annual",
+      "textPreview": "~₹2,390/user/mo annual",
+      "resolvedFontSize": 13.51,
+      "resolvedTextStyle": {
+        "fontSize": 13.51,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "~₹2,390/user/mo annual"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "~₹2,390/user/mo annual",
+          "runs": [
+            {
+              "index": 1,
+              "text": "~₹2,390/user/mo annual",
+              "fontSize": 13.51,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 33,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8v6psfil",
+      "id": "33",
+      "bbox": [
+        518,
+        454,
+        210,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Shared workspace, 60+ apps, admin, SSO, MFA",
+      "textPreview": "Shared workspace, 60+ apps, admin, SSO, MFA",
+      "resolvedFontSize": 13.51,
+      "resolvedTextStyle": {
+        "fontSize": 13.51,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Shared workspace, 60+ apps, admin,"
+          },
+          {
+            "index": 2,
+            "text": "SSO, MFA"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Shared workspace, 60+ apps, admin, SSO, MFA",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Shared workspace, 60+ apps, admin, SSO, MFA",
+              "fontSize": 13.51,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 34,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fyxobm58",
+      "id": "34",
+      "bbox": [
+        746,
+        454,
+        98,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Team",
+      "textPreview": "Team",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Team"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Team",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Team",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#D97757",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 35,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qd4vmtwr",
+      "id": "35",
+      "bbox": [
+        862,
+        454,
+        106,
+        46
+      ],
+      "geometry": "rect",
+      "text": "~₹2,390 annual / ₹2,870 monthly",
+      "textPreview": "~₹2,390 annual / ₹2,870 monthly",
+      "resolvedFontSize": 13.51,
+      "resolvedTextStyle": {
+        "fontSize": 13.51,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "~₹2,390 annual /"
+          },
+          {
+            "index": 2,
+            "text": "₹2,870 monthly"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "~₹2,390 annual / ₹2,870 monthly",
+          "runs": [
+            {
+              "index": 1,
+              "text": "~₹2,390 annual / ₹2,870 monthly",
+              "fontSize": 13.51,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 36,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x4nap4r6",
+      "id": "36",
+      "bbox": [
+        986,
+        454,
+        218,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Claude Code in every seat; premium seats for more usage",
+      "textPreview": "Claude Code in every seat; premium seats for more usage",
+      "resolvedFontSize": 13.51,
+      "resolvedTextStyle": {
+        "fontSize": 13.51,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Claude Code in every seat; premium"
+          },
+          {
+            "index": 2,
+            "text": "seats for more usage"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Claude Code in every seat; premium seats for more usage",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Claude Code in every seat; premium seats for more usage",
+              "fontSize": 13.51,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 37,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8jqh0fep",
+      "id": "37",
+      "bbox": [
+        92,
+        524,
+        1096,
+        68
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#151826",
+      "lineColor": "#2A3146",
+      "lineWidth": 1
+    },
+    {
+      "order": 38,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fmlkjm1c",
+      "id": "38",
+      "bbox": [
+        94,
+        536,
+        120,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Enterprise",
+      "textPreview": "Enterprise",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Enterprise"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Enterprise",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Enterprise",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#F4F6FB",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 39,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q1orytsv",
+      "id": "39",
+      "bbox": [
+        232,
+        536,
+        98,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Enterprise",
+      "textPreview": "Enterprise",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Enterprise"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Enterprise",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Enterprise",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#10A37F",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 40,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/65wjudg7",
+      "id": "40",
+      "bbox": [
+        348,
+        536,
+        152,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Custom",
+      "textPreview": "Custom",
+      "resolvedFontSize": 13.51,
+      "resolvedTextStyle": {
+        "fontSize": 13.51,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Custom"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Custom",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Custom",
+              "fontSize": 13.51,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 41,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zqtcj6to",
+      "id": "41",
+      "bbox": [
+        518,
+        536,
+        210,
+        46
+      ],
+      "geometry": "rect",
+      "text": "SCIM, EKM, analytics, data residency, support",
+      "textPreview": "SCIM, EKM, analytics, data residency, support",
+      "resolvedFontSize": 13.51,
+      "resolvedTextStyle": {
+        "fontSize": 13.51,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "SCIM, EKM, analytics, data residency,"
+          },
+          {
+            "index": 2,
+            "text": "support"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "SCIM, EKM, analytics, data residency, support",
+          "runs": [
+            {
+              "index": 1,
+              "text": "SCIM, EKM, analytics, data residency, support",
+              "fontSize": 13.51,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 42,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/obm58z25",
+      "id": "42",
+      "bbox": [
+        746,
+        536,
+        98,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Enterprise",
+      "textPreview": "Enterprise",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Enterprise"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Enterprise",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Enterprise",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#D97757",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 43,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hwfyxobm",
+      "id": "43",
+      "bbox": [
+        862,
+        536,
+        106,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Custom + usage",
+      "textPreview": "Custom + usage",
+      "resolvedFontSize": 13.51,
+      "resolvedTextStyle": {
+        "fontSize": 13.51,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Custom + usage"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Custom + usage",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Custom + usage",
+              "fontSize": 13.51,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 44,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6xkf6dcb",
+      "id": "44",
+      "bbox": [
+        986,
+        536,
+        218,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Claude Code included in new enterprise seat; usage billed separately",
+      "textPreview": "Claude Code included in new enterprise seat; usage billed separately",
+      "resolvedFontSize": 13.51,
+      "resolvedTextStyle": {
+        "fontSize": 13.51,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Claude Code included in new"
+          },
+          {
+            "index": 2,
+            "text": "enterprise seat; usage billed separately"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Claude Code included in new enterprise seat; usage billed separately",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Claude Code included in new enterprise seat; usage billed separately",
+              "fontSize": 13.51,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 45,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zed8v6ps",
+      "id": "45",
+      "bbox": [
+        76,
+        638,
+        1120,
+        42
+      ],
+      "geometry": "rect",
+      "text": "Decision signal: if you are choosing a solo plan strictly for coding in the terminal, Claude Max 5x is the direct premium alternative to ChatGPT Pro. If you want one tool for research, apps, voice, and broader AI tasks, ChatGPT has the wider bundle.",
+      "textPreview": "Decision signal: if you are choosing a solo plan strictly for coding in the terminal, Claude Max 5x is the direct premium alternative to ...",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Decision signal: if you are choosing a solo plan strictly for coding in the terminal, Claude Max 5x is the direct premium alternative to ChatGPT Pro. If you want one tool for research,"
+          },
+          {
+            "index": 2,
+            "text": "apps, voice, and broader AI tasks, ChatGPT has the wider bundle."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Decision signal: if you are choosing a solo plan strictly for coding in the terminal, Claude Max 5x is the direct premium alternative to ChatGPT Pro. If you want one tool for research, apps, voice, and broader AI tasks, ChatGPT has the wider bundle.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Decision signal: if you are choosing a solo plan strictly for coding in the terminal, Claude Max 5x is the direct premium alternative to ChatGPT Pro. If you want one tool for research, apps, voice, and broader AI tasks, ChatGPT has the wider bundle.",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#A4ADC2"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 46,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/oza1gvy9",
+      "id": "46",
+      "bbox": [
+        76,
+        682,
+        1120,
+        18
+      ],
+      "geometry": "rect",
+      "text": "US list prices converted to INR at 1 USD = ₹95.68. Business and Team pricing can vary by region, tax, and billing cycle.",
+      "textPreview": "US list prices converted to INR at 1 USD = ₹95.68. Business and Team pricing can vary by region, tax, and billing cycle.",
+      "resolvedFontSize": 10,
+      "resolvedTextStyle": {
+        "fontSize": 10,
+        "typeface": "Aptos Mono",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "US list prices converted to INR at 1 USD = ₹95.68. Business and Team pricing can vary by region, tax, and billing cycle."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "US list prices converted to INR at 1 USD = ₹95.68. Business and Team pricing can vary by region, tax, and billing cycle.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "US list prices converted to INR at 1 USD = ₹95.68. Business and Team pricing can vary by region, tax, and billing cycle.",
+              "fontSize": 10,
+              "typeface": "Aptos Mono",
+              "color": "#7E879D"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

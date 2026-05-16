@@ -1,0 +1,1490 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/rk6fbx",
+    "id": "rk6fbx",
+    "slide": 3,
+    "layoutId": "18c8e572-3f73-4704-b8a5-801ed1e7a0d7",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "31d2bd98-64be-4c85-a7e2-de6d408058fe",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos",
+      "Aptos Display",
+      "Aptos Mono"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "18c8e572-3f73-4704-b8a5-801ed1e7a0d7",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "31d2bd98-64be-4c85-a7e2-de6d408058fe",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "31d2bd98-64be-4c85-a7e2-de6d408058fe",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1orytsvu",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#0C0D14",
+      "lineColor": "#0C0D14",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u18jqh0f",
+      "id": "2",
+      "bbox": [
+        76,
+        54,
+        320,
+        26
+      ],
+      "geometry": "rect",
+      "text": "CHATGPT",
+      "textPreview": "CHATGPT",
+      "resolvedFontSize": 12,
+      "resolvedTextStyle": {
+        "fontSize": 12,
+        "typeface": "Aptos Mono",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "CHATGPT"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "CHATGPT",
+          "runs": [
+            {
+              "index": 1,
+              "text": "CHATGPT",
+              "fontSize": 12,
+              "typeface": "Aptos Mono",
+              "color": "#A4ADC2",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jm1cfa9w",
+      "id": "3",
+      "bbox": [
+        76,
+        88,
+        1080,
+        84
+      ],
+      "geometry": "rect",
+      "text": "ChatGPT is the broader AI product stack",
+      "textPreview": "ChatGPT is the broader AI product stack",
+      "resolvedFontSize": 31,
+      "resolvedTextStyle": {
+        "fontSize": 31,
+        "typeface": "Aptos Display",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "ChatGPT is the broader AI product stack"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ChatGPT is the broader AI product stack",
+          "runs": [
+            {
+              "index": 1,
+              "text": "ChatGPT is the broader AI product stack",
+              "fontSize": 31,
+              "typeface": "Aptos Display",
+              "color": "#F4F6FB",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cfa9w3m9",
+      "id": "4",
+      "bbox": [
+        76,
+        160,
+        980,
+        46
+      ],
+      "geometry": "rect",
+      "text": "The current pricing page positions Codex as part of a larger productivity suite rather than the sole reason to subscribe.",
+      "textPreview": "The current pricing page positions Codex as part of a larger productivity suite rather than the sole reason to subscribe.",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "The current pricing page positions Codex as part of a larger productivity suite rather than the sole reason to subscribe."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "The current pricing page positions Codex as part of a larger productivity suite rather than the sole reason to subscribe.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "The current pricing page positions Codex as part of a larger productivity suite rather than the sole reason to subscribe.",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#A4ADC2"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1032lszq",
+      "id": "5",
+      "bbox": [
+        76,
+        230,
+        340,
+        336
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#151826",
+      "lineColor": "#2A3146",
+      "lineWidth": 1
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u9knih4b",
+      "id": "6",
+      "bbox": [
+        440,
+        230,
+        340,
+        336
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#151826",
+      "lineColor": "#2A3146",
+      "lineWidth": 1
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/judg7ads",
+      "id": "7",
+      "bbox": [
+        804,
+        230,
+        400,
+        336
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#123B35",
+      "lineColor": "#2A3146",
+      "lineWidth": 1
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cj6tovah",
+      "id": "8",
+      "bbox": [
+        106,
+        260,
+        220,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Plus | ~₹1,915/mo",
+      "textPreview": "Plus | ~₹1,915/mo",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Plus | ~₹1,915/mo"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Plus | ~₹1,915/mo",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Plus | ~₹1,915/mo",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/54zidony",
+      "id": "9",
+      "bbox": [
+        106,
+        318,
+        7,
+        7
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/t47y1kre",
+      "id": "10",
+      "bbox": [
+        122,
+        312,
+        260,
+        38
+      ],
+      "geometry": "rect",
+      "text": "GPT-5.5 Thinking access",
+      "textPreview": "GPT-5.5 Thinking access",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "GPT-5.5 Thinking access"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "GPT-5.5 Thinking access",
+          "runs": [
+            {
+              "index": 1,
+              "text": "GPT-5.5 Thinking access",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0je9cvix",
+      "id": "11",
+      "bbox": [
+        106,
+        348,
+        7,
+        7
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/byhgn29g",
+      "id": "12",
+      "bbox": [
+        122,
+        342,
+        260,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Expanded deep research and agent mode",
+      "textPreview": "Expanded deep research and agent mode",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Expanded deep research and agent"
+          },
+          {
+            "index": 2,
+            "text": "mode"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Expanded deep research and agent mode",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Expanded deep research and agent mode",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/idonyd0z",
+      "id": "13",
+      "bbox": [
+        106,
+        378,
+        7,
+        7
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tcj6tova",
+      "id": "14",
+      "bbox": [
+        122,
+        372,
+        260,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Projects, tasks, custom GPTs",
+      "textPreview": "Projects, tasks, custom GPTs",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Projects, tasks, custom GPTs"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Projects, tasks, custom GPTs",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Projects, tasks, custom GPTs",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0rqd4vmt",
+      "id": "15",
+      "bbox": [
+        106,
+        408,
+        7,
+        7
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/b6xkf6dc",
+      "id": "16",
+      "bbox": [
+        122,
+        402,
+        260,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Expanded Codex usage",
+      "textPreview": "Expanded Codex usage",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Expanded Codex usage"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Expanded Codex usage",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Expanded Codex usage",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/il0rqd4v",
+      "id": "17",
+      "bbox": [
+        106,
+        438,
+        7,
+        7
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tovahoza",
+      "id": "18",
+      "bbox": [
+        122,
+        432,
+        260,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Early access to new features",
+      "textPreview": "Early access to new features",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Early access to new features"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Early access to new features",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Early access to new features",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/032lszqt",
+      "id": "19",
+      "bbox": [
+        470,
+        260,
+        230,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Pro | ~₹19,140/mo",
+      "textPreview": "Pro | ~₹19,140/mo",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Pro | ~₹19,140/mo"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Pro | ~₹19,140/mo",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Pro | ~₹19,140/mo",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/czed8v6p",
+      "id": "20",
+      "bbox": [
+        470,
+        318,
+        7,
+        7
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5kb6xkf6",
+      "id": "21",
+      "bbox": [
+        486,
+        312,
+        260,
+        38
+      ],
+      "geometry": "rect",
+      "text": "GPT-5.5 Pro reasoning",
+      "textPreview": "GPT-5.5 Pro reasoning",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "GPT-5.5 Pro reasoning"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "GPT-5.5 Pro reasoning",
+          "runs": [
+            {
+              "index": 1,
+              "text": "GPT-5.5 Pro reasoning",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ytsvu9kn",
+      "id": "22",
+      "bbox": [
+        470,
+        348,
+        7,
+        7
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/neloj2t8",
+      "id": "23",
+      "bbox": [
+        486,
+        342,
+        260,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Maximum Codex tasks",
+      "textPreview": "Maximum Codex tasks",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Maximum Codex tasks"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Maximum Codex tasks",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Maximum Codex tasks",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cbulwval",
+      "id": "24",
+      "bbox": [
+        470,
+        378,
+        7,
+        7
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5sneloj2",
+      "id": "25",
+      "bbox": [
+        486,
+        372,
+        260,
+        38
+      ],
+      "geometry": "rect",
+      "text": "10x or 20x more Codex usage",
+      "textPreview": "10x or 20x more Codex usage",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "10x or 20x more Codex usage"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "10x or 20x more Codex usage",
+          "runs": [
+            {
+              "index": 1,
+              "text": "10x or 20x more Codex usage",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u54zidon",
+      "id": "26",
+      "bbox": [
+        470,
+        408,
+        7,
+        7
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nqxs72x4",
+      "id": "27",
+      "bbox": [
+        486,
+        402,
+        260,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Unlimited GPT-5.3 and uploads",
+      "textPreview": "Unlimited GPT-5.3 and uploads",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Unlimited GPT-5.3 and uploads"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Unlimited GPT-5.3 and uploads",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Unlimited GPT-5.3 and uploads",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gbq1oryt",
+      "id": "28",
+      "bbox": [
+        470,
+        438,
+        7,
+        7
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5wjudg7a",
+      "id": "29",
+      "bbox": [
+        486,
+        432,
+        260,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Maximum deep research and agent mode",
+      "textPreview": "Maximum deep research and agent mode",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Maximum deep research and agent"
+          },
+          {
+            "index": 2,
+            "text": "mode"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Maximum deep research and agent mode",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Maximum deep research and agent mode",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 30,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/v6psfil0",
+      "id": "30",
+      "bbox": [
+        834,
+        260,
+        300,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Business / Enterprise",
+      "textPreview": "Business / Enterprise",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Business / Enterprise"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Business / Enterprise",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Business / Enterprise",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 31,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2lszqtcj",
+      "id": "31",
+      "bbox": [
+        834,
+        318,
+        7,
+        7
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 32,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d8bat47y",
+      "id": "32",
+      "bbox": [
+        850,
+        312,
+        304,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Business ~₹2,390/user/mo annual and adds apps/connectors, shared workspace, SSO, MFA",
+      "textPreview": "Business ~₹2,390/user/mo annual and adds apps/connectors, shared workspace, SSO, MFA",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Business ~₹2,390/user/mo annual and adds"
+          },
+          {
+            "index": 2,
+            "text": "apps/connectors, shared workspace, SSO, MFA"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Business ~₹2,390/user/mo annual and adds apps/connectors, shared workspace, SSO, MFA",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Business ~₹2,390/user/mo annual and adds apps/connectors, shared workspace, SSO, MFA",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 33,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/knih4byh",
+      "id": "33",
+      "bbox": [
+        834,
+        346,
+        7,
+        7
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 34,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vu9knih4",
+      "id": "34",
+      "bbox": [
+        850,
+        340,
+        304,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Business combines ChatGPT Plus and Business Codex capabilities",
+      "textPreview": "Business combines ChatGPT Plus and Business Codex capabilities",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Business combines ChatGPT Plus and Business"
+          },
+          {
+            "index": 2,
+            "text": "Codex capabilities"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Business combines ChatGPT Plus and Business Codex capabilities",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Business combines ChatGPT Plus and Business Codex capabilities",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 35,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/29gr2p8n",
+      "id": "35",
+      "bbox": [
+        834,
+        374,
+        7,
+        7
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 36,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d0z61032",
+      "id": "36",
+      "bbox": [
+        850,
+        368,
+        304,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Enterprise adds SCIM, EKM, RBAC, analytics, data residency, priority support",
+      "textPreview": "Enterprise adds SCIM, EKM, RBAC, analytics, data residency, priority support",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Enterprise adds SCIM, EKM, RBAC, analytics,"
+          },
+          {
+            "index": 2,
+            "text": "data residency, priority support"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Enterprise adds SCIM, EKM, RBAC, analytics, data residency, priority support",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Enterprise adds SCIM, EKM, RBAC, analytics, data residency, priority support",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 37,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kf6dcbul",
+      "id": "37",
+      "bbox": [
+        834,
+        402,
+        7,
+        7
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 38,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vixczed8",
+      "id": "38",
+      "bbox": [
+        850,
+        396,
+        304,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Best for buyers who need AI adoption across functions, not only engineering",
+      "textPreview": "Best for buyers who need AI adoption across functions, not only engineering",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Best for buyers who need AI adoption across"
+          },
+          {
+            "index": 2,
+            "text": "functions, not only engineering"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Best for buyers who need AI adoption across functions, not only engineering",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Best for buyers who need AI adoption across functions, not only engineering",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#FFFFFF"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 39,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2x4nap4r",
+      "id": "39",
+      "bbox": [
+        76,
+        612,
+        1120,
+        42
+      ],
+      "geometry": "rect",
+      "text": "Best fit: operators, founders, analysts, product managers, and mixed teams who want one paid plan to cover search, writing, analysis, files, connectors, and some coding.",
+      "textPreview": "Best fit: operators, founders, analysts, product managers, and mixed teams who want one paid plan to cover search, writing, analysis, fil...",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Best fit: operators, founders, analysts, product managers, and mixed teams who want one paid plan to cover search, writing, analysis, files, connectors, and some"
+          },
+          {
+            "index": 2,
+            "text": "coding."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Best fit: operators, founders, analysts, product managers, and mixed teams who want one paid plan to cover search, writing, analysis, files, connectors, and some coding.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Best fit: operators, founders, analysts, product managers, and mixed teams who want one paid plan to cover search, writing, analysis, files, connectors, and some coding.",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#F2C66D",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 40,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/m1cfa9w3",
+      "id": "40",
+      "bbox": [
+        76,
+        682,
+        1120,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Official OpenAI pricing page reviewed on 2026-05-14. INR values are approximate conversions, not local billing quotes.",
+      "textPreview": "Official OpenAI pricing page reviewed on 2026-05-14. INR values are approximate conversions, not local billing quotes.",
+      "resolvedFontSize": 10,
+      "resolvedTextStyle": {
+        "fontSize": 10,
+        "typeface": "Aptos Mono",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Official OpenAI pricing page reviewed on 2026-05-14. INR values are approximate conversions, not local billing quotes."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Official OpenAI pricing page reviewed on 2026-05-14. INR values are approximate conversions, not local billing quotes.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Official OpenAI pricing page reviewed on 2026-05-14. INR values are approximate conversions, not local billing quotes.",
+              "fontSize": 10,
+              "typeface": "Aptos Mono",
+              "color": "#7E879D"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

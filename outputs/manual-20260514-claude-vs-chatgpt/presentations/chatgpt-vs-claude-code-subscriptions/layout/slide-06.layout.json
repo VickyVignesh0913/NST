@@ -1,0 +1,747 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/ew9nof",
+    "id": "ew9nof",
+    "slide": 6,
+    "layoutId": "18c8e572-3f73-4704-b8a5-801ed1e7a0d7",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "31d2bd98-64be-4c85-a7e2-de6d408058fe",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos",
+      "Aptos Display",
+      "Aptos Mono"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "18c8e572-3f73-4704-b8a5-801ed1e7a0d7",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "31d2bd98-64be-4c85-a7e2-de6d408058fe",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "31d2bd98-64be-4c85-a7e2-de6d408058fe",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8v6psfil",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#0C0D14",
+      "lineColor": "#0C0D14",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fa9w3m94",
+      "id": "2",
+      "bbox": [
+        76,
+        54,
+        320,
+        26
+      ],
+      "geometry": "rect",
+      "text": "SOURCES",
+      "textPreview": "SOURCES",
+      "resolvedFontSize": 12,
+      "resolvedTextStyle": {
+        "fontSize": 12,
+        "typeface": "Aptos Mono",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "SOURCES"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "SOURCES",
+          "runs": [
+            {
+              "index": 1,
+              "text": "SOURCES",
+              "fontSize": 12,
+              "typeface": "Aptos Mono",
+              "color": "#A4ADC2",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qpg3ex0n",
+      "id": "3",
+      "bbox": [
+        76,
+        88,
+        1080,
+        84
+      ],
+      "geometry": "rect",
+      "text": "Official source list and conversion caveats",
+      "textPreview": "Official source list and conversion caveats",
+      "resolvedFontSize": 31,
+      "resolvedTextStyle": {
+        "fontSize": 31,
+        "typeface": "Aptos Display",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Official source list and conversion caveats"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Official source list and conversion caveats",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Official source list and conversion caveats",
+              "fontSize": 31,
+              "typeface": "Aptos Display",
+              "color": "#F4F6FB",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x4nap4r6",
+      "id": "4",
+      "bbox": [
+        76,
+        160,
+        980,
+        46
+      ],
+      "geometry": "rect",
+      "text": "Use this slide if you need to defend the numbers or explain why enterprise pricing and local billing are not directly comparable.",
+      "textPreview": "Use this slide if you need to defend the numbers or explain why enterprise pricing and local billing are not directly comparable.",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Use this slide if you need to defend the numbers or explain why enterprise pricing and local billing are not directly comparable."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Use this slide if you need to defend the numbers or explain why enterprise pricing and local billing are not directly comparable.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Use this slide if you need to defend the numbers or explain why enterprise pricing and local billing are not directly comparable.",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#A4ADC2"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8jqh0fep",
+      "id": "5",
+      "bbox": [
+        76,
+        220,
+        1128,
+        370
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#151826",
+      "lineColor": "#2A3146",
+      "lineWidth": 1
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fyxobm58",
+      "id": "6",
+      "bbox": [
+        104,
+        250,
+        1060,
+        32
+      ],
+      "geometry": "rect",
+      "text": "OpenAI ChatGPT pricing: https://openai.com/chatgpt/pricing/",
+      "textPreview": "OpenAI ChatGPT pricing: https://openai.com/chatgpt/pricing/",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos Mono",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "OpenAI ChatGPT pricing: https://openai.com/chatgpt/pricing/"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "OpenAI ChatGPT pricing: https://openai.com/chatgpt/pricing/",
+          "runs": [
+            {
+              "index": 1,
+              "text": "OpenAI ChatGPT pricing: https://openai.com/chatgpt/pricing/",
+              "fontSize": 15,
+              "typeface": "Aptos Mono",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qd4vmtwr",
+      "id": "7",
+      "bbox": [
+        104,
+        294,
+        1060,
+        32
+      ],
+      "geometry": "rect",
+      "text": "Claude Code with Pro/Max: https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan",
+      "textPreview": "Claude Code with Pro/Max: https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos Mono",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Claude Code with Pro/Max: https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Claude Code with Pro/Max: https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Claude Code with Pro/Max: https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan",
+              "fontSize": 15,
+              "typeface": "Aptos Mono",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xs72x4na",
+      "id": "8",
+      "bbox": [
+        104,
+        338,
+        1060,
+        32
+      ],
+      "geometry": "rect",
+      "text": "Claude Pro cost: https://support.anthropic.com/en/articles/8325610-how-much-does-claude-pro-cost",
+      "textPreview": "Claude Pro cost: https://support.anthropic.com/en/articles/8325610-how-much-does-claude-pro-cost",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos Mono",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Claude Pro cost: https://support.anthropic.com/en/articles/8325610-how-much-does-claude-pro-cost"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Claude Pro cost: https://support.anthropic.com/en/articles/8325610-how-much-does-claude-pro-cost",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Claude Pro cost: https://support.anthropic.com/en/articles/8325610-how-much-does-claude-pro-cost",
+              "fontSize": 15,
+              "typeface": "Aptos Mono",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/87ed8bat",
+      "id": "9",
+      "bbox": [
+        104,
+        382,
+        1060,
+        32
+      ],
+      "geometry": "rect",
+      "text": "Claude Max cost: https://support.anthropic.com/en/articles/11049744-how-much-does-the-max-plan-cost",
+      "textPreview": "Claude Max cost: https://support.anthropic.com/en/articles/11049744-how-much-does-the-max-plan-cost",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos Mono",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Claude Max cost: https://support.anthropic.com/en/articles/11049744-how-much-does-the-max-plan-cost"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Claude Max cost: https://support.anthropic.com/en/articles/11049744-how-much-does-the-max-plan-cost",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Claude Max cost: https://support.anthropic.com/en/articles/11049744-how-much-does-the-max-plan-cost",
+              "fontSize": 15,
+              "typeface": "Aptos Mono",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ed8v6psf",
+      "id": "10",
+      "bbox": [
+        104,
+        426,
+        1060,
+        32
+      ],
+      "geometry": "rect",
+      "text": "Claude Team pricing: https://support.anthropic.com/en/articles/9267305-what-is-the-pricing-for-the-team-plan",
+      "textPreview": "Claude Team pricing: https://support.anthropic.com/en/articles/9267305-what-is-the-pricing-for-the-team-plan",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos Mono",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Claude Team pricing: https://support.anthropic.com/en/articles/9267305-what-is-the-pricing-for-the-team-plan"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Claude Team pricing: https://support.anthropic.com/en/articles/9267305-what-is-the-pricing-for-the-team-plan",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Claude Team pricing: https://support.anthropic.com/en/articles/9267305-what-is-the-pricing-for-the-team-plan",
+              "fontSize": 15,
+              "typeface": "Aptos Mono",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7y1kre1w",
+      "id": "11",
+      "bbox": [
+        104,
+        470,
+        1060,
+        32
+      ],
+      "geometry": "rect",
+      "text": "Claude Code with Team/Enterprise: https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan",
+      "textPreview": "Claude Code with Team/Enterprise: https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos Mono",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Claude Code with Team/Enterprise: https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Claude Code with Team/Enterprise: https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Claude Code with Team/Enterprise: https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan",
+              "fontSize": 15,
+              "typeface": "Aptos Mono",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wjudg7ad",
+      "id": "12",
+      "bbox": [
+        104,
+        514,
+        1060,
+        32
+      ],
+      "geometry": "rect",
+      "text": "USD/INR reference used: 1 USD = ₹95.6849 on 2026-05-14",
+      "textPreview": "USD/INR reference used: 1 USD = ₹95.6849 on 2026-05-14",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "Aptos Mono",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "USD/INR reference used: 1 USD = ₹95.6849 on 2026-05-14"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "USD/INR reference used: 1 USD = ₹95.6849 on 2026-05-14",
+          "runs": [
+            {
+              "index": 1,
+              "text": "USD/INR reference used: 1 USD = ₹95.6849 on 2026-05-14",
+              "fontSize": 15,
+              "typeface": "Aptos Mono",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p4r65wju",
+      "id": "13",
+      "bbox": [
+        76,
+        620,
+        200,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Caveats",
+      "textPreview": "Caveats",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "Aptos Mono",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Caveats"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Caveats",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Caveats",
+              "fontSize": 14,
+              "typeface": "Aptos Mono",
+              "color": "#A4ADC2",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/i5sneloj",
+      "id": "14",
+      "bbox": [
+        76,
+        646,
+        1120,
+        44
+      ],
+      "geometry": "rect",
+      "text": "Enterprise pricing is custom for both vendors. INR figures are approximate conversions from US list prices using the May 14, 2026 USD/INR reference rate, so actual Indian billing can differ because of taxes, regional pricing, mobile store billing, or contract terms.",
+      "textPreview": "Enterprise pricing is custom for both vendors. INR figures are approximate conversions from US list prices using the May 14, 2026 USD/INR...",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Enterprise pricing is custom for both vendors. INR figures are approximate conversions from US list prices using the May 14, 2026 USD/INR reference rate, so actual Indian billing can differ because"
+          },
+          {
+            "index": 2,
+            "text": "of taxes, regional pricing, mobile store billing, or contract terms."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Enterprise pricing is custom for both vendors. INR figures are approximate conversions from US list prices using the May 14, 2026 USD/INR reference rate, so actual Indian billing can differ because of taxes, regional pricing, mobile store billing, or contract terms.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Enterprise pricing is custom for both vendors. INR figures are approximate conversions from US list prices using the May 14, 2026 USD/INR reference rate, so actual Indian billing can differ because of taxes, regional pricing, mobile store billing, or contract terms.",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#A4ADC2"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7qpg3ex0",
+      "id": "15",
+      "bbox": [
+        76,
+        682,
+        1120,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Prepared 2026-05-14. Re-check pricing and FX before external circulation if timing changes.",
+      "textPreview": "Prepared 2026-05-14. Re-check pricing and FX before external circulation if timing changes.",
+      "resolvedFontSize": 10,
+      "resolvedTextStyle": {
+        "fontSize": 10,
+        "typeface": "Aptos Mono",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Prepared 2026-05-14. Re-check pricing and FX before external circulation if timing changes."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Prepared 2026-05-14. Re-check pricing and FX before external circulation if timing changes.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Prepared 2026-05-14. Re-check pricing and FX before external circulation if timing changes.",
+              "fontSize": 10,
+              "typeface": "Aptos Mono",
+              "color": "#7E879D"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

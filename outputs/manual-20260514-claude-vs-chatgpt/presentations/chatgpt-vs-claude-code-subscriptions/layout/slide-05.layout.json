@@ -1,0 +1,1180 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/c1s7gi",
+    "id": "c1s7gi",
+    "slide": 5,
+    "layoutId": "18c8e572-3f73-4704-b8a5-801ed1e7a0d7",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "31d2bd98-64be-4c85-a7e2-de6d408058fe",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos",
+      "Aptos Display",
+      "Aptos Mono"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "18c8e572-3f73-4704-b8a5-801ed1e7a0d7",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "31d2bd98-64be-4c85-a7e2-de6d408058fe",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "31d2bd98-64be-4c85-a7e2-de6d408058fe",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/obm58z25",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#0C0D14",
+      "lineColor": "#0C0D14",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zqtcj6to",
+      "id": "2",
+      "bbox": [
+        76,
+        54,
+        320,
+        26
+      ],
+      "geometry": "rect",
+      "text": "DECISION",
+      "textPreview": "DECISION",
+      "resolvedFontSize": 12,
+      "resolvedTextStyle": {
+        "fontSize": 12,
+        "typeface": "Aptos Mono",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "DECISION"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "DECISION",
+          "runs": [
+            {
+              "index": 1,
+              "text": "DECISION",
+              "fontSize": 12,
+              "typeface": "Aptos Mono",
+              "color": "#A4ADC2",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/65wjudg7",
+      "id": "3",
+      "bbox": [
+        76,
+        88,
+        1080,
+        84
+      ],
+      "geometry": "rect",
+      "text": "The right subscription depends on whether coding is the center or just one feature",
+      "textPreview": "The right subscription depends on whether coding is the center or just one feature",
+      "resolvedFontSize": 31,
+      "resolvedTextStyle": {
+        "fontSize": 31,
+        "typeface": "Aptos Display",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "The right subscription depends on whether coding is the center or just one feature"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "The right subscription depends on whether coding is the center or just one feature",
+          "runs": [
+            {
+              "index": 1,
+              "text": "The right subscription depends on whether coding is the center or just one feature",
+              "fontSize": 31,
+              "typeface": "Aptos Display",
+              "color": "#F4F6FB",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hk3q5o7q",
+      "id": "4",
+      "bbox": [
+        76,
+        160,
+        980,
+        46
+      ],
+      "geometry": "rect",
+      "text": "At roughly the same ₹1.9k starting point, ChatGPT optimizes for breadth while Claude Code optimizes for terminal-native developer workflow.",
+      "textPreview": "At roughly the same ₹1.9k starting point, ChatGPT optimizes for breadth while Claude Code optimizes for terminal-native developer workflow.",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "At roughly the same ₹1.9k starting point, ChatGPT optimizes for breadth while Claude Code optimizes for terminal-native developer workflow."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "At roughly the same ₹1.9k starting point, ChatGPT optimizes for breadth while Claude Code optimizes for terminal-native developer workflow.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "At roughly the same ₹1.9k starting point, ChatGPT optimizes for breadth while Claude Code optimizes for terminal-native developer workflow.",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#A4ADC2"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/oza1gvy9",
+      "id": "5",
+      "bbox": [
+        76,
+        246,
+        316,
+        334
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#123B35",
+      "lineColor": "#2A3146",
+      "lineWidth": 1
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zed8v6ps",
+      "id": "6",
+      "bbox": [
+        104,
+        276,
+        250,
+        32
+      ],
+      "geometry": "rect",
+      "text": "Choose ChatGPT if",
+      "textPreview": "Choose ChatGPT if",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Choose ChatGPT if"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Choose ChatGPT if",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Choose ChatGPT if",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6xkf6dcb",
+      "id": "7",
+      "bbox": [
+        104,
+        340,
+        6,
+        6
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hcrmhk3q",
+      "id": "8",
+      "bbox": [
+        120,
+        332,
+        236,
+        52
+      ],
+      "geometry": "rect",
+      "text": "You want the broadest AI bundle.",
+      "textPreview": "You want the broadest AI bundle.",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "You want the broadest AI bundle."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "You want the broadest AI bundle.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "You want the broadest AI bundle.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/orytsvu9",
+      "id": "9",
+      "bbox": [
+        104,
+        414,
+        6,
+        6
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/yxobm58z",
+      "id": "10",
+      "bbox": [
+        120,
+        406,
+        236,
+        52
+      ],
+      "geometry": "rect",
+      "text": "Search, research, files, voice, images, connectors, and GPTs matter as much as coding.",
+      "textPreview": "Search, research, files, voice, images, connectors, and GPTs matter as much as coding.",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Search, research, files, voice,"
+          },
+          {
+            "index": 2,
+            "text": "images, connectors, and GPTs"
+          },
+          {
+            "index": 3,
+            "text": "matter as much as coding."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Search, research, files, voice, images, connectors, and GPTs matter as much as coding.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Search, research, files, voice, images, connectors, and GPTs matter as much as coding.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nih4byhg",
+      "id": "11",
+      "bbox": [
+        104,
+        488,
+        6,
+        6
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/g3ex0nux",
+      "id": "12",
+      "bbox": [
+        120,
+        480,
+        236,
+        52
+      ],
+      "geometry": "rect",
+      "text": "You are buying for mixed-function teams, not engineering alone.",
+      "textPreview": "You are buying for mixed-function teams, not engineering alone.",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "You are buying for mixed-function"
+          },
+          {
+            "index": 2,
+            "text": "teams, not engineering alone."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "You are buying for mixed-function teams, not engineering alone.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "You are buying for mixed-function teams, not engineering alone.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5o7qpg3e",
+      "id": "13",
+      "bbox": [
+        444,
+        246,
+        316,
+        334
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#3A261F",
+      "lineColor": "#2A3146",
+      "lineWidth": 1
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ylc7u54z",
+      "id": "14",
+      "bbox": [
+        472,
+        276,
+        250,
+        32
+      ],
+      "geometry": "rect",
+      "text": "Choose Claude Code if",
+      "textPreview": "Choose Claude Code if",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Choose Claude Code if"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Choose Claude Code if",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Choose Claude Code if",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/r65wjudg",
+      "id": "15",
+      "bbox": [
+        472,
+        340,
+        6,
+        6
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gr2p8nqx",
+      "id": "16",
+      "bbox": [
+        488,
+        332,
+        236,
+        52
+      ],
+      "geometry": "rect",
+      "text": "Your main paid use case is coding in the terminal.",
+      "textPreview": "Your main paid use case is coding in the terminal.",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Your main paid use case is coding"
+          },
+          {
+            "index": 2,
+            "text": "in the terminal."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Your main paid use case is coding in the terminal.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Your main paid use case is coding in the terminal.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9cvixcze",
+      "id": "17",
+      "bbox": [
+        472,
+        414,
+        6,
+        6
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/yd0z6103",
+      "id": "18",
+      "bbox": [
+        488,
+        406,
+        236,
+        52
+      ],
+      "geometry": "rect",
+      "text": "You prefer one subscription that covers both chat and code.",
+      "textPreview": "You prefer one subscription that covers both chat and code.",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "You prefer one subscription that"
+          },
+          {
+            "index": 2,
+            "text": "covers both chat and code."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "You prefer one subscription that covers both chat and code.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "You prefer one subscription that covers both chat and code.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rytsvu9k",
+      "id": "19",
+      "bbox": [
+        472,
+        488,
+        6,
+        6
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/za1gvy90",
+      "id": "20",
+      "bbox": [
+        488,
+        480,
+        236,
+        52
+      ],
+      "geometry": "rect",
+      "text": "You want the cleanest path from solo developer to heavier code-focused usage tiers.",
+      "textPreview": "You want the cleanest path from solo developer to heavier code-focused usage tiers.",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "You want the cleanest path from"
+          },
+          {
+            "index": 2,
+            "text": "solo developer to heavier"
+          },
+          {
+            "index": 3,
+            "text": "code-focused usage tiers."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "You want the cleanest path from solo developer to heavier code-focused usage tiers.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "You want the cleanest path from solo developer to heavier code-focused usage tiers.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ap4r65wj",
+      "id": "21",
+      "bbox": [
+        812,
+        246,
+        316,
+        334
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#151826",
+      "lineColor": "#2A3146",
+      "lineWidth": 1
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hgn29gr2",
+      "id": "22",
+      "bbox": [
+        840,
+        276,
+        250,
+        32
+      ],
+      "geometry": "rect",
+      "text": "Watch-outs",
+      "textPreview": "Watch-outs",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Watch-outs"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Watch-outs",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Watch-outs",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/svu9knih",
+      "id": "23",
+      "bbox": [
+        840,
+        340,
+        6,
+        6
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zidonyd0",
+      "id": "24",
+      "bbox": [
+        856,
+        332,
+        236,
+        52
+      ],
+      "geometry": "rect",
+      "text": "Enterprise pricing is not list-priced for either vendor.",
+      "textPreview": "Enterprise pricing is not list-priced for either vendor.",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Enterprise pricing is not list-priced"
+          },
+          {
+            "index": 2,
+            "text": "for either vendor."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Enterprise pricing is not list-priced for either vendor.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Enterprise pricing is not list-priced for either vendor.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a1gvy90j",
+      "id": "25",
+      "bbox": [
+        840,
+        414,
+        6,
+        6
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hoza1gvy",
+      "id": "26",
+      "bbox": [
+        856,
+        406,
+        236,
+        52
+      ],
+      "geometry": "rect",
+      "text": "Usage policies and limits are still part of the value equation.",
+      "textPreview": "Usage policies and limits are still part of the value equation.",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Usage policies and limits are still"
+          },
+          {
+            "index": 2,
+            "text": "part of the value equation."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Usage policies and limits are still part of the value equation.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Usage policies and limits are still part of the value equation.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/s36hcrmh",
+      "id": "27",
+      "bbox": [
+        840,
+        488,
+        6,
+        6
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#FFFFFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3m94fu18",
+      "id": "28",
+      "bbox": [
+        856,
+        480,
+        236,
+        52
+      ],
+      "geometry": "rect",
+      "text": "INR values here are exchange-rate conversions, not India-specific invoices.",
+      "textPreview": "INR values here are exchange-rate conversions, not India-specific invoices.",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "Aptos",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "INR values here are exchange-rate"
+          },
+          {
+            "index": 2,
+            "text": "conversions, not India-specific"
+          },
+          {
+            "index": 3,
+            "text": "invoices."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "INR values here are exchange-rate conversions, not India-specific invoices.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "INR values here are exchange-rate conversions, not India-specific invoices.",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#F4F6FB"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a5gbq1or",
+      "id": "29",
+      "bbox": [
+        76,
+        620,
+        1120,
+        42
+      ],
+      "geometry": "rect",
+      "text": "Practical recommendation: if you need one subscription for business work plus occasional coding, start with ChatGPT Plus. If you primarily write and ship code from your terminal, Claude Pro or Max is the more directly aligned buy.",
+      "textPreview": "Practical recommendation: if you need one subscription for business work plus occasional coding, start with ChatGPT Plus. If you primaril...",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Practical recommendation: if you need one subscription for business work plus occasional coding, start with ChatGPT Plus. If you primarily write and ship code from your"
+          },
+          {
+            "index": 2,
+            "text": "terminal, Claude Pro or Max is the more directly aligned buy."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Practical recommendation: if you need one subscription for business work plus occasional coding, start with ChatGPT Plus. If you primarily write and ship code from your terminal, Claude Pro or Max is the more directly aligned buy.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Practical recommendation: if you need one subscription for business work plus occasional coding, start with ChatGPT Plus. If you primarily write and ship code from your terminal, Claude Pro or Max is the more directly aligned buy.",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#F2C66D",
+              "bold": true
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 30,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/k3q5o7qp",
+      "id": "30",
+      "bbox": [
+        76,
+        682,
+        1120,
+        18
+      ],
+      "geometry": "rect",
+      "text": "Comparison built from official public pricing/help pages only. INR values use a May 14, 2026 USD/INR conversion.",
+      "textPreview": "Comparison built from official public pricing/help pages only. INR values use a May 14, 2026 USD/INR conversion.",
+      "resolvedFontSize": 10,
+      "resolvedTextStyle": {
+        "fontSize": 10,
+        "typeface": "Aptos Mono",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Comparison built from official public pricing/help pages only. INR values use a May 14, 2026 USD/INR conversion."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Comparison built from official public pricing/help pages only. INR values use a May 14, 2026 USD/INR conversion.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "Comparison built from official public pricing/help pages only. INR values use a May 14, 2026 USD/INR conversion.",
+              "fontSize": 10,
+              "typeface": "Aptos Mono",
+              "color": "#7E879D"
+            }
+          ]
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}
