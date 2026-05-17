@@ -384,3 +384,60 @@ body {
   outline: 3px solid var(--accent-primary);
   outline-offset: 3px;
 }
+
+@media (max-width: 640px) {
+  .btn-primary {
+    padding: 12px 20px;
+    font-size: 12px;
+  }
+}
+
+/* ENHANCEMENT: Section variations */
+.section-alt {
+  background: linear-gradient(180deg, var(--surface-2) 0%, var(--canvas) 100%);
+  border-left: 3px solid var(--accent-primary);
+}
+
+/* ENHANCEMENT: Stats row responsive */
+@media (max-width: 768px) {
+  .stats-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .stats-row > div {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ENHANCEMENT: Breadcrumbs */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.breadcrumb a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumb a:hover {
+  color: var(--accent-primary);
+}
+.breadcrumb-separator {
+  color: var(--text-dim);
+}
+
+/* ENHANCEMENT: Skeleton loading */
+.skeleton {
+  background: linear-gradient(90deg, var(--surface-3) 25%, var(--surface-4) 50%, var(--surface-3) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+@keyframes skeleton-pulse {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

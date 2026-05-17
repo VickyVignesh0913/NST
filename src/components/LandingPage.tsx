@@ -12,21 +12,20 @@ import {
 } from 'lucide-react'
 import { AnimatedBackground, SpeechPulse, VoiceWave } from './motion'
 
-// BRUTALIST EDITORIAL — English Boss
+// CSS variable aliases - use these instead of hardcoded colors
 const colors = {
-  canvas: '#0a0a0a',
-  surface1: '#0f0f0f',
-  surface2: '#141414',
-  surface3: '#1a1a1a',
-  border: '#2a2a2a',
-  borderStrong: '#444444',
-  // Accent — amber, used sparingly
-  accent: '#e8a445',
-  accentHover: '#f0b65a',
-  textPrimary: '#fafafa',
-  textSecondary: '#c8c8c8',
-  textMuted: '#787878',
-  textDim: '#555555',
+  canvas: 'var(--canvas)',
+  surface1: 'var(--surface-1)',
+  surface2: 'var(--surface-2)',
+  surface3: 'var(--surface-3)',
+  border: 'var(--border)',
+  borderStrong: 'var(--border-strong)',
+  accent: 'var(--accent-primary)',
+  accentHover: 'var(--accent-hover)',
+  textPrimary: 'var(--text-primary)',
+  textSecondary: 'var(--text-secondary)',
+  textMuted: 'var(--text-muted)',
+  textDim: 'var(--text-dim)',
 }
 
 // Layout constants
@@ -84,8 +83,8 @@ function Navigation({ onLogin, onContact }: { onLogin?: () => void; onContact?: 
         scrolled ? "border-b-2" : "border-transparent"
       )}
       style={{
-        background: scrolled ? colors.surface1 : 'transparent',
-        borderColor: scrolled ? colors.border : 'transparent',
+        background: scrolled ? 'var(--surface-1)' : 'transparent',
+        borderColor: scrolled ? 'var(--border)' : 'transparent',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
       }}
     >
@@ -223,9 +222,9 @@ function HeroSection() {
       </AnimatedBackground>
 
       <div className={`${siteFrame} relative z-10 min-h-[100dvh] flex flex-col justify-center pb-16 pt-24 sm:pt-28`}>
-        <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-          {/* Left content - 70% */}
-          <div className="lg:col-span-7">
+        <div className="grid gap-10 lg:grid-cols-10 lg:items-center">
+          {/* Left content - full width */}
+          <div className="lg:col-span-10">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -324,33 +323,7 @@ function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right content - Image - 30% */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.25 }}
-            className="lg:col-span-5"
-          >
-            <div
-              className="surface-card overflow-hidden"
-              style={{ padding: 0, border: `2px solid ${colors.border}` }}
-            >
-              <img
-                src="/charles-william.png"
-                alt="Mr. Charles William - Founder and Trainer at English Boss"
-                className="h-full w-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                style={{ minHeight: '380px' }}
-                loading="eager"
-              />
-              <div className="p-4" style={{ borderTop: `2px solid ${colors.border}`, background: colors.surface2 }}>
-                <p className="text-xs uppercase tracking-widest mb-1" style={{ color: colors.accent }}>Founder</p>
-                <p className="text-sm leading-relaxed font-medium" style={{ color: colors.textPrimary }}>
-                  Learn to observe, organise your thoughts, and speak with clarity.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+          </div>
       </div>
     </section>
   )
@@ -924,7 +897,7 @@ function Footer() {
             <div className="flex items-center gap-4">
               <div
                 className="w-12 h-12 flex items-center justify-center text-lg font-bold"
-                style={{ background: colors.accent, color: '#0a0a0a', border: `2px solid ${colors.accent}` }}
+style={{ background: 'var(--accent-primary)', color: '#0a0a0a', border: '2px solid var(--accent-primary)' }}
               >
                 E
               </div>
@@ -933,18 +906,18 @@ function Footer() {
             <p className="mt-5 max-w-md text-sm leading-relaxed font-medium" style={{ color: colors.textMuted }}>
               Founder-led spoken English with structure, warmth, and authority.
             </p>
-            <div className="mt-6 flex flex-wrap gap-0">
+            <div className="mt-6 flex flex-wrap gap-3">
               <motion.a
                 href="tel:+918610690010"
-                className="text-sm px-5 py-3 border transition-all duration-200"
-                style={{ borderColor: colors.border, borderRight: 'none', color: colors.textSecondary, background: colors.surface2 }}
+                className="text-sm px-5 py-3 border-2 transition-all duration-200"
+                style={{ borderColor: colors.border, color: colors.textSecondary, background: colors.surface2 }}
                 whileHover={{ background: colors.surface1 }}
               >
                 +91 86106 90010
               </motion.a>
               <motion.a
                 href="https://wa.me/918610690010"
-                className="text-sm px-5 py-3 border transition-all duration-200"
+                className="text-sm px-5 py-3 border-2 transition-all duration-200"
                 style={{ borderColor: colors.border, color: colors.textSecondary, background: colors.surface2 }}
                 whileHover={{ background: colors.surface1 }}
               >
@@ -1003,7 +976,7 @@ export default function LandingPage({ onLogin, onBuyCourse, onContact, onSubmitT
       <HeroSection />
       <InsideClassSection />
       <TrustSection />
-      <MethodSection />
+      {/* MethodSection removed - combined into Trust for shorter page */}
       <ProgramsSection />
       <ResultsSection />
       <FounderSection />

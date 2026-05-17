@@ -6,19 +6,18 @@ import { cn } from '../lib/utils';
 import { useAuth } from '../hooks/useAuth';
 import AuthModal from './AuthModal';
 
-// Brutalist colors from LandingPage
+// CSS variable aliases - single source of truth from globals.css
 const colors = {
-  canvas: '#0a0a0a',
-  surface1: '#0f0f0f',
-  surface2: '#141414',
-  border: '#2a2a2a',
-  borderStrong: '#444444',
-  accent: '#e8a445',
-  accentHover: '#f0b65a',
-  textPrimary: '#fafafa',
-  textSecondary: '#c8c8c8',
-  textMuted: '#787878',
-  textDim: '#555555',
+  canvas: 'var(--canvas)',
+  surface1: 'var(--surface-1)',
+  surface2: 'var(--surface-2)',
+  border: 'var(--border)',
+  borderStrong: 'var(--border-strong)',
+  accent: 'var(--accent-primary)',
+  textPrimary: 'var(--text-primary)',
+  textSecondary: 'var(--text-secondary)',
+  textMuted: 'var(--text-muted)',
+  textDim: 'var(--text-dim)',
 };
 
 const mainNavItems = [
@@ -30,9 +29,14 @@ const mainNavItems = [
 
 const moreMenuItems = [
   { label: 'Study Material', href: '/study-material' },
-  { label: 'Quick Links', href: '/quick-links' },
-  { label: 'Live / Timetable', href: '/timetable' },
-  { label: 'Test Series', href: '/test-series' },
+];
+
+const searchResults = [
+  { label: 'Practical Spoken English', href: '/paid-courses', category: 'Paid Courses' },
+  { label: 'Master English Phrasal Verbs', href: '/paid-courses', category: 'Paid Courses' },
+  { label: 'Essential (A1–A2 Level) Live', href: '/paid-courses', category: 'Live Batch' },
+  { label: 'Evolution (B1–B2 Level) Live', href: '/paid-courses', category: 'Live Batch' },
+  { label: 'Easy English (Free)', href: '/free-courses', category: 'Free Courses' },
 ];
 
 export default function Navbar() {
@@ -41,8 +45,14 @@ export default function Navbar() {
   const [moreMenuOpen, setMoreMenuOpen] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
   const { user, isAuthenticated, logout } = useAuth();
+
+  const filteredResults = searchQuery.trim()
+    ? searchResults.filter(r => r.label.toLowerCase().includes(searchQuery.toLowerCase()))
+    : [];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -140,6 +150,7 @@ export default function Navbar() {
             {/* Right Side */}
             <div className="flex items-center gap-2">
               <button
+                onClick={() => setSearchOpen(true)}
                 className="p-2 text-[var(--text-muted)] hover:text-[var(--text-secondary)]"
                 aria-label="Search"
               >
@@ -282,6 +293,68 @@ export default function Navbar() {
           )}
         </AnimatePresence>
       </nav>
+
+      {/* Search Modal */}
+      <AnimatePresence>
+        {searchOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/60 z-50"
+              onClick={() => { setSearchOpen(false); setSearchQuery(''); }}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="fixed top-20 left-1/2 -translate-x-1/2 w-full max-w-lg z-50 px-4"
+            >
+              <div className="border-2 border-[var(--border)]" style={{ background: colors.surface1 }}>
+                <div className="p-4 border-b-2" style={{ borderColor: colors.border }}>
+                  <div className="flex items-center gap-3">
+                    <Search className="w-5 h-5" style={{ color: colors.textMuted }} />
+                    <input
+                      type="text"
+                      placeholder="Search courses..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="flex-1 bg-transparent text-lg outline-none"
+                      style={{ color: colors.textPrimary }}
+                      autoFocus
+                    />
+                    <button onClick={() => { setSearchOpen(false); setSearchQuery(''); }}>
+                      <X className="w-5 h-5" style={{ color: colors.textMuted }} />
+                    </button>
+                  </div>
+                </div>
+                {filteredResults.length > 0 && (
+                  <div className="max-h-80 overflow-y-auto">
+                    {filteredResults.map((result, i) => (
+                      <Link
+                        key={i}
+                        to={result.href}
+                        className="flex items-center justify-between p-4 border-b hover:bg-[var(--surface-2)]"
+                        style={{ borderColor: colors.border }}
+                        onClick={() => { setSearchOpen(false); setSearchQuery(''); }}
+                      >
+                        <span style={{ color: colors.textPrimary }}>{result.label}</span>
+                        <span className="text-xs" style={{ color: colors.textMuted }}>{result.category}</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+                {searchQuery.trim() && filteredResults.length === 0 && (
+                  <div className="p-4 text-center" style={{ color: colors.textMuted }}>
+                    No courses found for "{searchQuery}"
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       <AuthModal isOpen={authModalOpen} onClose={() => setAuthModalOpen(false)} />
     </>

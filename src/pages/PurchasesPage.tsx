@@ -5,19 +5,21 @@ import { Search, ShoppingBag, FileText, Play } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import Footer from '../components/Footer';
 
-// Brutalist colors from LandingPage
+// Use CSS variables - single source of truth
+const getVar = (name: string) => `var(--${name})`;
+
 const colors = {
-  canvas: '#0a0a0a',
-  surface1: '#0f0f0f',
-  surface2: '#141414',
-  border: '#2a2a2a',
-  borderStrong: '#444444',
-  accent: '#e8a445',
-  accentHover: '#f0b65a',
-  textPrimary: '#fafafa',
-  textSecondary: '#c8c8c8',
-  textMuted: '#787878',
-  textDim: '#555555',
+  canvas: getVar('canvas'),
+  surface1: getVar('surface'),
+  surface2: getVar('surface-2'),
+  border: getVar('border'),
+  borderStrong: getVar('border-strong'),
+  accent: getVar('accent-primary'),
+  accentHover: getVar('accent-hover'),
+  textPrimary: getVar('text-primary'),
+  textSecondary: getVar('text-secondary'),
+  textMuted: getVar('text-muted'),
+  textDim: getVar('text-dim'),
 };
 
 export default function PurchasesPage() {
@@ -29,7 +31,26 @@ export default function PurchasesPage() {
     return <Navigate to="/" replace />;
   }
 
-  const purchasedCourses: any[] = [];
+  const purchasedCourses = [
+    {
+      id: '1',
+      title: 'Advanced Business English',
+      imageUrl: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
+      progress: 65,
+      currentLesson: 'Lesson 12: Negotiation Tactics',
+      totalLessons: 20,
+      nextLesson: 'Lesson 13: Closing Deals'
+    },
+    {
+      id: '2',
+      title: 'IELTS Speaking Masterclass',
+      imageUrl: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=300&fit=crop',
+      progress: 30,
+      currentLesson: 'Part 2: Cue Cards',
+      totalLessons: 15,
+      nextLesson: 'Part 3: Discussion'
+    }
+  ];
 
   return (
     <div style={{ background: colors.canvas, minHeight: '100vh' }}>
@@ -119,14 +140,35 @@ export default function PurchasesPage() {
                   />
                   <div className="p-4">
                     <h3 className="font-semibold mb-2" style={{ color: colors.textPrimary }}>{course.title}</h3>
-                    <Link
-                      to={`/courses/${course.id}`}
-                      className="inline-flex items-center gap-2"
-                      style={{ color: colors.accent }}
-                    >
-                      <Play className="w-4 h-4" />
-                      Continue Learning
-                    </Link>
+                    
+                    {/* Progress Bar */}
+                    <div className="mb-3">
+                      <div className="flex justify-between text-xs mb-1">
+                        <span style={{ color: colors.textMuted }}>{course.progress}% complete</span>
+                        <span style={{ color: colors.textMuted }}>{course.currentLesson}</span>
+                      </div>
+                      <div className="h-2 rounded-full overflow-hidden" style={{ background: colors.border }}>
+                        <div 
+                          className="h-full rounded-full transition-all"
+                          style={{ width: `${course.progress}%`, background: colors.accent }}
+                        />
+                      </div>
+                    </div>
+                    
+                    {/* Next Lesson Call-to-Action */}
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs" style={{ color: colors.textMuted }}>
+                        Next: {course.nextLesson}
+                      </span>
+                      <Link
+                        to={`/courses/${course.id}`}
+                        className="inline-flex items-center gap-2 text-sm font-medium"
+                        style={{ color: colors.accent }}
+                      >
+                        <Play className="w-4 h-4" />
+                        Continue
+                      </Link>
+                    </div>
                   </div>
                 </motion.div>
               ))}

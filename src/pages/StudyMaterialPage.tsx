@@ -2,19 +2,18 @@ import { motion } from 'framer-motion';
 import { FileText, Download, BookOpen } from 'lucide-react';
 import Footer from '../components/Footer';
 
-// Brutalist colors from LandingPage
+// CSS variable aliases - single source of truth from globals.css
 const colors = {
-  canvas: '#0a0a0a',
-  surface1: '#0f0f0f',
-  surface2: '#141414',
-  border: '#2a2a2a',
-  borderStrong: '#444444',
-  accent: '#e8a445',
-  accentHover: '#f0b65a',
-  textPrimary: '#fafafa',
-  textSecondary: '#c8c8c8',
-  textMuted: '#787878',
-  textDim: '#555555',
+  canvas: 'var(--canvas)',
+  surface1: 'var(--surface-1)',
+  surface2: 'var(--surface-2)',
+  border: 'var(--border)',
+  borderStrong: 'var(--border-strong)',
+  accent: 'var(--accent-primary)',
+  textPrimary: 'var(--text-primary)',
+  textSecondary: 'var(--text-secondary)',
+  textMuted: 'var(--text-muted)',
+  textDim: 'var(--text-dim)',
 };
 
 export default function StudyMaterialPage() {
