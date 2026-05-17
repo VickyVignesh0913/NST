@@ -10,6 +10,7 @@ import {
   Phone,
   MessageCircle
 } from 'lucide-react'
+import { AnimatedBackground, SpeechPulse, VoiceWave } from './motion'
 
 // BRUTALIST EDITORIAL — English Boss
 const colors = {
@@ -210,7 +211,17 @@ function Navigation({ onLogin, onContact }: { onLogin?: () => void; onContact?: 
 
 function HeroSection() {
   return (
-    <section id="home" className="relative min-h-[100dvh] overflow-hidden" style={{ background: colors.canvas }}>
+    <section id="home" className="relative min-h-[100dvh] overflow-hidden">
+      {/* Animated Background - unique speech/language themed */}
+      <AnimatedBackground className="absolute inset-0">
+        <div className="absolute left-[15%] top-[30%]">
+          <SpeechPulse intensity="subtle" color="#e8a445" />
+        </div>
+        <div className="absolute right-[20%] top-[60%]">
+          <SpeechPulse intensity="subtle" color="#e8a445" />
+        </div>
+      </AnimatedBackground>
+
       <div className={`${siteFrame} relative z-10 min-h-[100dvh] flex flex-col justify-center pb-16 pt-24 sm:pt-28`}>
         <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
           {/* Left content - 70% */}
@@ -221,7 +232,10 @@ function HeroSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="mb-6"
             >
-              <span className="badge badge-accent">Founder-led spoken English</span>
+              <span className="badge badge-accent flex items-center gap-2">
+                <VoiceWave bars={5} className="h-4" />
+                Founder-led spoken English
+              </span>
             </motion.div>
 
             <motion.h1
@@ -230,7 +244,19 @@ function HeroSection() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="heading-1"
             >
-              Learn to think clearly, then speak with confidence.
+              <span className="relative">
+                Learn to think clearly,
+                <motion.span
+                  className="absolute -right-8 top-0"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.8 }}
+                >
+                  <SpeechPulse intensity="subtle" className="w-6 h-6" />
+                </motion.span>
+              </span>
+              <br />
+              then speak with confidence.
             </motion.h1>
 
             <motion.p

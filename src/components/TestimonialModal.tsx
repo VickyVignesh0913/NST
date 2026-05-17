@@ -1,11 +1,29 @@
 import { useState } from 'react';
-import { X, Star } from 'lucide-react';
+import { Star, Check, Sparkles } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import ModalWrapper from './ModalWrapper';
 
 interface TestimonialModalProps {
   isOpen: boolean;
   onClose: () => void;
   courses: { id: string; title: string }[];
 }
+
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08
+    }
+  }
+};
 
 export default function TestimonialModal({ isOpen, onClose, courses }: TestimonialModalProps) {
   const [name, setName] = useState('');
@@ -16,7 +34,18 @@ export default function TestimonialModal({ isOpen, onClose, courses }: Testimoni
   const [isSuccess, setIsSuccess] = useState(false);
   const [hoveredRating, setHoveredRating] = useState(0);
 
-  if (!isOpen) return null;
+  const resetForm = () => {
+    setName('');
+    setSelectedCourse('');
+    setRating(0);
+    setTestimonial('');
+    setIsSuccess(false);
+  };
+
+  const handleClose = () => {
+    resetForm();
+    onClose();
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,65 +57,64 @@ export default function TestimonialModal({ isOpen, onClose, courses }: Testimoni
     }, 1000);
   };
 
-  const handleClose = () => {
-    setIsSuccess(false);
-    setName('');
-    setSelectedCourse('');
-    setRating(0);
-    setTestimonial('');
-    onClose();
-  };
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
-      {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-        onClick={handleClose}
-      />
-
-      {/* Modal */}
-      <div className="relative w-full max-w-md mx-4 bg-[#0a0a0a] border-2 border-[#333]">
-        {/* Close button */}
-        <button
-          onClick={handleClose}
-          className="absolute top-4 right-4 text-[#666] hover:text-[#e8a445] transition-colors z-10"
-        >
-          <X size={24} />
-        </button>
-
-        <div className="p-6">
+    <ModalWrapper isOpen={isOpen} onClose={handleClose} maxWidth="md">
+      <motion.div
+        className="p-6"
+        initial="hidden"
+        animate="visible"
+        variants={staggerContainer}
+      >
+        <AnimatePresence mode="wait">
           {isSuccess ? (
-            /* Success State */
-            <div className="text-center py-8">
-              <div className="w-16 h-16 mx-auto mb-4 border-2 border-[#e8a445] flex items-center justify-center">
-                <Star className="text-[#e8a445]" size={32} />
-              </div>
-              <h3 className="font-serif text-2xl text-white mb-2">Thank You!</h3>
-              <p className="text-[#888] font-mono text-sm mb-6">
-                Your testimonial will appear after review.
-              </p>
-              <button
-                onClick={handleClose}
-                className="px-6 py-3 border-2 border-[#e8a445] text-[#e8a445] font-mono text-sm uppercase tracking-wider hover:bg-[#e8a445]/10 transition-colors"
+            /* Success State - Transformation Complete */
+            <motion.div
+              key="success"
+              variants={fadeInUp}
+              className="text-center py-8"
+            >
+              <motion.div
+                className="w-16 h-16 mx-auto mb-4 border-2 border-[var(--accent-primary)] flex items-center justify-center surface-card-elevated"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20, delay: 0.1 }}
               >
-                Close
-              </button>
-            </div>
+                <Star className="text-[var(--accent-primary)]" size={32} fill="var(--accent-primary)" />
+              </motion.div>
+              <h3 className="heading-3 mb-2">Transformation Shared!</h3>
+              <p className="body-sm mb-6">
+                Your journey inspires others to begin their transformation.
+              </p>
+              <motion.button
+                type="button"
+                onClick={handleClose}
+                className="btn-secondary"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Continue Your Journey
+              </motion.button>
+            </motion.div>
           ) : (
-            <>
+            <motion.div key="form" variants={fadeInUp}>
               {/* Header */}
               <div className="mb-6">
-                <h2 className="font-serif text-3xl text-white mb-2">Share Your Experience</h2>
-                <p className="text-[#666] font-mono text-sm">
-                  Help others by sharing your English Boss journey
+                <div className="flex items-center gap-2 mb-2">
+                  <Sparkles className="w-5 h-5 text-[var(--accent-primary)]" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)]">
+                    Share Your Transformation
+                  </span>
+                </div>
+                <h2 className="heading-3 mb-2">Your Journey Inspires Others</h2>
+                <p className="body-sm">
+                  How has English Boss transformed your thinking and speaking?
                 </p>
               </div>
 
               {/* Form */}
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-[#888] font-mono text-xs uppercase tracking-wider mb-2">
+                <motion.div variants={fadeInUp}>
+                  <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
                     Your Name *
                   </label>
                   <input
@@ -94,85 +122,90 @@ export default function TestimonialModal({ isOpen, onClose, courses }: Testimoni
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Your full name"
-                    className="w-full bg-[#1a1a1a] border border-[#333] px-4 py-3 text-white font-mono text-sm focus:border-[#e8a445] focus:outline-none transition-colors"
+                    className="input w-full"
                     required
                   />
-                </div>
+                </motion.div>
 
-                <div>
-                  <label className="block text-[#888] font-mono text-xs uppercase tracking-wider mb-2">
-                    Which course did you take?
+                <motion.div variants={fadeInUp}>
+                  <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                    Which transformation path?
                   </label>
                   <select
                     value={selectedCourse}
                     onChange={(e) => setSelectedCourse(e.target.value)}
-                    className="w-full bg-[#1a1a1a] border border-[#333] px-4 py-3 text-white font-mono text-sm focus:border-[#e8a445] focus:outline-none transition-colors"
+                    className="input w-full"
                   >
-                    <option value="">Select a course</option>
+                    <option value="">Select your course</option>
                     {courses.map((course) => (
                       <option key={course.id} value={course.id}>
                         {course.title}
                       </option>
                     ))}
                   </select>
-                </div>
+                </motion.div>
 
-                <div>
-                  <label className="block text-[#888] font-mono text-xs uppercase tracking-wider mb-2">
-                    Rating
+                <motion.div variants={fadeInUp}>
+                  <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                    Rate Your Transformation
                   </label>
                   <div className="flex gap-2">
                     {[1, 2, 3, 4, 5].map((star) => (
-                      <button
+                      <motion.button
                         key={star}
                         type="button"
                         onClick={() => setRating(star)}
                         onMouseEnter={() => setHoveredRating(star)}
                         onMouseLeave={() => setHoveredRating(0)}
                         className="p-2 transition-transform hover:scale-110"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
                       >
                         <Star
                           size={28}
                           className={`transition-colors ${
                             star <= (hoveredRating || rating)
-                              ? 'fill-[#e8a445] text-[#e8a445]'
-                              : 'text-[#333]'
+                              ? 'fill-[var(--accent-primary)] text-[var(--accent-primary)]'
+                              : 'text-[var(--border)]'
                           }`}
                         />
-                      </button>
+                      </motion.button>
                     ))}
                   </div>
-                </div>
+                </motion.div>
 
-                <div>
-                  <label className="block text-[#888] font-mono text-xs uppercase tracking-wider mb-2">
-                    Your Testimonial *
+                <motion.div variants={fadeInUp}>
+                  <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                    Your Transformation Story *
                   </label>
                   <textarea
                     value={testimonial}
                     onChange={(e) => setTestimonial(e.target.value)}
-                    placeholder="Share your experience with English Boss..."
+                    placeholder="How has your thinking and speaking changed? What clarity have you gained?"
                     rows={5}
-                    className="w-full bg-[#1a1a1a] border border-[#333] px-4 py-3 text-white font-mono text-sm focus:border-[#e8a445] focus:outline-none transition-colors resize-none"
+                    className="input w-full resize-none"
                     required
                   />
-                  <p className="text-[#666] font-mono text-xs mt-1">
-                    {testimonial.length} characters (min 50 recommended)
+                  <p className="body-sm mt-1">
+                    {testimonial.length} characters (your story matters)
                   </p>
-                </div>
+                </motion.div>
 
-                <button
+                <motion.button
                   type="submit"
                   disabled={isSubmitting || testimonial.length < 10}
-                  className="w-full py-4 bg-[#e8a445] text-black uppercase tracking-widest font-mono text-sm hover:bg-[#f0b456] hover:shadow-[0_0_20px_rgba(232,164,69,0.4)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn-primary w-full"
+                  variants={fadeInUp}
+                  whileHover={testimonial.length >= 10 ? { scale: 1.02 } : {}}
+                  whileTap={testimonial.length >= 10 ? { scale: 0.98 } : {}}
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit Testimonial'}
-                </button>
+                  {isSubmitting ? 'Sharing...' : 'Share My Transformation'}
+                </motion.button>
               </form>
-            </>
+            </motion.div>
           )}
-        </div>
-      </div>
-    </div>
+        </AnimatePresence>
+      </motion.div>
+    </ModalWrapper>
   );
 }

@@ -1,138 +1,212 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight, Play, Sparkles, Target, TrendingUp, Zap } from 'lucide-react';
 import type { Course } from '../types';
 
 interface CourseCardProps {
   course: Course;
   showOriginalPrice?: boolean;
   variant?: 'default' | 'free' | 'featured';
+  index?: number;
 }
 
-// Brand colors from brief
+// Brutalist colors from LandingPage
 const colors = {
-  primary: '#1565C0',
-  accent: '#2196F3',
-  dark: '#0D1117',
-  white: '#ffffff',
-  textPrimary: '#0D1117',
-  textSecondary: '#5a6a7a',
-  textMuted: '#8a9aa8',
+  canvas: '#0a0a0a',
+  surface1: '#0f0f0f',
+  surface2: '#141414',
+  surface3: '#1a1a1a',
+  border: '#2a2a2a',
+  borderStrong: '#444444',
+  accent: '#e8a445',
+  accentHover: '#f0b65a',
+  textPrimary: '#fafafa',
+  textSecondary: '#c8c8c8',
+  textMuted: '#787878',
+  textDim: '#555555',
 };
 
-export function CourseCard({ course, showOriginalPrice = true, variant = 'default' }: CourseCardProps) {
+// Transformation icons for different course types
+const getTransformIcon = (type: string) => {
+  switch (type) {
+    case 'Live': return Zap;
+    case 'Recorded': return Play;
+    default: return Target;
+  }
+};
+
+// Transformation promise per course type
+const getTransformPromise = (type: string) => {
+  switch (type) {
+    case 'Live': return 'Live transformation with real-time guidance';
+    case 'Recorded': return 'Self-paced journey to fluency';
+    default: return 'Your path to clarity';
+  }
+};
+
+export function CourseCard({ course, showOriginalPrice = true, variant = 'default', index = 0 }: CourseCardProps) {
   const formatPrice = (price: number) => `₹${price.toLocaleString('en-IN')}`;
+  const TransformIcon = getTransformIcon(course.type);
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -4 }}
-      className="group bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300"
+      transition={{ delay: index * 0.1, duration: 0.5 }}
+      whileHover={{ y: -8 }}
+      className="group relative"
     >
-      {/* Image */}
-      <div className="relative aspect-video overflow-hidden bg-gray-100">
-        <img
-          src={course.imageUrl}
-          alt={course.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          loading="lazy"
-        />
-        {variant === 'featured' && (
-          <span className="absolute top-3 left-3 bg-amber-500 text-white text-xs font-semibold px-2 py-1 rounded">
-            Featured
-          </span>
-        )}
-        {variant === 'free' && (
-          <span className="absolute top-3 left-3 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded">
-            FREE
-          </span>
-        )}
-        {course.type === 'Live' && (
-          <span className="absolute top-3 right-3 bg-red-600 text-white text-xs font-semibold px-2 py-1 rounded flex items-center gap-1">
-            <Play className="w-3 h-3" /> LIVE
-          </span>
-        )}
-      </div>
+      {/* Hover glow effect */}
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-[var(--accent-primary)]/20 via-[var(--accent-primary)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-sm" />
 
-      {/* Content */}
-      <div className="p-5">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">
-            {course.level}
-          </span>
-          <span className="text-xs text-gray-400">•</span>
-          <span className="text-xs text-gray-500">{course.duration}</span>
-        </div>
+      <div
+        className="relative h-full border-2 border-[var(--border)] transition-all duration-300 group-hover:border-[var(--accent-primary)]"
+        style={{ background: colors.surface1 }}
+      >
+        {/* Image Section - Portal to transformation */}
+        <div className="relative aspect-[16/10] overflow-hidden" style={{ background: colors.surface2 }}>
+          <img
+            src={course.imageUrl}
+            alt={course.title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            loading="lazy"
+          />
 
-        <h3 className="font-semibold text-lg text-gray-900 mb-2 line-clamp-2" style={{ color: colors.textPrimary }}>
-          {course.title}
-        </h3>
+          {/* Overlay - Transformation begins */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--canvas)] via-transparent to-transparent" />
 
-        <p className="text-sm text-gray-600 mb-4 line-clamp-2" style={{ color: colors.textSecondary }}>
-          {course.shortDesc}
-        </p>
-
-        {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {course.tags.slice(0, 3).map((tag) => (
-            <span
-              key={tag}
-              className="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded"
+          {/* Type Badge - Transformation mode */}
+          <div className="absolute top-4 left-4 flex items-center gap-2">
+            <div
+              className="px-3 py-1.5 flex items-center gap-2 text-xs font-bold uppercase tracking-wider"
+              style={{ background: colors.accent, color: colors.canvas }}
             >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* Price */}
-        {variant !== 'free' && (
-          <div className="flex items-baseline gap-2 mb-4">
-            <span className="text-xl font-bold" style={{ color: colors.primary }}>
-              {formatPrice(course.price)}
-            </span>
-            {showOriginalPrice && course.originalPrice > 0 && (
-              <>
-                <span className="text-sm text-gray-400 line-through">
-                  {formatPrice(course.originalPrice)}
-                </span>
-                <span className="text-sm font-medium text-green-600">
-                  {course.discount}
-                </span>
-              </>
+              <TransformIcon className="w-3.5 h-3.5" />
+              {course.type}
+            </div>
+            {variant === 'featured' && (
+              <div
+                className="px-3 py-1.5 text-xs font-bold uppercase tracking-wider"
+                style={{ background: colors.surface1, color: colors.accent, border: `1px solid ${colors.accent}` }}
+              >
+                Featured
+              </div>
             )}
           </div>
-        )}
 
-        {/* CTA */}
-        <div className="flex gap-2">
-          {variant === 'free' ? (
-            <>
-              <Link
-                to="#"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 text-white font-medium text-sm rounded-lg hover:bg-blue-700 transition-colors"
-                style={{ background: colors.primary }}
+          {/* Live badge */}
+          {course.type === 'Live' && (
+            <div
+              className="absolute top-4 right-4 px-3 py-1.5 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 animate-pulse"
+              style={{ background: '#dc2626', color: '#fff' }}
+            >
+              <span className="w-2 h-2 rounded-full bg-white" />
+              LIVE
+            </div>
+          )}
+
+          {/* Transformation preview on hover */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'rgba(10,10,10,0.7)' }}>
+            <div className="text-center">
+              <Sparkles className="w-8 h-8 mx-auto mb-2" style={{ color: colors.accent }} />
+              <p className="text-sm font-bold uppercase tracking-wider" style={{ color: colors.textPrimary }}>
+                Begin Transformation
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Content Section */}
+        <div className="p-5">
+          {/* Meta */}
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-xs font-bold uppercase tracking-wider" style={{ color: colors.accent }}>
+              {course.level}
+            </span>
+            <span className="text-xs" style={{ color: colors.textDim }}>•</span>
+            <span className="text-xs" style={{ color: colors.textMuted }}>{course.duration}</span>
+          </div>
+
+          {/* Title - Transformation goal */}
+          <h3
+            className="text-lg font-bold leading-tight mb-2 transition-colors duration-300 group-hover:text-[var(--accent-primary)]"
+            style={{ color: colors.textPrimary, fontFamily: "'Iowan Old Style', serif" }}
+          >
+            {course.title}
+          </h3>
+
+          {/* Description - Preview of change */}
+          <p className="text-sm mb-4 line-clamp-2 leading-relaxed" style={{ color: colors.textSecondary }}>
+            {course.shortDesc}
+          </p>
+
+          {/* Transformation promise */}
+          <div className="flex items-center gap-2 mb-4 p-2 border-l-2" style={{ borderColor: colors.accent }}>
+            <TrendingUp className="w-4 h-4 flex-shrink-0" style={{ color: colors.accent }} />
+            <span className="text-xs font-medium" style={{ color: colors.textMuted }}>
+              {getTransformPromise(course.type)}
+            </span>
+          </div>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2 mb-5">
+            {course.tags.slice(0, 2).map((tag) => (
+              <span
+                key={tag}
+                className="text-xs px-2 py-1 border transition-colors duration-200 group-hover:border-[var(--accent-primary)]"
+                style={{
+                  borderColor: colors.border,
+                  color: colors.textMuted,
+                  background: colors.surface2
+                }}
               >
-                View Content
-                <Play className="w-4 h-4" />
-              </Link>
-              <Link
-                to={`/courses/${course.id}`}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 text-gray-700 font-medium text-sm rounded-lg hover:bg-gray-50 transition-colors"
-              >
-                View Details
-              </Link>
-            </>
-          ) : (
+                {tag}
+              </span>
+            ))}
+            {course.tags.length > 2 && (
+              <span className="text-xs px-2 py-1" style={{ color: colors.textDim }}>
+                +{course.tags.length - 2} more
+              </span>
+            )}
+          </div>
+
+          {/* Price & CTA */}
+          <div className="flex items-end justify-between pt-4 border-t" style={{ borderColor: colors.border }}>
+            <div>
+              {variant !== 'free' && (
+                <>
+                  <span className="text-2xl font-bold" style={{ color: colors.accent }}>
+                    {formatPrice(course.price)}
+                  </span>
+                  {showOriginalPrice && course.originalPrice > 0 && (
+                    <div className="flex items-center gap-2 mt-1">
+                      <span className="text-sm line-through" style={{ color: colors.textDim }}>
+                        {formatPrice(course.originalPrice)}
+                      </span>
+                      <span className="text-xs font-bold" style={{ color: '#22c55e' }}>
+                        {course.discount}
+                      </span>
+                    </div>
+                  )}
+                </>
+              )}
+              {variant === 'free' && (
+                <span className="text-2xl font-bold" style={{ color: colors.accent }}>FREE</span>
+              )}
+            </div>
+
             <Link
               to={`/courses/${course.id}`}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 text-white font-medium text-sm rounded-lg hover:bg-blue-700 transition-colors w-full"
-              style={{ background: colors.primary }}
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold uppercase tracking-wider transition-all duration-200 group-hover:gap-3"
+              style={{
+                background: colors.accent,
+                color: colors.canvas,
+              }}
             >
-              View Details
+              View Journey
               <ArrowRight className="w-4 h-4" />
             </Link>
-          )}
+          </div>
         </div>
       </div>
     </motion.article>

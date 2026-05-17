@@ -3,6 +3,7 @@ import { useState } from 'react';
 import LandingPage from './components/LandingPage';
 import CoursePurchaseModal from './components/CoursePurchaseModal';
 import ContactModal from './components/ContactModal';
+import TestimonialModal from './components/TestimonialModal';
 import Navbar from './components/Navbar';
 import PaidCoursesPage from './pages/PaidCoursesPage';
 import FreeCoursesPage from './pages/FreeCoursesPage';
@@ -15,12 +16,19 @@ import { coursesData } from './data/courses';
 function App() {
   const [purchaseModalOpen, setPurchaseModalOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [testimonialModalOpen, setTestimonialModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(coursesData.paidCourses[0]);
 
   const handleBuyCourse = (course: typeof coursesData.paidCourses[0]) => {
     setSelectedCourse(course);
     setPurchaseModalOpen(true);
   };
+
+  // Gather all courses for the testimonial modal (recorded courses are in paidCourses with type: "Recorded")
+  const allCourses = [
+    ...coursesData.paidCourses.map(c => ({ id: c.id, title: c.title })),
+    ...coursesData.freeCourses.map(c => ({ id: c.id, title: c.title }))
+  ];
 
   return (
     <Router>
@@ -34,6 +42,7 @@ function App() {
                 onLogin={() => {}}
                 onBuyCourse={handleBuyCourse}
                 onContact={() => setContactModalOpen(true)}
+                onSubmitTestimonial={() => setTestimonialModalOpen(true)}
               />
             }
           />
@@ -87,12 +96,20 @@ function App() {
           course={selectedCourse}
           isOpen={purchaseModalOpen}
           onClose={() => setPurchaseModalOpen(false)}
+          onContactClick={() => setContactModalOpen(true)}
         />
 
         {/* Contact Modal */}
         <ContactModal
           isOpen={contactModalOpen}
           onClose={() => setContactModalOpen(false)}
+        />
+
+        {/* Testimonial Modal - Now connected and accessible */}
+        <TestimonialModal
+          isOpen={testimonialModalOpen}
+          onClose={() => setTestimonialModalOpen(false)}
+          courses={allCourses}
         />
       </main>
     </Router>

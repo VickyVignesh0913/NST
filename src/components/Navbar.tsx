@@ -6,15 +6,19 @@ import { cn } from '../lib/utils';
 import { useAuth } from '../hooks/useAuth';
 import AuthModal from './AuthModal';
 
-// Brand colors from brief
+// Brutalist colors from LandingPage
 const colors = {
-  primary: '#1565C0',
-  accent: '#2196F3',
-  dark: '#0D1117',
-  white: '#ffffff',
-  textPrimary: '#0D1117',
-  textSecondary: '#5a6a7a',
-  textMuted: '#8a9aa8',
+  canvas: '#0a0a0a',
+  surface1: '#0f0f0f',
+  surface2: '#141414',
+  border: '#2a2a2a',
+  borderStrong: '#444444',
+  accent: '#e8a445',
+  accentHover: '#f0b65a',
+  textPrimary: '#fafafa',
+  textSecondary: '#c8c8c8',
+  textMuted: '#787878',
+  textDim: '#555555',
 };
 
 const mainNavItems = [
@@ -55,23 +59,27 @@ export default function Navbar() {
     <>
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled ? "bg-white shadow-md" : "bg-transparent"
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-2",
+          scrolled ? "bg-[var(--surface-1)]" : "bg-transparent"
         )}
+        style={{
+          borderColor: scrolled ? colors.border : 'transparent',
+          backdropFilter: scrolled ? 'blur(12px)' : 'none',
+        }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2">
               <div
-                className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-lg"
-                style={{ background: colors.primary }}
+                className="w-10 h-10 flex items-center justify-center text-lg font-bold"
+                style={{ background: colors.accent, color: colors.canvas }}
               >
                 E
               </div>
               <span
                 className="text-xl font-bold"
-                style={{ color: colors.textPrimary }}
+                style={{ fontFamily: "'Iowan Old Style', serif", color: colors.textPrimary }}
               >
                 English Boss
               </span>
@@ -84,12 +92,11 @@ export default function Navbar() {
                   key={item.href}
                   to={item.href}
                   className={cn(
-                    "px-4 py-2 text-sm font-medium rounded-lg transition-colors",
+                    "px-4 py-2 text-sm font-medium transition-colors",
                     isActive(item.href)
-                      ? "text-white bg-blue-600"
-                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                      ? "text-[var(--accent-primary)]"
+                      : "text-[var(--text-muted)] hover:text-[var(--text-secondary)]"
                   )}
-                  style={isActive(item.href) ? { background: colors.primary, color: 'white' } : {}}
                 >
                   {item.label}
                 </Link>
@@ -99,7 +106,7 @@ export default function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setMoreMenuOpen(!moreMenuOpen)}
-                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-100"
+                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-[var(--text-muted)] hover:text-[var(--text-secondary)]"
                 >
                   More
                   <ChevronDown className="w-4 h-4" />
@@ -111,13 +118,14 @@ export default function Navbar() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
-                      className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1"
+                      className="absolute top-full left-0 mt-1 w-48 border-2 border-[var(--border)]"
+                      style={{ background: colors.surface1 }}
                     >
                       {moreMenuItems.map((item) => (
                         <Link
                           key={item.href}
                           to={item.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2 text-sm text-[var(--text-secondary)] hover:bg-[var(--surface-2)]"
                           onClick={() => setMoreMenuOpen(false)}
                         >
                           {item.label}
@@ -132,7 +140,7 @@ export default function Navbar() {
             {/* Right Side */}
             <div className="flex items-center gap-2">
               <button
-                className="p-2 text-gray-500 hover:text-gray-700 rounded-lg hover:bg-gray-100"
+                className="p-2 text-[var(--text-muted)] hover:text-[var(--text-secondary)]"
                 aria-label="Search"
               >
                 <Search className="w-5 h-5" />
@@ -142,11 +150,11 @@ export default function Navbar() {
                 <div className="relative">
                   <button
                     onClick={() => setUserMenuOpen(!userMenuOpen)}
-                    className="flex items-center gap-2 p-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg"
+                    className="flex items-center gap-2 p-2 text-sm font-medium text-[var(--text-secondary)] hover:bg-[var(--surface-2)]"
                   >
                     <div
-                      className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-medium"
-                      style={{ background: colors.primary }}
+                      className="w-8 h-8 flex items-center justify-center text-sm font-medium"
+                      style={{ background: colors.accent, color: colors.canvas }}
                     >
                       {user?.name?.charAt(0) || 'U'}
                     </div>
@@ -158,11 +166,12 @@ export default function Navbar() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="absolute right-0 mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1"
+                        className="absolute right-0 mt-1 w-48 border-2 border-[var(--border)]"
+                        style={{ background: colors.surface1 }}
                       >
                         <Link
                           to="/purchases"
-                          className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="flex items-center gap-2 px-4 py-2 text-sm text-[var(--text-secondary)] hover:bg-[var(--surface-2)]"
                           onClick={() => setUserMenuOpen(false)}
                         >
                           <ShoppingBag className="w-4 h-4" />
@@ -170,7 +179,7 @@ export default function Navbar() {
                         </Link>
                         <Link
                           to="/profile"
-                          className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="flex items-center gap-2 px-4 py-2 text-sm text-[var(--text-secondary)] hover:bg-[var(--surface-2)]"
                           onClick={() => setUserMenuOpen(false)}
                         >
                           <User className="w-4 h-4" />
@@ -181,7 +190,7 @@ export default function Navbar() {
                             logout();
                             setUserMenuOpen(false);
                           }}
-                          className="flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-gray-100 w-full"
+                          className="flex items-center gap-2 px-4 py-2 text-sm text-red-400 hover:bg-[var(--surface-2)] w-full text-left"
                         >
                           <LogOut className="w-4 h-4" />
                           Logout
@@ -193,8 +202,12 @@ export default function Navbar() {
               ) : (
                 <button
                   onClick={() => setAuthModalOpen(true)}
-                  className="hidden sm:inline-flex items-center px-4 py-2 text-sm font-medium text-white rounded-lg hover:bg-blue-700 transition-colors"
-                  style={{ background: colors.primary }}
+                  className="hidden sm:inline-flex items-center px-4 py-2 text-sm font-bold uppercase tracking-wider border-2 transition-all"
+                  style={{
+                    background: colors.accent,
+                    color: colors.canvas,
+                    borderColor: colors.accent
+                  }}
                 >
                   Login / Register
                 </button>
@@ -203,7 +216,8 @@ export default function Navbar() {
               {/* Mobile menu button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-gray-500 hover:text-gray-700 md:hidden rounded-lg hover:bg-gray-100"
+                className="p-2 text-[var(--text-muted)] md:hidden"
+                style={{ border: `2px solid ${colors.border}` }}
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -219,7 +233,8 @@ export default function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white border-t"
+              className="md:hidden border-t-2"
+              style={{ background: colors.surface1, borderColor: colors.border }}
             >
               <div className="px-4 py-3 space-y-1">
                 {mainNavItems.map((item) => (
@@ -227,24 +242,23 @@ export default function Navbar() {
                     key={item.href}
                     to={item.href}
                     className={cn(
-                      "block px-4 py-2 text-base font-medium rounded-lg",
+                      "block px-4 py-2 text-base font-medium",
                       isActive(item.href)
-                        ? "text-white"
-                        : "text-gray-700"
+                        ? "text-[var(--accent-primary)]"
+                        : "text-[var(--text-secondary)]"
                     )}
-                    style={isActive(item.href) ? { background: colors.primary, color: 'white' } : {}}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.label}
                   </Link>
                 ))}
                 <div className="border-t pt-2 mt-2">
-                  <p className="px-4 text-xs font-medium text-gray-400 uppercase">More</p>
+                  <p className="px-4 text-xs font-medium text-[var(--text-dim)] uppercase">More</p>
                   {moreMenuItems.map((item) => (
                     <Link
                       key={item.href}
                       to={item.href}
-                      className="block px-4 py-2 text-base text-gray-700"
+                      className="block px-4 py-2 text-base text-[var(--text-secondary)]"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.label}
@@ -257,8 +271,8 @@ export default function Navbar() {
                       setAuthModalOpen(true);
                       setMobileMenuOpen(false);
                     }}
-                    className="w-full mt-4 px-4 py-3 text-base font-medium text-white rounded-lg"
-                    style={{ background: colors.primary }}
+                    className="w-full mt-4 px-4 py-3 text-base font-bold uppercase tracking-wider"
+                    style={{ background: colors.accent, color: colors.canvas }}
                   >
                     Login / Register
                   </button>

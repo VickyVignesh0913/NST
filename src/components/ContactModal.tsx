@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { X, Send } from 'lucide-react';
+import { Send, Check, MessageCircle, Sparkles } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import ModalWrapper from './ModalWrapper';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -8,11 +10,27 @@ interface ContactModalProps {
 }
 
 const INQUIRY_TYPES = [
-  'Course Inquiry',
-  'Technical Support',
-  'Partnership',
-  'General'
+  { value: 'Course Inquiry', label: 'Course Guidance', desc: 'Find the right path for you' },
+  { value: 'Technical Support', label: 'Technical Help', desc: 'Get help with access/issues' },
+  { value: 'Partnership', label: 'Partnership', desc: 'Collaborate with us' },
+  { value: 'General', label: 'General Inquiry', desc: 'Any other questions' },
 ];
+
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08
+    }
+  }
+};
 
 export default function ContactModal({ isOpen, onClose, initialType }: ContactModalProps) {
   const [name, setName] = useState('');
@@ -22,92 +40,103 @@ export default function ContactModal({ isOpen, onClose, initialType }: ContactMo
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  if (!isOpen) return null;
+  const resetForm = () => {
+    setName('');
+    setEmail('');
+    setInquiryType(initialType || '');
+    setMessage('');
+    setIsSuccess(false);
+  };
+
+  const handleClose = () => {
+    resetForm();
+    onClose();
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate sending
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
     }, 1000);
   };
 
-  const handleClose = () => {
-    setIsSuccess(false);
-    setName('');
-    setEmail('');
-    setInquiryType('');
-    setMessage('');
-    onClose();
-  };
+  const selectedInquiry = INQUIRY_TYPES.find(t => t.value === inquiryType);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
-      {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-        onClick={handleClose}
-      />
-
-      {/* Modal */}
-      <div className="relative w-full max-w-md mx-4 bg-[#0a0a0a] border-2 border-[#333]">
-        {/* Close button */}
-        <button
-          onClick={handleClose}
-          className="absolute top-4 right-4 text-[#666] hover:text-[#e8a445] transition-colors z-10"
-        >
-          <X size={24} />
-        </button>
-
-        <div className="p-6">
+    <ModalWrapper isOpen={isOpen} onClose={handleClose} maxWidth="md">
+      <motion.div
+        className="p-6"
+        initial="hidden"
+        animate="visible"
+        variants={staggerContainer}
+      >
+        <AnimatePresence mode="wait">
           {isSuccess ? (
             /* Success State */
-            <div className="text-center py-8">
-              <div className="w-16 h-16 mx-auto mb-4 border-2 border-[#e8a445] flex items-center justify-center">
-                <Send className="text-[#e8a445]" size={32} />
-              </div>
-              <h3 className="font-serif text-2xl text-white mb-2">Message Sent!</h3>
-              <p className="text-[#888] font-mono text-sm mb-6">
-                We'll reply within 24 hours.
-              </p>
-              <button
-                onClick={handleClose}
-                className="px-6 py-3 border-2 border-[#e8a445] text-[#e8a445] font-mono text-sm uppercase tracking-wider hover:bg-[#e8a445]/10 transition-colors"
+            <motion.div
+              key="success"
+              variants={fadeInUp}
+              className="text-center py-8"
+            >
+              <motion.div
+                className="w-16 h-16 mx-auto mb-4 border-2 border-[var(--accent-primary)] flex items-center justify-center surface-card-elevated"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20, delay: 0.1 }}
               >
-                Close
-              </button>
-            </div>
+                <Check className="text-[var(--accent-primary)]" size={32} />
+              </motion.div>
+              <h3 className="heading-3 mb-2">Message Sent!</h3>
+              <p className="body-sm mb-6">
+                A guide will reach out to you within 24 hours.
+              </p>
+              <motion.button
+                type="button"
+                onClick={handleClose}
+                className="btn-secondary"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Continue Exploring
+              </motion.button>
+            </motion.div>
           ) : (
-            <>
+            <motion.div key="form" variants={fadeInUp}>
               {/* Header */}
               <div className="mb-6">
-                <h2 className="font-serif text-3xl text-white mb-2">Contact Us</h2>
-                <p className="text-[#666] font-mono text-sm">
-                  We'd love to hear from you
+                <div className="flex items-center gap-2 mb-2">
+                  <MessageCircle className="w-5 h-5 text-[var(--accent-primary)]" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)]">
+                    Start a Conversation
+                  </span>
+                </div>
+                <h2 className="heading-3 mb-2">Speak with a Guide</h2>
+                <p className="body-sm">
+                  Not sure which path is right for you? Let's find out together.
                 </p>
               </div>
 
               {/* Form */}
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-[#888] font-mono text-xs uppercase tracking-wider mb-2">
-                    Name *
+                <motion.div variants={fadeInUp}>
+                  <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                    Your Name *
                   </label>
                   <input
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="Your name"
-                    className="w-full bg-[#1a1a1a] border border-[#333] px-4 py-3 text-white font-mono text-sm focus:border-[#e8a445] focus:outline-none transition-colors"
+                    placeholder="What should we call you?"
+                    className="input w-full"
                     required
                   />
-                </div>
+                </motion.div>
 
-                <div>
-                  <label className="block text-[#888] font-mono text-xs uppercase tracking-wider mb-2">
+                <motion.div variants={fadeInUp}>
+                  <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
                     Email *
                   </label>
                   <input
@@ -115,60 +144,76 @@ export default function ContactModal({ isOpen, onClose, initialType }: ContactMo
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="your@email.com"
-                    className="w-full bg-[#1a1a1a] border border-[#333] px-4 py-3 text-white font-mono text-sm focus:border-[#e8a445] focus:outline-none transition-colors"
+                    className="input w-full"
                     required
                   />
-                </div>
+                </motion.div>
 
-                <div>
-                  <label className="block text-[#888] font-mono text-xs uppercase tracking-wider mb-2">
-                    Inquiry Type
+                <motion.div variants={fadeInUp}>
+                  <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                    What brings you here?
                   </label>
-                  <select
-                    value={inquiryType}
-                    onChange={(e) => setInquiryType(e.target.value)}
-                    className="w-full bg-[#1a1a1a] border border-[#333] px-4 py-3 text-white font-mono text-sm focus:border-[#e8a445] focus:outline-none transition-colors"
-                  >
-                    <option value="">Select type</option>
+                  <div className="grid grid-cols-2 gap-2">
                     {INQUIRY_TYPES.map((type) => (
-                      <option key={type} value={type}>{type}</option>
+                      <motion.button
+                        key={type.value}
+                        type="button"
+                        onClick={() => setInquiryType(type.value)}
+                        className={`p-3 border-2 text-left transition-all ${
+                          inquiryType === type.value
+                            ? 'border-[var(--accent-primary)] bg-[var(--accent-primary)]/10'
+                            : 'border-[var(--border)] hover:border-[var(--border-strong)]'
+                        }`}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <div className="font-mono text-sm font-bold" style={{ color: inquiryType === type.value ? 'var(--accent-primary)' : 'var(--text-primary)' }}>
+                          {type.label}
+                        </div>
+                        <div className="text-xs" style={{ color: 'var(--text-muted)' }}>
+                          {type.desc}
+                        </div>
+                      </motion.button>
                     ))}
-                  </select>
-                </div>
+                  </div>
+                </motion.div>
 
-                <div>
-                  <label className="block text-[#888] font-mono text-xs uppercase tracking-wider mb-2">
-                    Message *
+                <motion.div variants={fadeInUp}>
+                  <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                    Share your goals *
                   </label>
                   <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Your message..."
+                    placeholder="What do you want to achieve? What's holding you back?"
                     rows={4}
-                    className="w-full bg-[#1a1a1a] border border-[#333] px-4 py-3 text-white font-mono text-sm focus:border-[#e8a445] focus:outline-none transition-colors resize-none"
+                    className="input w-full resize-none"
                     required
                   />
-                </div>
+                </motion.div>
 
-                <button
+                <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 bg-[#e8a445] text-black uppercase tracking-widest font-mono text-sm hover:bg-[#f0b456] hover:shadow-[0_0_20px_rgba(232,164,69,0.4)] transition-all flex items-center justify-center gap-2"
+                  className="btn-primary w-full"
+                  variants={fadeInUp}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   {isSubmitting ? (
                     'Sending...'
                   ) : (
                     <>
-                      <Send size={18} />
-                      Send Message
+                      <Sparkles className="w-4 h-4" />
+                      Start Conversation
                     </>
                   )}
-                </button>
+                </motion.button>
               </form>
-            </>
+            </motion.div>
           )}
-        </div>
-      </div>
-    </div>
+        </AnimatePresence>
+      </motion.div>
+    </ModalWrapper>
   );
 }
