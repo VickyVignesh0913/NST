@@ -126,7 +126,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 <Check className="text-[var(--accent-primary)]" size={32} />
               </motion.div>
               <h3 className="heading-3 mb-2">Success!</h3>
-              <p className="body-sm mb-6">
+              <p className="body-md mb-6">
                 {successMessage}
               </p>
             </motion.div>
@@ -134,13 +134,14 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
             <motion.div key={mode} variants={fadeInUp}>
               {/* Header */}
               <div className="mb-6 text-center">
+                <span className="section-label">Welcome Back</span>
                 <h2 className="heading-3 mb-2">
                   {mode === 'login' ? 'Login' : 'Create Account'}
                 </h2>
-                <p className="body-sm">
+                <p className="body-md">
                   {mode === 'login'
-                    ? 'Welcome back to English Boss'
-                    : 'Start your English journey'}
+                    ? 'Continue your transformation journey'
+                    : 'Begin your English transformation'}
                 </p>
               </div>
 
@@ -148,7 +149,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 /* Login Form */
                 <form onSubmit={handleLogin} className="space-y-4">
                   <motion.div variants={fadeInUp}>
-                    <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                    <label className="section-label">
                       Email
                     </label>
                     <input
@@ -162,7 +163,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                   </motion.div>
 
                   <motion.div variants={fadeInUp}>
-                    <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                    <label className="section-label">
                       Password
                     </label>
                     <input
@@ -183,17 +184,17 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    {isSubmitting ? 'Logging in...' : 'Login'}
+                    {isSubmitting ? 'Logging in...' : 'Continue Journey'}
                   </motion.button>
 
-                  <p className="text-center body-sm">
-                    Don't have an account?{' '}
+                  <p className="text-center body-md">
+                    New to English Boss?{' '}
                     <button
                       type="button"
                       onClick={() => setMode('signup')}
                       className="link"
                     >
-                      Sign up
+                      Start transformation
                     </button>
                   </p>
                 </form>
@@ -201,8 +202,8 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 /* Signup Form */
                 <form onSubmit={handleSignup} className="space-y-4">
                   <motion.div variants={fadeInUp}>
-                    <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
-                      Name *
+                    <label className="section-label">
+                      Your Name *
                     </label>
                     <input
                       type="text"
@@ -215,7 +216,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                   </motion.div>
 
                   <motion.div variants={fadeInUp}>
-                    <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                    <label className="section-label">
                       Email *
                     </label>
                     <input
@@ -229,7 +230,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                   </motion.div>
 
                   <motion.div variants={fadeInUp}>
-                    <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                    <label className="section-label">
                       Phone Number
                     </label>
                     <input
@@ -242,7 +243,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                   </motion.div>
 
                   <motion.div variants={fadeInUp}>
-                    <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                    <label className="section-label">
                       WhatsApp Number (Optional)
                     </label>
                     <input
@@ -255,7 +256,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                   </motion.div>
 
                   <motion.div variants={fadeInUp}>
-                    <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                    <label className="section-label">
                       Country
                     </label>
                     <select
@@ -271,7 +272,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                   </motion.div>
 
                   <motion.div variants={fadeInUp}>
-                    <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                    <label className="section-label">
                       Learning Goal
                     </label>
                     <select
@@ -287,7 +288,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                   </motion.div>
 
                   <motion.div variants={fadeInUp}>
-                    <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                    <label className="section-label">
                       Current English Level
                     </label>
                     <div className="grid grid-cols-2 gap-2">
@@ -324,17 +325,17 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    {isSubmitting ? 'Creating account...' : 'Create Account'}
+                    {isSubmitting ? 'Creating account...' : 'Begin Transformation'}
                   </motion.button>
 
-                  <p className="text-center body-sm">
+                  <p className="text-center body-md">
                     Already have an account?{' '}
                     <button
                       type="button"
                       onClick={() => setMode('login')}
                       className="link"
                     >
-                      Login
+                      Continue journey
                     </button>
                   </p>
                 </form>

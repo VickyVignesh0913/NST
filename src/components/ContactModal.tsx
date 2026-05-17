@@ -63,8 +63,6 @@ export default function ContactModal({ isOpen, onClose, initialType }: ContactMo
     }, 1000);
   };
 
-  const selectedInquiry = INQUIRY_TYPES.find(t => t.value === inquiryType);
-
   return (
     <ModalWrapper isOpen={isOpen} onClose={handleClose} maxWidth="md">
       <motion.div
@@ -90,7 +88,7 @@ export default function ContactModal({ isOpen, onClose, initialType }: ContactMo
                 <Check className="text-[var(--accent-primary)]" size={32} />
               </motion.div>
               <h3 className="heading-3 mb-2">Message Sent!</h3>
-              <p className="body-sm mb-6">
+              <p className="body-md mb-6">
                 A guide will reach out to you within 24 hours.
               </p>
               <motion.button
@@ -107,14 +105,9 @@ export default function ContactModal({ isOpen, onClose, initialType }: ContactMo
             <motion.div key="form" variants={fadeInUp}>
               {/* Header */}
               <div className="mb-6">
-                <div className="flex items-center gap-2 mb-2">
-                  <MessageCircle className="w-5 h-5 text-[var(--accent-primary)]" />
-                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)]">
-                    Start a Conversation
-                  </span>
-                </div>
+                <span className="section-label">Start a Conversation</span>
                 <h2 className="heading-3 mb-2">Speak with a Guide</h2>
-                <p className="body-sm">
+                <p className="body-md">
                   Not sure which path is right for you? Let's find out together.
                 </p>
               </div>
@@ -122,7 +115,7 @@ export default function ContactModal({ isOpen, onClose, initialType }: ContactMo
               {/* Form */}
               <form onSubmit={handleSubmit} className="space-y-4">
                 <motion.div variants={fadeInUp}>
-                  <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                  <label className="section-label">
                     Your Name *
                   </label>
                   <input
@@ -136,7 +129,7 @@ export default function ContactModal({ isOpen, onClose, initialType }: ContactMo
                 </motion.div>
 
                 <motion.div variants={fadeInUp}>
-                  <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                  <label className="section-label">
                     Email *
                   </label>
                   <input
@@ -150,7 +143,7 @@ export default function ContactModal({ isOpen, onClose, initialType }: ContactMo
                 </motion.div>
 
                 <motion.div variants={fadeInUp}>
-                  <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                  <label className="section-label">
                     What brings you here?
                   </label>
                   <div className="grid grid-cols-2 gap-2">
@@ -179,7 +172,7 @@ export default function ContactModal({ isOpen, onClose, initialType }: ContactMo
                 </motion.div>
 
                 <motion.div variants={fadeInUp}>
-                  <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                  <label className="section-label">
                     Share your goals *
                   </label>
                   <textarea

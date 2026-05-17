@@ -82,7 +82,7 @@ export default function TestimonialModal({ isOpen, onClose, courses }: Testimoni
                 <Star className="text-[var(--accent-primary)]" size={32} fill="var(--accent-primary)" />
               </motion.div>
               <h3 className="heading-3 mb-2">Transformation Shared!</h3>
-              <p className="body-sm mb-6">
+              <p className="body-md mb-6">
                 Your journey inspires others to begin their transformation.
               </p>
               <motion.button
@@ -99,14 +99,9 @@ export default function TestimonialModal({ isOpen, onClose, courses }: Testimoni
             <motion.div key="form" variants={fadeInUp}>
               {/* Header */}
               <div className="mb-6">
-                <div className="flex items-center gap-2 mb-2">
-                  <Sparkles className="w-5 h-5 text-[var(--accent-primary)]" />
-                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)]">
-                    Share Your Transformation
-                  </span>
-                </div>
+                <span className="section-label">Share Your Transformation</span>
                 <h2 className="heading-3 mb-2">Your Journey Inspires Others</h2>
-                <p className="body-sm">
+                <p className="body-md">
                   How has English Boss transformed your thinking and speaking?
                 </p>
               </div>
@@ -114,7 +109,7 @@ export default function TestimonialModal({ isOpen, onClose, courses }: Testimoni
               {/* Form */}
               <form onSubmit={handleSubmit} className="space-y-4">
                 <motion.div variants={fadeInUp}>
-                  <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                  <label className="section-label">
                     Your Name *
                   </label>
                   <input
@@ -128,7 +123,7 @@ export default function TestimonialModal({ isOpen, onClose, courses }: Testimoni
                 </motion.div>
 
                 <motion.div variants={fadeInUp}>
-                  <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                  <label className="section-label">
                     Which transformation path?
                   </label>
                   <select
@@ -146,7 +141,7 @@ export default function TestimonialModal({ isOpen, onClose, courses }: Testimoni
                 </motion.div>
 
                 <motion.div variants={fadeInUp}>
-                  <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                  <label className="section-label">
                     Rate Your Transformation
                   </label>
                   <div className="flex gap-2">
@@ -175,7 +170,7 @@ export default function TestimonialModal({ isOpen, onClose, courses }: Testimoni
                 </motion.div>
 
                 <motion.div variants={fadeInUp}>
-                  <label className="block text-[var(--text-muted)] font-mono text-xs uppercase tracking-wider mb-2">
+                  <label className="section-label">
                     Your Transformation Story *
                   </label>
                   <textarea
